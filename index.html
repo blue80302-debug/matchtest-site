@@ -1,20 +1,73 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ko" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love Match Test — Name Compatibility Calculator</title>
-    <meta name="description" content="Discover your love compatibility score based on names. Free name matching test supporting 6 languages — English, Korean, Chinese, Japanese, Spanish, and Arabic.">
-    <meta name="keywords" content="love match, name compatibility, couple test, 이름궁합, 姓名缘分, 名前相性, compatibilidad de nombres">
-    <meta property="og:title" content="Love Match Test — Name Compatibility Calculator">
-    <meta property="og:description" content="Discover the hidden compatibility between your names! Try this fun, multilingual love match test.">
+    <title>이름궁합 테스트 — 무료 이름 궁합 계산기 | Love Match Test</title>
+    <meta name="description" content="이름궁합 테스트로 두 사람의 궁합 점수를 확인하세요. 한국어, 영어, 중국어, 일본어, 스페인어, 아랍어 6개 언어를 지원하는 무료 이름 궁합 계산기입니다.">
+    <meta name="keywords" content="이름궁합, 이름궁합테스트, love match, name compatibility, couple test, 姓名缘分, 名前相性, compatibilidad de nombres">
+    <meta property="og:title" content="이름궁합 테스트 — 무료 이름 궁합 계산기 | Love Match Test">
+    <meta property="og:description" content="이름궁합 테스트로 두 사람의 궁합 점수를 확인하세요. 6개 언어 지원 무료 계산기.">
     <meta property="og:url" content="https://matchtest.site/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://img.icons8.com/clouds/256/hearts.png">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Love Match Test">
-    <meta name="twitter:description" content="Discover your love compatibility score based on names!">
+    <meta name="twitter:title" content="이름궁합 테스트 | Love Match Test">
+    <meta name="twitter:description" content="이름궁합 테스트로 두 사람의 궁합 점수를 확인하세요! 6개 언어 무료 지원.">
     <link rel="canonical" href="https://matchtest.site/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>" type="image/svg+xml">
+    <meta name="author" content="Love Match Test">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "이름궁합 테스트 — Love Match Test",
+          "url": "https://matchtest.site/",
+          "description": "두 사람의 이름을 입력하면 궁합 점수를 계산해주는 무료 웹 도구입니다. 6개 언어(한국어, 영어, 중국어, 일본어, 스페인어, 아랍어)를 지원합니다.",
+          "applicationCategory": "EntertainmentApplication",
+          "operatingSystem": "All",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+          "inLanguage": ["ko","en","zh","ja","es","ar"],
+          "author": { "@type": "Organization", "name": "Love Match Test", "url": "https://matchtest.site/about.html" },
+          "datePublished": "2024-10-01",
+          "dateModified": "2026-10-15"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "이름궁합 테스트란 무엇인가요?",
+              "acceptedAnswer": { "@type": "Answer", "text": "이름궁합 테스트는 두 사람의 이름을 입력하면 유니코드 기반 알고리즘으로 0~99% 사이의 궁합 점수를 산출하는 오락용 도구입니다. 과학적 근거는 없으며 재미로 즐기는 것을 목적으로 합니다." }
+            },
+            {
+              "@type": "Question",
+              "name": "이름궁합 점수는 어떻게 계산되나요?",
+              "acceptedAnswer": { "@type": "Answer", "text": "두 이름의 글자를 교차 배열한 뒤, 각 글자의 유니코드 값을 10으로 나눈 나머지로 변환합니다. 인접한 숫자를 반복적으로 더하고 10으로 나눈 나머지를 취하여 최종 두 자리 숫자가 궁합 점수가 됩니다." }
+            },
+            {
+              "@type": "Question",
+              "name": "입력한 이름은 서버에 저장되나요?",
+              "acceptedAnswer": { "@type": "Answer", "text": "아닙니다. 모든 이름 처리는 브라우저 내에서만 이루어지며, 입력한 이름은 서버로 전송되거나 저장되지 않습니다." }
+            },
+            {
+              "@type": "Question",
+              "name": "어떤 언어를 지원하나요?",
+              "acceptedAnswer": { "@type": "Answer", "text": "한국어, 영어, 중국어, 일본어, 스페인어, 아랍어 총 6개 언어를 지원합니다. IP 기반으로 자동 감지되며 수동 전환도 가능합니다." }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://matchtest.site/" }
+          ]
+        }
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+SC:wght@400;700;900&family=Noto+Sans+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
@@ -213,9 +266,10 @@
 <main>
     <div class="card">
         <div class="header">
-            <h1 id="t-title">Love Match Test</h1>
-            <p id="t-subtitle">Discover the hidden score between your names</p>
+            <h1 id="t-title">이름궁합 테스트</h1>
+            <p id="t-subtitle">이름 속에 숨겨진 두 사람의 궁합 점수를 확인하세요</p>
         </div>
+        <p id="t-intro" style="font-size:13px;color:#6b7280;text-align:center;padding:0 16px 8px;line-height:1.6">이름궁합이란 두 사람의 이름을 수학적으로 조합해 0~99%의 궁합 점수를 산출하는 오락용 테스트입니다. 아래에 이름을 입력하면 유니코드 기반 알고리즘이 즉시 결과를 계산합니다. <time datetime="2026-10-15">2026년 10월</time> 기준, 6개 언어를 지원합니다.</p>
         <div class="lang-bar" id="langBar">
             <button class="lang-btn active" data-lang="en">EN</button>
             <button class="lang-btn" data-lang="ko">KO</button>
@@ -271,12 +325,14 @@
         <a href="terms.html" id="f-terms">Terms of Service</a>
     </div>
     <div>&copy; 2026 Love Match Test. All rights reserved. For entertainment purposes only.</div>
+    <div style="margin-top:4px;font-size:11px">Last updated: <time datetime="2026-10-15">October 2026</time> · <a href="about.html">About us</a> · <a href="contact.html">Contact</a></div>
 </footer>
 
 <script>
 var i18n={
 en:{
     title:"Love Match Test",subtitle:"Discover the hidden score between your names",
+    intro:"A name compatibility test calculates a fun score (0–99%) by mathematically combining two names. Enter names below and our Unicode-based algorithm instantly computes the result. Supports 6 languages as of October 2026.",
     label1:"ME",label2:"PARTNER",ph1:"Romeo",ph2:"Juliet",
     btn:"See Our Match 💕",scoreLabel:"compatibility score",
     copyBtn:"🔗 Copy",retry:"Try Again",
@@ -290,7 +346,8 @@ en:{
     navHome:"Home",navAbout:"About",navContact:"Contact",navPrivacy:"Privacy",navTerms:"Terms"
 },
 ko:{
-    title:"이름 궁합 테스트",subtitle:"이름 속에 숨겨진 우리의 인연 점수는?",
+    title:"이름궁합 테스트",subtitle:"이름 속에 숨겨진 두 사람의 궁합 점수를 확인하세요",
+    intro:"이름궁합이란 두 사람의 이름을 수학적으로 조합해 0~99%의 궁합 점수를 산출하는 오락용 테스트입니다. 아래에 이름을 입력하면 유니코드 기반 알고리즘이 즉시 결과를 계산합니다. 2026년 10월 기준, 6개 언어를 지원합니다.",
     label1:"나",label2:"상대방",ph1:"이몽룡",ph2:"성춘향",
     btn:"궁합 보기 💕",scoreLabel:"궁합 점수",
     copyBtn:"🔗 복사",retry:"다시 해보기",
@@ -305,6 +362,7 @@ ko:{
 },
 zh:{
     title:"姓名缘分测试",subtitle:"测测你们名字里隐藏的缘分指数",
+    intro:"姓名缘分测试是一种通过数学组合两个人的名字来计算0~99%缘分分数的娱乐工具。输入名字后，基于Unicode的算法会立即计算结果。截至2026年10月，支持6种语言。",
     label1:"我",label2:"对方",ph1:"梁山伯",ph2:"祝英台",
     btn:"查看缘分 💕",scoreLabel:"缘分指数",
     copyBtn:"🔗 复制",retry:"再试一次",
@@ -319,6 +377,7 @@ zh:{
 },
 ja:{
     title:"名前相性テスト",subtitle:"ふたりの名前に隠された相性スコアは？",
+    intro:"名前相性テストとは、二人の名前を数学的に組み合わせて0～99%の相性スコアを算出するエンターテイメントツールです。名前を入力すると、Unicodeベースのアルゴリズムが即座に結果を計算します。2026年10月現在、6言語対応。",
     label1:"わたし",label2:"あいて",ph1:"太郎",ph2:"花子",
     btn:"相性を見る 💕",scoreLabel:"相性スコア",
     copyBtn:"🔗 コピー",retry:"もう一度",
@@ -333,6 +392,7 @@ ja:{
 },
 es:{
     title:"Test de Compatibilidad",subtitle:"Descubre la puntuación oculta entre sus nombres",
+    intro:"El test de compatibilidad de nombres calcula una puntuación divertida (0–99%) combinando matemáticamente dos nombres. Ingresa los nombres y nuestro algoritmo basado en Unicode calcula el resultado al instante. Compatible con 6 idiomas (octubre 2026).",
     label1:"YO",label2:"PAREJA",ph1:"Romeo",ph2:"Julieta",
     btn:"Ver Resultado 💕",scoreLabel:"puntuación de compatibilidad",
     copyBtn:"🔗 Copiar",retry:"Intentar de nuevo",
@@ -347,6 +407,7 @@ es:{
 },
 ar:{
     title:"اختبار توافق الأسماء",subtitle:"اكتشف درجة التوافق المخفية بين أسمائكما",
+    intro:"اختبار توافق الأسماء هو أداة ترفيهية تحسب درجة التوافق (0-99%) من خلال الجمع الرياضي بين اسمين. أدخل الأسماء وستحسب الخوارزمية المبنية على يونيكود النتيجة فوراً. يدعم 6 لغات (أكتوبر 2026).",
     label1:"أنا",label2:"الشريك",ph1:"قيس",ph2:"ليلى",
     btn:"💕 اكتشف التوافق",scoreLabel:"درجة التوافق",
     copyBtn:"🔗 نسخ",retry:"حاول مرة أخرى",
@@ -371,6 +432,7 @@ function setLang(lang){
     document.documentElement.dir=lang==='ar'?'rtl':'ltr';
     document.getElementById('t-title').textContent=t.title;
     document.getElementById('t-subtitle').textContent=t.subtitle;
+    if(t.intro)document.getElementById('t-intro').textContent=t.intro;
     document.getElementById('t-label1').textContent=t.label1;
     document.getElementById('t-label2').textContent=t.label2;
     document.getElementById('name1').placeholder=t.ph1;
@@ -468,7 +530,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Enter')calculate()})
 var articles={
 en:{
 history:{
-    title:"The History of Name Compatibility Tests",
+    title:"Where did name compatibility tests originate?",
     body:"<p>Name compatibility tests have a surprisingly long and rich history that spans continents and centuries. The idea that a person's name holds hidden power is one of the oldest beliefs in human civilization. Ancient Egyptians believed that knowing someone's true name gave you power over them. In Jewish mystical tradition, Kabbalah practitioners developed Gematria — a system that assigns numerical values to Hebrew letters and finds hidden connections between words that share the same total. This practice dates back over 2,000 years and remains influential today.</p>"+
     "<p>In East Asia, the tradition of name-based divination evolved independently and became deeply woven into daily life. Chinese name analysis (姓名学, xìngmíng xué) emerged during the Han Dynasty (206 BCE – 220 CE) and became formalized over centuries. Scholars analyzed the stroke count, radical composition, and tonal qualities of Chinese characters to assess a name's fortune. This practice eventually spread to Korea and Japan, where it took on unique local characteristics.</p>"+
     "<p>In Korea, '이름 궁합' (name compatibility) became a widespread folk practice, especially popular among school students and young adults. The method typically involves writing two names side by side, counting the strokes of each character, and using a mathematical reduction process to arrive at a percentage score. This simple yet entertaining practice has been passed down through generations and has seamlessly transitioned into the digital age, with countless online tools and apps now offering instant name compatibility results.</p>"+
@@ -476,7 +538,7 @@ history:{
     "<p>The rise of the internet in the late 1990s and early 2000s brought name compatibility tests to a global audience. Simple web-based calculators became viral sensations, shared through email chains, social media posts, and messaging apps. Today, millions of people around the world enjoy these tests as a lighthearted way to bond with friends and partners. Our Love Match Test continues this tradition by bringing together algorithms inspired by multiple cultural traditions into a single, universally accessible experience.</p>"
 },
 culture:{
-    title:"Name Culture Around the World",
+    title:"How do different cultures choose and give meaning to names?",
     body:"<p>Names carry profound cultural significance in every society on Earth. Far more than simple labels, names encode family history, spiritual beliefs, social aspirations, and cultural identity. Understanding how different cultures approach naming reveals fascinating insights about human values and traditions.</p>"+
     "<h3>Korea (한국)</h3>"+
     "<p>Korean names are deeply rooted in Hanja (Chinese characters), and parents often consult professional name consultants (작명가) to choose characters with auspicious stroke counts and harmonious meanings. A Korean full name typically consists of a one-character family name and a two-character given name. The generational name system (돌림자) traditionally assigned one shared character to all siblings or cousins of the same generation, creating visible family connections within the name itself. In modern Korea, while Hanja-based naming remains common, purely Korean (순우리말) names have also gained popularity, reflecting a growing emphasis on native linguistic identity.</p>"+
@@ -492,7 +554,7 @@ culture:{
     "<p>English naming conventions emphasize individuality and personal expression. While traditional names with biblical or classical origins remain popular, the English-speaking world is known for its openness to creative and unconventional names. Baby name trends shift rapidly, influenced by popular culture, celebrity choices, and social media. Middle names provide an additional layer of personalization and are often used to honor family members or express the parents' values and interests.</p>"
 },
 algorithm:{
-    title:"The Science Behind Name Scores — How It Works",
+    title:"How is the name compatibility score calculated?",
     body:"<p>While name compatibility tests are firmly in the realm of entertainment rather than science, the mathematical processes behind them are surprisingly elegant and worth understanding. Our Love Match Test uses a well-defined algorithmic process that combines character encoding, interleaving, and iterative reduction to produce a consistent score.</p>"+
     "<h3>Step 1: Character Interleaving</h3>"+
     "<p>When you enter two names, the algorithm first interleaves their characters. For example, if Name A is 'Romeo' and Name B is 'Juliet', the interleaved result is 'RJuolmieeot'. This mixing ensures that both names contribute equally to the final result and that the order of characters creates a unique combination. If one name is longer than the other, the remaining characters are appended at the end.</p>"+
@@ -509,7 +571,7 @@ algorithm:{
 },
 ko:{
 history:{
-    title:"이름 궁합의 역사",
+    title:"이름궁합 테스트의 역사는 어디서 시작되었을까?",
     body:"<p>이름 궁합 테스트는 놀라울 정도로 오래되고 풍부한 역사를 가지고 있습니다. 사람의 이름에 숨겨진 힘이 있다는 믿음은 인류 문명에서 가장 오래된 신앙 중 하나입니다. 고대 이집트인들은 누군가의 진짜 이름을 아는 것이 그 사람에 대한 힘을 준다고 믿었습니다. 유대교 신비주의 전통에서 카발라 수행자들은 게마트리아(Gematria)를 개발했는데, 이는 히브리어 문자에 수치를 부여하고 같은 합계를 공유하는 단어들 사이에서 숨겨진 연결고리를 찾는 체계입니다. 이 관행은 2,000년 이상 전으로 거슬러 올라가며 오늘날에도 여전히 영향력을 가지고 있습니다.</p>"+
     "<p>동아시아에서는 이름 기반 점술 전통이 독립적으로 발전하여 일상 생활에 깊이 스며들었습니다. 중국의 성명학(姓名學)은 한나라(기원전 206년~기원후 220년) 시대에 등장하여 수 세기에 걸쳐 체계화되었습니다. 학자들은 한자의 획수, 부수 구성, 음조적 특성을 분석하여 이름의 운세를 평가했습니다. 이 관행은 결국 한국과 일본으로 전파되어 각각 고유한 지역적 특성을 갖게 되었습니다.</p>"+
     "<p>한국에서 '이름 궁합'은 특히 학생들과 젊은 성인들 사이에서 널리 퍼진 민간 풍습이 되었습니다. 이 방법은 일반적으로 두 이름을 나란히 적고, 각 글자의 획수를 세고, 수학적 축소 과정을 사용하여 백분율 점수에 도달하는 것입니다. 이 단순하면서도 재미있는 관행은 세대를 거쳐 전해져 왔으며, 디지털 시대로 자연스럽게 전환되었습니다. 현재 수많은 온라인 도구와 앱이 즉각적인 이름 궁합 결과를 제공하고 있습니다.</p>"+
@@ -517,7 +579,7 @@ history:{
     "<p>1990년대 말과 2000년대 초 인터넷의 부상은 이름 궁합 테스트를 전 세계 관객에게 가져다주었습니다. 간단한 웹 기반 계산기가 이메일 체인, 소셜 미디어 게시물, 메신저 앱을 통해 공유되면서 바이럴 센세이션이 되었습니다. 오늘날 전 세계 수백만 명의 사람들이 친구나 연인과 유대감을 형성하는 가벼운 방법으로 이 테스트를 즐기고 있습니다. 우리의 Love Match Test는 여러 문화적 전통에서 영감을 받은 알고리즘을 하나의 보편적으로 접근 가능한 경험으로 결합하여 이 전통을 이어가고 있습니다.</p>"
 },
 culture:{
-    title:"세계 각국의 이름 문화",
+    title:"각 나라에서는 이름을 어떻게 짓고 어떤 의미를 담을까?",
     body:"<p>이름은 지구상의 모든 사회에서 깊은 문화적 의미를 지닙니다. 단순한 호칭을 넘어서, 이름에는 가족의 역사, 영적 신념, 사회적 열망, 문화적 정체성이 담겨 있습니다. 각기 다른 문화가 이름을 짓는 방식을 이해하면 인간의 가치와 전통에 대한 흥미로운 통찰을 얻을 수 있습니다.</p>"+
     "<h3>한국 (Korea)</h3>"+
     "<p>한국인의 이름은 한자(漢字)에 깊이 뿌리를 두고 있으며, 부모들은 종종 전문 작명가에게 상담하여 길한 획수와 조화로운 의미를 가진 글자를 선택합니다. 한국인의 전체 이름은 보통 한 글자의 성(姓)과 두 글자의 이름으로 구성됩니다. 돌림자 제도는 전통적으로 같은 세대의 모든 형제자매나 사촌에게 하나의 공유 글자를 부여하여, 이름 자체에서 가시적인 가족 연결고리를 만들었습니다. 현대 한국에서는 한자 기반 작명이 여전히 일반적이지만, 순우리말 이름도 인기를 얻고 있어 고유 언어 정체성에 대한 강조가 커지고 있음을 반영합니다.</p>"+
@@ -533,7 +595,7 @@ culture:{
     "<p>영어 작명 관습은 개성과 자기표현을 강조합니다. 성경적 또는 고전적 기원의 전통적인 이름이 여전히 인기가 있지만, 영어권은 창의적이고 파격적인 이름에 대한 개방성으로 유명합니다. 아기 이름 트렌드는 대중 문화, 유명인의 선택, 소셜 미디어의 영향을 받아 빠르게 변화합니다. 미들 네임은 가족 구성원을 기리거나 부모의 가치와 관심사를 표현하는 추가적인 개인화 수단을 제공합니다.</p>"
 },
 algorithm:{
-    title:"재미로 보는 이름 점수의 원리",
+    title:"이름궁합 점수는 어떤 원리로 계산될까?",
     body:"<p>이름 궁합 테스트는 과학이라기보다는 엔터테인먼트의 영역에 있지만, 그 뒤에 숨겨진 수학적 과정은 놀라울 정도로 우아하며 이해할 가치가 있습니다. 우리의 Love Match Test는 문자 인코딩, 인터리빙, 반복 축소를 결합하여 일관된 점수를 산출하는 명확하게 정의된 알고리즘 프로세스를 사용합니다.</p>"+
     "<h3>1단계: 글자 교차 배열</h3>"+
     "<p>두 이름을 입력하면, 알고리즘은 먼저 글자를 교차 배열합니다. 예를 들어 이름 A가 '이몽룡'이고 이름 B가 '성춘향'이면, 교차 결과는 '이성몽춘룡향'이 됩니다. 이 혼합은 두 이름 모두 최종 결과에 동등하게 기여하도록 보장하며, 글자의 순서가 고유한 조합을 만들어냅니다.</p>"+
