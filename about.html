@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Love Match Test</title>
+    <meta name="description" content="Learn about the Love Match Test — a free, multilingual name compatibility calculator supporting 6 languages.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--pink-50:#fdf2f8;--pink-100:#fce7f3;--pink-200:#fbcfe8;--pink-500:#ec4899;--pink-600:#db2777;--purple-500:#a855f7;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151}
+        body{font-family:'Noto Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(160deg,#fdf2f8,#fce7f3,#fbcfe8);color:var(--gray-700);line-height:1.7}
+        a{color:var(--pink-500);text-decoration:none}a:hover{text-decoration:underline}
+        .nav{background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--pink-100);padding:10px 20px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+        .nav a{font-size:13px;font-weight:600;color:var(--gray-500);padding:4px 10px;border-radius:8px;transition:all .2s}
+        .nav a:hover,.nav a.active{background:var(--pink-500);color:white;text-decoration:none}
+        main{flex:1;display:flex;justify-content:center;padding:32px 16px}
+        .page{background:rgba(255,255,255,.9);backdrop-filter:blur(8px);width:760px;max-width:100%;border-radius:20px;padding:36px 32px;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+        h1{font-family:'Fredoka',sans-serif;font-size:28px;color:var(--pink-600);margin-bottom:8px}
+        h2{font-size:18px;color:var(--purple-500);margin:20px 0 8px}
+        p{font-size:14px;color:var(--gray-600);margin-bottom:14px}
+        ul{margin:8px 0 14px 20px;font-size:14px;color:var(--gray-600)}li{margin-bottom:6px}
+        footer{background:rgba(255,255,255,.7);border-top:1px solid var(--pink-100);padding:16px;text-align:center;font-size:12px;color:var(--gray-400)}
+        footer a{color:var(--gray-500);margin:0 8px}
+    </style>
+</head>
+<body>
+<nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+</nav>
+<main>
+<div class="page">
+    <h1>About Love Match Test</h1>
+    <p>Love Match Test is a free, fun, and multilingual name compatibility calculator designed for people all around the world. Whether you're testing with a crush, a friend, or even a fictional character, our tool instantly generates a compatibility score based on the unique combination of your names.</p>
+
+    <h2>Our Mission</h2>
+    <p>We believe that small moments of joy make a big difference. Our mission is to bring smiles to people everywhere through a simple, playful name-matching experience. Love Match Test was built to be inclusive — supporting 6 languages and any writing system in the world, from Latin and Hangul to Arabic and Kanji.</p>
+
+    <h2>How It Works</h2>
+    <p>Our algorithm interleaves the characters of two names and converts each character to a numerical value using its Unicode code point. These values are then progressively summed in pairs and reduced (modulo 10) until only two digits remain. Those final two digits form your compatibility percentage — a number between 0% and 99%. The same pair of names will always produce the same score, making results consistent and shareable.</p>
+
+    <h2>Languages Supported</h2>
+    <ul>
+        <li><strong>English</strong> — Standard Latin characters from any English-speaking region.</li>
+        <li><strong>Korean (한국어)</strong> — Full Hangul support with culturally appropriate messages.</li>
+        <li><strong>Chinese (中文)</strong> — Simplified and Traditional Chinese characters.</li>
+        <li><strong>Japanese (日本語)</strong> — Hiragana, Katakana, and Kanji compatible.</li>
+        <li><strong>Spanish (Español)</strong> — Covers names from all Spanish-speaking countries.</li>
+        <li><strong>Arabic (العربية)</strong> — Full Right-to-Left (RTL) layout support.</li>
+    </ul>
+
+    <h2>Technology</h2>
+    <p>Love Match Test is built as a lightweight, static website using pure HTML, CSS, and JavaScript — no server-side processing required. It uses IP-based geolocation to automatically detect your language, with a graceful fallback to your browser settings. The application loads quickly and works offline after the first visit.</p>
+
+    <h2>Disclaimer</h2>
+    <p>Love Match Test is intended purely for entertainment purposes. The compatibility scores generated by this tool have no scientific basis and should not be used to make real-life relationship decisions. Real love is built on trust, communication, and mutual respect — not on the number of strokes in a name. Have fun, but remember: you write your own love story!</p>
+</div>
+</main>
+<footer>
+    <div><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+    <div style="margin-top:8px">&copy; 2024 Love Match Test. All rights reserved.</div>
+</footer>
+</body>
+</html>
