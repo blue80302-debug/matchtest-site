@@ -128,6 +128,7 @@
             cursor:pointer;transition:all .2s;text-decoration:none;
         }
         .test-tab:first-child{border-radius:12px 0 0 12px}
+        .test-tab:nth-child(2),.test-tab:nth-child(3){border-left:none}
         .test-tab:last-child{border-radius:0 12px 12px 0}
         .test-tab:hover{background:var(--pink-50);text-decoration:none}
         .test-tab.active{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));color:white;border-color:transparent}
@@ -282,7 +283,9 @@
 
 <div class="test-tabs">
     <a href="index.html" class="test-tab active" id="tab-name">💕 <span id="tab-name-text">이름궁합</span></a>
-    <a href="mbti.html" class="test-tab" id="tab-mbti">🧠 <span id="tab-mbti-text">MBTI 궁합</span></a>
+    <a href="mbti-test.html" class="test-tab" id="tab-test">🧠 <span id="tab-test-text">MBTI 검사</span></a>
+    <a href="mbti.html" class="test-tab" id="tab-mbti">💜 <span id="tab-mbti-text">MBTI 궁합</span></a>
+    <a href="pet-name.html" class="test-tab" id="tab-pet">🐾 <span id="tab-pet-text">펫 작명소</span></a>
 </div>
 
 <main>

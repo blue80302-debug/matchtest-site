@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애완동물 작명소 — 반려동물 이름 짓기 | Pet Name Generator</title>
+    <meta name="description" content="강아지, 고양이, 토끼 등 반려동물에게 딱 맞는 이름을 지어드립니다. 견종·묘종별 맞춤 이름 추천! Free pet name generator.">
+    <meta name="keywords" content="애완동물 이름, 강아지 이름, 고양이 이름, 반려동물 작명, pet name generator, ペット名前, 宠物取名">
+    <meta property="og:title" content="애완동물 작명소 — Pet Name Generator">
+    <meta property="og:description" content="반려동물에게 딱 맞는 특별한 이름을 찾아보세요!">
+    <meta property="og:url" content="https://matchtest.site/pet-name.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://img.icons8.com/clouds/256/hearts.png">
+    <link rel="canonical" href="https://matchtest.site/pet-name.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>" type="image/svg+xml">
+    <meta name="google-site-verification" content="vN7ujwLUtM1wJGo9komsV0eqLuyDMsxxJkclv1kqXdA" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6668425393052932" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "애완동물 작명소 — Pet Name Generator",
+      "url": "https://matchtest.site/pet-name.html",
+      "description": "반려동물에게 딱 맞는 이름을 추천해드리는 무료 작명 서비스입니다.",
+      "applicationCategory": "EntertainmentApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+    }
+    </script>
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --pink-50:#fdf2f8;--pink-100:#fce7f3;--pink-200:#fbcfe8;
+            --pink-400:#f472b6;--pink-500:#ec4899;--pink-600:#db2777;
+            --purple-400:#c084fc;--purple-500:#a855f7;
+            --amber-400:#fbbf24;--amber-500:#f59e0b;
+            --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
+            --gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;
+            --gray-700:#374151;
+        }
+        body{
+            font-family:'Noto Sans','Noto Sans KR','Noto Sans JP','Noto Sans SC',sans-serif;
+            min-height:100vh;display:flex;flex-direction:column;
+            background:linear-gradient(160deg,#fdf2f8 0%,#fce7f3 40%,#fbcfe8 100%);
+            color:var(--gray-700);line-height:1.6;
+        }
+        a{color:var(--pink-500);text-decoration:none}a:hover{text-decoration:underline}
+
+        .floating-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+        .floating-bg span{position:absolute;opacity:.08;animation:drift linear infinite}
+        @keyframes drift{0%{transform:translateY(105vh) rotate(0) scale(.8);opacity:0}8%{opacity:.08}92%{opacity:.08}100%{transform:translateY(-8vh) rotate(360deg) scale(1.2);opacity:0}}
+
+        .site-nav{position:relative;z-index:10;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--pink-100);padding:10px 20px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+        .site-nav a{font-size:13px;font-weight:600;color:var(--gray-500);padding:4px 10px;border-radius:8px;transition:all .2s}
+        .site-nav a:hover,.site-nav a.active{background:var(--pink-500);color:white;text-decoration:none}
+
+        .test-tabs{position:relative;z-index:10;display:flex;justify-content:center;gap:0;padding:16px 16px 0;flex-wrap:wrap}
+        .test-tab{padding:10px 14px;font-size:13px;font-weight:700;border:2px solid var(--pink-200);background:white;color:var(--pink-400);cursor:pointer;transition:all .2s;text-decoration:none}
+        .test-tab:first-child{border-radius:12px 0 0 12px}
+        .test-tab:nth-child(2),.test-tab:nth-child(3){border-left:none}
+        .test-tab:last-child{border-radius:0 12px 12px 0}
+        .test-tab:hover{background:var(--pink-50);text-decoration:none}
+        .test-tab.active{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));color:white;border-color:transparent}
+
+        main{flex:1;display:flex;flex-direction:column;align-items:center;padding:16px 16px 10px}
+
+        .card{position:relative;z-index:1;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);width:520px;max-width:100%;border-radius:24px;box-shadow:0 24px 48px rgba(236,72,153,.12),0 0 0 1px rgba(236,72,153,.06);overflow:hidden;margin-bottom:32px}
+        .header{background:linear-gradient(135deg,var(--amber-500),var(--pink-500));padding:28px 20px 24px;text-align:center;color:white;position:relative;overflow:hidden}
+        .header::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:20px;background:rgba(255,255,255,.92);border-radius:50% 50% 0 0/100% 100% 0 0}
+        .header h1{font-family:'Fredoka',sans-serif;font-size:24px;font-weight:700;margin-bottom:4px}
+        .header p{font-size:13px;opacity:.85}
+
+        .lang-bar{display:flex;justify-content:center;gap:4px;padding:14px 16px 6px}
+        .lang-btn{padding:5px 10px;border:1.5px solid var(--pink-200);border-radius:100px;background:white;font-size:12px;font-weight:600;color:var(--pink-400);cursor:pointer;transition:all .2s}
+        .lang-btn:hover,.lang-btn.active{background:var(--pink-500);border-color:var(--pink-500);color:white}
+
+        .body{padding:18px 22px 24px}
+
+        .form-group{margin-bottom:16px}
+        .form-label{display:block;font-size:13px;font-weight:700;color:var(--gray-600);margin-bottom:8px}
+
+        .pet-types{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+        .pet-type{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 6px;border:2px solid var(--pink-100);border-radius:14px;background:white;cursor:pointer;transition:all .2s;font-size:11px;font-weight:600;color:var(--gray-500)}
+        .pet-type span{font-size:28px}
+        .pet-type:hover{border-color:var(--pink-400);background:var(--pink-50)}
+        .pet-type.selected{border-color:var(--pink-500);background:linear-gradient(135deg,rgba(236,72,153,.08),rgba(168,85,247,.08));color:var(--pink-600)}
+
+        .breed-select{width:100%;padding:12px 14px;border:2px solid var(--pink-100);border-radius:14px;font-size:14px;color:var(--gray-700);background:white;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239ca3af' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+        .breed-select:focus{outline:none;border-color:var(--pink-400)}
+
+        .gender-row{display:flex;gap:8px}
+        .gender-btn{flex:1;padding:12px;border:2px solid var(--pink-100);border-radius:14px;background:white;font-size:14px;font-weight:700;color:var(--gray-500);cursor:pointer;transition:all .2s;text-align:center}
+        .gender-btn:hover{border-color:var(--pink-400)}
+        .gender-btn.selected{border-color:var(--pink-500);background:linear-gradient(135deg,rgba(236,72,153,.08),rgba(168,85,247,.08));color:var(--pink-600)}
+
+        .style-chips{display:flex;flex-wrap:wrap;gap:8px}
+        .style-chip{padding:8px 14px;border:2px solid var(--pink-100);border-radius:100px;background:white;font-size:12px;font-weight:700;color:var(--gray-500);cursor:pointer;transition:all .2s}
+        .style-chip:hover{border-color:var(--pink-400)}
+        .style-chip.selected{border-color:var(--pink-500);background:var(--pink-500);color:white}
+
+        .generate-btn{display:block;width:100%;padding:16px;border:none;border-radius:50px;font-size:16px;font-weight:700;color:white;background:linear-gradient(135deg,var(--amber-500),var(--pink-500));cursor:pointer;box-shadow:0 6px 20px rgba(236,72,153,.3);transition:all .2s;margin-top:20px}
+        .generate-btn:hover{opacity:.92;transform:translateY(-1px)}
+        .generate-btn:active{transform:scale(.98)}
+
+        .result-area{display:none;margin-top:20px;animation:fadeUp .5s ease}
+        @keyframes fadeUp{0%{opacity:0;transform:translateY(16px)}100%{opacity:1;transform:translateY(0)}}
+
+        .name-cards{display:flex;flex-direction:column;gap:10px}
+        .name-card{padding:16px;border:2px solid var(--pink-100);border-radius:16px;background:white;cursor:pointer;transition:all .2s}
+        .name-card:hover{border-color:var(--pink-400);background:var(--pink-50)}
+        .name-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+        .name-card-name{font-family:'Fredoka',sans-serif;font-size:22px;font-weight:700;background:linear-gradient(135deg,var(--amber-500),var(--pink-500));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .name-card-origin{font-size:11px;font-weight:600;color:var(--gray-400);padding:3px 8px;background:var(--gray-100);border-radius:100px}
+        .name-card-meaning{font-size:13px;color:var(--gray-600);line-height:1.6}
+        .name-card-why{font-size:12px;color:var(--pink-500);font-weight:600;margin-top:6px}
+
+        .more-btn{display:block;width:100%;padding:12px;border:2px solid var(--pink-200);border-radius:50px;background:white;font-size:14px;font-weight:700;color:var(--pink-500);cursor:pointer;transition:all .2s;margin-top:12px;text-align:center}
+        .more-btn:hover{background:var(--pink-50)}
+
+        .share-row{display:flex;gap:8px;justify-content:center;margin-top:16px}
+        .share-btn{padding:8px 16px;border:2px solid var(--pink-200);border-radius:10px;background:white;font-size:12px;font-weight:700;color:var(--pink-500);cursor:pointer;transition:all .2s}
+        .share-btn:hover{background:var(--pink-500);border-color:var(--pink-500);color:white}
+
+        .cta-row{margin-top:20px;display:flex;flex-direction:column;gap:8px}
+        .cta-link{display:block;width:100%;padding:12px;border:2px solid var(--pink-200);border-radius:50px;font-size:13px;font-weight:700;color:var(--pink-500);background:white;text-align:center;text-decoration:none;transition:all .2s}
+        .cta-link:hover{background:var(--pink-50);text-decoration:none}
+
+        .site-footer{position:relative;z-index:1;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border-top:1px solid var(--pink-100);padding:20px;text-align:center;font-size:12px;color:var(--gray-400)}
+        .site-footer a{color:var(--gray-500);margin:0 8px}
+
+        @media(max-width:420px){.card{border-radius:20px}.pet-types{grid-template-columns:repeat(3,1fr)}}
+    </style>
+</head>
+<body>
+<div class="floating-bg" id="floatingBg"></div>
+
+<nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+</nav>
+
+<div class="test-tabs">
+    <a href="index.html" class="test-tab">💕 이름궁합</a>
+    <a href="mbti-test.html" class="test-tab">🧠 MBTI 검사</a>
+    <a href="mbti.html" class="test-tab">💜 MBTI 궁합</a>
+    <a href="pet-name.html" class="test-tab active">🐾 펫 작명소</a>
+</div>
+
+<main>
+<div class="card">
+    <div class="header">
+        <h1 id="t-title">🐾 애완동물 작명소</h1>
+        <p id="t-subtitle">반려동물에게 딱 맞는 특별한 이름을 찾아보세요</p>
+    </div>
+    <div class="lang-bar" id="langBar">
+        <button class="lang-btn active" data-lang="ko">KO</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ja">JA</button>
+        <button class="lang-btn" data-lang="zh">ZH</button>
+    </div>
+    <div class="body">
+        <div class="form-group">
+            <div class="form-label" id="lbl-pet">어떤 반려동물인가요?</div>
+            <div class="pet-types" id="petTypes"></div>
+        </div>
+        <div class="form-group">
+            <div class="form-label" id="lbl-breed">품종을 선택하세요</div>
+            <select class="breed-select" id="breedSelect"><option value="">-- 선택 --</option></select>
+        </div>
+        <div class="form-group">
+            <div class="form-label" id="lbl-gender">성별</div>
+            <div class="gender-row" id="genderRow"></div>
+        </div>
+        <div class="form-group">
+            <div class="form-label" id="lbl-style">이름 스타일</div>
+            <div class="style-chips" id="styleChips"></div>
+        </div>
+        <button class="generate-btn" id="generateBtn" onclick="generate()">✨ 이름 추천 받기</button>
+
+        <div class="result-area" id="resultArea">
+            <div class="name-cards" id="nameCards"></div>
+            <button class="more-btn" id="moreBtn" onclick="generate()">🔄 다른 이름 보기</button>
+            <div class="share-row">
+                <button class="share-btn" onclick="copyNames()">🔗 결과 복사</button>
+            </div>
+            <div class="cta-row">
+                <a href="index.html" class="cta-link">💕 이름궁합 테스트도 해보기</a>
+                <a href="mbti-test.html" class="cta-link">🧠 MBTI 테스트 하러가기</a>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<footer class="site-footer">
+    <div><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+    <div style="margin-top:8px">&copy; 2026 Love Match Test. All rights reserved. For entertainment purposes only.</div>
+</footer>
+
+<script>
+(function(){var c=document.getElementById('floatingBg'),items=['🐶','🐱','🐰','🐹','🐾','⭐'];for(var i=0;i<14;i++){var s=document.createElement('span');s.textContent=items[i%items.length];s.style.left=(Math.random()*100)+'%';s.style.fontSize=(14+Math.random()*18)+'px';s.style.animationDuration=(10+Math.random()*15)+'s';s.style.animationDelay=(Math.random()*12)+'s';c.appendChild(s)}})();
+
+var lang='ko';
+var selectedPet='dog';
+var selectedGender='male';
+var selectedStyle='cute';
+
+var UI={
+ko:{title:"🐾 애완동물 작명소",subtitle:"반려동물에게 딱 맞는 특별한 이름을 찾아보세요",lblPet:"어떤 반려동물인가요?",lblBreed:"품종을 선택하세요",lblGender:"성별",lblStyle:"이름 스타일",btn:"✨ 이름 추천 받기",more:"🔄 다른 이름 보기",copy:"🔗 결과 복사",copied:"복사되었습니다!",male:"♂ 남아",female:"♀ 여아",any:"🌈 상관없음",pickDefault:"-- 선택 --",why:"추천 이유: "},
+en:{title:"🐾 Pet Name Generator",subtitle:"Find the perfect name for your furry friend",lblPet:"What kind of pet?",lblBreed:"Select a breed",lblGender:"Gender",lblStyle:"Name style",btn:"✨ Get Name Ideas",more:"🔄 More Names",copy:"🔗 Copy Results",copied:"Copied!",male:"♂ Boy",female:"♀ Girl",any:"🌈 Any",pickDefault:"-- Select --",why:"Why this name: "},
+ja:{title:"🐾 ペット命名所",subtitle:"大切なペットにぴったりの名前を見つけましょう",lblPet:"どんなペットですか？",lblBreed:"品種を選んでください",lblGender:"性別",lblStyle:"名前のスタイル",btn:"✨ 名前を提案してもらう",more:"🔄 他の名前を見る",copy:"🔗 結果をコピー",copied:"コピーしました！",male:"♂ 男の子",female:"♀ 女の子",any:"🌈 どちらでも",pickDefault:"-- 選択 --",why:"おすすめ理由: "},
+zh:{title:"🐾 宠物取名所",subtitle:"为你的毛孩子找到最完美的名字",lblPet:"什么宠物？",lblBreed:"选择品种",lblGender:"性别",lblStyle:"名字风格",btn:"✨ 获取名字推荐",more:"🔄 换一批",copy:"🔗 复制结果",copied:"已复制！",male:"♂ 男宝",female:"♀ 女宝",any:"🌈 都可以",pickDefault:"-- 选择 --",why:"推荐理由: "}
+};
+
+var PETS={
+ko:[{id:'dog',emoji:'🐶',name:'강아지'},{id:'cat',emoji:'🐱',name:'고양이'},{id:'rabbit',emoji:'🐰',name:'토끼'},{id:'hamster',emoji:'🐹',name:'햄스터'},{id:'bird',emoji:'🐦',name:'새'},{id:'fish',emoji:'🐠',name:'물고기'},{id:'turtle',emoji:'🐢',name:'거북이'},{id:'hedgehog',emoji:'🦔',name:'고슴도치'}],
+en:[{id:'dog',emoji:'🐶',name:'Dog'},{id:'cat',emoji:'🐱',name:'Cat'},{id:'rabbit',emoji:'🐰',name:'Rabbit'},{id:'hamster',emoji:'🐹',name:'Hamster'},{id:'bird',emoji:'🐦',name:'Bird'},{id:'fish',emoji:'🐠',name:'Fish'},{id:'turtle',emoji:'🐢',name:'Turtle'},{id:'hedgehog',emoji:'🦔',name:'Hedgehog'}],
+ja:[{id:'dog',emoji:'🐶',name:'犬'},{id:'cat',emoji:'🐱',name:'猫'},{id:'rabbit',emoji:'🐰',name:'うさぎ'},{id:'hamster',emoji:'🐹',name:'ハムスター'},{id:'bird',emoji:'🐦',name:'鳥'},{id:'fish',emoji:'🐠',name:'魚'},{id:'turtle',emoji:'🐢',name:'カメ'},{id:'hedgehog',emoji:'🦔',name:'ハリネズミ'}],
+zh:[{id:'dog',emoji:'🐶',name:'狗'},{id:'cat',emoji:'🐱',name:'猫'},{id:'rabbit',emoji:'🐰',name:'兔子'},{id:'hamster',emoji:'🐹',name:'仓鼠'},{id:'bird',emoji:'🐦',name:'鸟'},{id:'fish',emoji:'🐠',name:'鱼'},{id:'turtle',emoji:'🐢',name:'龟'},{id:'hedgehog',emoji:'🦔',name:'刺猬'}]
+};
+
+var STYLES={
+ko:[{id:'cute',name:'🎀 귀여운'},{id:'cool',name:'😎 멋진'},{id:'classic',name:'📜 클래식'},{id:'unique',name:'✨ 독특한'},{id:'food',name:'🍰 음식'},{id:'nature',name:'🌿 자연'}],
+en:[{id:'cute',name:'🎀 Cute'},{id:'cool',name:'😎 Cool'},{id:'classic',name:'📜 Classic'},{id:'unique',name:'✨ Unique'},{id:'food',name:'🍰 Food'},{id:'nature',name:'🌿 Nature'}],
+ja:[{id:'cute',name:'🎀 かわいい'},{id:'cool',name:'😎 かっこいい'},{id:'classic',name:'📜 クラシック'},{id:'unique',name:'✨ ユニーク'},{id:'food',name:'🍰 食べ物'},{id:'nature',name:'🌿 自然'}],
+zh:[{id:'cute',name:'🎀 可爱'},{id:'cool',name:'😎 帅气'},{id:'classic',name:'📜 经典'},{id:'unique',name:'✨ 独特'},{id:'food',name:'🍰 食物'},{id:'nature',name:'🌿 自然'}]
+};
+
+var BREEDS={
+dog:{
+ko:["믹스","골든 리트리버","래브라도 리트리버","푸들","포메라니안","시바견","치와와","불독","비글","말티즈","요크셔 테리어","웰시 코기","허스키","진돗개","슈나우저","시츄","닥스훈트","사모예드","보더 콜리","비숑 프리제"],
+en:["Mixed","Golden Retriever","Labrador","Poodle","Pomeranian","Shiba Inu","Chihuahua","Bulldog","Beagle","Maltese","Yorkshire Terrier","Corgi","Husky","Jindo","Schnauzer","Shih Tzu","Dachshund","Samoyed","Border Collie","Bichon Frise"],
+ja:["ミックス","ゴールデンレトリバー","ラブラドール","プードル","ポメラニアン","柴犬","チワワ","ブルドッグ","ビーグル","マルチーズ","ヨーキー","コーギー","ハスキー","珍島犬","シュナウザー","シーズー","ダックスフンド","サモエド","ボーダーコリー","ビションフリーゼ"],
+zh:["混血","金毛","拉布拉多","贵宾","博美","柴犬","吉娃娃","斗牛犬","比格","马尔济斯","约克夏","柯基","哈士奇","珍岛犬","雪纳瑞","西施","腊肠","萨摩耶","边牧","比熊"]
+},
+cat:{
+ko:["믹스","코리안 숏헤어","러시안 블루","페르시안","스코티시 폴드","브리티시 숏헤어","먼치킨","벵갈","랙돌","아비시니안","터키시 앙고라","메인쿤","시암","노르웨이 숲"],
+en:["Mixed","Korean Shorthair","Russian Blue","Persian","Scottish Fold","British Shorthair","Munchkin","Bengal","Ragdoll","Abyssinian","Turkish Angora","Maine Coon","Siamese","Norwegian Forest"],
+ja:["ミックス","コリアンショートヘア","ロシアンブルー","ペルシャ","スコティッシュフォールド","ブリティッシュショートヘア","マンチカン","ベンガル","ラグドール","アビシニアン","ターキッシュアンゴラ","メインクーン","シャム","ノルウェージャン"],
+zh:["混血","韩国短毛","俄罗斯蓝猫","波斯猫","苏格兰折耳","英国短毛","曼基康","孟加拉","布偶","阿比西尼亚","土耳其安哥拉","缅因","暹罗","挪威森林"]
+}
+};
+
+var NAMES_DB={
+ko:{
+dog:{cute:{male:["콩이|작고 동글동글한 모습이 콩을 닮았어요|귀여운 외모의 소형견에게 딱!",
+"뭉치|뭉글뭉글 사랑스러운 느낌|포근하고 다정한 성격의 아이에게",
+"꾸미|꾸물꾸물 귀여운 모습에서|장난기 많은 아이에게 어울려요",
+"보리|건강하고 자연스러운 느낌|한국적이면서도 귀여운 이름",
+"몽이|몽글몽글 구름 같은 느낌|하얀 털의 아이에게 특히 잘 어울려요",
+"두부|하얗고 부드러운 이미지|흰색 털을 가진 귀여운 아이에게",
+"초코|달콤한 초콜릿에서 유래|갈색 털의 아이에게 찰떡궁합",
+"쿠키|달콤하고 사랑스러운 느낌|모든 사람에게 행복을 주는 아이에게"],
+female:["별이|밤하늘의 반짝이는 별처럼|눈이 초롱초롱 빛나는 아이에게",
+"나비|아름답게 날아다니는 나비처럼|경쾌하고 활발한 아이에게",
+"하루|매일이 소중한 하루처럼|하루하루가 행복한 아이에게",
+"보미|봄처럼 따뜻한 느낌|봄에 태어난 아이에게 특히 좋아요",
+"구름|하늘의 포근한 구름처럼|하얗고 부드러운 털의 아이에게",
+"체리|상큼하고 사랑스러운 느낌|작고 귀여운 아이에게 잘 어울려요",
+"루비|빛나는 보석처럼 소중한|아름다운 갈색 눈을 가진 아이에게",
+"달이|밝은 달처럼 환한 존재|온화하고 차분한 성격의 아이에게"]},
+cool:{male:["제우스|그리스 신화의 왕 제우스|위엄 있고 당당한 대형견에게",
+"레온|사자를 뜻하는 라틴어|용맹하고 늠름한 아이에게",
+"마루|꼭대기, 정상을 뜻하는 순우리말|최고가 될 아이에게",
+"타이탄|거인, 강한 존재를 의미|힘차고 건강한 대형견에게",
+"블레이드|날카롭고 멋진 이미지|민첩하고 빠른 아이에게",
+"세이버|검을 뜻하며 강인한 이미지|보호본능이 강한 아이에게",
+"헌터|사냥꾼처럼 용감한|활동적이고 에너지 넘치는 아이에게",
+"라이언|사자왕의 위엄|당당하고 카리스마 넘치는 아이에게"],
+female:["아테나|지혜의 여신|똑똑하고 영리한 아이에게",
+"루나|달을 뜻하는 라틴어|신비롭고 아름다운 아이에게",
+"노바|새로운 별, 빛나는 존재|독보적인 존재감의 아이에게",
+"세레나|고요하고 우아한 이미지|기품 있는 아이에게",
+"아이라|바람처럼 자유로운|활발하면서도 우아한 아이에게",
+"벨라|아름다운을 뜻하는 이탈리아어|외모가 뛰어난 아이에게",
+"스칼렛|강렬한 붉은색 이미지|당차고 매력적인 아이에게",
+"클레오|영광, 명예를 뜻함|품격 있고 고귀한 아이에게"]},
+classic:{male:["바둑이|전통적인 한국 강아지 이름|얼룩무늬가 있는 아이에게 특히 좋아요",
+"초롱이|초롱초롱한 눈망울에서|눈이 예쁜 아이에게",
+"백구|하얀 강아지를 부르는 전통 이름|하얀 털의 아이에게",
+"누렁이|누런 빛을 가진 전통 이름|황금빛 털의 아이에게",
+"장군|위풍당당한 장군에서|씩씩하고 듬직한 아이에게",
+"복돌이|복을 가져다주는 아이|가정에 행운을 가져다줄 아이에게",
+"점박이|점무늬가 특징인 아이에게|독특한 무늬를 가진 아이에게",
+"해피|행복을 뜻하는 영어|항상 밝고 즐거운 아이에게"],
+female:["봄이|봄처럼 따뜻한|봄에 태어나거나 따뜻한 성격의 아이에게",
+"희망이|희망을 뜻하는 아름다운 이름|밝은 미래를 가진 아이에게",
+"설이|하얀 눈(雪)에서 유래|겨울에 태어난 하얀 아이에게",
+"꽃이|아름다운 꽃처럼|예쁘고 사랑스러운 아이에게",
+"사랑이|사랑을 담은 이름|온 가족의 사랑을 받을 아이에게",
+"달래|산에서 자라는 야생화|순수하고 자연스러운 아이에게",
+"소리|맑은 소리처럼|활발하게 짖는 아이에게 잘 어울려요",
+"은비|은빛 비처럼 아름다운|은색이나 회색 털의 아이에게"]},
+unique:{male:["네로|이탈리아어로 검은색|검은 털의 아이에게 세련된 이름",
+"카이|하와이어로 바다|자유롭고 시원한 이미지의 아이에게",
+"젠|선(禪), 평화로운 느낌|차분하고 온화한 아이에게",
+"릴로|하와이어로 관대한|너그럽고 순한 대형견에게",
+"나루|흐르는 물의 순우리말|유유자적한 성격의 아이에게",
+"키바|아메리카 원주민어로 보호자|충성스러운 아이에게",
+"오니|일본어로 도깨비|장난기 가득한 아이에게",
+"피닉스|불사조처럼 강인한|역경을 이겨낸 아이에게"],
+female:["미야|일본어로 아름다운 밤|밤색 털을 가진 아이에게",
+"아리|순우리말로 아름다운|한국적이면서 세련된 이름",
+"유나|빛나다, 바라다의 의미|빛나는 존재감의 아이에게",
+"소라|바다의 소라처럼|독특하고 아름다운 아이에게",
+"이슬|아침 이슬처럼 맑은|깨끗하고 투명한 느낌의 아이에게",
+"린|옥(玉)의 아름다움|우아하고 기품 있는 아이에게",
+"키라|빛난다는 뜻의 일본어|눈이 반짝거리는 아이에게",
+"지니|요정처럼 신비로운|매력 넘치는 작은 아이에게"]},
+food:{male:["모찌|쫄깃한 모찌떡처럼|통통하고 귀여운 아이에게 딱!",
+"라떼|부드러운 카페라떼처럼|크림색 털의 아이에게",
+"호떡|달콤한 호떡처럼|달콤한 성격의 아이에게",
+"떡볶이|매콤달콤한 떡볶이처럼|빨간빛 털의 활발한 아이에게",
+"누룽지|바삭한 누룽지처럼|누런빛 털의 아이에게",
+"마카롱|달콤하고 알록달록|다양한 색상의 털을 가진 아이에게",
+"와플|따뜻하고 달콤한|포근한 성격의 아이에게",
+"팥이|달달한 팥에서|갈색빛 작은 아이에게"],
+female:["딸기|상큼 달콤한 딸기처럼|사랑스럽고 예쁜 아이에게",
+"푸딩|부드럽고 달콤한|온순하고 귀여운 아이에게",
+"꿀이|달콤한 꿀처럼|달콤한 성격의 아이에게",
+"카스테라|부드럽고 폭신한|노란빛 털의 부드러운 아이에게",
+"슈크림|달콤한 슈크림처럼|크림색 털의 귀여운 아이에게",
+"밀크|우유처럼 하얗고 순수한|하얀 털의 순한 아이에게",
+"쿠키|달콤한 쿠키처럼|갈색 반점이 있는 아이에게",
+"망고|상큼달콤한 열대과일|밝고 활발한 성격의 아이에게"]},
+nature:{male:["바람|자유로운 바람처럼|활동적이고 자유분방한 아이에게",
+"구름|하늘 위 포근한 구름|하얗고 부드러운 느낌의 아이에게",
+"이끼|자연 속 작은 생명력|소형견에게 독특하고 예쁜 이름",
+"산|우직한 산처럼 든든한|크고 듬직한 아이에게",
+"강|유유히 흐르는 강처럼|차분하고 여유로운 아이에게",
+"해|밝은 태양처럼|밝고 에너지 넘치는 아이에게",
+"돌|단단하고 변하지 않는|충성스럽고 믿음직한 아이에게",
+"숲|깊은 숲처럼 신비로운|독립적이고 차분한 아이에게"],
+female:["봄|따뜻한 봄처럼|봄에 태어난 따뜻한 아이에게",
+"꽃|아름다운 꽃처럼|예쁘고 화사한 아이에게",
+"달|밤하늘의 달처럼|차분하고 은은한 아이에게",
+"별|반짝이는 별처럼|눈빛이 초롱초롱한 아이에게",
+"나리|백합의 순우리말|우아하고 기품 있는 아이에게",
+"이슬|맑은 아침이슬처럼|투명하고 깨끗한 아이에게",
+"노을|아름다운 저녁 노을처럼|붉은빛 털의 아이에게",
+"안개|몽환적인 안개처럼|회색빛 털의 신비로운 아이에게"]}
+},
+cat:{cute:{male:["냥이|고양이 울음소리에서|어떤 고양이든 잘 어울리는 귀여운 이름",
+"치즈|노란 치즈처럼|치즈태비 고양이에게 딱!",
+"호두|작고 동그란 호두처럼|갈색빛 아담한 아이에게",
+"무무|부드럽고 귀여운 어감|순둥순둥한 아이에게",
+"모모|복숭아를 뜻하는 일본어에서|통통하고 귀여운 아이에게",
+"구름|포근한 구름처럼|하얗고 부드러운 아이에게",
+"꾸꾸|꾸물꾸물 게으른 모습에서|늘어져 있는 게 취미인 아이에게",
+"콩이|작은 콩알 같은|작고 동글동글한 아이에게"],
+female:["나비|나비처럼 가볍고 우아한|경쾌하게 뛰어다니는 아이에게",
+"달이|둥근 달처럼 예쁜|둥글고 귀여운 얼굴의 아이에게",
+"미미|귀엽고 부르기 좋은|어떤 고양이든 잘 어울려요",
+"봄이|봄처럼 따뜻한|따뜻한 성격의 아이에게",
+"솜이|솜뭉치처럼 부드러운|장모종 아이에게 특히 잘 어울려요",
+"하늘|맑은 하늘처럼|블루 계열 눈을 가진 아이에게",
+"꽃이|아름다운 꽃처럼|삼색이나 화려한 무늬의 아이에게",
+"루루|부르기 쉽고 사랑스러운|활발하고 장난기 많은 아이에게"]},
+cool:{male:["레오|사자를 뜻하는 이름|당당하고 카리스마 있는 아이에게",
+"섀도|그림자처럼 조용하고 신비로운|검은 고양이에게 딱!",
+"오딘|북유럽 신화의 지혜의 신|독립적이고 영리한 아이에게",
+"팬서|검은 표범처럼|날렵하고 우아한 검은 아이에게",
+"스모크|연기처럼 신비로운|회색빛 털의 아이에게",
+"라이카|우주로 간 최초의 동물|모험심 강한 아이에게",
+"바이킹|용맹한 전사처럼|덩치 크고 씩씩한 아이에게",
+"아폴로|태양신처럼 빛나는|금색빛 털의 멋진 아이에게"],
+female:["클레오|클레오파트라에서|기품 있고 도도한 아이에게",
+"미스트|안개처럼 신비로운|은빛 털의 아이에게",
+"세이라|별자리를 뜻함|밤에 유독 빛나는 아이에게",
+"아이시|차갑고 쿨한 이미지|블루 포인트 아이에게",
+"지나|여왕이라는 뜻|도도하고 우아한 아이에게",
+"스톰|폭풍처럼 강렬한|에너지 넘치는 아이에게",
+"네뷸라|성운, 우주의 신비|독특한 무늬를 가진 아이에게",
+"팬텀|유령처럼 조용한|살금살금 다니는 아이에게"]},
+classic:{male:["나비|한국 전통 고양이 이름|어떤 고양이든 사랑받는 이름",
+"야옹이|고양이 울음소리에서|순하고 얌전한 아이에게",
+"삼색이|삼색 무늬에서|삼색 고양이에게 전통적인 이름",
+"줄무늬|줄무늬가 특징|태비 무늬 아이에게",
+"턱시도|턱시도 무늬에서|흑백 무늬의 아이에게",
+"톰|톰과 제리의 톰|장난기 많은 아이에게",
+"가필드|유명한 만화 캐릭터|오렌지 태비에게 딱!",
+"펠릭스|행운의 고양이|검은 고양이에게 클래식한 이름"],
+female:["미미|한국 전통 고양이 이름|부르기 쉽고 예쁜 이름",
+"야옹이|사랑스러운 울음소리에서|말이 많은 아이에게",
+"삼순이|삼색 고양이의 전통 이름|삼색 여아에게",
+"눈송이|눈처럼 하얀|하얀 아이에게 예쁜 이름",
+"코코|클래식하면서 세련된|어떤 고양이든 어울리는 이름",
+"키티|가장 사랑받는 고양이 이름|귀엽고 사랑스러운 아이에게",
+"루시|빛을 뜻하는 이름|밝은 성격의 아이에게",
+"모리|숲에서 온 느낌|차분하고 신비로운 아이에게"]},
+unique:{male:["무겐|일본어로 무한|가능성이 무한한 아이에게",
+"카프카|문학가 프란츠 카프카에서|독특하고 신비로운 성격의 아이에게",
+"젠|선(禪)의 평온함|차분하고 명상적인 아이에게",
+"피카소|예술가처럼 독특한|독특한 무늬의 창의적 아이에게",
+"코스모|우주를 뜻함|깊은 눈을 가진 신비로운 아이에게",
+"라니|하와이어로 하늘|자유롭고 우아한 아이에게",
+"인디|독립적이라는 뜻에서|자기만의 세계가 확실한 아이에게",
+"보노|좋은이라는 뜻의 라틴어|착하고 온순한 아이에게"],
+female:["키아라|이탈리아어로 빛나는|밝은 털의 아이에게",
+"사쿠라|일본어로 벚꽃|봄에 태어난 예쁜 아이에게",
+"프레야|북유럽 사랑의 여신|아름답고 우아한 아이에게",
+"소울|영혼, 깊은 내면|눈이 깊은 아이에게",
+"아우라|빛나는 기운|존재감이 강한 아이에게",
+"마야|환상이라는 뜻|신비롭고 매력적인 아이에게",
+"시에나|이탈리아 도시 이름|따뜻한 갈색빛 아이에게",
+"루미|빛을 뜻하는 이름|페르시아 시인에서 유래"]},
+food:{male:["참치|고양이의 최애 간식|먹보 고양이에게 딱!",
+"츄르|고양이 간식 대명사|간식 좋아하는 아이에게",
+"카레|노란 카레처럼|노란빛 털의 아이에게",
+"쿠키|달콤한 쿠키처럼|갈색 무늬의 아이에게",
+"모찌|쫄깃한 모찌처럼|통통하고 말랑한 아이에게",
+"버터|고소한 버터처럼|크림색 털의 아이에게",
+"오레오|흑백 과자처럼|흑백 턱시도 아이에게 딱!",
+"카라멜|달콤한 캐러멜색|카라멜빛 털의 아이에게"],
+female:["딸기|새빨간 딸기처럼|빨간빛 포인트의 아이에게",
+"슈크림|부드러운 슈크림처럼|크림색 장모종에게",
+"마카롱|알록달록 마카롱처럼|캘리코나 삼색 아이에게",
+"푸딩|부드럽고 달콤한|온순한 성격의 아이에게",
+"밀크|우유처럼 하얀|순백의 아이에게",
+"꿀이|달콤한 꿀처럼|골드빛 털의 아이에게",
+"캔디|달콤한 사탕처럼|사랑스럽고 귀여운 아이에게",
+"피치|복숭아처럼 상큼한|살구색 털의 아이에게"]},
+nature:{male:["달|밤하늘의 달처럼|밤에 활동적인 아이에게",
+"구름|하늘의 구름처럼|하얀 솜뭉치 같은 아이에게",
+"바다|넓고 깊은 바다처럼|깊은 눈을 가진 아이에게",
+"안개|몽환적인 새벽 안개|회색 털의 신비로운 아이에게",
+"하늘|맑은 하늘처럼|파란 눈의 아이에게 딱!",
+"숲|깊은 숲의 신비로움|독립적인 성격의 아이에게",
+"별|반짝이는 별처럼|눈이 빛나는 아이에게",
+"이끼|자연 속 작은 생명|조용히 존재하는 아이에게"],
+female:["노을|아름다운 저녁노을|붉은빛 털의 아이에게",
+"이슬|아침 이슬방울처럼|투명한 느낌의 아이에게",
+"꽃|아름다운 꽃처럼|화려한 무늬의 아이에게",
+"안개|새벽안개처럼 몽환적|회색빛 아이에게",
+"나리|백합꽃의 순우리말|우아하고 기품 있는 아이에게",
+"비|조용히 내리는 비처럼|조용하고 차분한 아이에게",
+"솔|소나무처럼 늘 푸른|건강하고 씩씩한 아이에게",
+"연|연꽃처럼 아름다운|순수하고 우아한 아이에게"]}
+},
+rabbit:{cute:{male:["토순이|토끼+순둥이|순한 토끼에게 딱!","뭉치|뭉글뭉글 귀여운|통통한 아이에게","당근이|토끼의 최애 간식|당근 좋아하는 아이에게","솜이|솜뭉치처럼|하얀 아이에게","콩알|작고 동그란|소형 토끼에게","뽀삐|통통 튀는 느낌|활발한 아이에게","토리|토끼+이|심플하고 귀여운 이름","뿡이|도톰한 볼의 느낌|볼이 통통한 아이에게"],female:["토리|토끼+이|모든 토끼에게 어울려요","솜이|솜사탕처럼|부드러운 아이에게","하양이|하얀색에서|흰 토끼에게","꽃이|예쁜 꽃처럼|사랑스러운 아이에게","모모|복숭아처럼|통통한 아이에게","루루|부드러운 어감|활발한 아이에게","쿠키|달콤한 쿠키|갈색 아이에게","봄이|봄처럼 따뜻한|따뜻한 성격의 아이에게"]},cool:{male:["번개|빠른 번개처럼|활발한 아이에게","레이|빛줄기처럼|빠르고 날렵한 아이에게","제트|제트기처럼 빠른|에너지 넘치는 아이에게","바이퍼|날렵한 이미지|민첩한 아이에게","스피드|빠른 속도감|달리기 좋아하는 아이에게","블리츠|번개처럼 빠른|순발력 좋은 아이에게","대쉬|질주하는 느낌|달리기를 좋아하는 아이에게","스톰|폭풍 같은 에너지|활동적인 아이에게"],female:["아테나|지혜의 여신|영리한 아이에게","루나|달의 여신|밤에 활발한 아이에게","노바|새로운 별|특별한 아이에게","아이리스|무지개의 여신|아름다운 눈의 아이에게","벨라|아름다운|예쁜 아이에게","셀레네|달의 여신|은빛 털의 아이에게","프리아|사랑의 여신|사랑스러운 아이에게","비앙카|하얀을 뜻함|하얀 아이에게"]},classic:{male:["토끼|가장 기본적인 이름|심플한 것이 최고!","피터|피터 래빗에서|클래식한 토끼 이름","버니|영어로 토끼|부르기 쉬운 이름","래빗|토끼의 영어 이름|심플한 이름","점프|깡충깡충 뛰는 모습|잘 뛰는 아이에게","흰둥이|하얀 토끼의 전통 이름|흰 토끼에게","까미|까만 토끼에게|검은 토끼에게","누리|세상이라는 뜻|소중한 아이에게"],female:["하양|하얀색에서|흰 토끼의 전통 이름","까미|까만색에서|검은 토끼에게","봄이|봄처럼 따뜻한|따뜻한 아이에게","꽃이|예쁜 꽃|사랑스러운 아이에게","나비|나비처럼 가벼운|경쾌한 아이에게","별이|별처럼 빛나는|소중한 아이에게","소리|맑은 소리|활발한 아이에게","진주|진주처럼 소중한|하얀 아이에게"]},unique:{male:["루이|프랑스어 유래|세련된 이름","카이|바다를 뜻함|자유로운 아이에게","모리|숲에서 온|차분한 아이에게","니모|찾아서에서|모험심 많은 아이에게","젠|평온한 느낌|차분한 아이에게","쿠오|빛나다|특별한 아이에게","아키|가을을 뜻함|가을에 태어난 아이에게","리오|강을 뜻함|활발한 아이에게"],female:["미야|아름다운 밤|밤색 아이에게","소라|바다 소라|독특한 아이에게","유나|빛나는|특별한 아이에게","하나|하나뿐인|소중한 아이에게","린|옥의 아름다움|우아한 아이에게","키라|빛나는|눈이 빛나는 아이에게","아리|아름다운|예쁜 아이에게","마리|바다|자유로운 아이에게"]},food:{male:["당근|토끼의 최애|먹보 아이에게","모찌|쫄깃한|통통한 아이에게","쿠키|달콤한|갈색 아이에게","라떼|부드러운|크림색 아이에게","호떡|달달한|달콤한 아이에게","팥이|팥에서|갈색 작은 아이에게","마카롱|알록달록|다양한 색의 아이에게","와플|따뜻한|포근한 아이에게"],female:["딸기|상큼한|사랑스러운 아이에게","푸딩|부드러운|온순한 아이에게","밀크|우유처럼|하얀 아이에게","캔디|달콤한|귀여운 아이에게","체리|새빨간|빨간 눈의 아이에게","피치|복숭아|살구색 아이에게","슈크림|부드러운|크림색 아이에게","꿀이|달콤한|골드빛 아이에게"]},nature:{male:["구름|포근한|하얀 아이에게","바람|자유로운|활발한 아이에게","이끼|작은 생명|소형 토끼에게","숲|깊은 숲|차분한 아이에게","해|밝은 태양|활발한 아이에게","달|밤하늘의|야행성 아이에게","별|반짝이는|눈이 빛나는 아이에게","강|흐르는|차분한 아이에게"],female:["꽃|아름다운|예쁜 아이에게","이슬|맑은|투명한 아이에게","봄|따뜻한|봄에 태어난 아이에게","노을|아름다운|붉은 눈의 아이에게","나리|백합|우아한 아이에게","달|은은한|차분한 아이에게","비|조용한|조용한 아이에게","별|반짝이는|특별한 아이에게"]}
+}
+}
+};
+
+var _shownIdx=0;
+var _shownKey='';
+var _shownOrder=[];
+
+function getNames(pet,style,gender){
+    var db=NAMES_DB.ko;
+    var p=db[pet];
+    if(!p){
+        var keys=Object.keys(db);
+        p=db[keys[0]];
+    }
+    var s=p[style];
+    if(!s)s=p.cute;
+    var g=(gender==='any')?(Math.random()>.5?'male':'female'):gender;
+    var list=s[g];
+    if(!list)list=s.male||s[Object.keys(s)[0]];
+
+    var key=pet+'_'+style+'_'+g;
+    if(key!==_shownKey){
+        _shownKey=key;
+        _shownOrder=list.slice().sort(function(){return Math.random()-.5});
+        _shownIdx=0;
+    }
+    var result=[];
+    for(var i=0;i<5;i++){
+        if(_shownIdx>=_shownOrder.length){
+            _shownOrder=list.slice().sort(function(){return Math.random()-.5});
+            _shownIdx=0;
+        }
+        result.push(_shownOrder[_shownIdx]);
+        _shownIdx++;
+    }
+    return result;
+}
+
+function renderPets(){
+    var pets=PETS[lang]||PETS.ko;
+    var html='';
+    pets.forEach(function(p){
+        html+='<div class="pet-type'+(p.id===selectedPet?' selected':'')+'" onclick="selectPet(\''+p.id+'\')"><span>'+p.emoji+'</span>'+p.name+'</div>';
+    });
+    document.getElementById('petTypes').innerHTML=html;
+}
+
+function renderBreeds(){
+    var sel=document.getElementById('breedSelect');
+    var u=UI[lang]||UI.ko;
+    sel.innerHTML='<option value="">'+u.pickDefault+'</option>';
+    var breeds=BREEDS[selectedPet];
+    if(!breeds)return;
+    var list=breeds[lang]||breeds.ko;
+    if(!list)return;
+    list.forEach(function(b){
+        var opt=document.createElement('option');
+        opt.value=b;opt.textContent=b;
+        sel.appendChild(opt);
+    });
+}
+
+function renderGender(){
+    var u=UI[lang]||UI.ko;
+    document.getElementById('genderRow').innerHTML=
+        '<div class="gender-btn'+(selectedGender==='male'?' selected':'')+'" onclick="selectGender(\'male\')">'+u.male+'</div>'+
+        '<div class="gender-btn'+(selectedGender==='female'?' selected':'')+'" onclick="selectGender(\'female\')">'+u.female+'</div>'+
+        '<div class="gender-btn'+(selectedGender==='any'?' selected':'')+'" onclick="selectGender(\'any\')">'+u.any+'</div>';
+}
+
+function renderStyles(){
+    var styles=STYLES[lang]||STYLES.ko;
+    var html='';
+    styles.forEach(function(s){
+        html+='<div class="style-chip'+(s.id===selectedStyle?' selected':'')+'" onclick="selectStyle(\''+s.id+'\')">'+s.name+'</div>';
+    });
+    document.getElementById('styleChips').innerHTML=html;
+}
+
+function renderUI(){
+    var u=UI[lang]||UI.ko;
+    document.getElementById('t-title').textContent=u.title;
+    document.getElementById('t-subtitle').textContent=u.subtitle;
+    document.getElementById('lbl-pet').textContent=u.lblPet;
+    document.getElementById('lbl-breed').textContent=u.lblBreed;
+    document.getElementById('lbl-gender').textContent=u.lblGender;
+    document.getElementById('lbl-style').textContent=u.lblStyle;
+    document.getElementById('generateBtn').textContent=u.btn;
+    document.getElementById('moreBtn').textContent=u.more;
+    renderPets();renderBreeds();renderGender();renderStyles();
+}
+
+function selectPet(id){selectedPet=id;renderPets();renderBreeds();document.getElementById('resultArea').style.display='none';}
+function selectGender(g){selectedGender=g;renderGender();}
+function selectStyle(s){selectedStyle=s;renderStyles();}
+
+function generate(){
+    var names=getNames(selectedPet,selectedStyle,selectedGender);
+    var u=UI[lang]||UI.ko;
+    var html='';
+    names.forEach(function(entry){
+        var parts=entry.split('|');
+        var name=parts[0],meaning=parts[1]||'',why=parts[2]||'';
+        html+='<div class="name-card"><div class="name-card-top"><div class="name-card-name">'+name+'</div></div><div class="name-card-meaning">'+meaning+'</div>'+(why?'<div class="name-card-why">'+u.why+why+'</div>':'')+'</div>';
+    });
+    document.getElementById('nameCards').innerHTML=html;
+    document.getElementById('resultArea').style.display='block';
+    document.getElementById('resultArea').scrollIntoView({behavior:'smooth',block:'start'});
+    window._lastNames=names;
+}
+
+function copyNames(){
+    var u=UI[lang]||UI.ko;
+    var pets=PETS[lang]||PETS.ko;
+    var petName='';
+    pets.forEach(function(p){if(p.id===selectedPet)petName=p.emoji+' '+p.name;});
+    var text=petName+' '+u.title+'\n\n';
+    (window._lastNames||[]).forEach(function(entry,i){
+        var parts=entry.split('|');
+        text+=(i+1)+'. '+parts[0]+' — '+parts[1]+'\n';
+    });
+    text+='\nhttps://matchtest.site/pet-name.html';
+    if(navigator.clipboard){navigator.clipboard.writeText(text).then(function(){alert(u.copied)})}
+    else{var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);alert(u.copied)}
+}
+
+document.getElementById('langBar').addEventListener('click',function(e){
+    if(e.target.classList.contains('lang-btn')){
+        lang=e.target.dataset.lang;
+        document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===lang)});
+        renderUI();
+        document.getElementById('resultArea').style.display='none';
+    }
+});
+
+renderUI();
+</script>
+</body>
+</html>

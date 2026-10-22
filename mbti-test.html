@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI 테스트 — 무료 성격유형 검사 | Free MBTI Personality Test</title>
+    <meta name="description" content="20개 질문으로 나의 MBTI 성격유형을 알아보세요. 무료 MBTI 테스트, 4개 언어 지원. 결과를 바로 MBTI 궁합 테스트로 연결!">
+    <meta name="keywords" content="MBTI 테스트, MBTI 검사, 무료 MBTI, 성격유형 테스트, personality test, MBTI quiz, 性格タイプ診断, MBTI测试">
+    <meta property="og:title" content="MBTI 테스트 — 나의 성격유형은? | Free MBTI Test">
+    <meta property="og:description" content="20개 질문으로 나의 MBTI 유형을 확인하세요! 무료, 4개 언어 지원.">
+    <meta property="og:url" content="https://matchtest.site/mbti-test.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://img.icons8.com/clouds/256/hearts.png">
+    <link rel="canonical" href="https://matchtest.site/mbti-test.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>" type="image/svg+xml">
+    <meta name="google-site-verification" content="vN7ujwLUtM1wJGo9komsV0eqLuyDMsxxJkclv1kqXdA" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6668425393052932" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "MBTI 테스트 — Free MBTI Personality Test",
+      "url": "https://matchtest.site/mbti-test.html",
+      "description": "20개 질문으로 나의 MBTI 성격유형을 확인하는 무료 테스트입니다.",
+      "applicationCategory": "EntertainmentApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+    }
+    </script>
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --pink-50:#fdf2f8;--pink-100:#fce7f3;--pink-200:#fbcfe8;
+            --pink-400:#f472b6;--pink-500:#ec4899;--pink-600:#db2777;
+            --purple-400:#c084fc;--purple-500:#a855f7;
+            --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
+            --gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;
+            --gray-700:#374151;
+        }
+        body{
+            font-family:'Noto Sans','Noto Sans KR','Noto Sans JP','Noto Sans SC',sans-serif;
+            min-height:100vh;display:flex;flex-direction:column;
+            background:linear-gradient(160deg,#fdf2f8 0%,#fce7f3 40%,#fbcfe8 100%);
+            color:var(--gray-700);line-height:1.6;
+        }
+        a{color:var(--pink-500);text-decoration:none}a:hover{text-decoration:underline}
+
+        .floating-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+        .floating-bg span{position:absolute;opacity:.08;animation:drift linear infinite}
+        @keyframes drift{0%{transform:translateY(105vh) rotate(0) scale(.8);opacity:0}8%{opacity:.08}92%{opacity:.08}100%{transform:translateY(-8vh) rotate(360deg) scale(1.2);opacity:0}}
+
+        .site-nav{position:relative;z-index:10;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--pink-100);padding:10px 20px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+        .site-nav a{font-size:13px;font-weight:600;color:var(--gray-500);padding:4px 10px;border-radius:8px;transition:all .2s}
+        .site-nav a:hover,.site-nav a.active{background:var(--pink-500);color:white;text-decoration:none}
+
+        .test-tabs{position:relative;z-index:10;display:flex;justify-content:center;gap:0;padding:16px 16px 0}
+        .test-tab{padding:10px 18px;font-size:13px;font-weight:700;border:2px solid var(--pink-200);background:white;color:var(--pink-400);cursor:pointer;transition:all .2s;text-decoration:none}
+        .test-tab:first-child{border-radius:12px 0 0 12px}
+        .test-tab:last-child{border-radius:0 12px 12px 0}
+        .test-tab:nth-child(2),.test-tab:nth-child(3){border-left:none}
+        .test-tab:hover{background:var(--pink-50);text-decoration:none}
+        .test-tab.active{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));color:white;border-color:transparent}
+
+        main{flex:1;display:flex;flex-direction:column;align-items:center;padding:16px 16px 10px}
+
+        .card{position:relative;z-index:1;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);width:480px;max-width:100%;border-radius:24px;box-shadow:0 24px 48px rgba(236,72,153,.12),0 0 0 1px rgba(236,72,153,.06);overflow:hidden;margin-bottom:32px}
+        .header{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));padding:28px 20px 24px;text-align:center;color:white;position:relative;overflow:hidden}
+        .header::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:20px;background:rgba(255,255,255,.92);border-radius:50% 50% 0 0/100% 100% 0 0}
+        .header h1{font-family:'Fredoka',sans-serif;font-size:24px;font-weight:700;margin-bottom:4px}
+        .header p{font-size:13px;opacity:.85}
+
+        .lang-bar{display:flex;justify-content:center;gap:4px;padding:14px 16px 6px}
+        .lang-btn{padding:5px 10px;border:1.5px solid var(--pink-200);border-radius:100px;background:white;font-size:12px;font-weight:600;color:var(--pink-400);cursor:pointer;transition:all .2s}
+        .lang-btn:hover,.lang-btn.active{background:var(--pink-500);border-color:var(--pink-500);color:white}
+
+        .body{padding:18px 22px 24px}
+
+        .progress-bar{height:6px;background:var(--pink-100);border-radius:100px;margin-bottom:16px;overflow:hidden}
+        .progress-fill{height:100%;background:linear-gradient(90deg,var(--pink-500),var(--purple-500));border-radius:100px;transition:width .4s ease;width:0%}
+        .progress-text{text-align:center;font-size:12px;color:var(--gray-400);margin-bottom:16px}
+
+        .question{margin-bottom:20px;animation:fadeIn .4s ease}
+        @keyframes fadeIn{0%{opacity:0;transform:translateX(20px)}100%{opacity:1;transform:translateX(0)}}
+        .question-text{font-size:15px;font-weight:700;color:var(--gray-700);text-align:center;margin-bottom:16px;line-height:1.5}
+        .option{
+            display:block;width:100%;padding:14px 16px;margin-bottom:10px;
+            border:2px solid var(--pink-100);border-radius:14px;background:white;
+            font-size:14px;color:var(--gray-600);cursor:pointer;transition:all .2s;text-align:left;
+        }
+        .option:hover{border-color:var(--pink-400);background:var(--pink-50)}
+        .option:active{transform:scale(.98)}
+
+        .result-section{display:none;text-align:center;animation:popIn .5s cubic-bezier(.34,1.56,.64,1)}
+        @keyframes popIn{0%{opacity:0;transform:scale(.85) translateY(12px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+        .result-emoji{font-size:64px;margin-bottom:8px}
+        .result-type{font-family:'Fredoka',sans-serif;font-size:48px;font-weight:700;background:linear-gradient(135deg,var(--pink-500),var(--purple-500));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+        .result-name{font-size:18px;font-weight:700;color:var(--gray-700);margin-bottom:16px}
+        .result-desc{font-size:14px;color:var(--gray-600);line-height:1.7;padding:14px;background:var(--pink-50);border-radius:14px;text-align:left;margin-bottom:16px}
+        .result-traits{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+        .trait{padding:10px;background:white;border-radius:12px;border:1px solid var(--pink-100);font-size:12px;font-weight:600;color:var(--gray-600)}
+        .trait strong{display:block;color:var(--purple-500);margin-bottom:2px}
+
+        .cta-buttons{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+        .btn-primary{display:block;width:100%;padding:14px;border:none;border-radius:50px;font-size:15px;font-weight:700;color:white;background:linear-gradient(135deg,var(--purple-500),var(--pink-500));cursor:pointer;box-shadow:0 6px 20px rgba(168,85,247,.3);transition:transform .1s;text-align:center;text-decoration:none}
+        .btn-primary:hover{text-decoration:none;opacity:.95}
+        .btn-secondary{display:block;width:100%;padding:12px;border:2px solid var(--pink-200);border-radius:50px;font-size:14px;font-weight:700;color:var(--pink-500);background:white;cursor:pointer;transition:all .2s;text-align:center;text-decoration:none}
+        .btn-secondary:hover{background:var(--pink-50);text-decoration:none}
+
+        .share-row{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
+        .share-btn{padding:8px 16px;border:2px solid var(--pink-200);border-radius:10px;background:white;font-size:12px;font-weight:700;color:var(--pink-500);cursor:pointer;transition:all .2s}
+        .share-btn:hover{background:var(--pink-500);border-color:var(--pink-500);color:white}
+        .share-btn.twitter{border-color:#1d9bf0;color:#1d9bf0}
+        .share-btn.twitter:hover{background:#1d9bf0;color:white}
+
+        .retry-btn{display:inline-block;padding:7px 18px;border:2px solid var(--gray-200);border-radius:100px;background:none;font-size:12px;font-weight:700;color:var(--gray-400);cursor:pointer;transition:all .2s}
+        .retry-btn:hover{border-color:var(--pink-400);color:var(--pink-400)}
+
+        .site-footer{position:relative;z-index:1;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border-top:1px solid var(--pink-100);padding:20px;text-align:center;font-size:12px;color:var(--gray-400)}
+        .site-footer a{color:var(--gray-500);margin:0 8px}
+
+        @media(max-width:420px){.card{border-radius:20px}.result-type{font-size:40px}.result-traits{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="floating-bg" id="floatingBg"></div>
+
+<nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+</nav>
+
+<div class="test-tabs">
+    <a href="index.html" class="test-tab">💕 이름궁합</a>
+    <a href="mbti-test.html" class="test-tab active">🧠 MBTI 검사</a>
+    <a href="mbti.html" class="test-tab">💜 MBTI 궁합</a>
+    <a href="pet-name.html" class="test-tab">🐾 펫 작명소</a>
+</div>
+
+<main>
+<div class="card">
+    <div class="header">
+        <h1 id="t-title">MBTI 성격유형 테스트</h1>
+        <p id="t-subtitle">20개 질문으로 나의 MBTI를 알아보세요</p>
+    </div>
+    <div class="lang-bar" id="langBar">
+        <button class="lang-btn active" data-lang="ko">KO</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ja">JA</button>
+        <button class="lang-btn" data-lang="zh">ZH</button>
+    </div>
+    <div class="body">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-text" id="progressText">1 / 20</div>
+        <div id="questionArea"></div>
+        <div class="result-section" id="resultSection">
+            <div class="result-emoji" id="resultEmoji"></div>
+            <div class="result-type" id="resultType"></div>
+            <div class="result-name" id="resultName"></div>
+            <div class="result-desc" id="resultDesc"></div>
+            <div class="result-traits" id="resultTraits"></div>
+            <div class="cta-buttons">
+                <a href="mbti.html" class="btn-primary" id="ctaCompat">💕 이 유형으로 궁합 테스트 하기</a>
+                <a href="index.html" class="btn-secondary">💕 이름궁합도 해보기</a>
+            </div>
+            <div class="share-row">
+                <button class="share-btn twitter" onclick="shareTwitter()">𝕏 Twitter</button>
+                <button class="share-btn" id="t-copyBtn" onclick="copyResult()">🔗 복사</button>
+            </div>
+            <button class="retry-btn" onclick="startTest()">다시 하기</button>
+        </div>
+    </div>
+</div>
+</main>
+
+<footer class="site-footer">
+    <div><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+    <div style="margin-top:8px">&copy; 2026 Love Match Test. All rights reserved. For entertainment purposes only.</div>
+</footer>
+
+<script>
+(function(){var c=document.getElementById('floatingBg'),items=['🧠','💜','✨','💫','🩷','⭐'];for(var i=0;i<14;i++){var s=document.createElement('span');s.textContent=items[i%items.length];s.style.left=(Math.random()*100)+'%';s.style.fontSize=(14+Math.random()*18)+'px';s.style.animationDuration=(10+Math.random()*15)+'s';s.style.animationDelay=(Math.random()*12)+'s';c.appendChild(s)}})();
+
+var EMOJIS={INTJ:'🏗️',INTP:'🧪',ENTJ:'👑',ENTP:'💡',INFJ:'🔮',INFP:'🌸',ENFJ:'🌟',ENFP:'🦋',ISTJ:'📋',ISFJ:'🛡️',ESTJ:'⚖️',ESFJ:'🤝',ISTP:'🔧',ISFP:'🎨',ESTP:'🏄',ESFP:'🎭'};
+
+var Q={
+ko:[
+{q:"주말에 에너지를 충전하는 방법은?",a:"친구들과 만나서 놀기",b:"혼자 집에서 쉬기",d:"EI"},
+{q:"새로운 사람을 만나면?",a:"먼저 말을 걸고 대화를 이끈다",b:"상대가 먼저 말 걸기를 기다린다",d:"EI"},
+{q:"모임에서 나는?",a:"여러 사람과 두루 이야기한다",b:"소수의 사람과 깊이 이야기한다",d:"EI"},
+{q:"전화가 오면?",a:"바로 받는다",b:"가능하면 문자로 대체한다",d:"EI"},
+{q:"일할 때 더 좋은 환경은?",a:"사람들과 함께 일하는 사무실",b:"조용히 집중할 수 있는 혼자만의 공간",d:"EI"},
+{q:"새로운 것을 배울 때?",a:"실제로 해보면서 배운다",b:"이론과 개념을 먼저 이해한다",d:"SN"},
+{q:"여행 계획을 세울 때?",a:"구체적인 일정과 맛집을 미리 정한다",b:"대략적 방향만 정하고 즉흥적으로 간다",d:"SN"},
+{q:"대화할 때 더 관심 있는 건?",a:"실제 경험과 구체적 사실",b:"아이디어와 가능성",d:"SN"},
+{q:"설명서를 읽을 때?",a:"순서대로 차근차근 읽는다",b:"필요한 부분만 골라 읽는다",d:"SN"},
+{q:"나를 더 잘 설명하는 건?",a:"현실적이고 실용적인 사람",b:"상상력이 풍부한 사람",d:"SN"},
+{q:"친구가 고민을 말하면?",a:"해결책을 제시한다",b:"공감하고 감정을 들어준다",d:"TF"},
+{q:"결정을 내릴 때 중요한 건?",a:"논리적으로 맞는지",b:"관련된 사람들의 감정",d:"TF"},
+{q:"비판을 받았을 때?",a:"객관적으로 맞는 말인지 분석한다",b:"감정적으로 상처를 받는다",d:"TF"},
+{q:"칭찬할 때 나는?",a:"구체적인 성과를 언급한다",b:"상대방의 기분을 좋게 하려 한다",d:"TF"},
+{q:"팀 프로젝트에서 갈등이 생기면?",a:"객관적 기준으로 판단한다",b:"모두의 의견을 조율하려 한다",d:"TF"},
+{q:"약속 시간에 대해?",a:"항상 정시 또는 일찍 도착한다",b:"상황에 따라 유연하게 한다",d:"JP"},
+{q:"할 일 목록은?",a:"작성하고 하나씩 체크한다",b:"머릿속에 대충 있다",d:"JP"},
+{q:"마감이 다가오면?",a:"미리미리 끝내놓는다",b:"마감 직전에 집중력이 폭발한다",d:"JP"},
+{q:"여행 가방을 쌀 때?",a:"체크리스트를 만들어 빠짐없이 챙긴다",b:"필요한 것을 떠오르는 대로 넣는다",d:"JP"},
+{q:"계획이 갑자기 바뀌면?",a:"스트레스를 받는다",b:"새로운 가능성에 흥미를 느낀다",d:"JP"}
+],
+en:[
+{q:"How do you recharge on weekends?",a:"Hanging out with friends",b:"Relaxing alone at home",d:"EI"},
+{q:"When you meet someone new?",a:"I start the conversation",b:"I wait for them to approach me",d:"EI"},
+{q:"At a gathering, I tend to...",a:"Talk with many different people",b:"Have deep conversations with a few",d:"EI"},
+{q:"When the phone rings?",a:"I pick up right away",b:"I prefer to text instead",d:"EI"},
+{q:"My ideal work environment is...",a:"A bustling office with colleagues",b:"A quiet space where I can focus alone",d:"EI"},
+{q:"When learning something new?",a:"I learn by doing",b:"I understand the theory first",d:"SN"},
+{q:"Planning a trip?",a:"I plan every detail in advance",b:"I go with the flow",d:"SN"},
+{q:"In conversations, I'm more interested in...",a:"Real experiences and concrete facts",b:"Ideas and possibilities",d:"SN"},
+{q:"When reading instructions?",a:"I follow step by step",b:"I skip to what I need",d:"SN"},
+{q:"I'd describe myself as...",a:"Practical and realistic",b:"Imaginative and creative",d:"SN"},
+{q:"When a friend shares a problem?",a:"I offer solutions",b:"I listen and empathize",d:"TF"},
+{q:"When making decisions, I prioritize...",a:"Logic and objectivity",b:"People's feelings",d:"TF"},
+{q:"When receiving criticism?",a:"I analyze if it's objectively valid",b:"I feel hurt emotionally",d:"TF"},
+{q:"When giving compliments?",a:"I mention specific achievements",b:"I focus on making them feel good",d:"TF"},
+{q:"In team conflicts?",a:"I judge by objective criteria",b:"I try to mediate everyone's feelings",d:"TF"},
+{q:"About being on time?",a:"I'm always punctual or early",b:"I'm flexible depending on the situation",d:"JP"},
+{q:"To-do lists?",a:"I write them and check off each item",b:"They exist loosely in my head",d:"JP"},
+{q:"When a deadline approaches?",a:"I finish well in advance",b:"I do my best work under pressure",d:"JP"},
+{q:"Packing for a trip?",a:"I use a checklist",b:"I toss in whatever comes to mind",d:"JP"},
+{q:"When plans suddenly change?",a:"I feel stressed",b:"I get excited about new possibilities",d:"JP"}
+],
+ja:[
+{q:"週末のエネルギー充電方法は？",a:"友達と遊ぶ",b:"一人で家でゆっくりする",d:"EI"},
+{q:"初対面の人に会ったら？",a:"自分から話しかける",b:"相手が話しかけてくるのを待つ",d:"EI"},
+{q:"集まりでの自分は？",a:"いろんな人と広く話す",b:"少人数と深く話す",d:"EI"},
+{q:"電話がかかってきたら？",a:"すぐ出る",b:"できればLINEで済ませたい",d:"EI"},
+{q:"理想的な仕事環境は？",a:"みんなと一緒のオフィス",b:"一人で集中できる静かな場所",d:"EI"},
+{q:"新しいことを学ぶ時？",a:"やってみながら覚える",b:"まず理論を理解する",d:"SN"},
+{q:"旅行の計画は？",a:"細かいスケジュールを立てる",b:"大まかな方向だけ決めて即興で",d:"SN"},
+{q:"会話で興味があるのは？",a:"実体験と具体的な事実",b:"アイデアと可能性",d:"SN"},
+{q:"説明書を読む時？",a:"順番通りに読む",b:"必要な部分だけ読む",d:"SN"},
+{q:"自分を表すのは？",a:"現実的で実用的な人",b:"想像力豊かな人",d:"SN"},
+{q:"友達が悩みを話したら？",a:"解決策を提案する",b:"共感して気持ちを聞く",d:"TF"},
+{q:"決断する時に大切なのは？",a:"論理的に正しいか",b:"関係者の気持ち",d:"TF"},
+{q:"批判を受けた時？",a:"客観的に正しいか分析する",b:"感情的に傷つく",d:"TF"},
+{q:"褒める時の自分は？",a:"具体的な成果を挙げる",b:"相手の気分を良くしようとする",d:"TF"},
+{q:"チームで対立が起きたら？",a:"客観的基準で判断する",b:"全員の意見を調整しようとする",d:"TF"},
+{q:"時間について？",a:"いつも時間通りか早めに到着",b:"状況に応じて柔軟に",d:"JP"},
+{q:"ToDoリストは？",a:"書いて一つずつチェックする",b:"頭の中にざっくりある",d:"JP"},
+{q:"締め切りが近づいたら？",a:"事前に終わらせておく",b:"直前に集中力が爆発する",d:"JP"},
+{q:"旅行の荷造りは？",a:"チェックリストを作って漏れなく",b:"思いついたものを入れる",d:"JP"},
+{q:"予定が急に変わったら？",a:"ストレスを感じる",b:"新しい可能性にワクワクする",d:"JP"}
+],
+zh:[
+{q:"周末怎么充电？",a:"和朋友出去玩",b:"一个人在家休息",d:"EI"},
+{q:"遇到新朋友时？",a:"主动搭话",b:"等对方先开口",d:"EI"},
+{q:"聚会上的我？",a:"和很多人聊天",b:"和少数人深聊",d:"EI"},
+{q:"电话响了？",a:"马上接",b:"能发消息就发消息",d:"EI"},
+{q:"理想的工作环境？",a:"和同事一起的办公室",b:"安静的独处空间",d:"EI"},
+{q:"学新东西时？",a:"边做边学",b:"先理解理论",d:"SN"},
+{q:"计划旅行？",a:"提前安排好所有细节",b:"大致方向定了就随性走",d:"SN"},
+{q:"聊天时更感兴趣的是？",a:"真实经历和具体事实",b:"想法和可能性",d:"SN"},
+{q:"看说明书时？",a:"按顺序一步步看",b:"只看需要的部分",d:"SN"},
+{q:"更能描述我的是？",a:"务实的人",b:"富有想象力的人",d:"SN"},
+{q:"朋友诉苦时？",a:"给出解决方案",b:"倾听和共情",d:"TF"},
+{q:"做决定时看重的是？",a:"逻辑上是否正确",b:"相关人的感受",d:"TF"},
+{q:"被批评时？",a:"客观分析是否有道理",b:"情感上会受伤",d:"TF"},
+{q:"表扬别人时？",a:"提到具体的成就",b:"让对方开心",d:"TF"},
+{q:"团队有矛盾时？",a:"用客观标准判断",b:"协调大家的感受",d:"TF"},
+{q:"关于守时？",a:"总是准时或提前到",b:"看情况灵活处理",d:"JP"},
+{q:"待办清单？",a:"写下来逐个打勾",b:"大概在脑子里",d:"JP"},
+{q:"截止日期快到了？",a:"提前完成",b:"临近时爆发力最强",d:"JP"},
+{q:"整理行李时？",a:"用清单确保不遗漏",b:"想到什么放什么",d:"JP"},
+{q:"计划突然变了？",a:"感到有压力",b:"对新可能性感到兴奋",d:"JP"}
+]
+};
+
+var NAMES={
+ko:{INTJ:"전략가",INTP:"논리학자",ENTJ:"통솔자",ENTP:"변론가",INFJ:"옹호자",INFP:"중재자",ENFJ:"선도자",ENFP:"활동가",ISTJ:"현실주의자",ISFJ:"수호자",ESTJ:"경영자",ESFJ:"외교관",ISTP:"장인",ISFP:"모험가",ESTP:"사업가",ESFP:"연예인"},
+en:{INTJ:"Architect",INTP:"Logician",ENTJ:"Commander",ENTP:"Debater",INFJ:"Advocate",INFP:"Mediator",ENFJ:"Protagonist",ENFP:"Campaigner",ISTJ:"Logistician",ISFJ:"Defender",ESTJ:"Executive",ESFJ:"Consul",ISTP:"Virtuoso",ISFP:"Adventurer",ESTP:"Entrepreneur",ESFP:"Entertainer"},
+ja:{INTJ:"建築家",INTP:"論理学者",ENTJ:"指揮官",ENTP:"討論者",INFJ:"提唱者",INFP:"仲介者",ENFJ:"主人公",ENFP:"運動家",ISTJ:"管理者",ISFJ:"擁護者",ESTJ:"幹部",ESFJ:"領事",ISTP:"巨匠",ISFP:"冒険家",ESTP:"起業家",ESFP:"エンターテイナー"},
+zh:{INTJ:"建筑师",INTP:"逻辑学家",ENTJ:"指挥官",ENTP:"辩论家",INFJ:"提倡者",INFP:"调停者",ENFJ:"主人公",ENFP:"竞选者",ISTJ:"物流师",ISFJ:"守卫者",ESTJ:"总经理",ESFJ:"执政官",ISTP:"鉴赏家",ISFP:"探险家",ESTP:"企业家",ESFP:"表演者"}
+};
+
+var DESC={
+ko:{
+INTJ:"당신의 머릿속에는 항상 거대한 체스판이 펼쳐져 있습니다. 세상을 바라보는 눈이 남다르고, 다른 사람들이 '그냥 그런 거지' 하고 넘기는 것에서 패턴과 구조를 발견해냅니다. 혼자 있는 시간이 곧 생산적인 시간이며, 깊이 있는 사고 끝에 나오는 한마디가 회의실 전체를 뒤흔들기도 합니다. 겉으로는 차가워 보일 수 있지만, 사실 당신이 가장 걱정하는 건 '이 일이 제대로 되고 있는가'입니다. 비효율을 참지 못하고, 완벽에 가까운 결과물을 만들어낼 때 가장 큰 만족을 느낍니다. 연애에서도 감정적 교류보다 지적인 대화에서 불꽃이 튀는 타입입니다.",
+INTP:"당신의 뇌는 쉬는 법을 모릅니다. 샤워하다가 우주의 원리를 생각하고, 잠들기 전에 갑자기 떠오른 아이디어에 흥분해서 잠을 못 이루기도 합니다. '왜?'라는 질문이 당신의 원동력이며, 어떤 주제든 깊이 파고들면 시간 가는 줄 모릅니다. 사람들은 당신의 독특한 시각에 놀라기도 하고, 때로는 '그걸 왜 생각해?'라는 반응을 보이기도 합니다. 하지만 당신이 집중해서 만들어낸 해결책은 누구도 생각하지 못한 것일 때가 많습니다. 감정 표현이 서툴 수 있지만, 진심으로 아끼는 사람에게는 의외로 다정한 모습을 보여줍니다.",
+ENTJ:"방에 들어서는 순간 공기가 달라집니다. 당신은 태어날 때부터 '이끄는 사람'의 에너지를 가지고 있습니다. 목표가 정해지면 거침없이 달려가고, 중간에 장애물이 있으면 부수거나 우회하거나 아예 새로운 길을 만들어버립니다. 사람들이 우물쭈물할 때 '그래서 결론이 뭔데?'라고 물어보는 타입이며, 그 직설적인 성격이 때로는 무섭게 느껴질 수 있습니다. 하지만 당신을 따르는 사람들은 알고 있습니다 — 당신과 함께하면 반드시 결과가 나온다는 것을. 연애에서도 주도적이며, 상대를 성장시키는 파트너가 됩니다.",
+ENTP:"당신과 대화하면 지루할 틈이 없습니다. 화제가 10초마다 바뀌고, 엉뚱한 농담과 날카로운 통찰이 번갈아 나옵니다. '악마의 대변인' 역할을 즐기며, 모두가 동의하는 순간 일부러 반대 의견을 내기도 합니다. 이건 논쟁을 좋아해서가 아니라, 모든 각도에서 생각해봐야 직성이 풀리기 때문입니다. 새로운 프로젝트를 시작하는 건 좋아하지만 마무리는... 음, 그건 좀 지루하죠. 연애할 때도 지적인 자극을 주는 상대에게 강하게 끌리며, 서로 성장하는 관계를 원합니다.",
+INFJ:"전체 인구의 약 1~2%밖에 되지 않는 희귀한 유형, 그것이 바로 당신입니다. 사람들 사이에 있으면 분위기를 직감적으로 읽어내고, 상대방이 말하지 않은 감정까지 눈치채는 능력이 있습니다. 겉으로는 조용하지만 내면에는 세상을 바꾸고 싶은 뜨거운 열정이 있습니다. '이 세상이 좀 더 나아질 수 있지 않을까?' 하는 생각을 늘 품고 살며, 실제로 행동으로 옮기는 실천력도 있습니다. 다만 에너지 소모가 크기 때문에 혼자만의 충전 시간이 반드시 필요합니다. 연애에서는 깊고 의미 있는 관계를 추구하며, 피상적인 만남에는 관심이 없습니다.",
+INFP:"당신의 내면에는 하나의 우주가 있습니다. 상상력이 풍부하고 감수성이 깊어서, 같은 노을을 봐도 다른 사람보다 더 많은 것을 느낍니다. 가치관이 명확하며, 자신이 믿는 것을 위해서는 놀라울 정도의 단호함을 보여줍니다. 겉으로는 순하고 조용해 보이지만, 누군가 당신이 소중히 여기는 가치를 건드리면 사자처럼 변할 수 있습니다. 글쓰기, 음악, 예술 등 창작 활동에서 빛을 발하며, 자신만의 의미를 찾는 여정을 평생 계속합니다. 연애할 때는 영혼의 단짝을 찾고 싶어 하며, 진정한 이해와 공감을 원합니다.",
+ENFJ:"당신이 있는 곳에는 자연스럽게 사람이 모입니다. 따뜻한 카리스마의 소유자인 당신은 상대방의 잠재력을 알아보고 꽃피우게 만드는 재능이 있습니다. '너는 이걸 잘할 수 있어'라는 당신의 한마디가 누군가의 인생을 바꿀 수도 있습니다. 모임의 분위기 메이커이자 중재자이며, 갈등이 생기면 누구보다 빠르게 해결하려 합니다. 다만 너무 남을 챙기다 보면 정작 자신은 지치는 경우가 있으니 주의가 필요합니다. 연애에서는 상대방의 성장을 적극적으로 지원하며, 함께 발전하는 관계에서 행복을 느낍니다.",
+ENFP:"당신은 걸어다니는 긍정 에너지입니다! 새로운 사람, 새로운 아이디어, 새로운 경험 — '새로운' 것이면 눈이 반짝거립니다. 대화할 때 이 주제에서 저 주제로 자유롭게 넘나들며, 어디서나 연결고리를 찾아냅니다. 사람들의 숨겨진 잠재력을 발견하는 데 탁월하고, 당신과 이야기한 사람은 왠지 모르게 기분이 좋아집니다. 다만 아이디어는 넘치는데 실행력이 따라가지 못할 때가 있고, 루틴한 일상은 당신에게 감옥 같을 수 있습니다. 연애에서는 열정적이고 로맨틱하며, 진정한 깊이 있는 연결을 원합니다.",
+ISTJ:"당신이 '하겠다'고 하면 반드시 합니다. 세상에서 가장 믿을 수 있는 사람이 ISTJ라는 말은 절대 과장이 아닙니다. 약속 시간 5분 전에 도착하고, 할 일 목록을 완벽하게 체크하며, 한번 맡은 일은 끝까지 해냅니다. '원칙'이라는 단어를 좋아하며, 규칙이 있는 이유가 있다고 믿습니다. 주변에서 '융통성이 없다'고 할 수 있지만, 팀에서 가장 먼저 구해야 할 사람이 바로 ISTJ입니다. 묵묵히 일하지만 결과로 말하는 타입이며, 연애에서도 말보다 행동으로 사랑을 표현합니다.",
+ISFJ:"조용한 영웅, 그것이 당신입니다. 주변 사람들의 작은 변화도 놓치지 않는 세심함을 가지고 있으며, '너 오늘 기분 안 좋지?'라고 물어보는 유일한 사람이 바로 당신일 때가 많습니다. 자신을 드러내는 것보다 뒤에서 묵묵히 지원하는 것을 좋아하며, 당신이 없으면 모든 것이 삐걱거리기 시작합니다. 기억력이 뛰어나서 누가 무엇을 좋아하는지, 언제 생일인지 다 기억하고 있습니다. 다만 자신의 필요를 뒤로 미루는 경향이 있으니, 가끔은 자신도 챙겨주세요. 연애에서는 헌신적이고 따뜻하며, 안정적인 관계를 만들어갑니다.",
+ESTJ:"'누가 책임질 거야?'라는 질문에 가장 먼저 손을 드는 사람, 그게 당신입니다. 체계와 효율을 사랑하며, 혼란스러운 상황을 정리정돈하는 데 탁월한 능력을 가지고 있습니다. 팀 프로젝트에서 자연스럽게 리더가 되며, 마감 기한을 칼같이 지킵니다. '할 거면 제대로 하자'가 인생 모토이며, 대충 넘어가는 것을 용납하지 않습니다. 직설적인 화법 때문에 오해를 사기도 하지만, 사실 당신은 팀의 성공을 누구보다 진심으로 원하는 사람입니다. 연애에서도 안정적이고 실질적인 방법으로 사랑을 표현합니다.",
+ESFJ:"당신이 있으면 모두가 편안합니다. 파티를 기획하면 모든 사람이 즐겁고, 팀에 새로운 사람이 오면 가장 먼저 다가가 환영해줍니다. '다들 괜찮은 거야?'가 입버릇이며, 사람들 사이의 관계를 조율하는 데 천재적입니다. 기념일을 절대 잊지 않고, 정성스러운 선물을 고르는 데 시간을 아끼지 않습니다. 때로는 남의 시선을 너무 의식하거나 갈등을 회피하려는 경향이 있지만, 당신이 만들어내는 따뜻한 분위기는 그 어떤 것으로도 대체할 수 없습니다. 연애에서는 헌신적이며, 기념일과 이벤트를 중시합니다.",
+ISTP:"당신은 '쿨한 해결사'입니다. 위기 상황에서 다른 사람들이 패닉에 빠질 때, 당신은 오히려 더 차분해지고 집중력이 높아집니다. 사물이 어떻게 작동하는지에 대한 본능적인 이해력이 있으며, 고장난 것을 고치거나 시스템을 분석하는 데 탁월합니다. 불필요한 말을 싫어하고 행동으로 보여주는 스타일이며, 자유롭게 탐구하는 시간이 필요합니다. 규칙에 얽매이는 것을 싫어하지만, 자신만의 원칙은 확고합니다. 연애에서는 표현이 서툴 수 있지만, 행동으로 진심을 보여주는 타입입니다.",
+ISFP:"당신은 일상에서 예술을 발견하는 사람입니다. 길가에 핀 꽃, 카페의 조명, 비 오는 날의 냄새 — 다른 사람이 무심코 지나치는 것들에서 아름다움을 찾아냅니다. 겉으로는 순하고 조용해 보이지만, 자신의 가치관에 어긋나는 일에는 놀라울 정도로 단호합니다. '남들이 다 하니까'라는 이유로 움직이지 않으며, 자신만의 길을 조용히 걸어갑니다. 자유를 무엇보다 중요시하며, 틀에 갇히는 것을 극도로 싫어합니다. 연애에서는 말보다 분위기로 사랑을 표현하며, 상대를 위한 작은 서프라이즈를 잘 준비합니다.",
+ESTP:"'일단 해보자!' 가 당신의 인생 모토입니다. 회의실에서 계획만 세우는 것보다 직접 부딪혀보는 것을 선호하며, 현장에서의 순발력과 적응력은 타의 추종을 불허합니다. 에너지가 넘치고 유머 감각이 뛰어나서 어디서든 인기가 많습니다. 위험을 두려워하지 않고, 오히려 스릴에서 에너지를 얻는 타입입니다. 장기 계획보다 지금 이 순간에 집중하며, 기회가 왔을 때 누구보다 빠르게 낚아챕니다. 연애에서는 적극적이고 재미있는 파트너이며, 매 순간을 특별하게 만들어줍니다.",
+ESFP:"당신이 등장하면 파티가 시작됩니다! 타고난 엔터테이너인 당신은 사람들을 웃게 만드는 재능이 있고, 어떤 자리든 분위기를 한 순간에 밝게 만듭니다. '인생은 한 번뿐이니까!'라는 철학으로 살며, 오늘을 최대한 즐기려 합니다. 감각이 뛰어나서 패션, 음식, 음악 등 감각적인 것들에 대한 안목이 남다릅니다. 때로는 즉흥적인 결정이 문제를 만들기도 하지만, 그마저도 재미있는 에피소드로 만들어버리는 능력이 있습니다. 연애에서는 낭만적이고 표현이 풍부하며, 함께하는 시간 자체를 축제로 만듭니다."
+},
+en:{
+INTJ:"Your mind is a chess board that never stops running. While others shrug things off with 'it is what it is,' you're already three steps ahead, spotting patterns and structures nobody else sees. Alone time isn't just preferred — it's productive time. One well-crafted sentence from you after deep thought can shift an entire room's direction. You may come across as cool or detached, but what keeps you up at night is whether things are being done right. Inefficiency physically bothers you, and peak satisfaction comes from producing something near-perfect. In romance, sparks fly through intellectual conversation more than emotional exchanges.",
+INTP:"Your brain simply doesn't have an off switch. You think about the fabric of reality in the shower and can't sleep because a random idea just lit up your neural pathways. 'But why?' is your rocket fuel, and when you dive into a topic, hours disappear like minutes. People are sometimes amazed by your unique angle, sometimes baffled by it. But the solutions you produce when truly focused are the ones nobody else could've conceived. Expressing feelings can be awkward, yet those lucky enough to be close to you discover a surprisingly tender side beneath all that logic.",
+ENTJ:"The air changes when you walk into a room. You were born with a leader's energy — goals get set, obstacles get demolished or bypassed, and new paths get forged when needed. You're the one asking 'so what's the bottom line?' while everyone else is still deliberating. That directness can intimidate, but the people who follow you know one thing for certain: with you, results happen. In relationships, you take the lead naturally and become the kind of partner who pushes their significant other to grow into their best self.",
+ENTP:"A conversation with you is never boring — topics change every ten seconds, absurd jokes alternate with razor-sharp insights. You love playing devil's advocate; the moment everyone agrees, you'll present the opposite case. Not because you love arguing, but because examining every angle is the only way your brain finds peace. Starting new projects? Thrilling. Finishing them? Well... that part's less exciting. In love, you're drawn to partners who challenge you intellectually, and you thrive in relationships where both people keep growing.",
+INFJ:"Making up roughly 1–2% of the population, you are one of the rarest types walking this earth. In any group, you instinctively read the emotional atmosphere and sense feelings people haven't even put into words yet. Outwardly quiet, inside burns a fierce passion to make the world better. 'Couldn't things be improved?' is the question you carry every day — and you actually act on it. But this empathic depth drains your battery fast, so solo recharge time isn't optional, it's survival. In romance, you seek deep, meaningful connections and have zero interest in anything surface-level.",
+INFP:"There's an entire universe inside you. Your imagination runs deep and your sensitivity is finely tuned — the same sunset hits you harder than it hits almost anyone else. Your values are crystal clear, and when something you believe in is threatened, you show a resolve that shocks people who assumed you were soft-spoken. Writing, music, art — creative expression is where you truly shine. The lifelong search for personal meaning never ends, and you wouldn't have it any other way. In love, you're looking for a soulmate, nothing less — real understanding and genuine empathy are non-negotiable.",
+ENFJ:"People naturally gravitate to wherever you are. With warm charisma, you have a gift for recognizing others' hidden potential and helping it bloom. A single 'I believe in you' from your lips can genuinely change someone's life. You're the mood-maker, the mediator, the first one on the scene when conflict arises. The risk? Caring for everyone else so much that you forget to care for yourself. Watch for burnout. In relationships, you actively invest in your partner's growth and find happiness in a bond where both people elevate each other.",
+ENFP:"You are walking, talking positive energy! New people, new ideas, new experiences — anything 'new' makes your eyes light up. Conversations bounce freely from topic to topic, and you spot connections others miss entirely. You have an uncanny knack for seeing hidden potential in people, and somehow everyone feels a little better after talking to you. The downside? Plenty of ideas, occasionally lacking follow-through, and routine feels like a cage. In love, you're passionate, romantic, and you want a connection with real depth — not just surface sparks.",
+ISTJ:"When you say you'll do it, it gets done. Calling ISTJs the most dependable people on earth isn't even an exaggeration. You arrive five minutes early, check every item off your to-do list, and see every task through to the end. 'Rules exist for a reason' is a principle you live by. Some call it inflexible; smart teams call it essential. You work quietly but let your results speak volumes. In love, actions mean more to you than words — you show affection through reliability and consistent, thoughtful gestures.",
+ISFJ:"The quiet hero — that's you. You catch every subtle shift in the people around you, and you're often the only one who asks 'are you okay today?' You'd rather support from behind the scenes than stand in the spotlight, yet without you, everything starts to creak. Your memory is remarkable — who likes what, when everyone's birthday is, that throwaway comment from three months ago. Just remember: your own needs matter too. Don't keep pushing them to the back of the line. In love, you're devoted and warm, building the kind of stable, nurturing relationship that others envy.",
+ESTJ:"'Who's going to take responsibility?' — you raise your hand first, every time. Structure and efficiency are your love languages, and you have an extraordinary talent for turning chaos into order. You're the natural project lead, the one who enforces deadlines and never lets standards slip. 'If we're doing this, we're doing it properly' might as well be tattooed on your soul. Your blunt communication style sometimes rubs people the wrong way, but what they don't see is that nobody wants the team to succeed more than you do. In love, you express affection in practical, grounded ways.",
+ESFJ:"Everyone relaxes when you're around. Your parties are the ones where nobody's left standing alone; when a newcomer joins the team, you're the first to extend a welcome. 'Is everyone okay?' is practically your catchphrase, and you have a genius-level talent for smoothing over social friction. Birthdays never slip your mind, and you'll spend real time finding the perfect gift. You might care a bit too much about what others think or avoid conflict at all costs, but the warmth you create is truly irreplaceable. In romance, you're devoted, thoughtful, and big on celebrating milestones.",
+ISTP:"You are the cool-headed fixer. While everyone else panics in a crisis, you get calmer and sharper. You have an instinctive understanding of how things work — give you a broken gadget or a tangled system and you'll have it sorted before anyone else finishes complaining. Wasted words annoy you; actions are your language. Freedom to explore and tinker is non-negotiable, and while you hate rigid rules imposed by others, your own internal code of conduct is rock-solid. In romance, you may struggle with words, but your actions speak louder than any love letter could.",
+ISFP:"You're the person who finds art in everyday life. A wildflower on the roadside, the glow of a café lamp, the smell of rain — beauty that others walk right past stops you in your tracks. Behind that gentle exterior is a surprising steel: push against your values and you'll see it instantly. You never move just because 'everyone else is doing it' — you walk your own quiet path. Freedom matters more than almost anything, and being boxed in feels suffocating. In love, you express affection through atmosphere and small surprises rather than grand declarations.",
+ESTP:"'Let's just do it!' — that's your life motto. You'd rather dive in headfirst than sit in a meeting room planning forever, and your on-the-ground reflexes and adaptability are unmatched. Energetic and funny, you're popular everywhere you go. Risk doesn't scare you — in fact, the thrill fuels you. Long-term plans bore you; seizing the moment excites you, and when opportunity knocks you grab it faster than anyone. In romance, you're the fun, spontaneous partner who turns every ordinary day into an adventure.",
+ESFP:"When you show up, the party starts! A natural-born entertainer, you have the gift of making people laugh and can light up any room in seconds. 'You only live once!' is your philosophy, and you squeeze every drop of joy from today. Your senses are sharp — fashion, food, music, aesthetics — your taste is always on point. Impulsive decisions sometimes backfire, but you somehow turn even mistakes into entertaining stories. In love, you're romantic, expressive, and have a talent for making time together feel like a celebration."
+},
+ja:{
+INTJ:"あなたの頭の中には、常に巨大なチェス盤が広がっています。他の人が「まあそんなもんでしょ」と流すところで、パターンや構造を見抜く目を持っています。一人の時間はまさに生産的な時間。深い思考の末に放つ一言が、会議室全体の空気を変えることもあります。クールに見られがちですが、本当に気にしているのは「この仕事がちゃんとできているか」ということ。非効率が耐えられず、完璧に近い成果物を作り上げた時に最大の満足を感じます。恋愛でも感情的なやり取りより、知的な会話で火花が散るタイプです。",
+INTP:"あなたの脳にオフスイッチはありません。シャワー中に宇宙の原理を考え、寝る前に突然ひらめいたアイデアに興奮して眠れなくなることもあります。「なぜ？」があなたの原動力で、あるテーマに没頭すると時間を忘れます。独特な視点に驚かれることもあれば、「なぜそんなことを考えるの？」と言われることも。でも集中して生み出した解決策は、誰も思いつかなかったものであることが多いです。感情表現は苦手かもしれませんが、大切な人には意外と優しい一面を見せます。",
+ENTJ:"あなたが部屋に入ると空気が変わります。生まれながらの「導く人」のエネルギーを持っています。目標が決まれば突き進み、障害は壊すか回り道するか新しい道を作ります。みんなが迷っている時に「で、結論は？」と聞くタイプ。その直球な性格は時に怖がられますが、あなたについていく人は知っています——あなたと一緒なら必ず結果が出ると。恋愛でも主導的で、相手を成長させるパートナーになります。",
+ENTP:"あなたとの会話に退屈な瞬間はありません。話題は10秒ごとに変わり、突飛なジョークと鋭い洞察が交互に飛び出します。「悪魔の代弁者」役を楽しみ、全員が同意した瞬間にわざと反対意見を出すことも。議論好きだからではなく、あらゆる角度から考えないと気が済まないから。新しいプロジェクトを始めるのは大好きですが、仕上げは…まあ、ちょっと退屈ですよね。恋愛では知的刺激をくれる相手に強く惹かれ、お互い成長できる関係を求めます。",
+INFJ:"全人口の約1〜2%しかいない希少なタイプ、それがあなたです。人の中にいると空気を直感的に読み取り、相手が言葉にしていない感情まで察する能力があります。外見は静かですが、内面には世界をより良くしたいという熱い情熱があります。「もっと良くできるんじゃないか」という思いを常に抱き、実際に行動に移す実行力も持っています。ただしエネルギーの消耗が激しいため、一人の充電時間は絶対に必要です。恋愛では深く意味のある関係を求め、表面的な付き合いには興味がありません。",
+INFP:"あなたの内面には一つの宇宙があります。想像力が豊かで感受性が深く、同じ夕焼けを見ても他の人より多くのことを感じます。価値観が明確で、信じるもののためには驚くほどの断固さを見せます。穏やかで静かに見えますが、大切にしている価値を踏みにじられたらライオンのように変わることがあります。創作活動で輝き、自分だけの意味を探す旅を一生続けます。恋愛では魂のパートナーを求め、本当の理解と共感を必要とします。",
+ENFJ:"あなたがいるところには自然と人が集まります。温かいカリスマの持ち主で、相手の潜在能力を見抜き花開かせる才能があります。「あなたならできるよ」という一言が誰かの人生を変えることもあります。場の盛り上げ役であり仲裁者であり、衝突が起きれば誰よりも早く解決しようとします。ただし人を気遣いすぎて自分が疲れてしまうことには注意が必要です。恋愛では相手の成長を積極的に支援し、共に高め合える関係に幸せを感じます。",
+ENFP:"あなたは歩くポジティブエネルギーです！新しい人、新しいアイデア、新しい体験——「新しい」ものなら目が輝きます。会話はあちこちに自由に飛び回り、至るところでつながりを見つけます。人の隠れた可能性を見抜く力に優れ、あなたと話した人はなぜか気分が良くなります。ただしアイデアは溢れるのに実行力が追いつかないことがあり、ルーティンな日常は牢獄に感じるかもしれません。恋愛では情熱的でロマンチック、本物の深い絆を求めます。",
+ISTJ:"あなたが「やる」と言えば、必ずやります。ISTJが世界で最も信頼できる人というのは決して大げさではありません。約束の5分前に到着し、ToDoリストを完璧にチェックし、引き受けた仕事は最後までやり遂げます。「ルールには理由がある」と信じ、「融通が利かない」と言われることもありますが、チームで最初に確保すべき人材がまさにISTJです。黙々と働きますが結果で語るタイプ。恋愛でも言葉より行動で愛を表現します。",
+ISFJ:"静かなヒーロー、それがあなたです。周りの人のささいな変化も見逃さない繊細さがあり、「今日元気ない？」と聞いてくれる唯一の人があなただったりします。目立つよりも裏方で支えることを好みますが、あなたがいなければ全てがきしみ始めます。記憶力が優れていて、誰が何を好きか、誕生日はいつか、全部覚えています。ただし自分のニーズを後回しにしがちなので、たまには自分も大切にしてください。恋愛では献身的で温かく、安定した関係を築いていきます。",
+ESTJ:"「誰が責任取るの？」という問いに真っ先に手を挙げる人、それがあなたです。体系と効率を愛し、混乱を整理する能力に優れています。チームプロジェクトで自然とリーダーになり、締め切りを厳守します。「やるなら徹底的に」が人生のモットー。直球な物言いで誤解されることもありますが、チームの成功を最も本気で願っているのはあなたです。恋愛でも安定的で実質的な方法で愛を表現します。",
+ESFJ:"あなたがいるとみんなリラックスします。あなたが企画するパーティーでは誰一人孤立せず、新メンバーが来れば一番に駆け寄って歓迎します。「みんな大丈夫？」が口癖で、人間関係の調整は天才的。記念日を絶対に忘れず、心のこもったプレゼント選びに時間を惜しみません。他人の目を気にしすぎたり衝突を避けようとする傾向はありますが、あなたが作り出す温かい雰囲気は何にも代えがたいものです。恋愛では献身的で、記念日やイベントを大切にします。",
+ISTP:"あなたは「クールな解決者」です。危機的状況で他の人がパニックになる中、あなたはむしろ冷静になり集中力が高まります。物の仕組みに対する本能的な理解力があり、壊れたものを直したりシステムを分析するのが得意です。無駄な言葉を嫌い、行動で示すスタイル。自由に探求する時間が必要で、他人に押し付けられるルールは嫌いですが、自分なりの原則は揺るぎません。恋愛では表現は不器用かもしれませんが、行動で本心を見せるタイプです。",
+ISFP:"あなたは日常に芸術を見出す人です。道端の花、カフェの灯り、雨の日の匂い——他の人が何気なく通り過ぎるものに美しさを見つけます。穏やかで静かに見えますが、自分の価値観に反することには驚くほど断固とします。「みんながやってるから」では動かず、自分だけの道を静かに歩みます。自由を何より大切にし、型にはめられることを極度に嫌います。恋愛では言葉より雰囲気で愛を表現し、小さなサプライズが得意です。",
+ESTP:"「とりあえずやってみよう！」があなたの人生モットー。会議室で計画だけ立てるより、実際にぶつかってみることを好み、現場での瞬発力と適応力は誰にも負けません。エネルギッシュでユーモアがあり、どこでも人気者。リスクを恐れず、むしろスリルからエネルギーを得ます。長期計画より今この瞬間に集中し、チャンスが来たら誰よりも早くつかみます。恋愛では積極的で楽しいパートナーで、毎日を特別にしてくれます。",
+ESFP:"あなたが現れるとパーティーが始まります！天性のエンターテイナーで、人を笑わせる才能があり、どんな場も一瞬で明るくします。「人生一度きり！」の精神で今日を最大限楽しもうとします。ファッション、料理、音楽など感覚的なものへのセンスが抜群。即興的な決断が裏目に出ることもありますが、失敗さえ面白いエピソードにしてしまう能力があります。恋愛ではロマンチックで表現豊かで、一緒にいる時間をお祭りにしてくれます。"
+},
+zh:{
+INTJ:"你的脑海里始终运转着一盘巨大的棋局。别人觉得「就那样吧」的事情，你总能从中发现别人看不到的模式和结构。独处时间就是生产力时间，深思熟虑后你说出的一句话，往往能改变整个会议室的方向。看起来可能有点冷漠，但真正让你失眠的是「这件事做对了吗」。效率低下会让你浑身不舒服，做出近乎完美的成果时才是你最满足的时刻。恋爱中，智识上的碰撞比情感交流更能让你心动。",
+INTP:"你的大脑根本没有关机键。洗澡时想宇宙原理，睡前因为一个突然冒出的点子兴奋到失眠。「为什么？」是你的火箭燃料，钻研一个课题时完全感觉不到时间流逝。人们有时惊叹于你独特的视角，有时觉得你想的太多。但当你真正专注时，给出的解决方案往往是别人想都想不到的。表达感情可能不太擅长，不过亲近你的人会发现你意外温柔的一面。",
+ENTJ:"你走进房间的那一刻，空气都变了。你天生带着「领导者」的气场。目标一旦确定就势不可挡，障碍要么被打破，要么被绕过，要么干脆开辟新路。别人还在犹豫时你已经问出了「所以结论是什么？」你的直言不讳有时候让人怕，但跟随你的人都明白一件事——跟你在一起，一定能出成果。恋爱中同样主导节奏，会成为推动对方成长的伴侣。",
+ENTP:"跟你聊天永远不无聊——话题每十秒换一个，荒诞的玩笑和犀利的洞察交替登场。你喜欢当「魔鬼代言人」，所有人都同意的时候你偏要提反面意见。不是因为爱吵架，而是不从每个角度想一遍就不踏实。开始新项目？太刺激了。收尾？嗯……那部分确实有点无聊。恋爱中你被能给予智力刺激的人深深吸引，期待一段彼此成长的关系。",
+INFJ:"全世界只有约1-2%的人是这个类型，这就是你。人群中你能直觉般地读懂氛围，感受到对方自己都还没意识到的情绪。外表安静，内心却燃烧着想让世界变得更好的强烈热情。「事情难道不能更好吗？」是你每天都在想的问题，而你也确实会付诸行动。但这种共情能力消耗很大，独处充电时间不是可选项，而是生存必需品。恋爱中追求深度、有意义的关系，对表面化的交往毫无兴趣。",
+INFP:"你的内心有一整个宇宙。想象力丰富、感受力深邃，同一片晚霞，你比别人感受到的要多得多。价值观清晰而坚定，当信念受到威胁时，你会展现出让人震惊的坚决。看起来温和安静，但如果有人触碰你珍视的价值，你可以瞬间变成一头狮子。创作活动中闪闪发光，寻找人生意义的旅程永不停歇。恋爱中你在寻找灵魂伴侣——真正的理解和共情是底线。",
+ENFJ:"你在的地方，人就自然聚拢过来。你有温暖的魅力，擅长发现别人的潜力并帮助它绽放。一句「我相信你可以」也许就能改变某人的人生。你是气氛担当、调解者，冲突出现时你总是第一个冲上去解决。但要小心：太照顾别人会忘了照顾自己。恋爱中你积极支持伴侣成长，在彼此提升的关系中找到幸福。",
+ENFP:"你就是行走的正能量！新的人、新的想法、新的体验——只要是「新」的，你的眼睛就会发光。聊天时话题自由跳跃，到处发现别人看不到的联系。你有一种不可思议的能力，能看到人们隐藏的潜力，跟你聊过的人都莫名觉得心情变好了。缺点？点子太多执行力偶尔跟不上，日复一日的规律生活简直像坐牢。恋爱中你热情浪漫，渴望真正有深度的连接。",
+ISTJ:"你说「我来做」的时候，就一定会做到。说ISTJ是世界上最靠谱的人，绝对不夸张。提前五分钟到场，待办清单逐一打勾，接手的任务一定做到底。「规则存在是有道理的」是你的信条。有人说你不够灵活，但聪明的团队知道——ISTJ是最先要确保到位的人。默默做事但用结果说话，恋爱中也是行动派，用可靠和细心表达爱意。",
+ISFJ:"安静的英雄，说的就是你。你能捕捉到周围人最细微的变化，常常是唯一一个主动问「你今天还好吗？」的人。比起站在聚光灯下，你更喜欢在幕后默默支持，但如果没有你，一切都会开始出问题。记忆力惊人——谁喜欢什么、谁的生日、三个月前的随口一提，你都记得。不过记得也照顾自己的需求，别总是排在最后。恋爱中你忠诚而温暖，能建立让人羡慕的稳定关系。",
+ESTJ:"「谁来负责？」——你总是第一个举手。你热爱体系和效率，化混乱为秩序的能力出类拔萃。在团队中自然成为领导者，截止日期雷打不动。「要做就做好」是你的人生格言，绝不允许敷衍了事。直来直去的说话方式有时会得罪人，但其实没有人比你更真心希望团队成功。恋爱中用稳定、务实的方式表达爱。",
+ESFJ:"有你在，所有人都放松了。你办的聚会没有人会被冷落，新同事来了你第一个迎上去。「大家都还好吧？」几乎是你的口头禅，协调人际关系简直是你的天赋。纪念日绝不会忘，选礼物会花很多心思。有时会太在意别人的看法或者回避冲突，但你营造的温暖氛围无可替代。恋爱中你非常投入，重视纪念日和仪式感。",
+ISTP:"你是那个「冷静的修理工」。别人在危机中慌乱时，你反而更冷静更专注。你对事物运作原理有本能的理解力，修东西或分析系统得心应手。讨厌废话，用行动证明一切。需要自由探索的时间，讨厌被别人的规则束缚，但自己的原则绝不动摇。恋爱中表达可能笨拙，但用行动展现真心。",
+ISFP:"你是在日常中发现艺术的人。路边的花、咖啡馆的灯光、雨天的气味——别人无心经过的事物，你能从中找到美。看起来温和安静，但碰到违背价值观的事你会出人意料地坚决。不会因为「大家都这么做」就跟风，安静地走自己的路。自由比什么都重要，被框住的感觉让你窒息。恋爱中用氛围和小惊喜表达爱，而不是大声宣告。",
+ESTP:"「先做了再说！」就是你的人生信条。比起在会议室做计划，你更喜欢亲自冲上去，现场的应变力和适应力无人能及。精力旺盛又幽默，走到哪都受欢迎。风险不会吓到你，反而让你兴奋。比起长期计划更专注当下，机会来了你比谁都抓得快。恋爱中你是积极又有趣的伴侣，能把每个普通的日子变成冒险。",
+ESFP:"你一出场，派对就开始了！天生的表演者，有让人开心的天赋，任何场合都能瞬间点亮。「人生只有一次！」是你的哲学，要把今天的快乐榨干。时尚、美食、音乐——你的感官品味总是很在线。即兴决定有时会翻车，但你居然能把失误也变成有趣的故事。恋爱中你浪漫又会表达，能把在一起的时光变成一场庆典。"
+}
+};
+
+var UI={
+ko:{title:"MBTI 성격유형 테스트",subtitle:"20개 질문으로 나의 MBTI를 알아보세요",cta:"이 유형으로 궁합 테스트 하기",ctaName:"이름궁합도 해보기",copy:"복사",retry:"다시 하기",copied:"복사되었습니다!",strengths:"강점",weaknesses:"성장 포인트"},
+en:{title:"MBTI Personality Test",subtitle:"Discover your MBTI type in 20 questions",cta:"Test compatibility with this type",ctaName:"Try Name Match too",copy:"Copy",retry:"Try Again",copied:"Copied!",strengths:"Strengths",weaknesses:"Growth Areas"},
+ja:{title:"MBTI性格タイプ診断",subtitle:"20の質問であなたのMBTIを発見",cta:"このタイプで相性テスト",ctaName:"名前相性も試す",copy:"コピー",retry:"もう一度",copied:"コピーしました！",strengths:"強み",weaknesses:"成長ポイント"},
+zh:{title:"MBTI性格类型测试",subtitle:"20个问题发现你的MBTI",cta:"用这个类型测缘分",ctaName:"也试试姓名缘分",copy:"复制",retry:"再来一次",copied:"已复制！",strengths:"优势",weaknesses:"成长方向"}
+};
+
+var TRAITS={
+E:{ko:"외향적 · 활발한 소통",en:"Extraverted · Active Communicator",ja:"外向的・活発なコミュニケーター",zh:"外向 · 积极沟通"},
+I:{ko:"내향적 · 깊은 사고",en:"Introverted · Deep Thinker",ja:"内向的・深い思考者",zh:"内向 · 深度思考"},
+S:{ko:"감각적 · 현실 중심",en:"Sensing · Reality-focused",ja:"感覚的・現実重視",zh:"感觉 · 注重现实"},
+N:{ko:"직관적 · 가능성 탐구",en:"Intuitive · Possibility Explorer",ja:"直観的・可能性の探求者",zh:"直觉 · 探索可能性"},
+T:{ko:"사고형 · 논리적 판단",en:"Thinking · Logical Decision-maker",ja:"思考型・論理的な判断",zh:"思维 · 逻辑决策"},
+F:{ko:"감정형 · 공감 능력",en:"Feeling · Empathetic",ja:"感情型・共感力",zh:"情感 · 善于共情"},
+J:{ko:"판단형 · 계획적 실행",en:"Judging · Organized Planner",ja:"判断型・計画的実行",zh:"判断 · 有条理的执行"},
+P:{ko:"인식형 · 유연한 적응",en:"Perceiving · Flexible Adapter",ja:"知覚型・柔軟な適応",zh:"感知 · 灵活适应"}
+};
+
+var lang='ko',qi=0,scores={E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0};
+
+document.getElementById('langBar').addEventListener('click',function(e){if(e.target.classList.contains('lang-btn')){lang=e.target.dataset.lang;document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===lang)});var u=UI[lang];document.getElementById('t-title').textContent=u.title;document.getElementById('t-subtitle').textContent=u.subtitle;startTest()}});
+
+function startTest(){
+    qi=0;scores={E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0};
+    document.getElementById('resultSection').style.display='none';
+    document.getElementById('questionArea').style.display='block';
+    document.getElementById('progressFill').style.width='0%';
+    showQuestion();
+}
+
+function showQuestion(){
+    var qs=Q[lang]||Q.en;
+    if(qi>=qs.length){showResult();return}
+    var q=qs[qi];
+    document.getElementById('progressText').textContent=(qi+1)+' / '+qs.length;
+    document.getElementById('progressFill').style.width=((qi/qs.length)*100)+'%';
+    var area=document.getElementById('questionArea');
+    area.innerHTML='<div class="question"><div class="question-text">'+q.q+'</div><button class="option" onclick="answer(\'a\')">'+q.a+'</button><button class="option" onclick="answer(\'b\')">'+q.b+'</button></div>';
+}
+
+function answer(choice){
+    var qs=Q[lang]||Q.en;
+    var q=qs[qi];
+    var dim=q.d;
+    if(choice==='a')scores[dim[0]]++;else scores[dim[1]]++;
+    qi++;showQuestion();
+}
+
+function showResult(){
+    var type='';
+    type+=scores.E>=scores.I?'E':'I';
+    type+=scores.S>=scores.N?'S':'N';
+    type+=scores.T>=scores.F?'T':'F';
+    type+=scores.J>=scores.P?'J':'P';
+
+    document.getElementById('questionArea').style.display='none';
+    document.getElementById('progressFill').style.width='100%';
+    document.getElementById('progressText').textContent='Complete!';
+
+    var names=NAMES[lang]||NAMES.en;
+    var descs=DESC[lang]||DESC.en;
+    var u=UI[lang]||UI.en;
+    var traits=TRAITS;
+
+    document.getElementById('resultEmoji').textContent=EMOJIS[type];
+    document.getElementById('resultType').textContent=type;
+    document.getElementById('resultName').textContent=names[type];
+    document.getElementById('resultDesc').textContent=descs[type];
+
+    var thtml='';
+    for(var i=0;i<4;i++){
+        var letter=type[i];
+        var t=traits[letter];
+        thtml+='<div class="trait"><strong>'+letter+'</strong>'+(t[lang]||t.en)+'</div>';
+    }
+    document.getElementById('resultTraits').innerHTML=thtml;
+
+    document.getElementById('ctaCompat').textContent='💕 '+u.cta;
+    document.getElementById('ctaCompat').href='mbti.html';
+    document.getElementById('t-copyBtn').textContent=u.copy;
+    document.getElementById('resultSection').style.display='block';
+
+    window._resultType=type;
+}
+
+function shareTwitter(){
+    var type=window._resultType;
+    var names=NAMES[lang]||NAMES.en;
+    var text=EMOJIS[type]+' '+type+' ('+names[type]+')! matchtest.site/mbti-test.html';
+    window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(text),'_blank','width=550,height=420');
+}
+
+function copyResult(){
+    var type=window._resultType;var names=NAMES[lang]||NAMES.en;
+    var text=EMOJIS[type]+' '+type+' ('+names[type]+')\nhttps://matchtest.site/mbti-test.html';
+    if(navigator.clipboard){navigator.clipboard.writeText(text).then(function(){alert(UI[lang].copied)})}
+    else{var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);alert(UI[lang].copied)}
+}
+
+startTest();
+</script>
+</body>
+</html>
