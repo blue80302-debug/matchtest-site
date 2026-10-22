@@ -118,6 +118,20 @@
             background:var(--pink-500);color:white;text-decoration:none;
         }
 
+        .test-tabs{
+            position:relative;z-index:10;
+            display:flex;justify-content:center;gap:0;padding:16px 16px 0;
+        }
+        .test-tab{
+            padding:10px 24px;font-size:14px;font-weight:700;
+            border:2px solid var(--pink-200);background:white;color:var(--pink-400);
+            cursor:pointer;transition:all .2s;text-decoration:none;
+        }
+        .test-tab:first-child{border-radius:12px 0 0 12px}
+        .test-tab:last-child{border-radius:0 12px 12px 0}
+        .test-tab:hover{background:var(--pink-50);text-decoration:none}
+        .test-tab.active{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));color:white;border-color:transparent}
+
         main{flex:1;display:flex;flex-direction:column;align-items:center;padding:20px 16px 10px}
 
         .card{
@@ -266,6 +280,11 @@
     <a href="terms.html" id="nav-terms">Terms</a>
 </nav>
 
+<div class="test-tabs">
+    <a href="index.html" class="test-tab active" id="tab-name">💕 <span id="tab-name-text">이름궁합</span></a>
+    <a href="mbti.html" class="test-tab" id="tab-mbti">🧠 <span id="tab-mbti-text">MBTI 궁합</span></a>
+</div>
+
 <main>
     <div class="card">
         <div class="header">
@@ -358,7 +377,8 @@ en:{
     m50:"A sweet connection full of potential! With a little patience and lots of laughs, you'll discover just how well you fit together.",
     m30:"Still getting to know each other — and that's the exciting part! Small gestures of kindness will bring you closer than you think.",
     m0:"Name scores are just for fun! Real love is built by two people, one day at a time. Keep believing in each other.",
-    navHome:"Home",navAbout:"About",navContact:"Contact",navPrivacy:"Privacy",navTerms:"Terms"
+    navHome:"Home",navAbout:"About",navContact:"Contact",navPrivacy:"Privacy",navTerms:"Terms",
+    tabName:"Name Match",tabMbti:"MBTI Match"
 },
 ko:{
     title:"이름궁합 테스트",subtitle:"이름 속에 숨겨진 두 사람의 궁합 점수를 확인하세요",
@@ -373,7 +393,8 @@ ko:{
     m50:"알콩달콩 맞춰가는 재미가 있는 사이예요! 조금 투닥거려도 서로를 향한 마음만은 분명 진심이네요. 함께 웃는 순간이 점점 늘어날 거예요.",
     m30:"아직은 서로를 알아가는 중이에요! 작은 표현 하나, 다정한 말 한마디가 두 사람의 거리를 확 좁혀줄 거예요. 천천히 가도 괜찮아요.",
     m0:"이름 궁합은 재미일 뿐이에요! 진짜 운명은 두 사람이 함께 만들어가는 거랍니다. 서로를 향한 마음이 있다면, 그게 바로 100점이에요.",
-    navHome:"홈",navAbout:"소개",navContact:"문의",navPrivacy:"개인정보",navTerms:"이용약관"
+    navHome:"홈",navAbout:"소개",navContact:"문의",navPrivacy:"개인정보",navTerms:"이용약관",
+    tabName:"이름궁합",tabMbti:"MBTI 궁합"
 },
 zh:{
     title:"姓名缘分测试",subtitle:"测测你们名字里隐藏的缘分指数",
@@ -388,7 +409,8 @@ zh:{
     m50:"甜蜜的缘分正在慢慢成长！多一点耐心和理解，你们会发现彼此越来越合拍，一起笑的日子会越来越多。",
     m30:"还在互相了解的阶段——这其实是最令人心动的时候！一个小小的温柔举动，就能让你们的距离大大缩短。",
     m0:"名字测试只是一个有趣的小游戏！真正的缘分是两个人一起创造的。只要心中有彼此，你们就是满分。",
-    navHome:"首页",navAbout:"关于",navContact:"联系",navPrivacy:"隐私",navTerms:"条款"
+    navHome:"首页",navAbout:"关于",navContact:"联系",navPrivacy:"隐私",navTerms:"条款",
+    tabName:"姓名缘分",tabMbti:"MBTI缘分"
 },
 ja:{
     title:"名前相性テスト",subtitle:"ふたりの名前に隠された相性スコアは？",
@@ -403,7 +425,8 @@ ja:{
     m50:"少しずつお互いを知っていく楽しさがある関係！ちょっとしたすれ違いも、ふたりの絆を深めるスパイスになりますよ。",
     m30:"まだお互いを知り始めたばかり——ワクワクする時期ですね！小さな優しさひとつで、ぐっと距離が縮まりますよ。",
     m0:"名前占いはお遊びです！本当の運命はふたりで作るもの。お互いを想う気持ちがあれば、それが100点満点です。",
-    navHome:"ホーム",navAbout:"概要",navContact:"お問い合わせ",navPrivacy:"プライバシー",navTerms:"利用規約"
+    navHome:"ホーム",navAbout:"概要",navContact:"お問い合わせ",navPrivacy:"プライバシー",navTerms:"利用規約",
+    tabName:"名前相性",tabMbti:"MBTI相性"
 },
 es:{
     title:"Test de Compatibilidad",subtitle:"Descubre la puntuación oculta entre sus nombres",
@@ -418,7 +441,8 @@ es:{
     m50:"¡Una dulce conexión llena de potencial! Con un poco de paciencia y muchas risas, descubrirán lo bien que encajan juntos.",
     m30:"Aún se están conociendo — ¡y esa es la parte emocionante! Pequeños gestos de cariño los acercarán más de lo que imaginan.",
     m0:"¡Las puntuaciones de nombres son solo por diversión! El amor verdadero lo construyen dos personas, un día a la vez. Sigan creyendo el uno en el otro.",
-    navHome:"Inicio",navAbout:"Acerca de",navContact:"Contacto",navPrivacy:"Privacidad",navTerms:"Términos"
+    navHome:"Inicio",navAbout:"Acerca de",navContact:"Contacto",navPrivacy:"Privacidad",navTerms:"Términos",
+    tabName:"Nombre",tabMbti:"MBTI"
 },
 ar:{
     title:"اختبار توافق الأسماء",subtitle:"اكتشف درجة التوافق المخفية بين أسمائكما",
@@ -433,7 +457,8 @@ ar:{
     m50:"رابطة حلوة مليئة بالإمكانيات! مع قليل من الصبر والكثير من الضحك، ستكتشفان كم أنتما متناسقان معاً.",
     m30:"لا تزالان في مرحلة التعارف — وهذا هو الجزء المثير! لفتة لطيفة صغيرة قد تقرّبكما أكثر مما تتخيلان.",
     m0:"اختبار الأسماء مجرد لعبة ممتعة! الحب الحقيقي يبنيه شخصان معاً، يوماً بعد يوم. استمرا في الإيمان ببعضكما.",
-    navHome:"الرئيسية",navAbout:"حول",navContact:"اتصل",navPrivacy:"الخصوصية",navTerms:"الشروط"
+    navHome:"الرئيسية",navAbout:"حول",navContact:"اتصل",navPrivacy:"الخصوصية",navTerms:"الشروط",
+    tabName:"الأسماء",tabMbti:"MBTI"
 }
 };
 
@@ -467,6 +492,7 @@ function setLang(lang){
     document.getElementById('f-privacy').textContent=t.navPrivacy;
     document.getElementById('f-terms').textContent=t.navTerms;
     document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===lang)});
+    if(t.tabName){document.getElementById('tab-name-text').textContent=t.tabName;document.getElementById('tab-mbti-text').textContent=t.tabMbti}
 }
 
 document.getElementById('langBar').addEventListener('click',function(e){if(e.target.classList.contains('lang-btn'))setLang(e.target.dataset.lang)});

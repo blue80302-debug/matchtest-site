@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI 궁합 테스트 — 무료 MBTI 궁합 계산기 | MBTI Compatibility Test</title>
+    <meta name="description" content="MBTI 궁합 테스트로 두 사람의 성격 유형 궁합을 확인하세요. 16가지 MBTI 유형 간의 궁합 점수와 상세 분석을 무료로 제공합니다.">
+    <meta name="keywords" content="MBTI 궁합, MBTI 궁합테스트, MBTI compatibility, personality match, 성격유형 궁합, MBTI chemistry">
+    <meta property="og:title" content="MBTI 궁합 테스트 — MBTI Compatibility Test">
+    <meta property="og:description" content="MBTI 성격 유형으로 두 사람의 궁합을 확인하세요! 16가지 유형 무료 분석.">
+    <meta property="og:url" content="https://matchtest.site/mbti.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://img.icons8.com/clouds/256/hearts.png">
+    <link rel="canonical" href="https://matchtest.site/mbti.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>" type="image/svg+xml">
+    <meta name="google-site-verification" content="vN7ujwLUtM1wJGo9komsV0eqLuyDMsxxJkclv1kqXdA" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6668425393052932" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "MBTI 궁합 테스트 — MBTI Compatibility Test",
+      "url": "https://matchtest.site/mbti.html",
+      "description": "두 사람의 MBTI 성격 유형을 선택하면 궁합 점수와 상세 분석을 제공하는 무료 웹 도구입니다.",
+      "applicationCategory": "EntertainmentApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "inLanguage": ["ko","en","ja","zh"],
+      "author": { "@type": "Organization", "name": "Love Match Test", "url": "https://matchtest.site/about.html" }
+    }
+    </script>
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --pink-50:#fdf2f8;--pink-100:#fce7f3;--pink-200:#fbcfe8;
+            --pink-300:#f9a8d4;--pink-400:#f472b6;--pink-500:#ec4899;
+            --pink-600:#db2777;--purple-400:#c084fc;--purple-500:#a855f7;
+            --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
+            --gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;
+            --gray-700:#374151;--gray-800:#1f2937;
+            --radius:24px;
+        }
+        body{
+            font-family:'Noto Sans','Noto Sans KR','Noto Sans JP','Noto Sans SC',sans-serif;
+            min-height:100vh;display:flex;flex-direction:column;
+            background:linear-gradient(160deg,#fdf2f8 0%,#fce7f3 40%,#fbcfe8 100%);
+            color:var(--gray-700);line-height:1.6;
+        }
+        a{color:var(--pink-500);text-decoration:none}
+        a:hover{text-decoration:underline}
+
+        .floating-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+        .floating-bg span{position:absolute;opacity:.08;animation:drift linear infinite}
+        @keyframes drift{
+            0%{transform:translateY(105vh) rotate(0deg) scale(.8);opacity:0}
+            8%{opacity:.08}92%{opacity:.08}
+            100%{transform:translateY(-8vh) rotate(360deg) scale(1.2);opacity:0}
+        }
+
+        .site-nav{
+            position:relative;z-index:10;
+            background:rgba(255,255,255,.85);backdrop-filter:blur(10px);
+            border-bottom:1px solid var(--pink-100);
+            padding:10px 20px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;
+        }
+        .site-nav a{
+            font-size:13px;font-weight:600;color:var(--gray-500);
+            padding:4px 10px;border-radius:8px;transition:all .2s;
+        }
+        .site-nav a:hover,.site-nav a.active{
+            background:var(--pink-500);color:white;text-decoration:none;
+        }
+
+        .test-tabs{
+            position:relative;z-index:10;
+            display:flex;justify-content:center;gap:0;padding:16px 16px 0;
+        }
+        .test-tab{
+            padding:10px 24px;font-size:14px;font-weight:700;
+            border:2px solid var(--pink-200);background:white;color:var(--pink-400);
+            cursor:pointer;transition:all .2s;text-decoration:none;
+        }
+        .test-tab:first-child{border-radius:12px 0 0 12px}
+        .test-tab:last-child{border-radius:0 12px 12px 0}
+        .test-tab:hover{background:var(--pink-50);text-decoration:none}
+        .test-tab.active{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));color:white;border-color:transparent}
+
+        main{flex:1;display:flex;flex-direction:column;align-items:center;padding:16px 16px 10px}
+
+        .card{
+            position:relative;z-index:1;
+            background:rgba(255,255,255,.92);backdrop-filter:blur(12px);
+            width:420px;max-width:100%;border-radius:var(--radius);
+            box-shadow:0 24px 48px rgba(236,72,153,.12),0 0 0 1px rgba(236,72,153,.06),inset 0 1px 0 rgba(255,255,255,.8);
+            overflow:hidden;margin-bottom:32px;
+        }
+        .header{
+            background:linear-gradient(135deg,var(--purple-500),var(--pink-500));
+            padding:28px 20px 24px;text-align:center;color:white;position:relative;overflow:hidden;
+        }
+        .header::after{
+            content:'';position:absolute;bottom:-1px;left:0;right:0;height:20px;
+            background:rgba(255,255,255,.92);border-radius:50% 50% 0 0/100% 100% 0 0;
+        }
+        .header h1{font-family:'Fredoka',sans-serif;font-size:24px;font-weight:700;margin-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,.12)}
+        .header p{font-size:13px;opacity:.85}
+
+        .lang-bar{display:flex;justify-content:center;gap:4px;padding:14px 16px 6px}
+        .lang-btn{
+            padding:5px 10px;border:1.5px solid var(--pink-200);border-radius:100px;
+            background:white;font-size:12px;font-weight:600;color:var(--pink-400);
+            cursor:pointer;transition:all .2s;
+        }
+        .lang-btn:hover,.lang-btn.active{background:var(--pink-500);border-color:var(--pink-500);color:white}
+
+        .body{padding:18px 22px 24px}
+        .select-row{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+        .select-field{flex:1}
+        .select-field label{display:block;font-size:11px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+        .select-field select{
+            width:100%;padding:11px 8px;border:2px solid var(--pink-100);border-radius:14px;
+            font-size:15px;font-weight:700;color:var(--gray-700);text-align:center;
+            background:var(--pink-50);transition:border-color .2s,box-shadow .2s;
+            appearance:none;cursor:pointer;
+        }
+        .select-field select:focus{outline:none;border-color:var(--pink-400);box-shadow:0 0 0 3px rgba(236,72,153,.1);background:white}
+        .heart-mid{font-size:22px;padding-top:18px;flex-shrink:0;animation:heartbeat 1.3s ease-in-out infinite}
+        @keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.2)}28%{transform:scale(1)}42%{transform:scale(1.15)}56%{transform:scale(1)}}
+
+        .type-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:16px}
+        .type-chip{
+            padding:8px 4px;border:2px solid var(--pink-100);border-radius:10px;
+            background:white;font-size:12px;font-weight:700;color:var(--gray-600);
+            cursor:pointer;transition:all .2s;text-align:center;
+        }
+        .type-chip:hover{border-color:var(--pink-300);background:var(--pink-50)}
+        .type-chip.selected{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));color:white;border-color:transparent}
+        .type-chip .emoji{display:block;font-size:16px;margin-bottom:2px}
+
+        .section-label{font-size:12px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;text-align:center}
+
+        .btn-primary{
+            display:block;width:100%;padding:14px;border:none;border-radius:50px;
+            font-size:16px;font-weight:700;color:white;
+            background:linear-gradient(135deg,var(--purple-500),var(--pink-500));
+            cursor:pointer;box-shadow:0 6px 20px rgba(168,85,247,.3);
+            transition:transform .1s,box-shadow .2s;
+        }
+        .btn-primary:hover{box-shadow:0 8px 28px rgba(168,85,247,.4)}
+        .btn-primary:active{transform:scale(.97)}
+
+        .result{display:none;margin-top:22px;text-align:center;animation:popIn .5s cubic-bezier(.34,1.56,.64,1)}
+        @keyframes popIn{0%{opacity:0;transform:scale(.85) translateY(12px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+        .result-types{font-family:'Fredoka',sans-serif;font-size:20px;color:var(--purple-500);margin-bottom:14px;letter-spacing:1px}
+        .gauge-track{background:var(--pink-100);border-radius:100px;height:24px;overflow:hidden;margin-bottom:10px}
+        .gauge-bar{
+            height:100%;border-radius:100px;
+            background:linear-gradient(90deg,var(--purple-400),var(--pink-500),var(--pink-400));
+            width:0%;transition:width 1s cubic-bezier(.34,1.15,.64,1);position:relative;
+        }
+        .gauge-bar::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);animation:shimmer 2.5s infinite}
+        @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+        .score-big{
+            font-size:50px;font-weight:900;
+            background:linear-gradient(135deg,var(--purple-500),var(--pink-500));
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;
+        }
+        .score-label{font-size:12px;color:var(--gray-400);margin-bottom:14px}
+        .divider{width:36px;height:3px;background:linear-gradient(90deg,var(--purple-500),var(--pink-500));border-radius:2px;margin:0 auto 14px}
+        .result-msg{
+            font-size:14px;color:var(--gray-500);line-height:1.7;word-break:keep-all;
+            padding:12px 14px;background:var(--pink-50);border-radius:14px;
+            border-left:3px solid var(--purple-400);text-align:start;margin-bottom:10px;
+        }
+        .result-detail{
+            font-size:13px;color:var(--gray-600);line-height:1.7;
+            padding:12px 14px;background:var(--gray-50);border-radius:14px;
+            text-align:start;margin-bottom:16px;
+        }
+        .result-detail strong{color:var(--purple-500)}
+
+        .share-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+        .share-btn{
+            padding:9px 4px;border:2px solid var(--pink-200);border-radius:12px;
+            background:white;font-size:12px;font-weight:700;color:var(--pink-500);
+            cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:4px;
+        }
+        .share-btn:hover{background:var(--pink-500);border-color:var(--pink-500);color:white}
+        .share-btn.twitter{border-color:#1d9bf0;color:#1d9bf0}
+        .share-btn.twitter:hover{background:#1d9bf0;border-color:#1d9bf0;color:white}
+        .share-btn.facebook{border-color:#1877f2;color:#1877f2}
+        .share-btn.facebook:hover{background:#1877f2;border-color:#1877f2;color:white}
+
+        .retry-btn{
+            display:inline-block;padding:7px 18px;border:2px solid var(--gray-200);border-radius:100px;
+            background:none;font-size:12px;font-weight:700;color:var(--gray-400);cursor:pointer;transition:all .2s;
+        }
+        .retry-btn:hover{border-color:var(--pink-400);color:var(--pink-400)}
+
+        .content-section{
+            position:relative;z-index:1;
+            width:800px;max-width:100%;
+            background:rgba(255,255,255,.88);backdrop-filter:blur(8px);
+            border-radius:20px;padding:32px 28px;margin-bottom:24px;
+            box-shadow:0 4px 20px rgba(0,0,0,.04);
+        }
+        .content-section h2{
+            font-family:'Fredoka',sans-serif;font-size:22px;color:var(--pink-600);
+            margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--pink-100);
+        }
+        .content-section p{font-size:14px;color:var(--gray-600);margin-bottom:12px}
+
+        .site-footer{
+            position:relative;z-index:1;
+            background:rgba(255,255,255,.7);backdrop-filter:blur(8px);
+            border-top:1px solid var(--pink-100);
+            padding:20px;text-align:center;font-size:12px;color:var(--gray-400);
+        }
+        .site-footer a{color:var(--gray-500);margin:0 8px}
+        .footer-links{margin-bottom:8px}
+
+        @media(max-width:420px){
+            .card{border-radius:20px}
+            .header h1{font-size:20px}
+            .score-big{font-size:42px}
+            .share-grid{grid-template-columns:repeat(2,1fr)}
+            .type-grid{grid-template-columns:repeat(4,1fr);gap:4px}
+            .type-chip{padding:6px 2px;font-size:11px}
+        }
+    </style>
+</head>
+<body>
+
+<div class="floating-bg" id="floatingBg"></div>
+
+<nav class="site-nav">
+    <a href="index.html" id="nav-home">Home</a>
+    <a href="about.html" id="nav-about">About</a>
+    <a href="contact.html" id="nav-contact">Contact</a>
+    <a href="privacy.html" id="nav-privacy">Privacy</a>
+    <a href="terms.html" id="nav-terms">Terms</a>
+</nav>
+
+<div class="test-tabs">
+    <a href="index.html" class="test-tab" id="tab-name">💕 <span id="tab-name-text">이름궁합</span></a>
+    <a href="mbti.html" class="test-tab active" id="tab-mbti">🧠 <span id="tab-mbti-text">MBTI 궁합</span></a>
+</div>
+
+<main>
+    <div class="card">
+        <div class="header">
+            <h1 id="t-title">MBTI 궁합 테스트</h1>
+            <p id="t-subtitle">두 사람의 MBTI 유형으로 궁합을 확인하세요</p>
+        </div>
+        <div class="lang-bar" id="langBar">
+            <button class="lang-btn active" data-lang="ko">KO</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ja">JA</button>
+            <button class="lang-btn" data-lang="zh">ZH</button>
+        </div>
+        <div class="body">
+            <div class="section-label" id="t-label1">나의 MBTI</div>
+            <div class="type-grid" id="grid1"></div>
+
+            <div style="text-align:center;margin-bottom:12px">
+                <span class="heart-mid">💜</span>
+            </div>
+
+            <div class="section-label" id="t-label2">상대방의 MBTI</div>
+            <div class="type-grid" id="grid2"></div>
+
+            <button class="btn-primary" id="t-btn" onclick="calculate()">궁합 보기 💕</button>
+
+            <div class="result" id="result">
+                <div class="result-types" id="resTypes"></div>
+                <div class="gauge-track"><div class="gauge-bar" id="gaugeBar"></div></div>
+                <div class="score-big" id="scoreBig">0%</div>
+                <div class="score-label" id="t-scoreLabel">궁합 점수</div>
+                <div class="divider"></div>
+                <div class="result-msg" id="resMsg"></div>
+                <div class="result-detail" id="resDetail"></div>
+                <div class="share-grid">
+                    <button class="share-btn twitter" onclick="shareTwitter()">𝕏 Twitter</button>
+                    <button class="share-btn facebook" onclick="shareFacebook()">f Facebook</button>
+                    <button class="share-btn" onclick="copyLink()">🔗 <span id="t-copyBtn">복사</span></button>
+                </div>
+                <button class="retry-btn" id="t-retry" onclick="reset()">다시 해보기</button>
+            </div>
+        </div>
+    </div>
+
+    <article class="content-section" id="articleAbout"></article>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+    </div>
+    <div>&copy; 2026 Love Match Test. All rights reserved. For entertainment purposes only.</div>
+</footer>
+
+<script>
+var TYPES=['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP','ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'];
+var EMOJIS={INTJ:'🏗️',INTP:'🧪',ENTJ:'👑',ENTP:'💡',INFJ:'🔮',INFP:'🌸',ENFJ:'🌟',ENFP:'🦋',ISTJ:'📋',ISFJ:'🛡️',ESTJ:'⚖️',ESFJ:'🤝',ISTP:'🔧',ISFP:'🎨',ESTP:'🏄',ESFP:'🎭'};
+
+var COMPAT={};
+(function(){
+    var data={
+        'INTJ-ENFP':95,'INTJ-ENTP':90,'INTJ-INFJ':85,'INTJ-ENTJ':82,'INTJ-INTP':80,'INTJ-INFP':72,'INTJ-ENFJ':75,'INTJ-INTJ':70,'INTJ-ISTJ':65,'INTJ-ISTP':60,'INTJ-ESTJ':55,'INTJ-ESTP':50,'INTJ-ISFJ':48,'INTJ-ISFP':45,'INTJ-ESFJ':42,'INTJ-ESFP':40,
+        'INTP-ENTJ':92,'INTP-ENFP':88,'INTP-ENTP':85,'INTP-INFJ':82,'INTP-INTJ':80,'INTP-INTP':75,'INTP-INFP':70,'INTP-ENFJ':68,'INTP-ISTP':65,'INTP-ISTJ':60,'INTP-ESTP':58,'INTP-ESTJ':52,'INTP-ISFP':50,'INTP-ISFJ':45,'INTP-ESFP':42,'INTP-ESFJ':40,
+        'ENTJ-INTP':92,'ENTJ-INFP':88,'ENTJ-ENFP':85,'ENTJ-ENTP':83,'ENTJ-INTJ':82,'ENTJ-INFJ':78,'ENTJ-ENTJ':75,'ENTJ-ENFJ':72,'ENTJ-ISTP':65,'ENTJ-ISTJ':62,'ENTJ-ESTJ':60,'ENTJ-ESTP':58,'ENTJ-ISFP':50,'ENTJ-ISFJ':48,'ENTJ-ESFJ':45,'ENTJ-ESFP':42,
+        'ENTP-INFJ':95,'ENTP-INTJ':90,'ENTP-ENFP':85,'ENTP-INTP':85,'ENTP-ENTJ':83,'ENTP-ENTP':78,'ENTP-INFP':75,'ENTP-ENFJ':72,'ENTP-ISTP':62,'ENTP-ESTP':60,'ENTP-ISTJ':52,'ENTP-ESTJ':50,'ENTP-ISFP':48,'ENTP-ISFJ':45,'ENTP-ESFP':44,'ENTP-ESFJ':42,
+        'INFJ-ENTP':95,'INFJ-ENFP':92,'INFJ-INTJ':85,'INFJ-INFJ':80,'INFJ-INFP':82,'INFJ-INTP':82,'INFJ-ENFJ':78,'INFJ-ENTJ':78,'INFJ-ISFJ':65,'INFJ-ISFP':62,'INFJ-ISTJ':58,'INFJ-ESFJ':55,'INFJ-ISTP':50,'INFJ-ESTJ':48,'INFJ-ESTP':45,'INFJ-ESFP':42,
+        'INFP-ENFJ':95,'INFP-ENTJ':88,'INFP-INFJ':82,'INFP-ENFP':80,'INFP-INFP':75,'INFP-INTP':70,'INFP-INTJ':72,'INFP-ENTP':75,'INFP-ISFP':65,'INFP-ISFJ':60,'INFP-ESFJ':55,'INFP-ISTP':50,'INFP-ISTJ':52,'INFP-ESTJ':45,'INFP-ESTP':42,'INFP-ESFP':48,
+        'ENFJ-INFP':95,'ENFJ-ISFP':88,'ENFJ-ENFP':82,'ENFJ-INFJ':78,'ENFJ-ENFJ':75,'ENFJ-ENTJ':72,'ENFJ-INTJ':75,'ENFJ-ENTP':72,'ENFJ-INTP':68,'ENFJ-ESFJ':65,'ENFJ-ISFJ':62,'ENFJ-ESFP':58,'ENFJ-ESTJ':55,'ENFJ-ISTJ':52,'ENFJ-ESTP':48,'ENFJ-ISTP':45,
+        'ENFP-INTJ':95,'ENFP-INFJ':92,'ENFP-ENTP':85,'ENFP-ENTJ':85,'ENFP-INTP':88,'ENFP-ENFP':78,'ENFP-INFP':80,'ENFP-ENFJ':82,'ENFP-ESFP':62,'ENFP-ESFJ':58,'ENFP-ISFP':60,'ENFP-ESTP':55,'ENFP-ISFJ':52,'ENFP-ISTP':50,'ENFP-ESTJ':48,'ENFP-ISTJ':45,
+        'ISTJ-ESFP':88,'ISTJ-ESTP':82,'ISTJ-ISFJ':80,'ISTJ-ESTJ':78,'ISTJ-ISTJ':75,'ISTJ-ISTP':70,'ISTJ-ESFJ':72,'ISTJ-ISFP':65,'ISTJ-INTJ':65,'ISTJ-INTP':60,'ISTJ-ENTJ':62,'ISTJ-INFJ':58,'ISTJ-INFP':52,'ISTJ-ENTP':52,'ISTJ-ENFJ':52,'ISTJ-ENFP':45,
+        'ISFJ-ESFP':90,'ISFJ-ESTP':85,'ISFJ-ISTJ':80,'ISFJ-ESFJ':78,'ISFJ-ISFJ':75,'ISFJ-ESTJ':72,'ISFJ-ISFP':70,'ISFJ-ISTP':65,'ISFJ-INFJ':65,'ISFJ-INFP':60,'ISFJ-ENFJ':62,'ISFJ-INTJ':48,'ISFJ-INTP':45,'ISFJ-ENTJ':48,'ISFJ-ENFP':52,'ISFJ-ENTP':45,
+        'ESTJ-ISTP':85,'ESTJ-ISFP':82,'ESTJ-ISTJ':78,'ESTJ-ESFJ':75,'ESTJ-ESTJ':72,'ESTJ-ISFJ':72,'ESTJ-ESTP':68,'ESTJ-ESFP':65,'ESTJ-ENTJ':60,'ESTJ-INTJ':55,'ESTJ-INTP':52,'ESTJ-ENTP':50,'ESTJ-ENFJ':55,'ESTJ-INFJ':48,'ESTJ-INFP':45,'ESTJ-ENFP':48,
+        'ESFJ-ISFP':90,'ESFJ-ISTP':82,'ESFJ-ISFJ':78,'ESFJ-ISTJ':72,'ESFJ-ESFJ':75,'ESFJ-ESTJ':75,'ESFJ-ESFP':70,'ESFJ-ESTP':65,'ESFJ-ENFJ':65,'ESFJ-INFJ':55,'ESFJ-INFP':55,'ESFJ-ENFP':58,'ESFJ-INTJ':42,'ESFJ-INTP':40,'ESFJ-ENTJ':45,'ESFJ-ENTP':42,
+        'ISTP-ESTJ':85,'ISTP-ESFJ':82,'ISTP-ESTP':78,'ISTP-ISTP':72,'ISTP-ISTJ':70,'ISTP-ESFP':68,'ISTP-ISFJ':65,'ISTP-ISFP':65,'ISTP-ENTJ':65,'ISTP-INTP':65,'ISTP-INTJ':60,'ISTP-ENTP':62,'ISTP-ESTJ':85,'ISTP-INFJ':50,'ISTP-INFP':50,'ISTP-ENFJ':45,'ISTP-ENFP':50,
+        'ISFP-ENFJ':88,'ISFP-ESFJ':90,'ISFP-ESTJ':82,'ISFP-ISFP':70,'ISFP-ISFJ':70,'ISFP-ISTP':65,'ISFP-ESFP':68,'ISFP-ESTP':65,'ISFP-INFP':65,'ISFP-INFJ':62,'ISFP-ISTJ':65,'ISFP-INTJ':45,'ISFP-INTP':50,'ISFP-ENTJ':50,'ISFP-ENFP':60,'ISFP-ENTP':48,
+        'ESTP-ISFJ':85,'ESTP-ISTJ':82,'ESTP-ISTP':78,'ESTP-ESFP':75,'ESTP-ESTP':72,'ESTP-ESTJ':68,'ESTP-ESFJ':65,'ESTP-ISFP':65,'ESTP-ENTP':60,'ESTP-INTP':58,'ESTP-ENTJ':58,'ESTP-INTJ':50,'ESTP-ENFP':55,'ESTP-INFP':42,'ESTP-ENFJ':48,'ESTP-INFJ':45,
+        'ESFP-ISTJ':88,'ESFP-ISFJ':90,'ESFP-ESFP':72,'ESFP-ESTP':75,'ESFP-ESFJ':70,'ESFP-ESTJ':65,'ESFP-ISFP':68,'ESFP-ISTP':68,'ESFP-ENFP':62,'ESFP-ENFJ':58,'ESFP-INFP':48,'ESFP-INFJ':42,'ESFP-ENTP':44,'ESFP-INTJ':40,'ESFP-INTP':42,'ESFP-ENTJ':42
+    };
+    for(var k in data){COMPAT[k]=data[k];var p=k.split('-');COMPAT[p[1]+'-'+p[0]]=data[k]}
+})();
+
+var i18n={
+ko:{
+    title:"MBTI 궁합 테스트",subtitle:"두 사람의 MBTI 유형으로 궁합을 확인하세요",
+    label1:"나의 MBTI",label2:"상대방의 MBTI",btn:"궁합 보기 💕",scoreLabel:"궁합 점수",
+    copyBtn:"복사",retry:"다시 해보기",alertEmpty:"두 사람의 MBTI를 모두 선택해주세요!",alertCopied:"링크가 복사되었습니다!",
+    tabName:"이름궁합",tabMbti:"MBTI 궁합",
+    navHome:"홈",navAbout:"소개",navContact:"문의",navPrivacy:"개인정보",navTerms:"이용약관",
+    shareText:function(t1,t2,s){return t1+" × "+t2+" = "+s+"%! MBTI 궁합 테스트 해보세요!"},
+    tier:function(s){
+        if(s>=90)return{msg:"운명적인 조합이에요! 서로의 부족한 부분을 완벽하게 채워주는 천생연분. 이 만남을 절대 놓치지 마세요.",strength:"서로를 자연스럽게 끌어당기는 강한 인력이 있어요. 대화가 끊이지 않고, 함께 있으면 에너지가 충전돼요.",tip:"너무 잘 맞아서 오히려 성장을 멈출 수 있어요. 각자의 시간도 소중히 해주세요."};
+        if(s>=75)return{msg:"아주 좋은 궁합이에요! 서로를 이해하고 존중하는 관계로 발전할 수 있어요. 함께할수록 빛나는 조합이에요.",strength:"서로 다른 관점이 오히려 시너지를 만들어요. 상대방에게서 배울 점이 많은 관계예요.",tip:"가끔 소통 방식의 차이가 있을 수 있어요. 서로의 표현 방식을 이해하려 노력해보세요."};
+        if(s>=55)return{msg:"흥미로운 조합이에요! 서로 다른 점이 매력이 될 수 있어요. 노력하면 좋은 관계를 만들 수 있어요.",strength:"서로의 세계를 넓혀주는 관계예요. 새로운 시각을 얻을 수 있어요.",tip:"의견 충돌이 생길 때 상대방의 입장에서 생각해보면 큰 도움이 돼요."};
+        return{msg:"도전적인 조합이지만 그만큼 성장할 수 있어요! 서로를 이해하려는 노력이 중요해요.",strength:"완전히 다른 시각을 가진 만큼, 서로에게 큰 자극이 돼요.",tip:"인내심을 갖고 상대방의 방식을 존중하면 뜻밖의 깊은 관계가 될 수 있어요."};
+    },
+    articleTitle:"MBTI 궁합이란?",
+    articleBody:"<p>MBTI(Myers-Briggs Type Indicator)는 사람의 성격을 4가지 차원으로 분류하는 성격 유형 지표입니다. 외향(E)/내향(I), 감각(S)/직관(N), 사고(T)/감정(F), 판단(J)/인식(P)의 조합으로 16가지 성격 유형을 만들어냅니다.</p><p>MBTI 궁합은 두 성격 유형 간의 인지 기능 조합을 분석하여 관계의 역동성을 예측합니다. 보완적인 기능을 가진 유형끼리는 서로의 약점을 보완하고, 비슷한 기능을 가진 유형끼리는 깊은 이해를 바탕으로 소통합니다.</p><p>물론 MBTI 궁합은 재미를 위한 도구일 뿐, 실제 관계는 개인의 성숙도, 가치관, 소통 노력에 따라 달라집니다. 어떤 유형 조합이든 서로를 이해하려는 마음이 가장 중요합니다.</p>"
+},
+en:{
+    title:"MBTI Compatibility Test",subtitle:"Check your personality type compatibility",
+    label1:"MY MBTI",label2:"PARTNER'S MBTI",btn:"See Compatibility 💕",scoreLabel:"compatibility score",
+    copyBtn:"Copy",retry:"Try Again",alertEmpty:"Please select both MBTI types!",alertCopied:"Link copied!",
+    tabName:"Name Match",tabMbti:"MBTI Match",
+    navHome:"Home",navAbout:"About",navContact:"Contact",navPrivacy:"Privacy",navTerms:"Terms",
+    shareText:function(t1,t2,s){return t1+" × "+t2+" = "+s+"%! Try the MBTI Compatibility Test!"},
+    tier:function(s){
+        if(s>=90)return{msg:"A match made in heaven! You naturally complement each other's strengths and weaknesses. This is a rare and beautiful connection.",strength:"You're drawn to each other like magnets. Conversation flows effortlessly and you recharge each other's energy.",tip:"You fit so well that you might stop growing. Remember to maintain your individual interests too."};
+        if(s>=75)return{msg:"Excellent compatibility! You understand and respect each other naturally. This pairing gets stronger with time.",strength:"Your different perspectives create powerful synergy. You learn a lot from each other.",tip:"Communication styles may differ sometimes. Try to understand how your partner expresses themselves."};
+        if(s>=55)return{msg:"An intriguing match! Your differences can become your greatest attraction. With effort, you can build something wonderful.",strength:"You expand each other's worldview. Every day brings new perspectives.",tip:"When conflicts arise, try seeing things from your partner's point of view."};
+        return{msg:"A challenging but growth-inspiring combination! Understanding each other requires effort, but the rewards are worth it.",strength:"With completely different viewpoints, you stimulate each other's growth tremendously.",tip:"With patience and respect for each other's ways, you might discover an unexpectedly deep connection."};
+    },
+    articleTitle:"What is MBTI Compatibility?",
+    articleBody:"<p>MBTI (Myers-Briggs Type Indicator) classifies personality across 4 dimensions: Extraversion(E)/Introversion(I), Sensing(S)/Intuition(N), Thinking(T)/Feeling(F), and Judging(J)/Perceiving(P), creating 16 personality types.</p><p>MBTI compatibility analyzes the cognitive function combinations between two types to predict relationship dynamics. Complementary types balance each other's weaknesses, while similar types communicate through deep mutual understanding.</p><p>Of course, MBTI compatibility is just for fun — real relationships depend on personal maturity, shared values, and communication effort. The willingness to understand each other matters most, regardless of type combination.</p>"
+},
+ja:{
+    title:"MBTI相性テスト",subtitle:"二人のMBTIタイプで相性をチェック",
+    label1:"自分のMBTI",label2:"相手のMBTI",btn:"相性を見る 💕",scoreLabel:"相性スコア",
+    copyBtn:"コピー",retry:"もう一度",alertEmpty:"二人のMBTIを選択してください！",alertCopied:"リンクをコピーしました！",
+    tabName:"名前相性",tabMbti:"MBTI相性",
+    navHome:"ホーム",navAbout:"概要",navContact:"お問い合わせ",navPrivacy:"プライバシー",navTerms:"利用規約",
+    shareText:function(t1,t2,s){return t1+" × "+t2+" = "+s+"%! MBTI相性テストをやってみて！"},
+    tier:function(s){
+        if(s>=90)return{msg:"運命的な組み合わせです！お互いの足りない部分を完璧に補い合える天生の相性。この出会いを大切にしてください。",strength:"自然とお互いに惹かれ合う強い引力があります。会話が途切れず、一緒にいるとエネルギーが充電されます。",tip:"相性が良すぎて成長が止まることも。それぞれの時間も大切にしてくださいね。"};
+        if(s>=75)return{msg:"とても良い相性です！お互いを理解し尊重できる関係に発展できます。一緒にいるほど輝く組み合わせです。",strength:"異なる視点がシナジーを生み出します。相手から学ぶことが多い関係です。",tip:"コミュニケーションの仕方に違いがあることも。お互いの表現方法を理解しようと努めてみてください。"};
+        if(s>=55)return{msg:"興味深い組み合わせです！違いが魅力になることも。努力すれば素敵な関係を築けます。",strength:"お互いの世界を広げてくれる関係です。新しい視点を得られます。",tip:"意見の衝突が起きた時、相手の立場で考えてみると大きな助けになります。"};
+        return{msg:"チャレンジングな組み合わせですが、その分成長できます！お互いを理解しようとする努力が大切です。",strength:"全く異なる視点を持つ分、お互いに大きな刺激になります。",tip:"忍耐強く相手の方法を尊重すれば、意外に深い関係になれるかもしれません。"};
+    },
+    articleTitle:"MBTI相性とは？",
+    articleBody:"<p>MBTI（マイヤーズ・ブリッグス・タイプ指標）は、外向(E)/内向(I)、感覚(S)/直観(N)、思考(T)/感情(F)、判断(J)/知覚(P)の4つの次元で性格を分類し、16の性格タイプを作り出します。</p><p>MBTI相性は、二つのタイプ間の認知機能の組み合わせを分析して関係のダイナミクスを予測します。補完的な機能を持つタイプ同士はお互いの弱点を補い、似た機能を持つタイプ同士は深い相互理解に基づいてコミュニケーションします。</p><p>もちろんMBTI相性は楽しみのためのツールであり、実際の関係は個人の成熟度、価値観、コミュニケーションの努力によって変わります。</p>"
+},
+zh:{
+    title:"MBTI缘分测试",subtitle:"用两个人的MBTI类型查看缘分",
+    label1:"我的MBTI",label2:"对方的MBTI",btn:"查看缘分 💕",scoreLabel:"缘分指数",
+    copyBtn:"复制",retry:"再试一次",alertEmpty:"请选择两个人的MBTI！",alertCopied:"链接已复制！",
+    tabName:"姓名缘分",tabMbti:"MBTI缘分",
+    navHome:"首页",navAbout:"关于",navContact:"联系",navPrivacy:"隐私",navTerms:"条款",
+    shareText:function(t1,t2,s){return t1+" × "+t2+" = "+s+"%! 来测测MBTI缘分吧！"},
+    tier:function(s){
+        if(s>=90)return{msg:"天作之合！你们天然地互补彼此的优缺点。这是难得的美好缘分，一定要珍惜。",strength:"你们之间有强烈的吸引力，对话永远不会枯燥，在一起就能充满能量。",tip:"太合拍反而可能停止成长，记得保持各自的兴趣空间。"};
+        if(s>=75)return{msg:"非常好的缘分！你们能自然地理解和尊重彼此，这对组合会随时间越来越闪耀。",strength:"不同的视角反而创造了强大的协同效应，你们能从彼此身上学到很多。",tip:"沟通方式有时会有差异，试着理解对方的表达方式。"};
+        if(s>=55)return{msg:"有趣的组合！你们的差异可以成为最大的魅力。用心经营就能建立美好的关系。",strength:"你们拓展了彼此的世界观，每天都能获得新的视角。",tip:"发生分歧时，试着站在对方的角度思考。"};
+        return{msg:"充满挑战但也充满成长的组合！理解彼此需要努力，但回报是值得的。",strength:"拥有完全不同的视角，你们给彼此带来巨大的成长动力。",tip:"耐心尊重对方的方式，你们可能会发现意想不到的深厚缘分。"};
+    },
+    articleTitle:"什么是MBTI缘分？",
+    articleBody:"<p>MBTI（迈尔斯-布里格斯类型指标）通过外向(E)/内向(I)、感觉(S)/直觉(N)、思维(T)/情感(F)、判断(J)/感知(P)四个维度分类性格，创造出16种性格类型。</p><p>MBTI缘分通过分析两种类型之间的认知功能组合来预测关系动态。互补类型能平衡彼此的弱点，相似类型则通过深层相互理解进行沟通。</p><p>当然，MBTI缘分只是一个有趣的工具——真正的关系取决于个人的成熟度、共同价值观和沟通努力。</p>"
+}
+};
+
+var currentLang='ko',sel1=null,sel2=null;
+
+(function(){var c=document.getElementById('floatingBg'),items=['🧠','💜','✨','💫','🩷','⭐','💗','🌟'];for(var i=0;i<18;i++){var s=document.createElement('span');s.textContent=items[i%items.length];s.style.left=(Math.random()*100)+'%';s.style.fontSize=(14+Math.random()*18)+'px';s.style.animationDuration=(10+Math.random()*15)+'s';s.style.animationDelay=(Math.random()*12)+'s';c.appendChild(s)}})();
+
+function buildGrid(containerId,gridNum){
+    var el=document.getElementById(containerId);el.innerHTML='';
+    TYPES.forEach(function(t){
+        var chip=document.createElement('div');
+        chip.className='type-chip';
+        chip.innerHTML='<span class="emoji">'+EMOJIS[t]+'</span>'+t;
+        chip.onclick=function(){
+            el.querySelectorAll('.type-chip').forEach(function(c){c.classList.remove('selected')});
+            chip.classList.add('selected');
+            if(gridNum===1)sel1=t;else sel2=t;
+        };
+        el.appendChild(chip);
+    });
+}
+buildGrid('grid1',1);buildGrid('grid2',2);
+
+function setLang(lang){
+    currentLang=lang;var t=i18n[lang];
+    document.getElementById('t-title').textContent=t.title;
+    document.getElementById('t-subtitle').textContent=t.subtitle;
+    document.getElementById('t-label1').textContent=t.label1;
+    document.getElementById('t-label2').textContent=t.label2;
+    document.getElementById('t-btn').textContent=t.btn;
+    document.getElementById('t-scoreLabel').textContent=t.scoreLabel;
+    document.getElementById('t-copyBtn').textContent=t.copyBtn;
+    document.getElementById('t-retry').textContent=t.retry;
+    document.getElementById('tab-name-text').textContent=t.tabName;
+    document.getElementById('tab-mbti-text').textContent=t.tabMbti;
+    document.getElementById('nav-home').textContent=t.navHome;
+    document.getElementById('nav-about').textContent=t.navAbout;
+    document.getElementById('nav-contact').textContent=t.navContact;
+    document.getElementById('nav-privacy').textContent=t.navPrivacy;
+    document.getElementById('nav-terms').textContent=t.navTerms;
+    document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===lang)});
+    document.getElementById('articleAbout').innerHTML='<h2>'+t.articleTitle+'</h2>'+t.articleBody;
+}
+setLang('ko');
+
+document.getElementById('langBar').addEventListener('click',function(e){if(e.target.classList.contains('lang-btn'))setLang(e.target.dataset.lang)});
+
+function calculate(){
+    if(!sel1||!sel2){alert(i18n[currentLang].alertEmpty);return}
+    var key=sel1+'-'+sel2;
+    var score=COMPAT[key]||50;
+    var t=i18n[currentLang];
+    var tier=t.tier(score);
+
+    document.getElementById('resTypes').textContent=EMOJIS[sel1]+' '+sel1+'  ×  '+sel2+' '+EMOJIS[sel2];
+    document.getElementById('scoreBig').textContent=score+'%';
+    document.getElementById('resMsg').textContent=tier.msg;
+    document.getElementById('resDetail').innerHTML='<strong>💪 '+( currentLang==='en'?'Strengths':'강점')+':</strong> '+tier.strength+'<br><br><strong>💡 '+(currentLang==='en'?'Tip':'팁')+':</strong> '+tier.tip;
+
+    var res=document.getElementById('result');res.style.display='none';res.offsetHeight;res.style.display='block';
+    var g=document.getElementById('gaugeBar');g.style.width='0%';
+    requestAnimationFrame(function(){requestAnimationFrame(function(){g.style.width=Math.max(score,3)+'%'})});
+}
+
+function reset(){
+    sel1=null;sel2=null;
+    document.querySelectorAll('.type-chip').forEach(function(c){c.classList.remove('selected')});
+    document.getElementById('result').style.display='none';
+    document.getElementById('gaugeBar').style.width='0%';
+}
+
+function getShareText(){return i18n[currentLang].shareText(sel1,sel2,COMPAT[sel1+'-'+sel2]||50)}
+function getShareUrl(){return window.location.href}
+function shareTwitter(){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(getShareText())+'&url='+encodeURIComponent(getShareUrl()),'_blank','width=550,height=420')}
+function shareFacebook(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(getShareUrl())+'&quote='+encodeURIComponent(getShareText()),'_blank','width=550,height=420')}
+function copyLink(){
+    var url=getShareUrl();
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(function(){alert(i18n[currentLang].alertCopied)});
+    }else{
+        var ta=document.createElement('textarea');ta.value=url;ta.style.position='fixed';ta.style.left='-9999px';
+        document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+        alert(i18n[currentLang].alertCopied);
+    }
+}
+</script>
+</body>
+</html>
