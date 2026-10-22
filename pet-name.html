@@ -451,6 +451,7 @@ rabbit:{cute:{male:["토순이|토끼+순둥이|순한 토끼에게 딱!","뭉�
 var _shownIdx=0;
 var _shownKey='';
 var _shownOrder=[];
+var _seenNames=new Set();
 
 function getNames(pet,style,gender){
     var db=NAMES_DB.ko;
@@ -470,15 +471,33 @@ function getNames(pet,style,gender){
         _shownKey=key;
         _shownOrder=list.slice().sort(function(){return Math.random()-.5});
         _shownIdx=0;
+        _seenNames.clear();
     }
     var result=[];
     for(var i=0;i<5;i++){
-        if(_shownIdx>=_shownOrder.length){
-            _shownOrder=list.slice().sort(function(){return Math.random()-.5});
-            _shownIdx=0;
+        var found=false;
+        var startIdx=_shownIdx;
+        while(!found){
+            if(_shownIdx>=_shownOrder.length){
+                if(_seenNames.size>=list.length){
+                    _seenNames.clear();
+                }
+                _shownOrder=list.slice().sort(function(){return Math.random()-.5});
+                _shownIdx=0;
+            }
+            var name=_shownOrder[_shownIdx];
+            _shownIdx++;
+            var nameKey=(typeof name==='string')?name.split('|')[0]:name;
+            if(!_seenNames.has(nameKey)){
+                result.push(name);
+                _seenNames.add(nameKey);
+                found=true;
+            }
+            if(_shownIdx>=_shownOrder.length&&_seenNames.size>=list.length){
+                if(!found){result.push(name);found=true;}
+                break;
+            }
         }
-        result.push(_shownOrder[_shownIdx]);
-        _shownIdx++;
     }
     return result;
 }
