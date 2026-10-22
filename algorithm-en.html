@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Name Compatibility Scores Work — Love Match Test</title>
+    <meta name="description" content="Learn how name compatibility scores are calculated using Unicode character interleaving, modulo arithmetic, and iterative pair reduction. A fun look at the math behind love match tests.">
+    <meta name="keywords" content="name compatibility algorithm, how love match works, Unicode name test, name score calculation, compatibility formula">
+    <link rel="canonical" href="https://matchtest.site/algorithm-en.html">
+    <meta property="og:title" content="How Name Compatibility Scores Work">
+    <meta property="og:description" content="The elegant math behind name compatibility tests — character interleaving, Unicode values, and iterative reduction.">
+    <meta property="og:url" content="https://matchtest.site/algorithm-en.html">
+    <meta property="og:type" content="article">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6668425393052932" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--pink-50:#fdf2f8;--pink-100:#fce7f3;--pink-200:#fbcfe8;--pink-500:#ec4899;--pink-600:#db2777;--purple-500:#a855f7;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151}
+        body{font-family:'Noto Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(160deg,#fdf2f8,#fce7f3,#fbcfe8);color:var(--gray-700);line-height:1.7}
+        a{color:var(--pink-500);text-decoration:none}a:hover{text-decoration:underline}
+        .nav{background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--pink-100);padding:10px 20px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+        .nav a{font-size:13px;font-weight:600;color:var(--gray-500);padding:4px 10px;border-radius:8px;transition:all .2s}
+        .nav a:hover,.nav a.active{background:var(--pink-500);color:white;text-decoration:none}
+        main{flex:1;display:flex;justify-content:center;padding:32px 16px}
+        .page{background:rgba(255,255,255,.9);backdrop-filter:blur(8px);width:760px;max-width:100%;border-radius:20px;padding:36px 32px;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+        h1{font-family:'Fredoka',sans-serif;font-size:28px;color:var(--pink-600);margin-bottom:8px}
+        h2{font-size:18px;color:var(--purple-500);margin:24px 0 8px}
+        h3{font-size:16px;color:var(--gray-700);margin:20px 0 6px}
+        p{font-size:14px;color:var(--gray-600);margin-bottom:14px}
+        .breadcrumb{font-size:12px;color:var(--gray-400);margin-bottom:16px}
+        .breadcrumb a{color:var(--gray-500)}
+        .cta{display:inline-block;margin-top:20px;padding:10px 24px;background:linear-gradient(135deg,var(--pink-500),var(--purple-500));color:white;border-radius:50px;font-weight:700;font-size:14px;text-decoration:none}
+        .cta:hover{text-decoration:none;opacity:.9}
+        footer{background:rgba(255,255,255,.7);border-top:1px solid var(--pink-100);padding:16px;text-align:center;font-size:12px;color:var(--gray-400)}
+        footer a{color:var(--gray-500);margin:0 8px}
+    </style>
+</head>
+<body>
+<nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+</nav>
+<main>
+<article class="page">
+    <div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; How Name Compatibility Scores Work</div>
+    <h1>How Is the Name Compatibility Score Calculated?</h1>
+
+    <p>While name compatibility tests are firmly in the realm of entertainment rather than science, the mathematical processes behind them are surprisingly elegant and worth understanding. Our Love Match Test uses a well-defined algorithmic process that combines character encoding, interleaving, and iterative reduction to produce a consistent score.</p>
+
+    <h2>Step 1: Character Interleaving</h2>
+    <p>When you enter two names, the algorithm first interleaves their characters. For example, if Name A is 'Romeo' and Name B is 'Juliet', the interleaved result is 'RJuolmieeot'. This mixing ensures that both names contribute equally to the final result and that the order of characters creates a unique combination. If one name is longer than the other, the remaining characters are appended at the end.</p>
+
+    <h2>Step 2: Unicode Value Extraction</h2>
+    <p>Each character in the interleaved string is converted to a single digit using its Unicode code point modulo 10. Unicode is the universal character encoding standard that assigns a unique number to every character in every writing system — from the Latin 'A' (U+0041, value 65) to the Korean '가' (U+AC00, value 44032) to the Arabic 'ا' (U+0627, value 1575). Taking the modulo 10 of these values gives us a single digit (0-9) for each character, creating a number sequence that works identically across all languages.</p>
+
+    <h2>Step 3: Iterative Pair Reduction</h2>
+    <p>The core of the algorithm is an iterative reduction process. Adjacent numbers in the sequence are added together and reduced modulo 10. This process repeats until only two digits remain. For example, starting with [5, 2, 8, 1, 4]: first pass yields [7, 0, 9, 5], second pass yields [7, 9, 4], third pass yields [6, 3]. The final two digits (6 and 3) form the score: 63%. This cascading reduction is mathematically similar to Pascal's triangle and ensures that every character in both names influences the final result.</p>
+
+    <h2>Why Unicode Makes It Universal</h2>
+    <p>Traditional name compatibility tests often rely on language-specific systems like Hangul stroke counting or Latin letter positions. These approaches break when faced with names from other writing systems. By using Unicode code points — which are defined for over 149,000 characters across 161 scripts — our algorithm handles any name from any language without special cases or fallbacks. Whether you enter names in Thai, Devanagari, Cyrillic, or Emoji, the algorithm processes them consistently.</p>
+
+    <h2>Score Distribution and Fairness</h2>
+    <p>The modulo-based reduction process naturally produces scores across the full 0-99 range. Statistical analysis of thousands of random name pairs confirms a roughly uniform distribution, meaning no particular score range is unfairly favored or disadvantaged. The same pair of names will always produce the same score, making results consistent and shareable. Reversing the name order may produce a different score, as the interleaving pattern changes — this is intentional and mirrors many traditional name-matching practices.</p>
+
+    <p>Remember: regardless of what the numbers say, real compatibility is built through genuine connection, shared values, mutual respect, and the everyday choice to care for another person. Name scores are a delightful conversation starter, but the real magic happens between people, not between algorithms.</p>
+
+    <a href="index.html" class="cta">Try the Love Match Test</a>
+</article>
+</main>
+<footer>
+    <div><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+    <div style="margin-top:8px">&copy; 2026 Love Match Test. All rights reserved.</div>
+</footer>
+</body>
+</html>
