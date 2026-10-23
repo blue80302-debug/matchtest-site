@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전생 테스트 — 나의 전생은? | Past Life Test</title>
+<meta name="description" content="이름과 생년월일로 전생의 직업, 국가, 성격을 알아보세요. 6개 언어 지원 무료 전생 테스트.">
+<meta property="og:title" content="전생 테스트 | Past Life Test">
+<meta property="og:description" content="이름과 생년월일로 전생을 알아보세요! 무료 6개 언어 지원.">
+<meta property="og:url" content="https://matchtest.site/past-life.html">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://matchtest.site/past-life.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6668425393052932" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+SC:wght@400;700;900&family=Noto+Sans+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+    --pink-50:#fdf2f8;--pink-100:#fce7f3;--pink-200:#fbcfe8;
+    --pink-300:#f9a8d4;--pink-400:#f472b6;--pink-500:#ec4899;
+    --pink-600:#db2777;--purple-400:#c084fc;--purple-500:#a855f7;
+    --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
+    --gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;
+    --gray-700:#374151;--gray-800:#1f2937;
+    --radius:24px;
+}
+body{font-family:'Noto Sans','Noto Sans KR','Noto Sans JP','Noto Sans SC','Noto Sans Arabic',sans-serif;min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(160deg,#fdf2f8 0%,#fce7f3 40%,#fbcfe8 100%);color:var(--gray-700);line-height:1.6}
+html[dir="rtl"] body{direction:rtl}
+a{color:var(--pink-500);text-decoration:none}a:hover{text-decoration:underline}
+.floating-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.floating-bg span{position:absolute;opacity:.08;animation:drift linear infinite}
+@keyframes drift{0%{transform:translateY(105vh) rotate(0deg) scale(.8);opacity:0}8%{opacity:.08}92%{opacity:.08}100%{transform:translateY(-8vh) rotate(360deg) scale(1.2);opacity:0}}
+.site-nav{position:relative;z-index:10;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--pink-100);padding:10px 20px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.site-nav a{font-size:13px;font-weight:600;color:var(--gray-500);padding:4px 10px;border-radius:8px;transition:all .2s}
+.site-nav a:hover,.site-nav a.active{background:var(--pink-500);color:white;text-decoration:none}
+.test-tabs{position:relative;z-index:10;display:flex;justify-content:center;gap:0;padding:16px 16px 0;flex-wrap:wrap}
+.test-tab{padding:8px 14px;font-size:12px;font-weight:700;border:2px solid var(--pink-200);background:white;color:var(--pink-400);cursor:pointer;transition:all .2s;text-decoration:none}
+.test-tab:first-child{border-radius:12px 0 0 12px}
+.test-tab:last-child{border-radius:0 12px 12px 0}
+.test-tab:hover{background:var(--pink-50);text-decoration:none}
+.test-tab.active{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));color:white;border-color:transparent}
+main{flex:1;display:flex;flex-direction:column;align-items:center;padding:20px 16px 10px}
+.card{position:relative;z-index:1;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);width:420px;max-width:100%;border-radius:var(--radius);box-shadow:0 24px 48px rgba(236,72,153,.12),0 0 0 1px rgba(236,72,153,.06),inset 0 1px 0 rgba(255,255,255,.8);overflow:hidden;margin-bottom:32px}
+.header{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));padding:28px 20px 24px;text-align:center;color:white;position:relative;overflow:hidden}
+.header::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:20px;background:rgba(255,255,255,.92);border-radius:50% 50% 0 0/100% 100% 0 0}
+.header h1{font-family:'Fredoka',sans-serif;font-size:24px;font-weight:700;margin-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,.12)}
+.header p{font-size:13px;opacity:.85}
+.lang-bar{display:flex;justify-content:center;gap:4px;padding:14px 16px 6px}
+.lang-btn{padding:5px 10px;border:1.5px solid var(--pink-200);border-radius:100px;background:white;font-size:12px;font-weight:600;color:var(--pink-400);cursor:pointer;transition:all .2s}
+.lang-btn:hover,.lang-btn.active{background:var(--pink-500);border-color:var(--pink-500);color:white}
+.body{padding:18px 22px 24px}
+.input-group{margin-bottom:14px}
+.input-group label{display:block;font-size:11px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.input-group input{width:100%;padding:11px 10px;border:2px solid var(--pink-100);border-radius:14px;font-size:16px;font-weight:700;color:var(--gray-700);text-align:center;background:var(--pink-50);transition:border-color .2s,box-shadow .2s}
+.input-group input:focus{outline:none;border-color:var(--pink-400);box-shadow:0 0 0 3px rgba(236,72,153,.1);background:white}
+.btn-primary{display:block;width:100%;padding:14px;border:none;border-radius:50px;font-size:16px;font-weight:700;color:white;background:linear-gradient(135deg,var(--pink-500),var(--purple-500));cursor:pointer;box-shadow:0 6px 20px rgba(168,85,247,.3);transition:transform .1s,box-shadow .2s;margin-top:8px}
+.btn-primary:hover{box-shadow:0 8px 28px rgba(168,85,247,.4)}
+.btn-primary:active{transform:scale(.97)}
+.result{display:none;margin-top:22px;text-align:center;animation:popIn .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes popIn{0%{opacity:0;transform:scale(.85) translateY(12px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+.past-card{background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:20px;padding:24px;color:white;margin-bottom:16px;position:relative;overflow:hidden}
+.past-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(168,85,247,.15) 0%,transparent 60%);animation:glow 4s ease-in-out infinite alternate}
+@keyframes glow{0%{transform:translate(0,0)}100%{transform:translate(10%,10%)}}
+.past-era{font-size:12px;opacity:.7;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;position:relative}
+.past-job{font-family:'Fredoka',sans-serif;font-size:28px;font-weight:700;margin-bottom:4px;position:relative}
+.past-country{font-size:16px;opacity:.9;margin-bottom:12px;position:relative}
+.past-personality{font-size:14px;opacity:.8;line-height:1.7;position:relative}
+.trait-box{background:var(--pink-50);border:1px solid var(--pink-100);border-radius:16px;padding:14px;margin:12px 0;text-align:left}
+.trait-box h3{font-size:14px;font-weight:700;color:var(--pink-600);margin-bottom:8px}
+.trait-item{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:13px;color:var(--gray-600)}
+.trait-bar{width:100px;height:8px;background:var(--pink-100);border-radius:100px;overflow:hidden}
+.trait-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--pink-400),var(--purple-500));transition:width 1s ease}
+.share-row{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.share-btn{padding:8px 16px;border:2px solid var(--pink-200);border-radius:100px;background:white;font-size:12px;font-weight:600;color:var(--pink-500);cursor:pointer;transition:all .2s}
+.share-btn:hover{background:var(--pink-500);color:white;border-color:var(--pink-500)}
+footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
+@media(max-width:480px){.test-tab{padding:6px 8px;font-size:11px}}
+</style>
+</head>
+<body>
+<div class="floating-bg" id="floatingBg"></div>
+
+<nav class="site-nav">
+    <a href="index.html" id="nav-home">Home</a>
+    <a href="about.html" id="nav-about">About</a>
+    <a href="contact.html" id="nav-contact">Contact</a>
+    <a href="privacy.html" id="nav-privacy">Privacy</a>
+    <a href="terms.html" id="nav-terms">Terms</a>
+</nav>
+
+<div class="test-tabs">
+    <a href="index.html" class="test-tab">💕 <span class="tab-text" data-key="tabName">이름궁합</span></a>
+    <a href="mbti-test.html" class="test-tab">🧠 <span class="tab-text" data-key="tabMbtiTest">MBTI</span></a>
+    <a href="mbti.html" class="test-tab">💜 <span class="tab-text" data-key="tabMbti">MBTI궁합</span></a>
+    <a href="pet-name.html" class="test-tab">🐾 <span class="tab-text" data-key="tabPet">펫이름</span></a>
+    <a href="birthday.html" class="test-tab">🎂 <span class="tab-text" data-key="tabBday">생일궁합</span></a>
+    <a href="past-life.html" class="test-tab active">🔮 <span class="tab-text" data-key="tabPast">전생</span></a>
+    <a href="fortune.html" class="test-tab">⭐ <span class="tab-text" data-key="tabFortune">오늘운세</span></a>
+</div>
+
+<main>
+<div class="card">
+    <div class="header">
+        <h1 id="t-title">🔮 전생 테스트</h1>
+        <p id="t-sub">이름과 생년월일로 전생의 삶을 알아보세요</p>
+    </div>
+    <div class="lang-bar" id="langBar">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ko">KO</button>
+        <button class="lang-btn" data-lang="zh">ZH</button>
+        <button class="lang-btn" data-lang="ja">JA</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="ar">AR</button>
+    </div>
+    <div class="body">
+        <div class="input-group">
+            <label id="lbl-name">YOUR NAME</label>
+            <input type="text" id="inpName" placeholder="Enter your name">
+        </div>
+        <div class="input-group">
+            <label id="lbl-bday">YOUR BIRTHDAY</label>
+            <input type="date" id="inpBday">
+        </div>
+        <button class="btn-primary" id="btnReveal" onclick="reveal()">Discover Your Past Life</button>
+
+        <div class="result" id="result">
+            <div class="past-card">
+                <div class="past-era" id="resEra"></div>
+                <div class="past-job" id="resJob"></div>
+                <div class="past-country" id="resCountry"></div>
+                <div class="past-personality" id="resPersonality"></div>
+            </div>
+            <div class="trait-box" id="traitBox">
+                <h3 id="traitTitle">Past Life Traits</h3>
+                <div class="trait-item"><span id="trCourage">Courage</span><div class="trait-bar"><div class="trait-fill" id="barCourage" style="width:0%"></div></div></div>
+                <div class="trait-item"><span id="trWisdom">Wisdom</span><div class="trait-bar"><div class="trait-fill" id="barWisdom" style="width:0%"></div></div></div>
+                <div class="trait-item"><span id="trCharisma">Charisma</span><div class="trait-bar"><div class="trait-fill" id="barCharisma" style="width:0%"></div></div></div>
+                <div class="trait-item"><span id="trCreativity">Creativity</span><div class="trait-bar"><div class="trait-fill" id="barCreativity" style="width:0%"></div></div></div>
+                <div class="trait-item"><span id="trKindness">Kindness</span><div class="trait-bar"><div class="trait-fill" id="barKindness" style="width:0%"></div></div></div>
+            </div>
+            <div class="share-row">
+                <button class="share-btn" onclick="shareTwitter()">𝕏 Twitter</button>
+                <button class="share-btn" onclick="copyResult()">📋 Copy</button>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<footer>&copy; 2026 matchtest.site — Past Life Test</footer>
+
+<script>
+var L={
+  en:{title:"🔮 Past Life Test",sub:"Discover who you were in a past life",lblName:"YOUR NAME",lblBday:"YOUR BIRTHDAY",btn:"Discover Your Past Life",ph:"Enter your name",traitTitle:"Past Life Traits",trCourage:"Courage",trWisdom:"Wisdom",trCharisma:"Charisma",trCreativity:"Creativity",trKindness:"Kindness",inLabel:"in",eraLabel:"Era",
+    tabName:"Name Match",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Pet Names",tabBday:"Birthday",tabPast:"Past Life",tabFortune:"Fortune",
+    nav:{home:"Home",about:"About",contact:"Contact",privacy:"Privacy",terms:"Terms"}},
+  ko:{title:"🔮 전생 테스트",sub:"이름과 생년월일로 전생의 삶을 알아보세요",lblName:"이름",lblBday:"생년월일",btn:"전생 알아보기",ph:"이름을 입력하세요",traitTitle:"전생 특성",trCourage:"용기",trWisdom:"지혜",trCharisma:"카리스마",trCreativity:"창의력",trKindness:"친절함",inLabel:"",eraLabel:"시대",
+    tabName:"이름궁합",tabMbtiTest:"MBTI",tabMbti:"MBTI궁합",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세",
+    nav:{home:"홈",about:"소개",contact:"문의",privacy:"개인정보",terms:"이용약관"}},
+  zh:{title:"🔮 前世测试",sub:"用姓名和生日揭开你的前世之谜",lblName:"姓名",lblBday:"出生日期",btn:"探索前世",ph:"请输入姓名",traitTitle:"前世特质",trCourage:"勇气",trWisdom:"智慧",trCharisma:"魅力",trCreativity:"创造力",trKindness:"善良",inLabel:"",eraLabel:"时代",
+    tabName:"姓名缘分",tabMbtiTest:"MBTI",tabMbti:"MBTI配对",tabPet:"宠物名",tabBday:"生日配对",tabPast:"前世",tabFortune:"今日运势",
+    nav:{home:"首页",about:"关于",contact:"联系",privacy:"隐私",terms:"条款"}},
+  ja:{title:"🔮 前世診断",sub:"名前と誕生日で前世の人生を探る",lblName:"名前",lblBday:"生年月日",btn:"前世を診断する",ph:"名前を入力",traitTitle:"前世の特性",trCourage:"勇気",trWisdom:"知恵",trCharisma:"カリスマ",trCreativity:"創造力",trKindness:"優しさ",inLabel:"",eraLabel:"時代",
+    tabName:"名前相性",tabMbtiTest:"MBTI",tabMbti:"MBTI相性",tabPet:"ペット名",tabBday:"誕生日相性",tabPast:"前世",tabFortune:"今日の運勢",
+    nav:{home:"ホーム",about:"紹介",contact:"お問い合わせ",privacy:"プライバシー",terms:"利用規約"}},
+  es:{title:"🔮 Test de Vida Pasada",sub:"Descubre quién fuiste en una vida pasada",lblName:"TU NOMBRE",lblBday:"TU CUMPLEAÑOS",btn:"Descubre Tu Vida Pasada",ph:"Ingresa tu nombre",traitTitle:"Rasgos de Vida Pasada",trCourage:"Coraje",trWisdom:"Sabiduría",trCharisma:"Carisma",trCreativity:"Creatividad",trKindness:"Bondad",inLabel:"en",eraLabel:"Era",
+    tabName:"Nombres",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Mascotas",tabBday:"Cumpleaños",tabPast:"Vida Pasada",tabFortune:"Fortuna",
+    nav:{home:"Inicio",about:"Acerca",contact:"Contacto",privacy:"Privacidad",terms:"Términos"}},
+  ar:{title:"🔮 اختبار الحياة السابقة",sub:"اكتشف من كنت في حياتك السابقة",lblName:"اسمك",lblBday:"تاريخ ميلادك",btn:"اكتشف حياتك السابقة",ph:"أدخل اسمك",traitTitle:"سمات الحياة السابقة",trCourage:"الشجاعة",trWisdom:"الحكمة",trCharisma:"الكاريزما",trCreativity:"الإبداع",trKindness:"اللطف",inLabel:"في",eraLabel:"العصر",
+    tabName:"الأسماء",tabMbtiTest:"MBTI",tabMbti:"توافق MBTI",tabPet:"حيوانات",tabBday:"عيد الميلاد",tabPast:"حياة سابقة",tabFortune:"حظ اليوم",
+    nav:{home:"الرئيسية",about:"عنا",contact:"اتصل",privacy:"الخصوصية",terms:"الشروط"}}
+};
+
+var JOBS=[
+  {en:"Royal Knight",ko:"왕실 기사",zh:"皇家骑士",ja:"王室騎士",es:"Caballero Real",ar:"فارس ملكي",emoji:"⚔️"},
+  {en:"Court Musician",ko:"궁중 악사",zh:"宫廷乐师",ja:"宮廷楽師",es:"Músico de la Corte",ar:"موسيقي البلاط",emoji:"🎵"},
+  {en:"Traveling Merchant",ko:"여행 상인",zh:"旅行商人",ja:"旅商人",es:"Mercader Viajero",ar:"تاجر متجول",emoji:"🏪"},
+  {en:"Healer & Herbalist",ko:"치유사",zh:"草药师",ja:"薬草師",es:"Curandero",ar:"معالج بالأعشاب",emoji:"🌿"},
+  {en:"Royal Advisor",ko:"왕실 조언자",zh:"皇家顾问",ja:"王室顧問",es:"Consejero Real",ar:"مستشار ملكي",emoji:"📜"},
+  {en:"Explorer & Navigator",ko:"탐험가",zh:"探险家",ja:"探検家",es:"Explorador",ar:"مستكشف",emoji:"🧭"},
+  {en:"Master Artisan",ko:"장인",zh:"大师工匠",ja:"名工",es:"Maestro Artesano",ar:"حرفي ماهر",emoji:"🔨"},
+  {en:"Temple Priest",ko:"신전 사제",zh:"神殿祭司",ja:"神殿祭司",es:"Sacerdote del Templo",ar:"كاهن المعبد",emoji:"🏛️"},
+  {en:"Street Performer",ko:"거리 예술가",zh:"街头艺人",ja:"大道芸人",es:"Artista Callejero",ar:"فنان شوارع",emoji:"🎭"},
+  {en:"Philosopher & Scholar",ko:"철학자",zh:"哲学家",ja:"哲学者",es:"Filósofo",ar:"فيلسوف",emoji:"📚"},
+  {en:"Pirate Captain",ko:"해적 선장",zh:"海盗船长",ja:"海賊船長",es:"Capitán Pirata",ar:"قبطان قراصنة",emoji:"🏴‍☠️"},
+  {en:"Samurai Warrior",ko:"사무라이",zh:"武士",ja:"侍",es:"Guerrero Samurái",ar:"محارب ساموراي",emoji:"🗡️"},
+  {en:"Court Painter",ko:"궁중 화가",zh:"宫廷画家",ja:"宮廷画家",es:"Pintor de la Corte",ar:"رسام البلاط",emoji:"🎨"},
+  {en:"Astronomer",ko:"천문학자",zh:"天文学家",ja:"天文学者",es:"Astrónomo",ar:"عالم فلك",emoji:"🔭"},
+  {en:"Nomadic Herder",ko:"유목민",zh:"游牧民",ja:"遊牧民",es:"Pastor Nómada",ar:"راعي بدوي",emoji:"🐎"}
+];
+
+var COUNTRIES=[
+  {en:"Ancient Egypt",ko:"고대 이집트",zh:"古埃及",ja:"古代エジプト",es:"Antiguo Egipto",ar:"مصر القديمة",emoji:"🇪🇬"},
+  {en:"Medieval England",ko:"중세 영국",zh:"中世纪英格兰",ja:"中世イングランド",es:"Inglaterra Medieval",ar:"إنجلترا القرون الوسطى",emoji:"🏰"},
+  {en:"Joseon Korea",ko:"조선시대 한국",zh:"朝鲜王朝",ja:"朝鮮時代の韓国",es:"Corea Joseon",ar:"كوريا جوسون",emoji:"🇰🇷"},
+  {en:"Tang Dynasty China",ko:"당나라 중국",zh:"唐朝中国",ja:"唐代中国",es:"China Dinastía Tang",ar:"الصين عهد تانغ",emoji:"🇨🇳"},
+  {en:"Edo Japan",ko:"에도시대 일본",zh:"江户时代日本",ja:"江戸時代の日本",es:"Japón Edo",ar:"اليابان عصر إيدو",emoji:"🇯🇵"},
+  {en:"Ancient Greece",ko:"고대 그리스",zh:"古希腊",ja:"古代ギリシャ",es:"Antigua Grecia",ar:"اليونان القديمة",emoji:"🏛️"},
+  {en:"Viking Scandinavia",ko:"바이킹 스칸디나비아",zh:"维京斯堪的纳维亚",ja:"ヴァイキングの北欧",es:"Escandinavia Vikinga",ar:"الفايكنج الإسكندنافية",emoji:"⚓"},
+  {en:"Renaissance Italy",ko:"르네상스 이탈리아",zh:"文艺复兴意大利",ja:"ルネサンスのイタリア",es:"Italia Renacentista",ar:"إيطاليا عصر النهضة",emoji:"🇮🇹"},
+  {en:"Aztec Mexico",ko:"아즈텍 멕시코",zh:"阿兹特克墨西哥",ja:"アステカのメキシコ",es:"México Azteca",ar:"المكسيك الأزتيك",emoji:"🏺"},
+  {en:"Mughal India",ko:"무굴제국 인도",zh:"莫卧儿印度",ja:"ムガル帝国のインド",es:"India Mogol",ar:"الهند المغولية",emoji:"🇮🇳"},
+  {en:"Ottoman Empire",ko:"오스만 제국",zh:"奥斯曼帝国",ja:"オスマン帝国",es:"Imperio Otomano",ar:"الإمبراطورية العثمانية",emoji:"🌙"},
+  {en:"Ancient Rome",ko:"고대 로마",zh:"古罗马",ja:"古代ローマ",es:"Antigua Roma",ar:"روما القديمة",emoji:"🏟️"}
+];
+
+var ERAS=[
+  {en:"3000 BCE — Ancient Era",ko:"기원전 3000년 — 고대",zh:"公元前3000年 — 古代",ja:"紀元前3000年 — 古代",es:"3000 a.C. — Era Antigua",ar:"3000 ق.م — العصر القديم"},
+  {en:"500 BCE — Classical Era",ko:"기원전 500년 — 고전 시대",zh:"公元前500年 — 古典时代",ja:"紀元前500年 — 古典時代",es:"500 a.C. — Era Clásica",ar:"500 ق.م — العصر الكلاسيكي"},
+  {en:"800 CE — Early Medieval",ko:"800년 — 중세 초기",zh:"公元800年 — 中世纪早期",ja:"800年 — 中世初期",es:"800 d.C. — Medieval Temprano",ar:"800 م — القرون الوسطى المبكرة"},
+  {en:"1200 CE — High Medieval",ko:"1200년 — 중세 전성기",zh:"公元1200年 — 中世纪盛期",ja:"1200年 — 中世盛期",es:"1200 d.C. — Medieval Alto",ar:"1200 م — القرون الوسطى العليا"},
+  {en:"1500 CE — Renaissance",ko:"1500년 — 르네상스",zh:"公元1500年 — 文艺复兴",ja:"1500年 — ルネサンス",es:"1500 d.C. — Renacimiento",ar:"1500 م — عصر النهضة"},
+  {en:"1700 CE — Age of Exploration",ko:"1700년 — 대항해시대",zh:"公元1700年 — 大航海时代",ja:"1700年 — 大航海時代",es:"1700 d.C. — Era de Exploración",ar:"1700 م — عصر الاستكشاف"}
+];
+
+var PERSONALITIES={
+  en:[
+    "You were known for your fierce loyalty and unwavering sense of justice. People came from far and wide to seek your guidance.",
+    "Your creative spirit touched everyone around you. You found beauty in the smallest things and shared it with the world.",
+    "A born leader with a strategic mind, you commanded respect through wisdom rather than force.",
+    "Your gentle nature and healing touch made you beloved by all. You believed in the power of compassion above all else.",
+    "Adventurous and fearless, you lived life on the edge. Your stories were told around campfires for generations.",
+    "A quiet observer with deep insight, you understood the mysteries of nature that others could not see."
+  ],
+  ko:[
+    "강한 충성심과 확고한 정의감으로 알려진 인물이었습니다. 사람들이 먼 곳에서 조언을 구하러 찾아왔어요.",
+    "창의적인 영혼이 주변의 모든 사람에게 영감을 주었습니다. 작은 것에서 아름다움을 발견하고 세상과 나누었어요.",
+    "타고난 리더십과 전략적 사고력으로, 힘이 아닌 지혜로 존경을 받았습니다.",
+    "온화한 성품과 치유의 손길로 모든 이에게 사랑받았습니다. 무엇보다 연민의 힘을 믿었어요.",
+    "모험적이고 두려움 없이 살았습니다. 당신의 이야기는 세대를 넘어 전해졌어요.",
+    "깊은 통찰력을 가진 조용한 관찰자로, 다른 이들이 보지 못하는 자연의 신비를 이해했습니다."
+  ],
+  zh:[
+    "你以忠诚和正义感闻名。人们从远方来寻求你的指导。",
+    "你的创造力感染了每一个人。你在最小的事物中发现美，并与世界分享。",
+    "天生的领袖，拥有战略头脑，用智慧而非武力赢得尊重。",
+    "温柔的性格和治愈的力量使你深受爱戴。你最相信慈悲的力量。",
+    "冒险无畏，活在刀尖上。你的故事被世代传颂。",
+    "安静的观察者，拥有深刻的洞察力，理解他人无法看到的自然之谜。"
+  ],
+  ja:[
+    "強い忠誠心と揺るぎない正義感で知られていました。遠方から人々が助言を求めてやって来ました。",
+    "創造的な魂が周りのすべての人に感動を与えました。小さなものの中に美を見つけ、世界と分かち合いました。",
+    "生まれながらのリーダーで戦略的な頭脳を持ち、力ではなく知恵で尊敬を集めました。",
+    "穏やかな性格と癒しの力で、すべての人に愛されました。何よりも慈悲の力を信じていました。",
+    "冒険心にあふれ、恐れを知らず生きました。あなたの物語は世代を超えて語り継がれました。",
+    "深い洞察力を持つ静かな観察者で、他の人には見えない自然の神秘を理解していました。"
+  ],
+  es:[
+    "Eras conocido por tu feroz lealtad y sentido inquebrantable de la justicia. La gente venía de lejos a buscar tu guía.",
+    "Tu espíritu creativo tocaba a todos a tu alrededor. Encontrabas belleza en las cosas más pequeñas.",
+    "Un líder nato con mente estratégica, ganabas respeto mediante la sabiduría, no la fuerza.",
+    "Tu naturaleza gentil y don de sanación te hacían amado por todos.",
+    "Aventurero e intrépido, vivías al límite. Tus historias se contaron durante generaciones.",
+    "Un observador tranquilo con profunda percepción, comprendías los misterios que otros no podían ver."
+  ],
+  ar:[
+    "كنت معروفاً بولائك الشديد وحسك القوي بالعدالة. كان الناس يأتون من بعيد لطلب نصيحتك.",
+    "روحك الإبداعية أثرت في كل من حولك. وجدت الجمال في أصغر الأشياء وشاركته مع العالم.",
+    "قائد بالفطرة ذو عقل استراتيجي، فرضت الاحترام بالحكمة لا بالقوة.",
+    "طبيعتك اللطيفة ولمستك الشافية جعلتك محبوباً من الجميع.",
+    "مغامر ولا يعرف الخوف، عشت الحياة على حافة الخطر. رويت قصصك لأجيال.",
+    "مراقب هادئ ذو بصيرة عميقة، فهمت أسرار الطبيعة التي لم يرها الآخرون."
+  ]
+};
+
+var curLang='en';
+
+function hash(s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0}return Math.abs(h)}
+
+function reveal(){
+  var name=document.getElementById('inpName').value.trim();
+  var bday=document.getElementById('inpBday').value;
+  if(!name||!bday)return;
+
+  var seed=hash(name+bday);
+  var jobIdx=seed%JOBS.length;
+  var countryIdx=(seed>>4)%COUNTRIES.length;
+  var eraIdx=(seed>>8)%ERAS.length;
+  var persIdx=(seed>>12)%PERSONALITIES[curLang].length;
+
+  var job=JOBS[jobIdx];
+  var country=COUNTRIES[countryIdx];
+  var era=ERAS[eraIdx];
+
+  document.getElementById('resEra').textContent=(L[curLang].eraLabel||'Era')+': '+(era[curLang]||era.en);
+  document.getElementById('resJob').textContent=job.emoji+' '+(job[curLang]||job.en);
+  document.getElementById('resCountry').textContent=(country.emoji)+' '+(country[curLang]||country.en);
+  document.getElementById('resPersonality').textContent=PERSONALITIES[curLang][persIdx]||PERSONALITIES.en[persIdx];
+
+  document.getElementById('traitTitle').textContent=L[curLang].traitTitle;
+  document.getElementById('trCourage').textContent=L[curLang].trCourage;
+  document.getElementById('trWisdom').textContent=L[curLang].trWisdom;
+  document.getElementById('trCharisma').textContent=L[curLang].trCharisma;
+  document.getElementById('trCreativity').textContent=L[curLang].trCreativity;
+  document.getElementById('trKindness').textContent=L[curLang].trKindness;
+
+  var traits=[30+(seed%71),30+((seed>>3)%71),30+((seed>>6)%71),30+((seed>>9)%71),30+((seed>>12)%71)];
+  var bars=['barCourage','barWisdom','barCharisma','barCreativity','barKindness'];
+  setTimeout(function(){
+    for(var i=0;i<bars.length;i++){
+      document.getElementById(bars[i]).style.width=traits[i]+'%';
+    }
+  },100);
+
+  var el=document.getElementById('result');
+  el.style.display='block';
+  el.style.animation='none';el.offsetHeight;el.style.animation='popIn .5s cubic-bezier(.34,1.56,.64,1)';
+}
+
+function setLang(lang){
+  curLang=lang;
+  var t=L[lang];
+  document.getElementById('t-title').textContent=t.title;
+  document.getElementById('t-sub').textContent=t.sub;
+  document.getElementById('lbl-name').textContent=t.lblName;
+  document.getElementById('lbl-bday').textContent=t.lblBday;
+  document.getElementById('btnReveal').textContent=t.btn;
+  document.getElementById('inpName').placeholder=t.ph;
+  document.getElementById('nav-home').textContent=t.nav.home;
+  document.getElementById('nav-about').textContent=t.nav.about;
+  document.getElementById('nav-contact').textContent=t.nav.contact;
+  document.getElementById('nav-privacy').textContent=t.nav.privacy;
+  document.getElementById('nav-terms').textContent=t.nav.terms;
+  document.querySelectorAll('.tab-text').forEach(function(el){
+    var k=el.getAttribute('data-key');
+    if(t[k])el.textContent=t[k];
+  });
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.classList.toggle('active',b.getAttribute('data-lang')===lang);
+  });
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+}
+
+document.getElementById('langBar').addEventListener('click',function(e){
+  if(e.target.classList.contains('lang-btn'))setLang(e.target.getAttribute('data-lang'));
+});
+
+function shareTwitter(){
+  var j=document.getElementById('resJob').textContent;
+  var c=document.getElementById('resCountry').textContent;
+  var url='https://twitter.com/intent/tweet?text='+encodeURIComponent('In my past life, I was a '+j+' '+c+'! 🔮 Find yours: https://matchtest.site/past-life.html');
+  window.open(url,'_blank');
+}
+function copyResult(){
+  var j=document.getElementById('resJob').textContent;
+  var c=document.getElementById('resCountry').textContent;
+  navigator.clipboard.writeText('Past Life: '+j+' '+c+' 🔮 https://matchtest.site/past-life.html');
+}
+
+(function(){var c=document.getElementById('floatingBg');var e=['🔮','⭐','🌙','✨','💫','🪄'];for(var i=0;i<15;i++){var s=document.createElement('span');s.textContent=e[i%e.length];s.style.left=Math.random()*100+'%';s.style.fontSize=(20+Math.random()*30)+'px';s.style.animationDuration=(12+Math.random()*18)+'s';s.style.animationDelay=(-Math.random()*20)+'s';c.appendChild(s)}})();
+
+(function(){
+  try{var n=navigator.language||navigator.userLanguage||'en';var c=n.slice(0,2).toLowerCase();if(L[c])setLang(c);else setLang('en')}catch(e){setLang('en')}
+})();
+</script>
+</body>
+</html>

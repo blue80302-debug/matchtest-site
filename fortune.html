@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘의 운세 — 무료 데일리 운세 | Daily Fortune</title>
+<meta name="description" content="오늘의 운세를 5가지 카테고리로 확인하세요. 연애, 재물, 건강, 직장, 행운. 6개 언어 무료 지원.">
+<meta property="og:title" content="오늘의 운세 | Daily Fortune">
+<meta property="og:description" content="오늘의 운세를 확인하세요! 연애, 재물, 건강, 직장, 행운 5가지 운세.">
+<meta property="og:url" content="https://matchtest.site/fortune.html">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://matchtest.site/fortune.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6668425393052932" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+SC:wght@400;700;900&family=Noto+Sans+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+    --pink-50:#fdf2f8;--pink-100:#fce7f3;--pink-200:#fbcfe8;
+    --pink-300:#f9a8d4;--pink-400:#f472b6;--pink-500:#ec4899;
+    --pink-600:#db2777;--purple-400:#c084fc;--purple-500:#a855f7;
+    --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
+    --gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;
+    --gray-700:#374151;--gray-800:#1f2937;
+    --radius:24px;
+}
+body{font-family:'Noto Sans','Noto Sans KR','Noto Sans JP','Noto Sans SC','Noto Sans Arabic',sans-serif;min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(160deg,#fdf2f8 0%,#fce7f3 40%,#fbcfe8 100%);color:var(--gray-700);line-height:1.6}
+html[dir="rtl"] body{direction:rtl}
+a{color:var(--pink-500);text-decoration:none}a:hover{text-decoration:underline}
+.floating-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.floating-bg span{position:absolute;opacity:.08;animation:drift linear infinite}
+@keyframes drift{0%{transform:translateY(105vh) rotate(0deg) scale(.8);opacity:0}8%{opacity:.08}92%{opacity:.08}100%{transform:translateY(-8vh) rotate(360deg) scale(1.2);opacity:0}}
+.site-nav{position:relative;z-index:10;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--pink-100);padding:10px 20px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.site-nav a{font-size:13px;font-weight:600;color:var(--gray-500);padding:4px 10px;border-radius:8px;transition:all .2s}
+.site-nav a:hover,.site-nav a.active{background:var(--pink-500);color:white;text-decoration:none}
+.test-tabs{position:relative;z-index:10;display:flex;justify-content:center;gap:0;padding:16px 16px 0;flex-wrap:wrap}
+.test-tab{padding:8px 14px;font-size:12px;font-weight:700;border:2px solid var(--pink-200);background:white;color:var(--pink-400);cursor:pointer;transition:all .2s;text-decoration:none}
+.test-tab:first-child{border-radius:12px 0 0 12px}
+.test-tab:last-child{border-radius:0 12px 12px 0}
+.test-tab:hover{background:var(--pink-50);text-decoration:none}
+.test-tab.active{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));color:white;border-color:transparent}
+main{flex:1;display:flex;flex-direction:column;align-items:center;padding:20px 16px 10px}
+.card{position:relative;z-index:1;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);width:420px;max-width:100%;border-radius:var(--radius);box-shadow:0 24px 48px rgba(236,72,153,.12),0 0 0 1px rgba(236,72,153,.06),inset 0 1px 0 rgba(255,255,255,.8);overflow:hidden;margin-bottom:32px}
+.header{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));padding:28px 20px 24px;text-align:center;color:white;position:relative;overflow:hidden}
+.header::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:20px;background:rgba(255,255,255,.92);border-radius:50% 50% 0 0/100% 100% 0 0}
+.header h1{font-family:'Fredoka',sans-serif;font-size:24px;font-weight:700;margin-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,.12)}
+.header p{font-size:13px;opacity:.85}
+.lang-bar{display:flex;justify-content:center;gap:4px;padding:14px 16px 6px}
+.lang-btn{padding:5px 10px;border:1.5px solid var(--pink-200);border-radius:100px;background:white;font-size:12px;font-weight:600;color:var(--pink-400);cursor:pointer;transition:all .2s}
+.lang-btn:hover,.lang-btn.active{background:var(--pink-500);border-color:var(--pink-500);color:white}
+.body{padding:18px 22px 24px}
+.input-group{margin-bottom:14px}
+.input-group label{display:block;font-size:11px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.input-group input{width:100%;padding:11px 10px;border:2px solid var(--pink-100);border-radius:14px;font-size:16px;font-weight:700;color:var(--gray-700);text-align:center;background:var(--pink-50);transition:border-color .2s,box-shadow .2s}
+.input-group input:focus{outline:none;border-color:var(--pink-400);box-shadow:0 0 0 3px rgba(236,72,153,.1);background:white}
+.btn-primary{display:block;width:100%;padding:14px;border:none;border-radius:50px;font-size:16px;font-weight:700;color:white;background:linear-gradient(135deg,var(--pink-500),var(--purple-500));cursor:pointer;box-shadow:0 6px 20px rgba(168,85,247,.3);transition:transform .1s,box-shadow .2s;margin-top:8px}
+.btn-primary:hover{box-shadow:0 8px 28px rgba(168,85,247,.4)}
+.btn-primary:active{transform:scale(.97)}
+.result{display:none;margin-top:22px;animation:popIn .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes popIn{0%{opacity:0;transform:scale(.85) translateY(12px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+.overall-score{text-align:center;margin-bottom:18px}
+.overall-score .score{font-family:'Fredoka',sans-serif;font-size:56px;font-weight:700;background:linear-gradient(135deg,var(--pink-500),var(--purple-500));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.overall-score .label{font-size:14px;font-weight:600;color:var(--gray-500)}
+.fortune-item{background:var(--pink-50);border:1px solid var(--pink-100);border-radius:16px;padding:14px;margin-bottom:10px}
+.fortune-item .fi-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.fortune-item .fi-cat{font-size:14px;font-weight:700;color:var(--pink-600)}
+.fortune-item .fi-stars{color:var(--pink-400);font-size:16px;letter-spacing:2px}
+.fortune-item .fi-msg{font-size:13px;color:var(--gray-600);line-height:1.5}
+.lucky-box{background:linear-gradient(135deg,#fdf2f8,#fce7f3);border:2px solid var(--pink-200);border-radius:16px;padding:16px;margin-top:14px;text-align:center}
+.lucky-box h3{font-size:14px;font-weight:700;color:var(--pink-600);margin-bottom:8px}
+.lucky-items{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.lucky-tag{background:white;border:1px solid var(--pink-200);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--gray-600)}
+.cached-note{text-align:center;font-size:11px;color:var(--gray-400);margin-top:10px}
+.share-row{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.share-btn{padding:8px 16px;border:2px solid var(--pink-200);border-radius:100px;background:white;font-size:12px;font-weight:600;color:var(--pink-500);cursor:pointer;transition:all .2s}
+.share-btn:hover{background:var(--pink-500);color:white;border-color:var(--pink-500)}
+footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
+@media(max-width:480px){.test-tab{padding:6px 8px;font-size:11px}}
+</style>
+</head>
+<body>
+<div class="floating-bg" id="floatingBg"></div>
+
+<nav class="site-nav">
+    <a href="index.html" id="nav-home">Home</a>
+    <a href="about.html" id="nav-about">About</a>
+    <a href="contact.html" id="nav-contact">Contact</a>
+    <a href="privacy.html" id="nav-privacy">Privacy</a>
+    <a href="terms.html" id="nav-terms">Terms</a>
+</nav>
+
+<div class="test-tabs">
+    <a href="index.html" class="test-tab">💕 <span class="tab-text" data-key="tabName">이름궁합</span></a>
+    <a href="mbti-test.html" class="test-tab">🧠 <span class="tab-text" data-key="tabMbtiTest">MBTI</span></a>
+    <a href="mbti.html" class="test-tab">💜 <span class="tab-text" data-key="tabMbti">MBTI궁합</span></a>
+    <a href="pet-name.html" class="test-tab">🐾 <span class="tab-text" data-key="tabPet">펫이름</span></a>
+    <a href="birthday.html" class="test-tab">🎂 <span class="tab-text" data-key="tabBday">생일궁합</span></a>
+    <a href="past-life.html" class="test-tab">🔮 <span class="tab-text" data-key="tabPast">전생</span></a>
+    <a href="fortune.html" class="test-tab active">⭐ <span class="tab-text" data-key="tabFortune">오늘운세</span></a>
+</div>
+
+<main>
+<div class="card">
+    <div class="header">
+        <h1 id="t-title">⭐ 오늘의 운세</h1>
+        <p id="t-sub">생년월일로 오늘의 운세를 확인하세요</p>
+    </div>
+    <div class="lang-bar" id="langBar">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ko">KO</button>
+        <button class="lang-btn" data-lang="zh">ZH</button>
+        <button class="lang-btn" data-lang="ja">JA</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="ar">AR</button>
+    </div>
+    <div class="body">
+        <div class="input-group">
+            <label id="lbl-bday">YOUR BIRTHDAY</label>
+            <input type="date" id="inpBday">
+        </div>
+        <button class="btn-primary" id="btnCheck" onclick="checkFortune()">Check Today's Fortune</button>
+
+        <div class="result" id="result">
+            <div class="overall-score">
+                <div class="score" id="resScore">0%</div>
+                <div class="label" id="resLabel">Overall Fortune</div>
+            </div>
+            <div id="fortuneList"></div>
+            <div class="lucky-box" id="luckyBox">
+                <h3 id="luckyTitle">Lucky Items</h3>
+                <div class="lucky-items" id="luckyItems"></div>
+            </div>
+            <div class="cached-note" id="cachedNote"></div>
+            <div class="share-row">
+                <button class="share-btn" onclick="shareTwitter()">𝕏 Twitter</button>
+                <button class="share-btn" onclick="copyResult()">📋 Copy</button>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<footer>&copy; 2026 matchtest.site — Daily Fortune</footer>
+
+<script>
+var L={
+  en:{title:"⭐ Daily Fortune",sub:"Check your fortune for today",lblBday:"YOUR BIRTHDAY",btn:"Check Today's Fortune",overall:"Overall Fortune",
+    cats:["💕 Love","💰 Wealth","💪 Health","💼 Career","🍀 Luck"],
+    catKeys:["love","wealth","health","career","luck"],
+    luckyTitle:"Today's Lucky Items",luckyColor:"Lucky Color",luckyNum:"Lucky Number",luckyDir:"Lucky Direction",
+    cachedNote:"Fortune updates daily. Come back tomorrow!",
+    tabName:"Name Match",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Pet Names",tabBday:"Birthday",tabPast:"Past Life",tabFortune:"Fortune",
+    nav:{home:"Home",about:"About",contact:"Contact",privacy:"Privacy",terms:"Terms"},
+    msgs:{
+      love:[
+        ["Romance is in the air! Someone special may catch your eye today.","An unexpected message could spark butterflies.","Focus on self-love today — your energy will attract the right people.","Communication is key in relationships today. Express your feelings.","A warm conversation will deepen an important bond."],
+        ["Mixed signals in love. Don't overthink it.","Give your partner some space today.","Old memories might surface — let them pass.","Be patient in matters of the heart today.","Romance needs a little extra effort today."]
+      ],
+      wealth:[
+        ["Financial opportunity knocks! Keep your eyes open.","A smart investment decision awaits you.","Unexpected income may brighten your day.","Trust your gut on a money decision today.","Your hard work is about to pay off financially."],
+        ["Hold off on big purchases today.","Double-check your budget before spending.","Be cautious with lending money today.","Save rather than splurge today.","Financial patience will reward you soon."]
+      ],
+      health:[
+        ["Your energy levels are soaring! Great day for exercise.","Mental clarity is at its peak — tackle challenging tasks.","A perfect day to start a new healthy habit.","Your body is in harmony — enjoy this vitality.","Rest well tonight and you'll wake up refreshed."],
+        ["Take it easy today — don't push too hard.","Stay hydrated and watch your posture.","Stress might build up — try some breathing exercises.","Listen to your body if it needs rest.","A short walk can do wonders for your mood today."]
+      ],
+      career:[
+        ["A breakthrough moment at work is coming!","Your ideas will impress someone important today.","Collaboration leads to exciting results.","A new opportunity may present itself — be ready.","Your leadership skills shine bright today."],
+        ["Avoid conflicts at work — choose diplomacy.","Double-check details before submitting anything.","Patience with colleagues will serve you well.","Not the best day for big presentations.","Focus on completing tasks rather than starting new ones."]
+      ],
+      luck:[
+        ["The universe is on your side today! Trust your intuition.","A lucky encounter could change your day completely.","Serendipity is your friend today — say yes to opportunities.","Your positive energy attracts good fortune.","Something you lost may find its way back to you."],
+        ["Play it safe today — luck favors the cautious.","Not the day for risky bets.","Keep expectations moderate and you won't be disappointed.","Small wins add up — appreciate the little things.","Tomorrow brings better fortune — hang in there."]
+      ]
+    }
+  },
+  ko:{title:"⭐ 오늘의 운세",sub:"생년월일로 오늘의 운세를 확인하세요",lblBday:"생년월일",btn:"오늘의 운세 확인",overall:"종합 운세",
+    cats:["💕 연애운","💰 재물운","💪 건강운","💼 직장운","🍀 행운"],
+    catKeys:["love","wealth","health","career","luck"],
+    luckyTitle:"오늘의 행운 아이템",luckyColor:"행운의 색",luckyNum:"행운의 숫자",luckyDir:"행운의 방향",
+    cachedNote:"운세는 매일 업데이트됩니다. 내일 다시 확인하세요!",
+    tabName:"이름궁합",tabMbtiTest:"MBTI",tabMbti:"MBTI궁합",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세",
+    nav:{home:"홈",about:"소개",contact:"문의",privacy:"개인정보",terms:"이용약관"},
+    msgs:{
+      love:[
+        ["로맨스가 찾아올 조짐이에요! 특별한 사람이 나타날 수 있어요.","예상치 못한 연락이 설렘을 줄 수 있어요.","오늘은 자기 사랑에 집중하세요 — 좋은 에너지가 좋은 인연을 끌어당깁니다.","관계에서 소통이 핵심인 날. 마음을 표현하세요.","따뜻한 대화가 소중한 인연을 깊게 해줄 거예요."],
+        ["연애에서 혼란스러운 신호가 와요. 너무 고민하지 마세요.","상대에게 약간의 공간을 주세요.","오래된 기억이 떠오를 수 있어요 — 흘려보내세요.","사랑에는 인내가 필요한 날이에요.","로맨스에 약간의 노력이 더 필요해요."]
+      ],
+      wealth:[
+        ["재물 기회가 찾아옵니다! 눈을 크게 뜨세요.","현명한 투자 결정의 날이에요.","뜻밖의 수입이 기분을 좋게 해줄 수 있어요.","돈과 관련된 결정은 직감을 믿으세요.","노력의 결실이 곧 재정적으로 나타날 거예요."],
+        ["오늘은 큰 지출을 보류하세요.","지출 전 예산을 다시 확인하세요.","돈을 빌려주는 것에 신중하세요.","오늘은 절약이 답이에요.","재정적 인내가 곧 보상으로 돌아올 거예요."]
+      ],
+      health:[
+        ["에너지가 넘치는 날! 운동하기 좋아요.","정신적 명료함이 최고조 — 어려운 과제에 도전하세요.","새로운 건강 습관을 시작하기 완벽한 날이에요.","몸의 조화가 좋은 날 — 이 활력을 즐기세요.","오늘 밤 푹 자면 개운하게 일어날 거예요."],
+        ["오늘은 무리하지 마세요.","수분 보충과 자세에 신경 쓰세요.","스트레스가 쌓일 수 있어요 — 호흡 운동을 해보세요.","몸이 휴식을 원한다면 들어주세요.","짧은 산책이 기분 전환에 큰 도움이 될 거예요."]
+      ],
+      career:[
+        ["직장에서 돌파구가 찾아올 거예요!","당신의 아이디어가 중요한 사람에게 감동을 줄 거예요.","협업이 흥미로운 결과를 가져다줍니다.","새로운 기회가 나타날 수 있어요 — 준비하세요.","리더십이 빛나는 날이에요."],
+        ["직장에서 갈등을 피하세요 — 외교적으로 대처하세요.","제출 전 세부사항을 꼼꼼히 확인하세요.","동료들에 대한 인내가 필요한 날이에요.","큰 발표는 다른 날로 미루는 게 좋아요.","새로운 일을 시작하기보다 기존 업무 완수에 집중하세요."]
+      ],
+      luck:[
+        ["우주가 당신 편이에요! 직감을 믿으세요.","행운의 만남이 하루를 완전히 바꿀 수 있어요.","우연의 일치가 친구인 날 — 기회에 예스라고 하세요.","긍정적 에너지가 행운을 끌어당깁니다.","잃어버린 것이 다시 찾아올 수 있어요."],
+        ["오늘은 안전하게 행동하세요.","위험한 도박은 피하세요.","기대치를 적당히 유지하면 실망하지 않을 거예요.","작은 성공들을 소중히 여기세요.","내일은 더 좋은 운이 찾아올 거예요 — 힘내세요."]
+      ]
+    }
+  },
+  zh:{title:"⭐ 今日运势",sub:"用生日查看今日运势",lblBday:"出生日期",btn:"查看今日运势",overall:"综合运势",
+    cats:["💕 爱情","💰 财运","💪 健康","💼 事业","🍀 幸运"],
+    catKeys:["love","wealth","health","career","luck"],
+    luckyTitle:"今日幸运物",luckyColor:"幸运色",luckyNum:"幸运数字",luckyDir:"幸运方位",
+    cachedNote:"运势每日更新，明天再来看看吧！",
+    tabName:"姓名缘分",tabMbtiTest:"MBTI",tabMbti:"MBTI配对",tabPet:"宠物名",tabBday:"生日配对",tabPast:"前世",tabFortune:"今日运势",
+    nav:{home:"首页",about:"关于",contact:"联系",privacy:"隐私",terms:"条款"},
+    msgs:{
+      love:[["浪漫气息扑面而来！今天可能遇到特别的人。","一条意外的消息可能让你心动。","今天专注于自我关爱吧。","今天沟通是关系的关键。","温暖的对话会加深重要的缘分。"],["爱情信号有些混乱，别想太多。","给对方一些空间吧。","旧回忆可能浮现——让它过去。","感情需要耐心的一天。","爱情需要多一点努力。"]],
+      wealth:[["财运来了！睁大眼睛。","明智的投资决定等着你。","意外收入可能让你开心。","今天的金钱决定相信直觉。","你的努力即将获得经济回报。"],["今天暂缓大额消费。","花钱前再检查一下预算。","今天借钱要谨慎。","节约为上。","财务上的耐心很快会得到回报。"]],
+      health:[["能量满满！适合运动。","思维清晰度达到顶峰。","开始新健康习惯的完美一天。","身体状态很好——享受这份活力。","今晚好好休息明天精神焕发。"],["别太勉强自己。","注意补水和姿势。","压力可能积累——试试呼吸练习。","身体需要休息就听从它。","散个步对心情很有帮助。"]],
+      career:[["工作突破即将到来！","你的想法会打动重要的人。","合作带来令人兴奋的结果。","新机会可能出现——做好准备。","领导力闪闪发光。"],["避免工作冲突——选择外交。","提交前仔细检查细节。","对同事要有耐心。","不是做大演讲的好日子。","专注完成任务而非开始新的。"]],
+      luck:[["宇宙站在你这边！相信直觉。","幸运的邂逅可能改变你的一天。","巧合是你的朋友——对机会说是。","正能量吸引好运。","失去的东西可能会回来。"],["今天谨慎行事。","不适合冒险赌博。","保持适度期望就不会失望。","珍惜小小的成功。","明天运势更好——加油。"]]
+    }
+  },
+  ja:{title:"⭐ 今日の運勢",sub:"誕生日で今日の運勢をチェック",lblBday:"生年月日",btn:"今日の運勢を見る",overall:"総合運",
+    cats:["💕 恋愛運","💰 金運","💪 健康運","💼 仕事運","🍀 ラッキー運"],
+    catKeys:["love","wealth","health","career","luck"],
+    luckyTitle:"今日のラッキーアイテム",luckyColor:"ラッキーカラー",luckyNum:"ラッキーナンバー",luckyDir:"ラッキー方角",
+    cachedNote:"運勢は毎日更新されます。明日もチェックしてね！",
+    tabName:"名前相性",tabMbtiTest:"MBTI",tabMbti:"MBTI相性",tabPet:"ペット名",tabBday:"誕生日相性",tabPast:"前世",tabFortune:"今日の運勢",
+    nav:{home:"ホーム",about:"紹介",contact:"お問い合わせ",privacy:"プライバシー",terms:"利用規約"},
+    msgs:{
+      love:[["ロマンスの予感！特別な人に出会えるかも。","予想外のメッセージがときめきを。","今日はセルフラブに集中。","コミュニケーションが関係のカギ。","温かい会話が大切な絆を深めます。"],["恋愛で混乱のサイン。考えすぎないで。","相手に少し空間を。","古い思い出が浮かぶかも。","恋には忍耐が必要な日。","ロマンスに少し努力が必要。"]],
+      wealth:[["金運到来！チャンスを見逃さないで。","賢い投資判断の日。","思わぬ収入があるかも。","お金の決断は直感を信じて。","努力が金銭的に報われそう。"],["大きな買い物は控えて。","出費前に予算を再確認。","お金の貸し借りは慎重に。","今日は節約の日。","経済的な忍耐がまもなく報われます。"]],
+      health:[["エネルギー全開！運動日和。","頭脳明晰 — 難しい課題に挑戦を。","新しい健康習慣を始める絶好の日。","体の調子が良い — この活力を楽しんで。","今夜しっかり寝ればすっきり目覚めます。"],["無理しないで。","水分補給と姿勢に注意。","ストレスが溜まりそう — 呼吸法を試して。","体が休みたがっているなら従って。","短い散歩が気分転換になります。"]],
+      career:[["仕事でブレイクスルーが来そう！","あなたのアイデアが重要な人を感動させます。","コラボが素晴らしい結果に。","新しい機会が現れるかも。","リーダーシップが輝く日。"],["職場の衝突を避けて。","提出前に細部を確認。","同僚への忍耐が必要。","大きなプレゼンは別の日に。","新しいことより既存のタスク完了に集中。"]],
+      luck:[["宇宙があなたの味方！直感を信じて。","ラッキーな出会いが一日を変えるかも。","偶然が味方する日 — チャンスにイエスを。","ポジティブなエネルギーが幸運を引き寄せます。","失くしたものが戻ってくるかも。"],["今日は安全に。","リスクのある賭けは避けて。","期待を適度に保てば失望しません。","小さな勝利を大切に。","明日はもっといい運勢 — 頑張って。"]]
+    }
+  },
+  es:{title:"⭐ Fortuna del Día",sub:"Consulta tu fortuna diaria con tu fecha de nacimiento",lblBday:"TU CUMPLEAÑOS",btn:"Ver Fortuna de Hoy",overall:"Fortuna General",
+    cats:["💕 Amor","💰 Dinero","💪 Salud","💼 Carrera","🍀 Suerte"],
+    catKeys:["love","wealth","health","career","luck"],
+    luckyTitle:"Objetos de Suerte",luckyColor:"Color de Suerte",luckyNum:"Número de Suerte",luckyDir:"Dirección de Suerte",
+    cachedNote:"La fortuna se actualiza diariamente. ¡Vuelve mañana!",
+    tabName:"Nombres",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Mascotas",tabBday:"Cumpleaños",tabPast:"Vida Pasada",tabFortune:"Fortuna",
+    nav:{home:"Inicio",about:"Acerca",contact:"Contacto",privacy:"Privacidad",terms:"Términos"},
+    msgs:{
+      love:[["¡El romance está en el aire! Alguien especial puede aparecer.","Un mensaje inesperado podría generar mariposas.","Enfócate en el amor propio hoy.","La comunicación es clave en las relaciones hoy.","Una conversación cálida profundizará un vínculo."],["Señales mixtas en el amor. No pienses demasiado.","Dale espacio a tu pareja hoy.","Viejos recuerdos pueden surgir — déjalos ir.","Paciencia en asuntos del corazón.","El romance necesita un poco más de esfuerzo."]],
+      wealth:[["¡La oportunidad financiera llama! Mantén los ojos abiertos.","Una decisión de inversión inteligente te espera.","Ingresos inesperados pueden alegrarte.","Confía en tu instinto para decisiones de dinero.","Tu esfuerzo está a punto de dar frutos."],["Posterga las compras grandes hoy.","Revisa tu presupuesto antes de gastar.","Sé cauteloso al prestar dinero.","Ahorra en vez de gastar.","La paciencia financiera te recompensará pronto."]],
+      health:[["¡Energía por las nubes! Gran día para ejercicio.","Claridad mental al máximo.","Día perfecto para un nuevo hábito saludable.","Tu cuerpo está en armonía.","Descansa bien esta noche."],["Tómalo con calma hoy.","Hidrátate y cuida tu postura.","El estrés puede acumularse — prueba respiración.","Escucha a tu cuerpo.","Una caminata corta hará maravillas."]],
+      career:[["¡Se acerca un avance en el trabajo!","Tus ideas impresionarán a alguien importante.","La colaboración trae resultados emocionantes.","Una nueva oportunidad puede presentarse.","Tu liderazgo brilla hoy."],["Evita conflictos laborales — elige la diplomacia.","Verifica los detalles antes de enviar.","Paciencia con los colegas.","No es el mejor día para presentaciones.","Enfócate en terminar tareas."]],
+      luck:[["¡El universo está de tu lado! Confía en tu intuición.","Un encuentro afortunado podría cambiar tu día.","La serendipia es tu amiga — di sí a las oportunidades.","Tu energía positiva atrae buena fortuna.","Algo perdido puede regresar a ti."],["Juega seguro hoy.","No es día para apuestas arriesgadas.","Mantén expectativas moderadas.","Aprecia las pequeñas victorias.","Mañana trae mejor fortuna."]]
+    }
+  },
+  ar:{title:"⭐ حظ اليوم",sub:"تحقق من حظك اليوم بتاريخ ميلادك",lblBday:"تاريخ ميلادك",btn:"اكشف حظ اليوم",overall:"الحظ العام",
+    cats:["💕 الحب","💰 المال","💪 الصحة","💼 العمل","🍀 الحظ"],
+    catKeys:["love","wealth","health","career","luck"],
+    luckyTitle:"أغراض الحظ اليوم",luckyColor:"لون الحظ",luckyNum:"رقم الحظ",luckyDir:"اتجاه الحظ",
+    cachedNote:"يتم تحديث الحظ يومياً. عد غداً!",
+    tabName:"الأسماء",tabMbtiTest:"MBTI",tabMbti:"توافق MBTI",tabPet:"حيوانات",tabBday:"عيد الميلاد",tabPast:"حياة سابقة",tabFortune:"حظ اليوم",
+    nav:{home:"الرئيسية",about:"عنا",contact:"اتصل",privacy:"الخصوصية",terms:"الشروط"},
+    msgs:{
+      love:[["الرومانسية في الهواء! قد يظهر شخص مميز.","رسالة غير متوقعة قد تثير فراشات في معدتك.","ركز على حب الذات اليوم.","التواصل هو المفتاح اليوم.","محادثة دافئة ستعمق رابطة مهمة."],["إشارات مختلطة في الحب. لا تفكر كثيراً.","امنح شريكك بعض المساحة.","قد تطفو ذكريات قديمة.","الصبر مطلوب في أمور القلب.","الرومانسية تحتاج جهداً إضافياً."]],
+      wealth:[["فرصة مالية تطرق الباب!","قرار استثماري ذكي ينتظرك.","دخل غير متوقع قد يسعدك.","ثق بحدسك في قرارات المال.","جهدك على وشك أن يؤتي ثماره مالياً."],["أجّل المشتريات الكبيرة.","راجع ميزانيتك قبل الإنفاق.","كن حذراً في إقراض المال.","الادخار أفضل اليوم.","الصبر المالي سيكافئك قريباً."]],
+      health:[["طاقتك عالية! يوم رائع للتمارين.","الوضوح الذهني في أعلى مستوياته.","يوم مثالي لعادة صحية جديدة.","جسمك في انسجام.","نم جيداً الليلة."],["خذها ببساطة اليوم.","حافظ على الترطيب والوضعية.","قد يتراكم التوتر — جرب تمارين التنفس.","استمع لجسمك.","مشي قصير سيفعل المعجزات."]],
+      career:[["اختراق في العمل قادم!","أفكارك ستبهر شخصاً مهماً.","التعاون يؤدي لنتائج مثيرة.","فرصة جديدة قد تظهر.","قيادتك تتألق اليوم."],["تجنب الصراعات — اختر الدبلوماسية.","تحقق من التفاصيل قبل التقديم.","الصبر مع الزملاء مطلوب.","ليس أفضل يوم للعروض الكبيرة.","ركز على إنهاء المهام."]],
+      luck:[["الكون في صفك! ثق بحدسك.","لقاء محظوظ قد يغير يومك.","الصدفة صديقتك — قل نعم للفرص.","طاقتك الإيجابية تجذب الحظ.","شيء فقدته قد يعود."],["العب بأمان اليوم.","ليس يوماً للمخاطر.","حافظ على توقعات معتدلة.","قدّر الانتصارات الصغيرة.","غداً يحمل حظاً أفضل."]]
+    }
+  }
+};
+
+var COLORS={en:["Red","Blue","Green","Yellow","Purple","Orange","Pink","White","Gold","Silver"],
+  ko:["빨간색","파란색","초록색","노란색","보라색","주황색","분홍색","흰색","금색","은색"],
+  zh:["红色","蓝色","绿色","黄色","紫色","橙色","粉色","白色","金色","银色"],
+  ja:["赤","青","緑","黄","紫","オレンジ","ピンク","白","ゴールド","シルバー"],
+  es:["Rojo","Azul","Verde","Amarillo","Morado","Naranja","Rosa","Blanco","Dorado","Plateado"],
+  ar:["أحمر","أزرق","أخضر","أصفر","بنفسجي","برتقالي","وردي","أبيض","ذهبي","فضي"]};
+
+var DIRS={en:["North","South","East","West","Northeast","Southeast","Northwest","Southwest"],
+  ko:["북","남","동","서","북동","남동","북서","남서"],
+  zh:["北","南","东","西","东北","东南","西北","西南"],
+  ja:["北","南","東","西","北東","南東","北西","南西"],
+  es:["Norte","Sur","Este","Oeste","Noreste","Sureste","Noroeste","Suroeste"],
+  ar:["شمال","جنوب","شرق","غرب","شمال شرق","جنوب شرق","شمال غرب","جنوب غرب"]};
+
+var curLang='en';
+
+function dayHash(bday){
+  var d=new Date();var ds=d.getFullYear()+''+d.getMonth()+''+d.getDate();
+  var s=bday+ds;var h=0;
+  for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0}
+  return Math.abs(h);
+}
+
+function checkFortune(){
+  var bday=document.getElementById('inpBday').value;
+  if(!bday)return;
+
+  var cacheKey='fortune_'+bday+'_'+new Date().toDateString();
+  var cached=localStorage.getItem(cacheKey);
+  if(cached){
+    renderResult(JSON.parse(cached));
+    return;
+  }
+
+  var h=dayHash(bday);
+  var cats=L[curLang].catKeys;
+  var scores=[];var msgs=[];
+  for(var i=0;i<cats.length;i++){
+    var sc=40+((h>>(i*5))%61);
+    scores.push(sc);
+    var good=sc>=55?0:1;
+    var mi=((h>>(i*3+2))%5);
+    msgs.push({cat:L[curLang].cats[i],score:sc,msg:(L[curLang].msgs[cats[i]][good][mi])});
+  }
+
+  var overall=Math.round(scores.reduce(function(a,b){return a+b},0)/scores.length);
+  var colorIdx=h%COLORS[curLang].length;
+  var luckyNum=(h%89)+1;
+  var dirIdx=(h>>7)%DIRS[curLang].length;
+
+  var data={overall:overall,items:msgs,color:COLORS[curLang][colorIdx],num:luckyNum,dir:DIRS[curLang][dirIdx]};
+
+  try{localStorage.setItem(cacheKey,JSON.stringify(data))}catch(e){}
+  renderResult(data);
+}
+
+function renderResult(data){
+  document.getElementById('resScore').textContent=data.overall+'%';
+  document.getElementById('resLabel').textContent=L[curLang].overall;
+
+  var list=document.getElementById('fortuneList');
+  list.innerHTML='';
+  for(var i=0;i<data.items.length;i++){
+    var it=data.items[i];
+    var stars='';
+    var filled=Math.round(it.score/20);
+    for(var j=0;j<5;j++)stars+=j<filled?'★':'☆';
+    list.innerHTML+='<div class="fortune-item"><div class="fi-header"><span class="fi-cat">'+it.cat+'</span><span class="fi-stars">'+stars+'</span></div><div class="fi-msg">'+it.msg+'</div></div>';
+  }
+
+  document.getElementById('luckyTitle').textContent=L[curLang].luckyTitle;
+  document.getElementById('luckyItems').innerHTML=
+    '<span class="lucky-tag">'+L[curLang].luckyColor+': '+data.color+'</span>'+
+    '<span class="lucky-tag">'+L[curLang].luckyNum+': '+data.num+'</span>'+
+    '<span class="lucky-tag">'+L[curLang].luckyDir+': '+data.dir+'</span>';
+
+  document.getElementById('cachedNote').textContent=L[curLang].cachedNote;
+
+  var el=document.getElementById('result');
+  el.style.display='block';
+  el.style.animation='none';el.offsetHeight;el.style.animation='popIn .5s cubic-bezier(.34,1.56,.64,1)';
+}
+
+function setLang(lang){
+  curLang=lang;
+  var t=L[lang];
+  document.getElementById('t-title').textContent=t.title;
+  document.getElementById('t-sub').textContent=t.sub;
+  document.getElementById('lbl-bday').textContent=t.lblBday;
+  document.getElementById('btnCheck').textContent=t.btn;
+  document.getElementById('nav-home').textContent=t.nav.home;
+  document.getElementById('nav-about').textContent=t.nav.about;
+  document.getElementById('nav-contact').textContent=t.nav.contact;
+  document.getElementById('nav-privacy').textContent=t.nav.privacy;
+  document.getElementById('nav-terms').textContent=t.nav.terms;
+  document.querySelectorAll('.tab-text').forEach(function(el){
+    var k=el.getAttribute('data-key');
+    if(t[k])el.textContent=t[k];
+  });
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.classList.toggle('active',b.getAttribute('data-lang')===lang);
+  });
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+}
+
+document.getElementById('langBar').addEventListener('click',function(e){
+  if(e.target.classList.contains('lang-btn'))setLang(e.target.getAttribute('data-lang'));
+});
+
+function shareTwitter(){
+  var s=document.getElementById('resScore').textContent;
+  var url='https://twitter.com/intent/tweet?text='+encodeURIComponent('My daily fortune score is '+s+'! ⭐ Check yours: https://matchtest.site/fortune.html');
+  window.open(url,'_blank');
+}
+function copyResult(){
+  var s=document.getElementById('resScore').textContent;
+  navigator.clipboard.writeText('Daily Fortune: '+s+' ⭐ https://matchtest.site/fortune.html');
+}
+
+(function(){var c=document.getElementById('floatingBg');var e=['⭐','🌟','✨','💫','🌙','☀️'];for(var i=0;i<15;i++){var s=document.createElement('span');s.textContent=e[i%e.length];s.style.left=Math.random()*100+'%';s.style.fontSize=(20+Math.random()*30)+'px';s.style.animationDuration=(12+Math.random()*18)+'s';s.style.animationDelay=(-Math.random()*20)+'s';c.appendChild(s)}})();
+
+(function(){
+  try{var n=navigator.language||navigator.userLanguage||'en';var c=n.slice(0,2).toLowerCase();if(L[c])setLang(c);else setLang('en')}catch(e){setLang('en')}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>생년월일 궁합 테스트 — 무료 생일 궁합 계산기 | Birthday Compatibility</title>
+<meta name="description" content="두 사람의 생년월일로 별자리, 띠, 수비학 기반 궁합을 확인하세요. 6개 언어 지원 무료 생일 궁합 테스트.">
+<meta property="og:title" content="생년월일 궁합 테스트 | Birthday Compatibility Test">
+<meta property="og:description" content="생년월일로 별자리+띠+수비학 궁합을 확인하세요! 6개 언어 무료 지원.">
+<meta property="og:url" content="https://matchtest.site/birthday.html">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://matchtest.site/birthday.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6668425393052932" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+SC:wght@400;700;900&family=Noto+Sans+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+    --pink-50:#fdf2f8;--pink-100:#fce7f3;--pink-200:#fbcfe8;
+    --pink-300:#f9a8d4;--pink-400:#f472b6;--pink-500:#ec4899;
+    --pink-600:#db2777;--purple-400:#c084fc;--purple-500:#a855f7;
+    --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
+    --gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;
+    --gray-700:#374151;--gray-800:#1f2937;
+    --radius:24px;
+}
+body{
+    font-family:'Noto Sans','Noto Sans KR','Noto Sans JP','Noto Sans SC','Noto Sans Arabic',sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;
+    background:linear-gradient(160deg,#fdf2f8 0%,#fce7f3 40%,#fbcfe8 100%);
+    color:var(--gray-700);line-height:1.6;
+}
+html[dir="rtl"] body{direction:rtl}
+a{color:var(--pink-500);text-decoration:none}a:hover{text-decoration:underline}
+.floating-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.floating-bg span{position:absolute;opacity:.08;animation:drift linear infinite}
+@keyframes drift{0%{transform:translateY(105vh) rotate(0deg) scale(.8);opacity:0}8%{opacity:.08}92%{opacity:.08}100%{transform:translateY(-8vh) rotate(360deg) scale(1.2);opacity:0}}
+.site-nav{position:relative;z-index:10;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--pink-100);padding:10px 20px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.site-nav a{font-size:13px;font-weight:600;color:var(--gray-500);padding:4px 10px;border-radius:8px;transition:all .2s}
+.site-nav a:hover,.site-nav a.active{background:var(--pink-500);color:white;text-decoration:none}
+.test-tabs{position:relative;z-index:10;display:flex;justify-content:center;gap:0;padding:16px 16px 0;flex-wrap:wrap}
+.test-tab{padding:8px 14px;font-size:12px;font-weight:700;border:2px solid var(--pink-200);background:white;color:var(--pink-400);cursor:pointer;transition:all .2s;text-decoration:none}
+.test-tab:first-child{border-radius:12px 0 0 12px}
+.test-tab:last-child{border-radius:0 12px 12px 0}
+.test-tab:hover{background:var(--pink-50);text-decoration:none}
+.test-tab.active{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));color:white;border-color:transparent}
+main{flex:1;display:flex;flex-direction:column;align-items:center;padding:20px 16px 10px}
+.card{position:relative;z-index:1;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);width:420px;max-width:100%;border-radius:var(--radius);box-shadow:0 24px 48px rgba(236,72,153,.12),0 0 0 1px rgba(236,72,153,.06),inset 0 1px 0 rgba(255,255,255,.8);overflow:hidden;margin-bottom:32px}
+.header{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));padding:28px 20px 24px;text-align:center;color:white;position:relative;overflow:hidden}
+.header::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:20px;background:rgba(255,255,255,.92);border-radius:50% 50% 0 0/100% 100% 0 0}
+.header h1{font-family:'Fredoka',sans-serif;font-size:24px;font-weight:700;margin-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,.12)}
+.header p{font-size:13px;opacity:.85}
+.lang-bar{display:flex;justify-content:center;gap:4px;padding:14px 16px 6px}
+.lang-btn{padding:5px 10px;border:1.5px solid var(--pink-200);border-radius:100px;background:white;font-size:12px;font-weight:600;color:var(--pink-400);cursor:pointer;transition:all .2s}
+.lang-btn:hover,.lang-btn.active{background:var(--pink-500);border-color:var(--pink-500);color:white}
+.body{padding:18px 22px 24px}
+.input-group{margin-bottom:14px}
+.input-group label{display:block;font-size:11px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.input-group input{width:100%;padding:11px 10px;border:2px solid var(--pink-100);border-radius:14px;font-size:16px;font-weight:700;color:var(--gray-700);text-align:center;background:var(--pink-50);transition:border-color .2s,box-shadow .2s}
+.input-group input:focus{outline:none;border-color:var(--pink-400);box-shadow:0 0 0 3px rgba(236,72,153,.1);background:white}
+.heart-divider{text-align:center;font-size:28px;padding:6px 0;animation:heartbeat 1.3s ease-in-out infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.2)}28%{transform:scale(1)}42%{transform:scale(1.15)}56%{transform:scale(1)}}
+.btn-primary{display:block;width:100%;padding:14px;border:none;border-radius:50px;font-size:16px;font-weight:700;color:white;background:linear-gradient(135deg,var(--pink-500),var(--purple-500));cursor:pointer;box-shadow:0 6px 20px rgba(168,85,247,.3);transition:transform .1s,box-shadow .2s;margin-top:8px}
+.btn-primary:hover{box-shadow:0 8px 28px rgba(168,85,247,.4)}
+.btn-primary:active{transform:scale(.97)}
+.result{display:none;margin-top:22px;text-align:center;animation:popIn .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes popIn{0%{opacity:0;transform:scale(.85) translateY(12px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+.gauge-track{background:var(--pink-100);border-radius:100px;height:24px;overflow:hidden;margin-bottom:10px}
+.gauge-bar{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--pink-400),var(--pink-500),var(--purple-500));width:0%;transition:width 1s cubic-bezier(.34,1.15,.64,1)}
+.score{font-family:'Fredoka',sans-serif;font-size:56px;font-weight:700;background:linear-gradient(135deg,var(--pink-500),var(--purple-500));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.result-msg{font-size:15px;font-weight:600;color:var(--gray-600);margin:8px 0}
+.zodiac-box{background:var(--pink-50);border:1px solid var(--pink-100);border-radius:16px;padding:14px;margin:12px 0;text-align:left}
+.zodiac-box h3{font-size:14px;font-weight:700;color:var(--pink-600);margin-bottom:6px}
+.zodiac-box p{font-size:13px;color:var(--gray-600);margin-bottom:4px}
+.result-type{display:inline-block;background:var(--pink-100);color:var(--pink-600);padding:4px 14px;border-radius:100px;font-size:13px;font-weight:700;margin-bottom:8px}
+.share-row{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.share-btn{padding:8px 16px;border:2px solid var(--pink-200);border-radius:100px;background:white;font-size:12px;font-weight:600;color:var(--pink-500);cursor:pointer;transition:all .2s}
+.share-btn:hover{background:var(--pink-500);color:white;border-color:var(--pink-500)}
+footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
+@media(max-width:480px){.test-tab{padding:6px 8px;font-size:11px}}
+</style>
+</head>
+<body>
+<div class="floating-bg" id="floatingBg"></div>
+
+<nav class="site-nav">
+    <a href="index.html" id="nav-home">Home</a>
+    <a href="about.html" id="nav-about">About</a>
+    <a href="contact.html" id="nav-contact">Contact</a>
+    <a href="privacy.html" id="nav-privacy">Privacy</a>
+    <a href="terms.html" id="nav-terms">Terms</a>
+</nav>
+
+<div class="test-tabs">
+    <a href="index.html" class="test-tab">💕 <span class="tab-text" data-key="tabName">이름궁합</span></a>
+    <a href="mbti-test.html" class="test-tab">🧠 <span class="tab-text" data-key="tabMbtiTest">MBTI</span></a>
+    <a href="mbti.html" class="test-tab">💜 <span class="tab-text" data-key="tabMbti">MBTI궁합</span></a>
+    <a href="pet-name.html" class="test-tab">🐾 <span class="tab-text" data-key="tabPet">펫이름</span></a>
+    <a href="birthday.html" class="test-tab active">🎂 <span class="tab-text" data-key="tabBday">생일궁합</span></a>
+    <a href="past-life.html" class="test-tab">🔮 <span class="tab-text" data-key="tabPast">전생</span></a>
+    <a href="fortune.html" class="test-tab">⭐ <span class="tab-text" data-key="tabFortune">오늘운세</span></a>
+</div>
+
+<main>
+<div class="card">
+    <div class="header">
+        <h1 id="t-title">🎂 생년월일 궁합</h1>
+        <p id="t-sub">별자리 · 띠 · 수비학으로 보는 두 사람의 궁합</p>
+    </div>
+    <div class="lang-bar" id="langBar">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ko">KO</button>
+        <button class="lang-btn" data-lang="zh">ZH</button>
+        <button class="lang-btn" data-lang="ja">JA</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="ar">AR</button>
+    </div>
+    <div class="body">
+        <div class="input-group">
+            <label id="lbl1">Person 1</label>
+            <input type="date" id="date1">
+        </div>
+        <div class="heart-divider">💕</div>
+        <div class="input-group">
+            <label id="lbl2">Person 2</label>
+            <input type="date" id="date2">
+        </div>
+        <button class="btn-primary" id="btnCalc" onclick="calculate()">Check Compatibility</button>
+
+        <div class="result" id="result">
+            <div class="score" id="resScore">0%</div>
+            <div class="result-type" id="resType"></div>
+            <p class="result-msg" id="resMsg"></p>
+            <div class="zodiac-box" id="zodiacBox">
+                <h3 id="zodiacTitle">Details</h3>
+                <p id="zStar"></p>
+                <p id="zAnimal"></p>
+                <p id="zNumero"></p>
+            </div>
+            <p id="resTip" style="font-size:13px;color:var(--gray-500);margin-top:8px"></p>
+            <div class="share-row">
+                <button class="share-btn" onclick="shareTwitter()">𝕏 Twitter</button>
+                <button class="share-btn" onclick="copyResult()">📋 Copy</button>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<footer>© 2026 matchtest.site — Birthday Compatibility Test</footer>
+
+<script>
+var L = {
+  en:{title:"🎂 Birthday Compatibility",sub:"Zodiac · Chinese Zodiac · Numerology match",lbl1:"Person 1 Birthday",lbl2:"Person 2 Birthday",btn:"Check Compatibility",tabName:"Name Match",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Pet Names",tabBday:"Birthday",tabPast:"Past Life",tabFortune:"Fortune",
+    zodiacTitle:"Compatibility Breakdown",starLabel:"Zodiac:",animalLabel:"Chinese Zodiac:",numeroLabel:"Numerology:",tipLabel:"Tip:",
+    nav:{home:"Home",about:"About",contact:"Contact",privacy:"Privacy",terms:"Terms"},
+    tiers:{
+      t95:{type:"Cosmic Soulmates",msg:"Your birthdays align in an extraordinarily rare cosmic pattern. This connection transcends ordinary compatibility.",strength:"Zodiac harmony, elemental balance, and numerological resonance all converge.",tip:"Trust this deep connection — it's written in the stars."},
+      t85:{type:"Stellar Match",msg:"The stars shine brightly on your pairing. A naturally harmonious and energizing connection.",strength:"Strong zodiac affinity with complementary life path numbers.",tip:"Nurture this bond with shared adventures and open communication."},
+      t75:{type:"Harmonious Duo",msg:"Your birth energies blend beautifully. A warm, supportive partnership awaits.",strength:"Compatible elements and balanced zodiac dynamics.",tip:"Lean into your shared values — they're your foundation."},
+      t65:{type:"Promising Pair",msg:"Solid compatibility with room to grow. Your differences add spice to the relationship.",strength:"Complementary traits that balance each other out.",tip:"Embrace what makes you different — it's what makes you stronger."},
+      t55:{type:"Balanced Bond",msg:"A well-rounded match with equal parts comfort and challenge.",strength:"Moderate alignment across all compatibility factors.",tip:"Communication is your superpower — use it often."},
+      t45:{type:"Intriguing Mix",msg:"An interesting combination that requires effort but offers unique rewards.",strength:"Contrasting energies that can spark creativity.",tip:"Focus on understanding rather than changing each other."},
+      t35:{type:"Growth Partners",msg:"This pairing pushes both of you to evolve. Not easy, but transformative.",strength:"Tension that drives personal development.",tip:"Patience and humor will carry you through challenges."},
+      t25:{type:"Challenging Match",msg:"Significant differences in your cosmic blueprints. Success requires dedicated effort.",strength:"The contrast between you builds resilience.",tip:"Set clear expectations and celebrate small victories."},
+      t15:{type:"Opposite Forces",msg:"Like magnets with opposing poles — intense attraction but frequent friction.",strength:"The intensity between you is undeniable.",tip:"Find common ground in shared goals, not similar traits."},
+      t5:{type:"Cosmic Puzzle",msg:"A rare and complex combination. The universe is testing your patience and creativity.",strength:"This unconventional pairing defies easy categorization.",tip:"Write your own rules — conventional advice may not apply."}
+    }
+  },
+  ko:{title:"🎂 생년월일 궁합",sub:"별자리 · 띠 · 수비학으로 보는 두 사람의 궁합",lbl1:"첫 번째 사람 생일",lbl2:"두 번째 사람 생일",btn:"궁합 확인하기",tabName:"이름궁합",tabMbtiTest:"MBTI",tabMbti:"MBTI궁합",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세",
+    zodiacTitle:"궁합 상세",starLabel:"별자리:",animalLabel:"띠:",numeroLabel:"수비학:",tipLabel:"조언:",
+    nav:{home:"홈",about:"소개",contact:"문의",privacy:"개인정보",terms:"이용약관"},
+    tiers:{
+      t95:{type:"운명적 소울메이트",msg:"두 분의 생일이 극히 드문 우주적 조화를 이루고 있습니다. 보통의 궁합을 초월하는 연결입니다.",strength:"별자리, 원소 균형, 수비학 공명이 모두 일치합니다.",tip:"이 깊은 인연을 믿으세요 — 별이 정해준 만남입니다."},
+      t85:{type:"별빛 궁합",msg:"별들이 두 분의 만남을 축복합니다. 자연스럽고 활기찬 궁합이에요.",strength:"강한 별자리 친화력과 상호 보완적 생명수가 돋보입니다.",tip:"함께하는 모험과 솔직한 대화로 이 인연을 키워가세요."},
+      t75:{type:"조화로운 커플",msg:"두 분의 생일 에너지가 아름답게 어우러집니다. 따뜻하고 든든한 관계가 될 거예요.",strength:"상성이 맞는 원소와 균형 잡힌 별자리 역학이 장점입니다.",tip:"공유하는 가치관에 기대세요 — 그것이 두 분의 기반입니다."},
+      t65:{type:"유망한 궁합",msg:"탄탄한 궁합에 성장 가능성까지. 차이가 관계에 재미를 더합니다.",strength:"서로를 균형 있게 만들어주는 상보적 특성이 있어요.",tip:"서로의 다름을 받아들이세요 — 그것이 강점이 됩니다."},
+      t55:{type:"균형 잡힌 인연",msg:"편안함과 도전이 적절히 섞인 균형 있는 궁합입니다.",strength:"모든 궁합 요소에서 적당한 조화를 보입니다.",tip:"소통이 두 분의 초능력입니다 — 자주 대화하세요."},
+      t45:{type:"흥미로운 조합",msg:"노력이 필요하지만 독특한 보상을 주는 흥미로운 조합이에요.",strength:"대조적 에너지가 창의성을 불꽃처럼 일으킬 수 있어요.",tip:"서로를 바꾸려 하기보다 이해하는 데 집중하세요."},
+      t35:{type:"성장 파트너",msg:"서로를 성장시키는 관계. 쉽지 않지만 변화를 이끌어냅니다.",strength:"긴장감이 개인적 발전을 이끄는 원동력이 됩니다.",tip:"인내심과 유머가 어려운 순간을 함께 넘기게 해줄 거예요."},
+      t25:{type:"도전적 궁합",msg:"우주적 청사진에 상당한 차이가 있어요. 헌신적 노력이 필요합니다.",strength:"대비되는 점이 회복탄력성을 길러줍니다.",tip:"명확한 기대치를 세우고 작은 승리를 축하하세요."},
+      t15:{type:"상반된 기운",msg:"반대 극의 자석처럼 — 강한 끌림이지만 잦은 마찰이 있어요.",strength:"두 분 사이의 강렬함은 부정할 수 없습니다.",tip:"비슷한 성격이 아닌 공통 목표에서 접점을 찾으세요."},
+      t5:{type:"우주적 퍼즐",msg:"희귀하고 복잡한 조합. 우주가 두 분의 인내심과 창의력을 시험하고 있어요.",strength:"기존 틀로 쉽게 분류할 수 없는 파격적 궁합입니다.",tip:"자신만의 규칙을 만드세요 — 일반적 조언이 통하지 않을 수 있어요."}
+    }
+  },
+  zh:{title:"🎂 生日配对测试",sub:"星座 · 生肖 · 数字命理学配对分析",lbl1:"第一个人的生日",lbl2:"第二个人的生日",btn:"查看配对结果",tabName:"姓名缘分",tabMbtiTest:"MBTI",tabMbti:"MBTI配对",tabPet:"宠物名",tabBday:"生日配对",tabPast:"前世",tabFortune:"今日运势",
+    zodiacTitle:"配对详情",starLabel:"星座:",animalLabel:"生肖:",numeroLabel:"数字命理:",tipLabel:"建议:",
+    nav:{home:"首页",about:"关于",contact:"联系",privacy:"隐私",terms:"条款"},
+    tiers:{
+      t95:{type:"宇宙级灵魂伴侣",msg:"你们的生日呈现出极其罕见的宇宙和谐。这种连接超越了普通的配对。",strength:"星座和谐、元素平衡和数字共振全部一致。",tip:"相信这份深厚的缘分——这是命中注定的。"},
+      t85:{type:"星光绝配",msg:"星星为你们的组合闪耀。自然和谐且充满活力的连接。",strength:"强大的星座亲和力与互补的生命数字。",tip:"用共同的冒险和坦诚的沟通来培养这段缘分。"},
+      t75:{type:"和谐之配",msg:"你们的生日能量完美融合。温暖而互相支持的关系在等着你们。",strength:"相容的元素和平衡的星座动态。",tip:"依靠你们共同的价值观——那是你们的基础。"},
+      t65:{type:"前景可期",msg:"扎实的配对度加上成长空间。差异为关系增添趣味。",strength:"互补的特质相互平衡。",tip:"拥抱你们的不同——这正是让你们更强大的原因。"},
+      t55:{type:"平衡之缘",msg:"舒适与挑战并存的均衡配对。",strength:"所有配对因素中等协调。",tip:"沟通是你们的超能力——经常使用它。"},
+      t45:{type:"奇妙组合",msg:"需要努力但能带来独特回报的有趣组合。",strength:"对比的能量可以激发创造力。",tip:"专注于理解而非改变对方。"},
+      t35:{type:"成长伙伴",msg:"这个配对推动你们共同进化。不容易，但会带来蜕变。",strength:"紧张感驱动个人成长。",tip:"耐心和幽默会帮助你们度过挑战。"},
+      t25:{type:"挑战型配对",msg:"宇宙蓝图存在显著差异。需要付出努力。",strength:"你们之间的对比培养韧性。",tip:"设定明确的期望，庆祝每一个小胜利。"},
+      t15:{type:"对立之力",msg:"像极性相反的磁铁——强烈吸引但频繁摩擦。",strength:"你们之间的强烈感是不可否认的。",tip:"在共同目标而非相似特质中寻找共识。"},
+      t5:{type:"宇宙谜题",msg:"罕见而复杂的组合。宇宙在考验你们的耐心和创造力。",strength:"这种非常规的配对不易归类。",tip:"创造你们自己的规则——传统建议可能不适用。"}
+    }
+  },
+  ja:{title:"🎂 誕生日相性診断",sub:"星座・干支・数秘術で二人の相性を診断",lbl1:"1人目の誕生日",lbl2:"2人目の誕生日",btn:"相性を診断する",tabName:"名前相性",tabMbtiTest:"MBTI",tabMbti:"MBTI相性",tabPet:"ペット名",tabBday:"誕生日相性",tabPast:"前世",tabFortune:"今日の運勢",
+    zodiacTitle:"相性の内訳",starLabel:"星座:",animalLabel:"干支:",numeroLabel:"数秘術:",tipLabel:"アドバイス:",
+    nav:{home:"ホーム",about:"紹介",contact:"お問い合わせ",privacy:"プライバシー",terms:"利用規約"},
+    tiers:{
+      t95:{type:"宇宙的ソウルメイト",msg:"お二人の誕生日は極めて稀な宇宙的調和を見せています。普通の相性を超越した繋がりです。",strength:"星座の調和、元素のバランス、数秘術の共鳴がすべて一致。",tip:"この深い縁を信じてください——星が定めた出会いです。"},
+      t85:{type:"星が祝福する相性",msg:"星々がお二人の出会いを祝福しています。自然で活力あふれる相性です。",strength:"強い星座の親和性と補完的なライフパスナンバー。",tip:"共に冒険し、率直に対話してこの絆を育ててください。"},
+      t75:{type:"調和のとれた二人",msg:"誕生日のエネルギーが美しく調和しています。温かく支え合える関係です。",strength:"相性の良い元素とバランスの取れた星座力学。",tip:"共有する価値観に寄り添ってください——それが基盤です。"},
+      t65:{type:"有望なペア",msg:"しっかりした相性に成長の余地あり。違いが関係にスパイスを加えます。",strength:"互いを補う特性が強みです。",tip:"お互いの違いを受け入れて——それが強さになります。"},
+      t55:{type:"バランスの取れた縁",msg:"快適さと挑戦がちょうど良く混ざった相性です。",strength:"すべての相性要素で適度な調和。",tip:"コミュニケーションがお二人の超能力——たくさん使って。"},
+      t45:{type:"興味深い組み合わせ",msg:"努力は必要ですがユニークな報酬がある面白い組み合わせ。",strength:"対照的なエネルギーが創造性を刺激。",tip:"相手を変えるのではなく理解することに集中して。"},
+      t35:{type:"成長パートナー",msg:"お互いを成長させる関係。簡単ではありませんが変革をもたらします。",strength:"緊張感が個人の成長を促す原動力に。",tip:"忍耐とユーモアが困難を乗り越える力になります。"},
+      t25:{type:"チャレンジングな相性",msg:"宇宙的設計図にかなりの違いがあります。献身的な努力が必要。",strength:"コントラストがレジリエンスを育みます。",tip:"明確な期待を設定し、小さな勝利を祝いましょう。"},
+      t15:{type:"正反対の力",msg:"反対の磁極のように——強烈な引力と頻繁な摩擦。",strength:"お二人の間の強烈さは否定できません。",tip:"似た性格ではなく共通の目標で接点を見つけて。"},
+      t5:{type:"宇宙のパズル",msg:"稀で複雑な組み合わせ。宇宙がお二人の忍耐と創造力を試しています。",strength:"従来の枠に収まらない型破りな相性。",tip:"自分たちのルールを作って——一般的なアドバイスは当てはまらないかも。"}
+    }
+  },
+  es:{title:"🎂 Compatibilidad por Fecha",sub:"Zodiaco · Horóscopo chino · Numerología",lbl1:"Fecha de nacimiento 1",lbl2:"Fecha de nacimiento 2",btn:"Ver Compatibilidad",tabName:"Nombres",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Mascotas",tabBday:"Cumpleaños",tabPast:"Vida Pasada",tabFortune:"Fortuna",
+    zodiacTitle:"Detalles",starLabel:"Zodiaco:",animalLabel:"Horóscopo chino:",numeroLabel:"Numerología:",tipLabel:"Consejo:",
+    nav:{home:"Inicio",about:"Acerca",contact:"Contacto",privacy:"Privacidad",terms:"Términos"},
+    tiers:{
+      t95:{type:"Almas Gemelas Cósmicas",msg:"Sus fechas de nacimiento muestran una armonía cósmica extraordinariamente rara.",strength:"Armonía zodiacal, equilibrio elemental y resonancia numerológica.",tip:"Confíen en esta conexión profunda — está escrita en las estrellas."},
+      t85:{type:"Pareja Estelar",msg:"Las estrellas brillan intensamente para ustedes. Una conexión armoniosa y energizante.",strength:"Fuerte afinidad zodiacal con números de vida complementarios.",tip:"Nutran este vínculo con aventuras compartidas."},
+      t75:{type:"Dúo Armonioso",msg:"Sus energías se mezclan perfectamente. Una relación cálida y solidaria les espera.",strength:"Elementos compatibles y dinámica zodiacal equilibrada.",tip:"Confíen en sus valores compartidos."},
+      t65:{type:"Pareja Prometedora",msg:"Buena compatibilidad con espacio para crecer.",strength:"Rasgos complementarios que se equilibran mutuamente.",tip:"Abracen lo que los hace diferentes."},
+      t55:{type:"Vínculo Equilibrado",msg:"Una combinación equilibrada de comodidad y desafío.",strength:"Alineación moderada en todos los factores.",tip:"La comunicación es su superpoder."},
+      t45:{type:"Mezcla Intrigante",msg:"Una combinación interesante que requiere esfuerzo pero ofrece recompensas únicas.",strength:"Energías contrastantes que pueden generar creatividad.",tip:"Enfóquense en entender, no en cambiar."},
+      t35:{type:"Compañeros de Crecimiento",msg:"Esta pareja los impulsa a evolucionar. No es fácil, pero es transformador.",strength:"La tensión impulsa el desarrollo personal.",tip:"La paciencia y el humor los llevarán adelante."},
+      t25:{type:"Match Desafiante",msg:"Diferencias significativas. El éxito requiere esfuerzo dedicado.",strength:"El contraste construye resiliencia.",tip:"Celebren las pequeñas victorias."},
+      t15:{type:"Fuerzas Opuestas",msg:"Como imanes con polos opuestos — atracción intensa pero fricción frecuente.",strength:"La intensidad entre ustedes es innegable.",tip:"Busquen puntos en común en metas compartidas."},
+      t5:{type:"Rompecabezas Cósmico",msg:"Una combinación rara y compleja.",strength:"Esta pareja desafía la categorización fácil.",tip:"Escriban sus propias reglas."}
+    }
+  },
+  ar:{title:"🎂 توافق تاريخ الميلاد",sub:"الأبراج · البروج الصينية · علم الأعداد",lbl1:"تاريخ ميلاد الشخص الأول",lbl2:"تاريخ ميلاد الشخص الثاني",btn:"تحقق من التوافق",tabName:"الأسماء",tabMbtiTest:"MBTI",tabMbti:"توافق MBTI",tabPet:"حيوانات",tabBday:"عيد الميلاد",tabPast:"حياة سابقة",tabFortune:"حظ اليوم",
+    zodiacTitle:"تفاصيل التوافق",starLabel:"الأبراج:",animalLabel:"البروج الصينية:",numeroLabel:"علم الأعداد:",tipLabel:"نصيحة:",
+    nav:{home:"الرئيسية",about:"عنا",contact:"اتصل",privacy:"الخصوصية",terms:"الشروط"},
+    tiers:{
+      t95:{type:"توأم الروح الكوني",msg:"تواريخ ميلادكما تظهر انسجاماً كونياً نادراً للغاية.",strength:"انسجام فلكي وتوازن عنصري ورنين رقمي.",tip:"ثقا بهذا الاتصال العميق — إنه مكتوب في النجوم."},
+      t85:{type:"توافق نجمي",msg:"النجوم تشرق لكما. اتصال متناغم ومنشط.",strength:"تقارب فلكي قوي مع أرقام حياة متكاملة.",tip:"اعتنيا بهذه الرابطة بالمغامرات المشتركة."},
+      t75:{type:"ثنائي متناغم",msg:"طاقات ميلادكما تمتزج بشكل جميل.",strength:"عناصر متوافقة وديناميكيات فلكية متوازنة.",tip:"اعتمدا على قيمكما المشتركة."},
+      t65:{type:"زوج واعد",msg:"توافق جيد مع مجال للنمو.",strength:"صفات متكاملة تتوازن.",tip:"احتضنا اختلافاتكما."},
+      t55:{type:"رابطة متوازنة",msg:"مزيج متوازن من الراحة والتحدي.",strength:"محاذاة معتدلة عبر جميع العوامل.",tip:"التواصل هو قوتكما الخارقة."},
+      t45:{type:"مزيج مثير",msg:"مزيج يتطلب جهداً لكنه يقدم مكافآت فريدة.",strength:"طاقات متباينة تشعل الإبداع.",tip:"ركزا على الفهم لا التغيير."},
+      t35:{type:"شريكا نمو",msg:"هذا الزوج يدفعكما للتطور.",strength:"التوتر يدفع النمو الشخصي.",tip:"الصبر والفكاهة سيحملانكما."},
+      t25:{type:"توافق تحدٍّ",msg:"اختلافات كبيرة. النجاح يتطلب جهداً مخلصاً.",strength:"التباين يبني المرونة.",tip:"احتفلا بالانتصارات الصغيرة."},
+      t15:{type:"قوى متعاكسة",msg:"مثل مغناطيس بأقطاب متعاكسة.",strength:"الشدة بينكما لا يمكن إنكارها.",tip:"ابحثا عن أرضية مشتركة في الأهداف."},
+      t5:{type:"لغز كوني",msg:"مزيج نادر ومعقد.",strength:"هذا الزوج يتحدى التصنيف.",tip:"اكتبا قواعدكما الخاصة."}
+    }
+  }
+};
+
+var ZODIAC_SIGNS = [
+  {name:{en:"Capricorn",ko:"염소자리",zh:"摩羯座",ja:"やぎ座",es:"Capricornio",ar:"الجدي"},emoji:"♑",start:[1,1],end:[1,19]},
+  {name:{en:"Aquarius",ko:"물병자리",zh:"水瓶座",ja:"みずがめ座",es:"Acuario",ar:"الدلو"},emoji:"♒",start:[1,20],end:[2,18]},
+  {name:{en:"Pisces",ko:"물고기자리",zh:"双鱼座",ja:"うお座",es:"Piscis",ar:"الحوت"},emoji:"♓",start:[2,19],end:[3,20]},
+  {name:{en:"Aries",ko:"양자리",zh:"白羊座",ja:"おひつじ座",es:"Aries",ar:"الحمل"},emoji:"♈",start:[3,21],end:[4,19]},
+  {name:{en:"Taurus",ko:"황소자리",zh:"金牛座",ja:"おうし座",es:"Tauro",ar:"الثور"},emoji:"♉",start:[4,20],end:[5,20]},
+  {name:{en:"Gemini",ko:"쌍둥이자리",zh:"双子座",ja:"ふたご座",es:"Géminis",ar:"الجوزاء"},emoji:"♊",start:[5,21],end:[6,20]},
+  {name:{en:"Cancer",ko:"게자리",zh:"巨蟹座",ja:"かに座",es:"Cáncer",ar:"السرطان"},emoji:"♋",start:[6,21],end:[7,22]},
+  {name:{en:"Leo",ko:"사자자리",zh:"狮子座",ja:"しし座",es:"Leo",ar:"الأسد"},emoji:"♌",start:[7,23],end:[8,22]},
+  {name:{en:"Virgo",ko:"처녀자리",zh:"处女座",ja:"おとめ座",es:"Virgo",ar:"العذراء"},emoji:"♍",start:[8,23],end:[9,22]},
+  {name:{en:"Libra",ko:"천칭자리",zh:"天秤座",ja:"てんびん座",es:"Libra",ar:"الميزان"},emoji:"♎",start:[9,23],end:[10,22]},
+  {name:{en:"Scorpio",ko:"전갈자리",zh:"天蝎座",ja:"さそり座",es:"Escorpio",ar:"العقرب"},emoji:"♏",start:[10,23],end:[11,21]},
+  {name:{en:"Sagittarius",ko:"사수자리",zh:"射手座",ja:"いて座",es:"Sagitario",ar:"القوس"},emoji:"♐",start:[11,22],end:[12,21]},
+  {name:{en:"Capricorn",ko:"염소자리",zh:"摩羯座",ja:"やぎ座",es:"Capricornio",ar:"الجدي"},emoji:"♑",start:[12,22],end:[12,31]}
+];
+
+var ANIMALS = [
+  {en:"Rat",ko:"쥐",zh:"鼠",ja:"子(ねずみ)",es:"Rata",ar:"الفأر"},
+  {en:"Ox",ko:"소",zh:"牛",ja:"丑(うし)",es:"Buey",ar:"الثور"},
+  {en:"Tiger",ko:"호랑이",zh:"虎",ja:"寅(とら)",es:"Tigre",ar:"النمر"},
+  {en:"Rabbit",ko:"토끼",zh:"兔",ja:"卯(うさぎ)",es:"Conejo",ar:"الأرنب"},
+  {en:"Dragon",ko:"용",zh:"龙",ja:"辰(たつ)",es:"Dragón",ar:"التنين"},
+  {en:"Snake",ko:"뱀",zh:"蛇",ja:"巳(へび)",es:"Serpiente",ar:"الأفعى"},
+  {en:"Horse",ko:"말",zh:"马",ja:"午(うま)",es:"Caballo",ar:"الحصان"},
+  {en:"Goat",ko:"양",zh:"羊",ja:"未(ひつじ)",es:"Cabra",ar:"الماعز"},
+  {en:"Monkey",ko:"원숭이",zh:"猴",ja:"申(さる)",es:"Mono",ar:"القرد"},
+  {en:"Rooster",ko:"닭",zh:"鸡",ja:"酉(とり)",es:"Gallo",ar:"الديك"},
+  {en:"Dog",ko:"개",zh:"狗",ja:"戌(いぬ)",es:"Perro",ar:"الكلب"},
+  {en:"Pig",ko:"돼지",zh:"猪",ja:"亥(いのしし)",es:"Cerdo",ar:"الخنزير"}
+];
+
+var ZODIAC_COMPAT = [
+  [3,2,3,4,5,3,4,2,3,4,2,4],
+  [2,3,1,3,4,5,3,4,2,3,4,2],
+  [3,1,3,2,3,4,5,3,4,2,3,4],
+  [4,3,2,3,2,3,4,5,3,4,2,3],
+  [5,4,3,2,3,2,3,4,5,3,4,2],
+  [3,5,4,3,2,3,2,3,4,5,3,4],
+  [4,3,5,4,3,2,3,2,3,4,5,3],
+  [2,4,3,5,4,3,2,3,2,3,4,5],
+  [3,2,4,3,5,4,3,2,3,2,3,4],
+  [4,3,2,4,3,5,4,3,2,3,2,3],
+  [2,4,3,2,4,3,5,4,3,2,3,2],
+  [4,2,4,3,2,4,3,5,4,3,2,3]
+];
+
+var curLang = 'en';
+
+function getZodiac(m,d){
+  for(var i=0;i<ZODIAC_SIGNS.length;i++){
+    var z=ZODIAC_SIGNS[i];
+    if((m===z.start[0]&&d>=z.start[1])||(m===z.end[0]&&d<=z.end[1])) return i;
+    if(z.start[0]!==z.end[0]&&m===z.end[0]&&d<=z.end[1]) return i;
+  }
+  return 0;
+}
+
+function getAnimal(y){return(y-4)%12;while(arguments[0]<0)arguments[0]+=12;return(y-4)%12}
+function lifePathNum(y,m,d){var s=String(y)+String(m)+String(d);var t=0;for(var i=0;i<s.length;i++)t+=parseInt(s[i]);while(t>9&&t!==11&&t!==22)t=Math.floor(t/10)+t%10;return t}
+
+function calculate(){
+  var d1=document.getElementById('date1').value;
+  var d2=document.getElementById('date2').value;
+  if(!d1||!d2)return;
+
+  var p1=d1.split('-'),p2=d2.split('-');
+  var y1=+p1[0],m1=+p1[1],day1=+p1[2];
+  var y2=+p2[0],m2=+p2[1],day2=+p2[2];
+
+  var z1=getZodiac(m1,day1),z2=getZodiac(m2,day2);
+  var a1=(y1-4)%12,a2=(y2-4)%12;
+  if(a1<0)a1+=12;if(a2<0)a2+=12;
+  var lp1=lifePathNum(y1,m1,day1),lp2=lifePathNum(y2,m2,day2);
+
+  var starScore=ZODIAC_COMPAT[z1%12][z2%12]*20;
+  var animalDiff=Math.abs(a1-a2);
+  var animalScore=Math.max(0,100-animalDiff*12);
+  var numScore=100-Math.abs(lp1-lp2)*8;
+  if(numScore<10)numScore=10;
+
+  var total=Math.round(starScore*0.4+animalScore*0.3+numScore*0.3);
+  if(total>99)total=99;if(total<1)total=1;
+
+  var tierKey;
+  if(total>=90)tierKey='t95';else if(total>=80)tierKey='t85';else if(total>=70)tierKey='t75';
+  else if(total>=60)tierKey='t65';else if(total>=50)tierKey='t55';else if(total>=40)tierKey='t45';
+  else if(total>=30)tierKey='t35';else if(total>=20)tierKey='t25';else if(total>=10)tierKey='t15';
+  else tierKey='t5';
+
+  var t=L[curLang].tiers[tierKey];
+  document.getElementById('resScore').textContent=total+'%';
+  document.getElementById('resType').textContent=t.type;
+  document.getElementById('resMsg').textContent=t.msg;
+  document.getElementById('resTip').textContent=L[curLang].tipLabel+' '+t.tip;
+
+  var zn1=ZODIAC_SIGNS[z1].name[curLang]||ZODIAC_SIGNS[z1].name.en;
+  var zn2=ZODIAC_SIGNS[z2].name[curLang]||ZODIAC_SIGNS[z2].name.en;
+  var an1=ANIMALS[a1][curLang]||ANIMALS[a1].en;
+  var an2=ANIMALS[a2][curLang]||ANIMALS[a2].en;
+
+  document.getElementById('zodiacTitle').textContent=L[curLang].zodiacTitle;
+  document.getElementById('zStar').textContent=L[curLang].starLabel+' '+ZODIAC_SIGNS[z1].emoji+' '+zn1+' + '+ZODIAC_SIGNS[z2].emoji+' '+zn2;
+  document.getElementById('zAnimal').textContent=L[curLang].animalLabel+' '+an1+' + '+an2;
+  document.getElementById('zNumero').textContent=L[curLang].numeroLabel+' '+lp1+' + '+lp2;
+
+  var el=document.getElementById('result');
+  el.style.display='block';
+  el.style.animation='none';el.offsetHeight;el.style.animation='popIn .5s cubic-bezier(.34,1.56,.64,1)';
+
+  var bar=document.querySelector('.gauge-bar');
+  bar.style.width='0%';
+  setTimeout(function(){bar.style.width=total+'%'},100);
+}
+
+function setLang(lang){
+  curLang=lang;
+  var t=L[lang];
+  document.getElementById('t-title').textContent=t.title;
+  document.getElementById('t-sub').textContent=t.sub;
+  document.getElementById('lbl1').textContent=t.lbl1;
+  document.getElementById('lbl2').textContent=t.lbl2;
+  document.getElementById('btnCalc').textContent=t.btn;
+  document.getElementById('nav-home').textContent=t.nav.home;
+  document.getElementById('nav-about').textContent=t.nav.about;
+  document.getElementById('nav-contact').textContent=t.nav.contact;
+  document.getElementById('nav-privacy').textContent=t.nav.privacy;
+  document.getElementById('nav-terms').textContent=t.nav.terms;
+  document.querySelectorAll('.tab-text').forEach(function(el){
+    var k=el.getAttribute('data-key');
+    if(t[k])el.textContent=t[k];
+  });
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.classList.toggle('active',b.getAttribute('data-lang')===lang);
+  });
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+}
+
+document.getElementById('langBar').addEventListener('click',function(e){
+  if(e.target.classList.contains('lang-btn'))setLang(e.target.getAttribute('data-lang'));
+});
+
+function shareTwitter(){
+  var s=document.getElementById('resScore').textContent;
+  var url='https://twitter.com/intent/tweet?text='+encodeURIComponent('Our birthday compatibility is '+s+'! 🎂💕 Check yours: https://matchtest.site/birthday.html');
+  window.open(url,'_blank');
+}
+function copyResult(){
+  var s=document.getElementById('resScore').textContent;
+  var t=document.getElementById('resType').textContent;
+  navigator.clipboard.writeText('Birthday Compatibility: '+s+' ('+t+') 🎂 https://matchtest.site/birthday.html');
+}
+
+// floating bg
+(function(){var c=document.getElementById('floatingBg');var e=['🎂','⭐','💕','✨','🌙','🎀'];for(var i=0;i<15;i++){var s=document.createElement('span');s.textContent=e[i%e.length];s.style.left=Math.random()*100+'%';s.style.fontSize=(20+Math.random()*30)+'px';s.style.animationDuration=(12+Math.random()*18)+'s';s.style.animationDelay=(-Math.random()*20)+'s';c.appendChild(s)}})();
+
+// auto-detect language
+(function(){
+  try{
+    var n=navigator.language||navigator.userLanguage||'en';
+    var c=n.slice(0,2).toLowerCase();
+    if(L[c])setLang(c);else setLang('en');
+  }catch(e){setLang('en')}
+})();
+</script>
+</body>
+</html>
