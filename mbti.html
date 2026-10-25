@@ -246,13 +246,16 @@
 </nav>
 
 <div class="test-tabs">
-    <a href="index.html" class="test-tab" id="tab-name">💕 <span id="tab-name-text">이름궁합</span></a>
-    <a href="mbti-test.html" class="test-tab" id="tab-test">🧠 <span id="tab-test-text">MBTI 검사</span></a>
-    <a href="mbti.html" class="test-tab active" id="tab-mbti">💜 <span id="tab-mbti-text">MBTI 궁합</span></a>
-    <a href="pet-name.html" class="test-tab" id="tab-pet">🐾 <span id="tab-pet-text">펫 작명소</span></a>
-    <a href="birthday.html" class="test-tab" id="tab-bday">🎂 <span id="tab-bday-text">생일궁합</span></a>
-    <a href="past-life.html" class="test-tab" id="tab-past">🔮 <span id="tab-past-text">전생</span></a>
-    <a href="fortune.html" class="test-tab" id="tab-fortune">⭐ <span id="tab-fortune-text">오늘운세</span></a>
+    <a href="index.html" class="test-tab">💕 <span class="tab-text" data-key="tabName">이름궁합</span></a>
+    <a href="mbti-test.html" class="test-tab">🧠 <span class="tab-text" data-key="tabMbtiTest">MBTI 검사</span></a>
+    <a href="mbti.html" class="test-tab active">💜 <span class="tab-text" data-key="tabMbti">MBTI 궁합</span></a>
+    <a href="pet-name.html" class="test-tab">🐾 <span class="tab-text" data-key="tabPet">펫이름</span></a>
+    <a href="birthday.html" class="test-tab">🎂 <span class="tab-text" data-key="tabBday">생일궁합</span></a>
+    <a href="past-life.html" class="test-tab">🔮 <span class="tab-text" data-key="tabPast">전생</span></a>
+    <a href="fortune.html" class="test-tab">⭐ <span class="tab-text" data-key="tabFortune">오늘운세</span></a>
+    <a href="job-test.html" class="test-tab">💼 <span class="tab-text" data-key="tabJob">직업적성</span></a>
+    <a href="blood-type.html" class="test-tab">🩸 <span class="tab-text" data-key="tabBlood">혈액형궁합</span></a>
+    <a href="color-test.html" class="test-tab">🎨 <span class="tab-text" data-key="tabColor">색깔심리</span></a>
 </div>
 
 <main>
@@ -291,6 +294,9 @@
                 <div class="share-grid">
                     <button class="share-btn twitter" onclick="shareTwitter()">𝕏 Twitter</button>
                     <button class="share-btn facebook" onclick="shareFacebook()">f Facebook</button>
+                    <button class="share-btn" onclick="shareWhatsApp()" style="border-color:#25d366;color:#25d366">💬 WhatsApp</button>
+                    <button class="share-btn" onclick="shareLine()" style="border-color:#06c755;color:#06c755">💚 LINE</button>
+                    <button class="share-btn" onclick="shareKakao()" style="border-color:#fee500;color:#3c1e1e;background:#fee500">💬 Kakao</button>
                     <button class="share-btn" onclick="copyLink()">🔗 <span id="t-copyBtn">복사</span></button>
                 </div>
                 <button class="retry-btn" id="t-retry" onclick="reset()">다시 해보기</button>
@@ -343,7 +349,7 @@ ko:{
     title:"MBTI 궁합 테스트",subtitle:"두 사람의 MBTI 유형으로 궁합을 확인하세요",
     label1:"나의 MBTI",label2:"상대방의 MBTI",btn:"궁합 보기 💕",scoreLabel:"궁합 점수",
     copyBtn:"복사",retry:"다시 해보기",alertEmpty:"두 사람의 MBTI를 모두 선택해주세요!",alertCopied:"링크가 복사되었습니다!",
-    tabName:"이름궁합",tabMbti:"MBTI 궁합",tabTest:"MBTI 검사",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세",
+    tabName:"이름궁합",tabMbti:"MBTI 궁합",tabTest:"MBTI 검사",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세",tabJob:"직업적성",tabBlood:"혈액형궁합",tabColor:"색깔심리",
     navHome:"홈",navAbout:"소개",navContact:"문의",navPrivacy:"개인정보",navTerms:"이용약관",
     shareText:function(t1,t2,s){return t1+" × "+t2+" = "+s+"%! MBTI 궁합 테스트 해보세요!"},
     tier:function(s){
@@ -359,7 +365,7 @@ en:{
     title:"MBTI Compatibility Test",subtitle:"Check your personality type compatibility",
     label1:"MY MBTI",label2:"PARTNER'S MBTI",btn:"See Compatibility 💕",scoreLabel:"compatibility score",
     copyBtn:"Copy",retry:"Try Again",alertEmpty:"Please select both MBTI types!",alertCopied:"Link copied!",
-    tabName:"Name Match",tabMbti:"MBTI Match",tabTest:"MBTI",tabPet:"Pet Names",tabBday:"Birthday",tabPast:"Past Life",tabFortune:"Fortune",
+    tabName:"Name Match",tabMbti:"MBTI Match",tabTest:"MBTI",tabPet:"Pet Names",tabBday:"Birthday",tabPast:"Past Life",tabFortune:"Fortune",tabJob:"Career",tabBlood:"Blood Type",tabColor:"Color",
     navHome:"Home",navAbout:"About",navContact:"Contact",navPrivacy:"Privacy",navTerms:"Terms",
     shareText:function(t1,t2,s){return t1+" × "+t2+" = "+s+"%! Try the MBTI Compatibility Test!"},
     tier:function(s){
@@ -375,7 +381,7 @@ ja:{
     title:"MBTI相性テスト",subtitle:"二人のMBTIタイプで相性をチェック",
     label1:"自分のMBTI",label2:"相手のMBTI",btn:"相性を見る 💕",scoreLabel:"相性スコア",
     copyBtn:"コピー",retry:"もう一度",alertEmpty:"二人のMBTIを選択してください！",alertCopied:"リンクをコピーしました！",
-    tabName:"名前相性",tabMbti:"MBTI相性",tabTest:"MBTI",tabPet:"ペット名",tabBday:"誕生日相性",tabPast:"前世",tabFortune:"今日の運勢",
+    tabName:"名前相性",tabMbti:"MBTI相性",tabTest:"MBTI",tabPet:"ペット名",tabBday:"誕生日相性",tabPast:"前世",tabFortune:"今日の運勢",tabJob:"適職",tabBlood:"血液型",tabColor:"色彩",
     navHome:"ホーム",navAbout:"概要",navContact:"お問い合わせ",navPrivacy:"プライバシー",navTerms:"利用規約",
     shareText:function(t1,t2,s){return t1+" × "+t2+" = "+s+"%! MBTI相性テストをやってみて！"},
     tier:function(s){
@@ -391,7 +397,7 @@ zh:{
     title:"MBTI缘分测试",subtitle:"用两个人的MBTI类型查看缘分",
     label1:"我的MBTI",label2:"对方的MBTI",btn:"查看缘分 💕",scoreLabel:"缘分指数",
     copyBtn:"复制",retry:"再试一次",alertEmpty:"请选择两个人的MBTI！",alertCopied:"链接已复制！",
-    tabName:"姓名缘分",tabMbti:"MBTI缘分",tabTest:"MBTI",tabPet:"宠物名",tabBday:"生日配对",tabPast:"前世",tabFortune:"今日运势",
+    tabName:"姓名缘分",tabMbti:"MBTI缘分",tabTest:"MBTI",tabPet:"宠物名",tabBday:"生日配对",tabPast:"前世",tabFortune:"今日运势",tabJob:"职业",tabBlood:"血型",tabColor:"色彩",
     navHome:"首页",navAbout:"关于",navContact:"联系",navPrivacy:"隐私",navTerms:"条款",
     shareText:function(t1,t2,s){return t1+" × "+t2+" = "+s+"%! 来测测MBTI缘分吧！"},
     tier:function(s){
@@ -435,13 +441,7 @@ function setLang(lang){
     document.getElementById('t-scoreLabel').textContent=t.scoreLabel;
     document.getElementById('t-copyBtn').textContent=t.copyBtn;
     document.getElementById('t-retry').textContent=t.retry;
-    document.getElementById('tab-name-text').textContent=t.tabName;
-    document.getElementById('tab-mbti-text').textContent=t.tabMbti;
-    document.getElementById('tab-test-text').textContent=t.tabTest;
-    document.getElementById('tab-pet-text').textContent=t.tabPet;
-    document.getElementById('tab-bday-text').textContent=t.tabBday;
-    document.getElementById('tab-past-text').textContent=t.tabPast;
-    document.getElementById('tab-fortune-text').textContent=t.tabFortune;
+    document.querySelectorAll('.tab-text').forEach(function(el){var k=el.dataset.key;if(t[k])el.textContent=t[k]});
     document.getElementById('nav-home').textContent=t.navHome;
     document.getElementById('nav-about').textContent=t.navAbout;
     document.getElementById('nav-contact').textContent=t.navContact;
@@ -482,6 +482,9 @@ function getShareText(){return i18n[currentLang].shareText(sel1,sel2,COMPAT[sel1
 function getShareUrl(){return window.location.href}
 function shareTwitter(){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(getShareText())+'&url='+encodeURIComponent(getShareUrl()),'_blank','width=550,height=420')}
 function shareFacebook(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(getShareUrl())+'&quote='+encodeURIComponent(getShareText()),'_blank','width=550,height=420')}
+function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(getShareText()+' '+getShareUrl()),'_blank')}
+function shareLine(){window.open('https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(getShareUrl())+'&text='+encodeURIComponent(getShareText()),'_blank')}
+function shareKakao(){copyLink()}
 function copyLink(){
     var url=getShareUrl();
     if(navigator.clipboard&&navigator.clipboard.writeText){

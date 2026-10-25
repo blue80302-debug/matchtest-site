@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>색깔 심리 테스트 — 좋아하는 색으로 보는 심리 분석 | Color Psychology Test</title>
+<meta name="description" content="좋아하는 색깔로 당신의 성격과 심리를 분석합니다. 8가지 색상별 상세 심리 해석, 한국어·영어 지원 무료 테스트.">
+<meta property="og:title" content="색깔 심리 테스트 | Color Psychology Test">
+<meta property="og:description" content="좋아하는 색깔이 당신의 성격을 말해줍니다!">
+<meta property="og:url" content="https://matchtest.site/color-test.html">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://matchtest.site/color-test.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6668425393052932" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+    --pink-50:#fdf2f8;--pink-100:#fce7f3;--pink-200:#fbcfe8;
+    --pink-300:#f9a8d4;--pink-400:#f472b6;--pink-500:#ec4899;
+    --pink-600:#db2777;--purple-400:#c084fc;--purple-500:#a855f7;
+    --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
+    --gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;
+    --gray-700:#374151;--gray-800:#1f2937;
+    --radius:24px;
+}
+body{
+    font-family:'Noto Sans','Noto Sans KR',sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;
+    background:linear-gradient(160deg,#fdf2f8 0%,#fce7f3 40%,#fbcfe8 100%);
+    color:var(--gray-700);line-height:1.6;
+}
+a{color:var(--pink-500);text-decoration:none}a:hover{text-decoration:underline}
+.floating-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.floating-bg span{position:absolute;opacity:.08;animation:drift linear infinite}
+@keyframes drift{0%{transform:translateY(105vh) rotate(0deg) scale(.8);opacity:0}8%{opacity:.08}92%{opacity:.08}100%{transform:translateY(-8vh) rotate(360deg) scale(1.2);opacity:0}}
+.site-nav{position:relative;z-index:10;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--pink-100);padding:10px 20px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.site-nav a{font-size:13px;font-weight:600;color:var(--gray-500);padding:4px 10px;border-radius:8px;transition:all .2s}
+.site-nav a:hover,.site-nav a.active{background:var(--pink-500);color:white;text-decoration:none}
+.test-tabs{position:relative;z-index:10;display:flex;justify-content:center;gap:0;padding:16px 16px 0;flex-wrap:wrap}
+.test-tab{padding:8px 12px;font-size:12px;font-weight:700;border:2px solid var(--pink-200);background:white;color:var(--pink-400);cursor:pointer;transition:all .2s;text-decoration:none}
+.test-tab:first-child{border-radius:12px 0 0 12px}
+.test-tab:last-child{border-radius:0 12px 12px 0}
+.test-tab:hover{background:var(--pink-50);text-decoration:none}
+.test-tab.active{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));color:white;border-color:transparent}
+main{flex:1;display:flex;flex-direction:column;align-items:center;padding:20px 16px 10px}
+.card{position:relative;z-index:1;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);width:420px;max-width:100%;border-radius:var(--radius);box-shadow:0 24px 48px rgba(236,72,153,.12),0 0 0 1px rgba(236,72,153,.06),inset 0 1px 0 rgba(255,255,255,.8);overflow:hidden;margin-bottom:32px}
+.header{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));padding:28px 20px 24px;text-align:center;color:white;position:relative;overflow:hidden}
+.header::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:20px;background:rgba(255,255,255,.92);border-radius:50% 50% 0 0/100% 100% 0 0}
+.header h1{font-family:'Fredoka',sans-serif;font-size:24px;font-weight:700;margin-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,.12)}
+.header p{font-size:13px;opacity:.85}
+.lang-bar{display:flex;justify-content:center;gap:4px;padding:14px 16px 6px}
+.lang-btn{padding:5px 10px;border:1.5px solid var(--pink-200);border-radius:100px;background:white;font-size:12px;font-weight:600;color:var(--pink-400);cursor:pointer;transition:all .2s}
+.lang-btn:hover,.lang-btn.active{background:var(--pink-500);border-color:var(--pink-500);color:white}
+.body{padding:18px 22px 24px}
+.section-label{font-size:12px;font-weight:700;color:var(--gray-500);margin-bottom:12px;text-align:center}
+.color-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+.color-btn{aspect-ratio:1;border:3px solid transparent;border-radius:16px;cursor:pointer;transition:all .25s;position:relative;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.color-btn:hover{transform:scale(1.08);box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.color-btn.selected{border-color:var(--gray-800);transform:scale(1.1);box-shadow:0 0 0 3px white,0 0 0 6px var(--gray-800)}
+.color-btn .color-name{position:absolute;bottom:4px;left:0;right:0;text-align:center;font-size:10px;font-weight:700;color:white;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.color-red{background:linear-gradient(135deg,#ef4444,#dc2626)}
+.color-blue{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+.color-green{background:linear-gradient(135deg,#22c55e,#16a34a)}
+.color-yellow{background:linear-gradient(135deg,#eab308,#ca8a04)}
+.color-purple{background:linear-gradient(135deg,#a855f7,#9333ea)}
+.color-orange{background:linear-gradient(135deg,#f97316,#ea580c)}
+.color-black{background:linear-gradient(135deg,#374151,#111827)}
+.color-white{background:linear-gradient(135deg,#f9fafb,#e5e7eb)}
+.color-white .color-name{color:var(--gray-600);text-shadow:none}
+.btn-primary{display:block;width:100%;padding:14px;border:none;border-radius:50px;font-size:16px;font-weight:700;color:white;background:linear-gradient(135deg,var(--pink-500),var(--purple-500));cursor:pointer;box-shadow:0 6px 20px rgba(168,85,247,.3);transition:transform .1s,box-shadow .2s}
+.btn-primary:hover{box-shadow:0 8px 28px rgba(168,85,247,.4)}
+.btn-primary:active{transform:scale(.97)}
+.result{display:none;margin-top:22px;text-align:center;animation:popIn .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes popIn{0%{opacity:0;transform:scale(.85) translateY(12px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+.result-color-badge{width:80px;height:80px;border-radius:50%;margin:0 auto 14px;box-shadow:0 8px 24px rgba(0,0,0,.15);display:flex;align-items:center;justify-content:center;font-size:36px}
+.score-big{font-size:22px;font-weight:900;background:linear-gradient(135deg,var(--pink-500),var(--purple-500));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;margin-bottom:4px}
+.score-label{font-size:12px;color:var(--gray-400);margin-bottom:14px}
+.divider{width:36px;height:3px;background:linear-gradient(90deg,var(--pink-500),var(--purple-500));border-radius:2px;margin:0 auto 14px}
+.result-type{display:inline-block;padding:6px 16px;border-radius:100px;font-size:15px;font-weight:700;background:linear-gradient(135deg,var(--pink-100),#ede9fe);color:var(--purple-500);margin-bottom:12px;letter-spacing:.5px}
+.result-msg{font-size:14px;color:var(--gray-500);line-height:1.7;word-break:keep-all;padding:12px 14px;background:var(--pink-50);border-radius:14px;border-left:3px solid var(--purple-400);text-align:start;margin-bottom:16px}
+.detail-box{background:var(--gray-50);border-radius:12px;padding:12px 14px;margin-bottom:12px;text-align:left}
+.detail-box h4{font-size:13px;font-weight:700;color:var(--pink-600);margin-bottom:6px}
+.detail-box p{font-size:13px;color:var(--gray-600);line-height:1.6}
+.trait-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;justify-content:center}
+.trait-tag{padding:4px 12px;border-radius:100px;font-size:12px;font-weight:600;background:var(--pink-100);color:var(--pink-600)}
+.share-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.share-btn{padding:9px 4px;border:2px solid var(--pink-200);border-radius:12px;background:white;font-size:12px;font-weight:700;color:var(--pink-500);cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:4px}
+.share-btn:hover{background:var(--pink-500);border-color:var(--pink-500);color:white}
+.share-btn.kakao{border-color:#fee500;color:#3c1e1e;background:#fee500}
+.share-btn.kakao:hover{background:#fdd800;border-color:#fdd800}
+.share-btn.twitter{border-color:#1d9bf0;color:#1d9bf0}
+.share-btn.twitter:hover{background:#1d9bf0;border-color:#1d9bf0;color:white}
+.share-btn.facebook{border-color:#1877f2;color:#1877f2}
+.share-btn.facebook:hover{background:#1877f2;border-color:#1877f2;color:white}
+.share-btn.whatsapp{border-color:#25d366;color:#25d366}
+.share-btn.whatsapp:hover{background:#25d366;border-color:#25d366;color:white}
+.share-btn.line{border-color:#06c755;color:#06c755}
+.share-btn.line:hover{background:#06c755;border-color:#06c755;color:white}
+.retry-btn{display:inline-block;padding:7px 18px;border:2px solid var(--gray-200);border-radius:100px;background:none;font-size:12px;font-weight:700;color:var(--gray-400);cursor:pointer;transition:all .2s}
+.retry-btn:hover{border-color:var(--pink-400);color:var(--pink-400)}
+.content-section{position:relative;z-index:1;width:800px;max-width:100%;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border-radius:20px;padding:32px 28px;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+.content-section h2{font-family:'Fredoka',sans-serif;font-size:22px;color:var(--pink-600);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--pink-100)}
+.content-section h3{font-size:16px;color:var(--purple-500);margin:16px 0 8px}
+.content-section p{font-size:14px;color:var(--gray-600);margin-bottom:12px}
+.content-section ul{margin:8px 0 12px 20px;font-size:14px;color:var(--gray-600)}
+.content-section li{margin-bottom:6px}
+.site-footer{position:relative;z-index:1;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border-top:1px solid var(--pink-100);padding:20px;text-align:center;font-size:12px;color:var(--gray-400)}
+.site-footer a{color:var(--gray-500);margin:0 8px}
+.footer-links{margin-bottom:8px}
+@media(max-width:480px){.test-tab{padding:6px 7px;font-size:10px}.color-grid{grid-template-columns:repeat(4,1fr);gap:8px}.share-grid{grid-template-columns:repeat(2,1fr)}.content-section{padding:24px 18px;border-radius:16px}}
+</style>
+</head>
+<body>
+<div class="floating-bg" id="floatingBg"></div>
+
+<nav class="site-nav">
+    <a href="index.html" id="nav-home">Home</a>
+    <a href="about.html" id="nav-about">About</a>
+    <a href="contact.html" id="nav-contact">Contact</a>
+    <a href="privacy.html" id="nav-privacy">Privacy</a>
+    <a href="terms.html" id="nav-terms">Terms</a>
+</nav>
+
+<div class="test-tabs">
+    <a href="index.html" class="test-tab"><span class="tab-text" data-key="tabName">💕 이름궁합</span></a>
+    <a href="mbti-test.html" class="test-tab"><span class="tab-text" data-key="tabMbtiTest">🧠 MBTI</span></a>
+    <a href="mbti.html" class="test-tab"><span class="tab-text" data-key="tabMbti">💜 MBTI궁합</span></a>
+    <a href="pet-name.html" class="test-tab"><span class="tab-text" data-key="tabPet">🐾 펫이름</span></a>
+    <a href="birthday.html" class="test-tab"><span class="tab-text" data-key="tabBday">🎂 생일궁합</span></a>
+    <a href="past-life.html" class="test-tab"><span class="tab-text" data-key="tabPast">🔮 전생</span></a>
+    <a href="fortune.html" class="test-tab"><span class="tab-text" data-key="tabFortune">⭐ 오늘운세</span></a>
+    <a href="job-test.html" class="test-tab"><span class="tab-text" data-key="tabJob">💼 직업적성</span></a>
+    <a href="blood-type.html" class="test-tab"><span class="tab-text" data-key="tabBlood">🩸 혈액형궁합</span></a>
+    <a href="color-test.html" class="test-tab active"><span class="tab-text" data-key="tabColor">🎨 색깔심리</span></a>
+</div>
+
+<main>
+<div class="card">
+    <div class="header">
+        <h1 id="t-title">🎨 색깔 심리 테스트</h1>
+        <p id="t-sub">좋아하는 색으로 보는 나의 심리</p>
+    </div>
+    <div class="lang-bar" id="langBar">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn active" data-lang="ko">KO</button>
+    </div>
+    <div class="body">
+        <div class="section-label" id="t-prompt">가장 끌리는 색을 선택하세요</div>
+        <div class="color-grid" id="colorGrid">
+            <button class="color-btn color-red" data-color="red"><span class="color-name" id="cn-red">빨강</span></button>
+            <button class="color-btn color-blue" data-color="blue"><span class="color-name" id="cn-blue">파랑</span></button>
+            <button class="color-btn color-green" data-color="green"><span class="color-name" id="cn-green">초록</span></button>
+            <button class="color-btn color-yellow" data-color="yellow"><span class="color-name" id="cn-yellow">노랑</span></button>
+            <button class="color-btn color-purple" data-color="purple"><span class="color-name" id="cn-purple">보라</span></button>
+            <button class="color-btn color-orange" data-color="orange"><span class="color-name" id="cn-orange">주황</span></button>
+            <button class="color-btn color-black" data-color="black"><span class="color-name" id="cn-black">검정</span></button>
+            <button class="color-btn color-white" data-color="white"><span class="color-name" id="cn-white">하양</span></button>
+        </div>
+        <button class="btn-primary" id="btnCalc" onclick="analyze()">심리 분석하기 🔮</button>
+
+        <div class="result" id="result">
+            <div class="result-color-badge" id="resBadge"></div>
+            <div class="score-big" id="resTitle"></div>
+            <div class="score-label" id="resSubtitle"></div>
+            <div class="divider"></div>
+            <div class="result-type" id="resKeyword"></div>
+            <div class="trait-tags" id="resTags"></div>
+            <div class="result-msg" id="resMsg"></div>
+            <div class="detail-box"><h4 id="lblPersonality">🧠 성격 특성</h4><p id="resPersonality"></p></div>
+            <div class="detail-box"><h4 id="lblRelationship">💕 대인관계</h4><p id="resRelationship"></p></div>
+            <div class="detail-box"><h4 id="lblCareer">💼 적합한 직업</h4><p id="resCareer"></p></div>
+            <div class="detail-box"><h4 id="lblAdvice">💡 조언</h4><p id="resAdvice"></p></div>
+            <div class="share-grid">
+                <button class="share-btn twitter" onclick="shareTwitter()">𝕏 Twitter</button>
+                <button class="share-btn facebook" onclick="shareFacebook()">f Facebook</button>
+                <button class="share-btn whatsapp" onclick="shareWhatsApp()">💬 WhatsApp</button>
+                <button class="share-btn line" onclick="shareLine()">💚 LINE</button>
+                <button class="share-btn kakao" onclick="shareKakao()">💬 Kakao</button>
+                <button class="share-btn" id="t-copyBtn" onclick="copyLink()">🔗 복사</button>
+            </div>
+            <button class="retry-btn" id="t-retry" onclick="resetTest()">다시 해보기</button>
+        </div>
+    </div>
+</div>
+
+<article class="content-section" id="articlePsych"></article>
+<article class="content-section" id="articleMeaning"></article>
+<article class="content-section" id="articleTherapy"></article>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-links">
+        <a href="about.html" id="f-about">소개</a>
+        <a href="contact.html" id="f-contact">문의</a>
+        <a href="privacy.html" id="f-privacy">개인정보</a>
+        <a href="terms.html" id="f-terms">이용약관</a>
+    </div>
+    <div>&copy; 2026 matchtest.site — Color Psychology Test</div>
+</footer>
+
+<script>
+var selectedColor=null, currentLang='ko';
+
+var i18n={
+en:{
+    title:"🎨 Color Psychology Test",sub:"What your favorite color says about you",
+    prompt:"Choose the color you're most drawn to",btn:"Analyze My Psychology 🔮",
+    copyBtn:"🔗 Copy",retry:"Try Again",
+    alertSelect:"Please select a color!",alertCopied:"Link copied!",
+    lblPersonality:"🧠 Personality",lblRelationship:"💕 Relationships",lblCareer:"💼 Career Fit",lblAdvice:"💡 Advice",
+    navHome:"Home",navAbout:"About",navContact:"Contact",navPrivacy:"Privacy",navTerms:"Terms",
+    tabName:"💕 Name Match",tabMbtiTest:"🧠 MBTI",tabMbti:"💜 MBTI Match",tabPet:"🐾 Pet Names",
+    tabBday:"🎂 Birthday",tabPast:"🔮 Past Life",tabFortune:"⭐ Fortune",
+    tabJob:"💼 Career",tabBlood:"🩸 Blood Type",tabColor:"🎨 Color",
+    colors:{red:"Red",blue:"Blue",green:"Green",yellow:"Yellow",purple:"Purple",orange:"Orange",black:"Black",white:"White"},
+    articlePsych:{
+        title:"What is Color Psychology?",
+        body:"<p>Color psychology is the study of how colors affect human behavior, emotions, and decision-making. While it's been explored since ancient civilizations — Egyptians used colored rooms for healing — modern color psychology began with Johann Wolfgang von Goethe's 1810 work \"Theory of Colours.\"</p><p>Today, color psychology is applied across marketing, interior design, art therapy, and personal branding. Research shows colors can influence mood, appetite, perception of temperature, and even physical performance. However, individual responses to color are also shaped by personal experiences, cultural context, and associations.</p><h3>How Colors Affect Us</h3><ul><li><strong>Warm colors</strong> (red, orange, yellow) tend to stimulate and energize, increasing heart rate and creating feelings of warmth and comfort — or aggression and anger.</li><li><strong>Cool colors</strong> (blue, green, purple) often calm and relax, lowering blood pressure and creating feelings of peace — or sadness and indifference.</li><li><strong>Neutral colors</strong> (black, white, gray) provide balance and can convey sophistication, simplicity, or emptiness depending on context.</li></ul>"
+    },
+    articleMeaning:{
+        title:"Color Meanings Across Cultures",
+        body:"<p>Color symbolism varies dramatically across cultures, which means the \"meaning\" of a color is never universal.</p><h3>Red</h3><p>In China, red symbolizes luck, prosperity, and celebration — brides wear red. In Western cultures, it means love, passion, and danger. In South Africa, red is the color of mourning.</p><h3>White</h3><p>Western weddings feature white for purity and innocence. In many East Asian cultures, white is the color of death and mourning. In India, widows traditionally wear white.</p><h3>Blue</h3><p>Nearly universally calming, blue represents trust and stability in most cultures. It's the world's most popular favorite color across surveys. In the Middle East, blue is protective against evil.</p><h3>Yellow</h3><p>Happiness and sunshine in the West, but in some Latin American countries yellow can represent death. In Japan, it represents courage. In Egypt, it's the color of mourning.</p><p>Your favorite color may reveal something about your personality, but always remember that personal and cultural context matters more than any universal interpretation.</p>"
+    },
+    articleTherapy:{
+        title:"Color Therapy and Practical Applications",
+        body:"<p>Chromotherapy (color therapy) uses colors to adjust body vibrations to frequencies that promote health and harmony. While scientific evidence is limited, many people find color-based practices helpful for well-being.</p><h3>Practical Ways to Use Color</h3><ul><li><strong>Workspace:</strong> Blue and green tones boost focus and productivity. Avoid too much red in work areas as it can increase anxiety.</li><li><strong>Bedroom:</strong> Soft blues, greens, and lavenders promote restful sleep. Avoid bright stimulating colors.</li><li><strong>Exercise:</strong> Red and orange can boost physical performance and motivation during workouts.</li><li><strong>Creativity:</strong> Purple and yellow environments may enhance creative thinking and brainstorming.</li></ul><h3>Color in Marketing</h3><p>Companies invest heavily in color research. Blue dominates tech and finance (trust). Red is used in food brands (appetite stimulation). Green signals health and sustainability. Understanding your color preferences can also help you understand what marketing messages might unconsciously attract you.</p>"
+    }
+},
+ko:{
+    title:"🎨 색깔 심리 테스트",sub:"좋아하는 색으로 보는 나의 심리",
+    prompt:"가장 끌리는 색을 선택하세요",btn:"심리 분석하기 🔮",
+    copyBtn:"🔗 복사",retry:"다시 해보기",
+    alertSelect:"색깔을 선택해주세요!",alertCopied:"링크가 복사되었습니다!",
+    lblPersonality:"🧠 성격 특성",lblRelationship:"💕 대인관계",lblCareer:"💼 적합한 직업",lblAdvice:"💡 조언",
+    navHome:"홈",navAbout:"소개",navContact:"문의",navPrivacy:"개인정보",navTerms:"이용약관",
+    tabName:"💕 이름궁합",tabMbtiTest:"🧠 MBTI",tabMbti:"💜 MBTI궁합",tabPet:"🐾 펫이름",
+    tabBday:"🎂 생일궁합",tabPast:"🔮 전생",tabFortune:"⭐ 오늘운세",
+    tabJob:"💼 직업적성",tabBlood:"🩸 혈액형궁합",tabColor:"🎨 색깔심리",
+    colors:{red:"빨강",blue:"파랑",green:"초록",yellow:"노랑",purple:"보라",orange:"주황",black:"검정",white:"하양"},
+    articlePsych:{
+        title:"색깔 심리학이란?",
+        body:"<p>색깔 심리학은 색상이 인간의 행동, 감정, 의사결정에 미치는 영향을 연구하는 학문입니다. 고대 이집트에서 색깔 방을 치유에 사용한 이래, 1810년 괴테의 「색채론」을 거쳐 현대 색깔 심리학이 발전했습니다.</p><p>오늘날 색깔 심리학은 마케팅, 인테리어 디자인, 미술 치료, 퍼스널 브랜딩 등에 폭넓게 활용됩니다. 연구에 따르면 색상은 기분, 식욕, 온도 인지, 심지어 운동 능력에도 영향을 미칠 수 있습니다.</p><h3>색상이 우리에게 미치는 영향</h3><ul><li><strong>따뜻한 색</strong> (빨강, 주황, 노랑) — 자극과 활력을 주고, 심박수를 높이며 따뜻함과 편안함(또는 공격성)을 유발합니다.</li><li><strong>차가운 색</strong> (파랑, 초록, 보라) — 진정과 이완 효과가 있으며, 혈압을 낮추고 평화로운 느낌을 줍니다.</li><li><strong>중성 색</strong> (검정, 하양, 회색) — 균형을 제공하며 맥락에 따라 세련됨, 단순함, 또는 공허함을 전달합니다.</li></ul>"
+    },
+    articleMeaning:{
+        title:"문화별 색상의 의미",
+        body:"<p>색상의 상징적 의미는 문화에 따라 크게 다릅니다. '보편적인' 색의 의미는 존재하지 않습니다.</p><h3>빨강</h3><p>중국에서 빨강은 행운, 번영, 축하를 상징하며 신부가 빨간 옷을 입습니다. 서양에서는 사랑, 열정, 위험을 의미합니다. 남아프리카에서는 애도의 색입니다.</p><h3>하양</h3><p>서양 결혼식에서 하양은 순수와 순결을 의미합니다. 하지만 동아시아 많은 문화에서 하양은 죽음과 애도의 색입니다. 인도에서는 전통적으로 과부가 하양을 입습니다.</p><h3>파랑</h3><p>거의 보편적으로 차분한 느낌을 주며, 대부분의 문화에서 신뢰와 안정을 나타냅니다. 전 세계 설문조사에서 가장 인기 있는 색상이기도 합니다.</p><h3>노랑</h3><p>서양에서는 행복과 햇살을 의미하지만, 일부 라틴아메리카 국가에서는 죽음을 상징할 수 있습니다. 일본에서는 용기를, 이집트에서는 애도를 나타냅니다.</p><p>좋아하는 색이 성격에 대해 무언가를 말해줄 수 있지만, 개인적·문화적 맥락이 어떤 보편적 해석보다 중요하다는 것을 기억하세요.</p>"
+    },
+    articleTherapy:{
+        title:"색채 치료와 실생활 활용",
+        body:"<p>색채 치료(크로모테라피)는 색상을 이용해 건강과 조화를 촉진하는 요법입니다. 과학적 근거는 제한적이지만, 많은 사람들이 색상 기반 실천이 웰빙에 도움이 된다고 느낍니다.</p><h3>생활 속 색상 활용법</h3><ul><li><strong>작업 공간:</strong> 파랑과 초록 톤이 집중력과 생산성을 높입니다. 업무 공간에 빨강이 너무 많으면 불안감이 높아질 수 있어요.</li><li><strong>침실:</strong> 부드러운 파랑, 초록, 라벤더가 숙면을 돕습니다. 밝고 자극적인 색은 피하세요.</li><li><strong>운동:</strong> 빨강과 주황이 운동 중 체력과 동기 부여를 높일 수 있습니다.</li><li><strong>창의성:</strong> 보라와 노랑 환경이 창의적 사고와 브레인스토밍을 향상시킬 수 있습니다.</li></ul><h3>마케팅 속 색상</h3><p>기업들은 색상 연구에 막대한 투자를 합니다. 파랑은 기술·금융 분야(신뢰)에, 빨강은 식품 브랜드(식욕 자극)에, 초록은 건강과 지속가능성에 사용됩니다. 자신의 색상 선호를 이해하면, 어떤 마케팅 메시지에 무의식적으로 끌리는지도 파악할 수 있습니다.</p>"
+    }
+}
+};
+
+var colorData={
+red:{
+    emoji:"❤️",gradient:"linear-gradient(135deg,#ef4444,#dc2626)",
+    en:{title:"The Passionate Leader",subtitle:"Fire burns within you",keyword:"Passion · Power · Action",
+        traits:["Ambitious","Energetic","Confident","Competitive","Bold"],
+        msg:"You are driven by intense emotions and a desire to make your mark on the world. Red lovers are natural leaders who aren't afraid to take risks and fight for what they believe in.",
+        personality:"You have a strong will and refuse to be ignored. Your energy is contagious, and people naturally follow your lead. You're direct, sometimes to the point of bluntness, and you value honesty over diplomacy.",
+        relationship:"In relationships, you're passionate and devoted but can be possessive. You need a partner who can match your intensity without being overwhelmed by it.",
+        career:"CEO, entrepreneur, surgeon, athlete, trial lawyer, emergency responder, military leader, sales director",
+        advice:"Your intensity is your greatest strength, but learn to channel it. Impulsive decisions made in anger rarely serve you well. Practice pausing before reacting."},
+    ko:{title:"열정의 리더",subtitle:"당신 안에 불꽃이 타오릅니다",keyword:"열정 · 힘 · 행동",
+        traits:["야심적","에너지 넘치는","자신감 있는","경쟁적","대담한"],
+        msg:"강렬한 감정과 세상에 자신의 흔적을 남기고 싶은 열망으로 움직이는 사람입니다. 빨강을 좋아하는 사람은 위험을 감수하고 신념을 위해 싸우는 것을 두려워하지 않는 타고난 리더예요.",
+        personality:"강한 의지를 가지고 있으며 무시당하는 것을 거부합니다. 에너지가 전염성이 있어 사람들이 자연스럽게 따릅니다. 직설적이고, 때로는 무뚝뚝할 정도이며, 외교보다 솔직함을 중시해요.",
+        relationship:"관계에서 열정적이고 헌신적이지만 소유욕이 강할 수 있어요. 당신의 강렬함에 압도되지 않으면서 맞설 수 있는 파트너가 필요합니다.",
+        career:"CEO, 창업가, 외과의사, 운동선수, 변호사, 응급 구조사, 군인, 영업 이사",
+        advice:"강렬함이 최대의 강점이지만, 그것을 잘 다루는 법을 배우세요. 분노에서 내린 충동적 결정은 좋은 결과를 가져오지 않습니다. 반응하기 전에 멈추는 연습을 하세요."}
+},
+blue:{
+    emoji:"💙",gradient:"linear-gradient(135deg,#3b82f6,#2563eb)",
+    en:{title:"The Thoughtful Strategist",subtitle:"Calm waters run deep",keyword:"Trust · Wisdom · Serenity",
+        traits:["Analytical","Loyal","Reliable","Calm","Introspective"],
+        msg:"You seek depth and meaning in everything. Blue lovers are thoughtful, trustworthy people who value stability and genuine connections over superficial excitement.",
+        personality:"You think before you speak and prefer quality over quantity in all things. Your calm demeanor hides a rich inner world of deep thoughts and emotions.",
+        relationship:"You're loyal to a fault and deeply committed once you choose someone. You need intellectual stimulation and emotional depth in a partner.",
+        career:"Scientist, programmer, therapist, professor, writer, architect, financial analyst, diplomat",
+        advice:"Your depth is a gift, but don't retreat so far inward that you disconnect from others. Not every situation needs analysis — sometimes feeling is enough."},
+    ko:{title:"사려 깊은 전략가",subtitle:"잔잔한 물이 깊습니다",keyword:"신뢰 · 지혜 · 평온",
+        traits:["분석적","충성스러운","신뢰할 수 있는","차분한","내성적"],
+        msg:"모든 것에서 깊이와 의미를 추구하는 사람입니다. 파랑을 좋아하는 사람은 사려 깊고 신뢰할 수 있으며, 피상적 흥분보다 안정과 진정한 유대를 중시해요.",
+        personality:"말하기 전에 생각하고, 모든 것에서 양보다 질을 선호합니다. 차분한 태도 뒤에 깊은 사고와 감정의 풍부한 내면 세계가 숨어 있어요.",
+        relationship:"한 번 선택하면 한없이 충실하고 깊이 헌신합니다. 파트너에게 지적 자극과 정서적 깊이가 필요해요.",
+        career:"과학자, 프로그래머, 상담사, 교수, 작가, 건축가, 재무 분석가, 외교관",
+        advice:"깊이가 당신의 재능이지만, 너무 안으로 숨어들어 다른 사람과 단절되지 마세요. 모든 상황에 분석이 필요한 건 아닙니다."}
+},
+green:{
+    emoji:"💚",gradient:"linear-gradient(135deg,#22c55e,#16a34a)",
+    en:{title:"The Natural Healer",subtitle:"Growth flows through you",keyword:"Balance · Growth · Harmony",
+        traits:["Empathetic","Balanced","Generous","Patient","Nature-loving"],
+        msg:"You are the world's peacemaker. Green lovers have an innate ability to create harmony wherever they go, with a deep connection to nature and living things.",
+        personality:"You're the friend everyone calls in a crisis because your presence alone calms people. You have a strong moral compass and genuine empathy.",
+        relationship:"You nurture your relationships with patience and care. You're an incredible listener. Be careful not to lose yourself in taking care of everyone else.",
+        career:"Doctor, nurse, teacher, environmental scientist, counselor, veterinarian, social worker, organic farmer",
+        advice:"Your desire for harmony is beautiful, but don't suppress your own needs to keep the peace. Setting boundaries isn't selfish — it's necessary."},
+    ko:{title:"자연의 치유자",subtitle:"당신을 통해 성장이 흐릅니다",keyword:"균형 · 성장 · 조화",
+        traits:["공감적","균형 잡힌","관대한","인내심 있는","자연 친화적"],
+        msg:"세상의 평화를 만드는 사람입니다. 초록을 좋아하는 사람은 어디서든 조화를 만들어내는 타고난 능력이 있으며, 자연과 살아있는 것들에 깊이 연결되어 있어요.",
+        personality:"당신의 존재 자체가 사람들을 편안하게 하기 때문에 위기 상황에서 모두가 찾는 친구예요. 강한 도덕적 나침반과 진정한 공감 능력을 가지고 있어요.",
+        relationship:"인내심과 배려로 관계를 돌봅니다. 다른 사람의 말을 잘 경청해요. 다른 사람을 돌보느라 자신을 잃지 않도록 주의하세요.",
+        career:"의사, 간호사, 교사, 환경과학자, 상담사, 수의사, 사회복지사, 유기농 농부",
+        advice:"조화를 향한 마음은 아름답지만, 평화를 유지하기 위해 자신의 필요를 억누르지 마세요. 경계를 설정하는 것은 이기적이 아니라 필수입니다."}
+},
+yellow:{
+    emoji:"💛",gradient:"linear-gradient(135deg,#eab308,#ca8a04)",
+    en:{title:"The Sunshine Creator",subtitle:"You light up every room",keyword:"Joy · Creativity · Optimism",
+        traits:["Optimistic","Creative","Social","Spontaneous","Cheerful"],
+        msg:"You bring light wherever you go. Yellow lovers are natural optimists with infectious energy, creative minds, and the ability to find joy in the smallest moments.",
+        personality:"You're the person who can make anyone smile. Your creativity is boundless, and you approach life with childlike wonder.",
+        relationship:"You bring fun and positivity to relationships. You need a partner who appreciates your spontaneity and doesn't try to dim your light.",
+        career:"Designer, artist, comedian, marketing creative, event planner, children's educator, travel blogger, life coach",
+        advice:"Your optimism is a superpower, but don't use it to avoid dealing with difficult emotions. It's okay not to be happy all the time."},
+    ko:{title:"햇살 크리에이터",subtitle:"당신이 들어오면 방이 밝아집니다",keyword:"기쁨 · 창의성 · 낙관",
+        traits:["낙관적","창의적","사교적","즉흥적","쾌활한"],
+        msg:"어디를 가든 빛을 가져오는 사람입니다. 노랑을 좋아하는 사람은 전염성 있는 에너지와 창의적 사고, 작은 순간에서도 기쁨을 찾는 능력을 가진 타고난 낙관주의자예요.",
+        personality:"누구든 웃게 만들 수 있는 사람이에요. 끝없는 창의성을 가지고 있고, 어린아이 같은 호기심으로 인생에 접근합니다.",
+        relationship:"관계에 재미와 긍정을 가져옵니다. 당신의 즉흥성을 인정하고 빛을 꺼뜨리려 하지 않는 파트너가 필요해요.",
+        career:"디자이너, 아티스트, 코미디언, 마케팅 기획, 이벤트 플래너, 아동 교육가, 여행 블로거, 라이프 코치",
+        advice:"낙관주의가 당신의 초능력이지만, 어려운 감정을 피하기 위해 사용하지 마세요. 항상 행복하지 않아도 괜찮습니다."}
+},
+purple:{
+    emoji:"💜",gradient:"linear-gradient(135deg,#a855f7,#9333ea)",
+    en:{title:"The Mystic Visionary",subtitle:"You see what others can't",keyword:"Intuition · Creativity · Mystery",
+        traits:["Intuitive","Artistic","Spiritual","Unique","Imaginative"],
+        msg:"You exist between worlds. Purple lovers are deeply intuitive, creative souls who see beauty and meaning where others see nothing.",
+        personality:"You march to your own drum and couldn't care less about fitting in. Your imagination is your greatest asset.",
+        relationship:"You need a partner who respects your need for solitude and creative space. You connect deeply but selectively.",
+        career:"Artist, musician, spiritual guide, UX designer, psychologist, filmmaker, fashion designer, mystic healer",
+        advice:"Your vision is extraordinary, but ground yourself regularly. Balance your inner world with practical action."},
+    ko:{title:"신비로운 비전가",subtitle:"다른 사람이 보지 못하는 것을 봅니다",keyword:"직관 · 창의성 · 신비",
+        traits:["직관적","예술적","영적인","독특한","상상력 풍부한"],
+        msg:"두 세계 사이에 존재하는 사람입니다. 보라를 좋아하는 사람은 깊은 직관과 창의적 영혼을 가지고 있으며, 다른 사람이 아무것도 보지 못하는 곳에서 아름다움과 의미를 발견해요.",
+        personality:"자기만의 박자로 걸으며 남들에게 맞추는 데 관심이 없어요. 상상력이 최대의 자산이에요.",
+        relationship:"혼자만의 시간과 창작 공간을 존중하는 파트너가 필요해요. 깊이 연결하지만 선택적입니다.",
+        career:"아티스트, 음악가, 영적 가이드, UX 디자이너, 심리학자, 영화감독, 패션 디자이너, 힐러",
+        advice:"비전이 특별하지만, 규칙적으로 현실에 발을 딛으세요. 내면 세계와 실천적 행동 사이의 균형을 찾으세요."}
+},
+orange:{
+    emoji:"🧡",gradient:"linear-gradient(135deg,#f97316,#ea580c)",
+    en:{title:"The Adventurous Spirit",subtitle:"Life is your playground",keyword:"Adventure · Warmth · Freedom",
+        traits:["Adventurous","Sociable","Warm","Enthusiastic","Risk-taking"],
+        msg:"You squeeze every drop of juice from life. Orange lovers are warm, enthusiastic people who crave new experiences and spread joy through infectious enthusiasm.",
+        personality:"You're the life of the party and the first to try anything new. Your warmth makes everyone feel welcome.",
+        relationship:"You need a partner who shares your love of adventure or at least doesn't hold you back. You're warm and affectionate, but you need freedom.",
+        career:"Travel guide, chef, event organizer, motivational speaker, startup founder, sports coach, entertainer, outdoor instructor",
+        advice:"Your adventurous spirit keeps life exciting, but make sure you're running toward something, not away from something."},
+    ko:{title:"모험적인 영혼",subtitle:"인생이 당신의 놀이터입니다",keyword:"모험 · 따뜻함 · 자유",
+        traits:["모험적","사교적","따뜻한","열정적","도전적"],
+        msg:"인생의 모든 순간을 알차게 보내는 사람입니다. 주황을 좋아하는 사람은 따뜻하고 열정적이며, 새로운 경험을 갈구하고 전염성 있는 열정으로 기쁨을 퍼뜨려요.",
+        personality:"파티의 중심이자 새로운 것을 가장 먼저 시도하는 사람이에요. 따뜻함으로 모든 사람을 환영해요.",
+        relationship:"모험을 함께할 수 있거나 최소한 막지 않는 파트너가 필요해요. 따뜻하고 다정하지만 자유가 필요합니다.",
+        career:"여행 가이드, 셰프, 이벤트 기획자, 동기부여 강연가, 스타트업 창업자, 스포츠 코치, 엔터테이너, 아웃도어 강사",
+        advice:"모험적 정신이 인생을 흥미롭게 만들지만, 무언가를 향해 달리는 건지 무언가로부터 도망치는 건지 확인하세요."}
+},
+black:{
+    emoji:"🖤",gradient:"linear-gradient(135deg,#374151,#111827)",
+    en:{title:"The Sophisticated Rebel",subtitle:"Elegance meets edge",keyword:"Power · Elegance · Independence",
+        traits:["Independent","Sophisticated","Private","Strong-willed","Mysterious"],
+        msg:"You command respect without saying a word. Black lovers project sophistication and quiet power, valuing substance over flash.",
+        personality:"You have impeccable taste and zero tolerance for superficiality. You're fiercely independent and would rather struggle alone than ask for help.",
+        relationship:"Trust is everything to you, and it's not given easily. Once someone earns your loyalty, it's absolute.",
+        career:"Executive, judge, security specialist, fashion editor, photographer, investigator, luxury brand manager, surgeon",
+        advice:"Your strength is admirable, but vulnerability isn't weakness — it's courage. Letting people in doesn't diminish your power."},
+    ko:{title:"세련된 반항아",subtitle:"우아함과 날카로움의 만남",keyword:"힘 · 우아함 · 독립",
+        traits:["독립적","세련된","프라이빗","의지 강한","신비로운"],
+        msg:"한 마디 없이도 존경을 이끌어내는 사람입니다. 검정을 좋아하는 사람은 세련됨과 조용한 힘의 아우라를 가지며, 겉치레보다 본질을 중시해요.",
+        personality:"흠잡을 데 없는 취향과 가벼움에 대한 제로 관용. 맹렬하게 독립적이며 도움을 구하느니 혼자 고군분투하겠어요.",
+        relationship:"신뢰가 전부이며 쉽게 주어지지 않아요. 한 번 충성을 얻으면 절대적입니다.",
+        career:"임원, 판사, 보안 전문가, 패션 에디터, 사진작가, 수사관, 럭셔리 브랜드 매니저, 외과의사",
+        advice:"강함이 존경스럽지만, 취약함은 약함이 아니라 용기입니다. 사람을 들이는 것이 힘을 약화시키지 않아요."}
+},
+white:{
+    emoji:"🤍",gradient:"linear-gradient(135deg,#f9fafb,#d1d5db)",
+    en:{title:"The Pure Idealist",subtitle:"Clarity is your compass",keyword:"Purity · Clarity · Peace",
+        traits:["Perfectionist","Peaceful","Organized","Sincere","Minimalist"],
+        msg:"You seek clarity and simplicity in a noisy world. White lovers are idealists who value purity of intention and honest communication above all.",
+        personality:"You have a strong sense of right and wrong and live by your principles. You're organized, clean, and minimalist.",
+        relationship:"You're honest to the core and expect the same from your partner. Games and manipulation are instant dealbreakers.",
+        career:"Minimalist designer, quality inspector, editor, mediator, curator, dental professional, organizer, spiritual counselor",
+        advice:"Your pursuit of perfection is noble, but accept that life is inherently messy. Imperfection isn't failure — it's reality."},
+    ko:{title:"순수한 이상주의자",subtitle:"명확함이 당신의 나침반입니다",keyword:"순수 · 명확함 · 평화",
+        traits:["완벽주의적","평화로운","체계적","진실한","미니멀한"],
+        msg:"시끄러운 세상에서 명확함과 단순함을 추구하는 사람입니다. 하양을 좋아하는 사람은 순수한 의도와 솔직한 소통을 무엇보다 중시하는 이상주의자예요.",
+        personality:"옳고 그름에 대한 강한 감각을 가지고 원칙에 따라 살아요. 체계적이고 깔끔하며 미니멀해요.",
+        relationship:"핵심까지 솔직하며 파트너에게도 같은 것을 기대해요. 게임과 조작은 즉각적 거래 파기.",
+        career:"미니멀리스트 디자이너, 품질 검사원, 편집자, 중재자, 큐레이터, 치과 전문가, 정리 컨설턴트, 영적 상담사",
+        advice:"완벽을 향한 추구가 고결하지만, 인생이 본래 지저분하다는 것을 받아들이세요. 불완전함은 실패가 아니라 현실입니다."}
+}
+};
+
+(function(){var c=document.getElementById('floatingBg'),items=['🎨','🌈','✨','💜','🩷','🩵','💚','💛'];for(var i=0;i<18;i++){var s=document.createElement('span');s.textContent=items[i%items.length];s.style.left=(Math.random()*100)+'%';s.style.fontSize=(14+Math.random()*18)+'px';s.style.animationDuration=(10+Math.random()*15)+'s';s.style.animationDelay=(Math.random()*12)+'s';c.appendChild(s)}})();
+
+document.querySelectorAll('.color-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+        document.querySelectorAll('.color-btn').forEach(function(x){x.classList.remove('selected')});
+        b.classList.add('selected');selectedColor=b.dataset.color;
+    });
+});
+
+function setLang(lang){
+    currentLang=lang;var t=i18n[lang];
+    document.getElementById('t-title').textContent=t.title;
+    document.getElementById('t-sub').textContent=t.sub;
+    document.getElementById('t-prompt').textContent=t.prompt;
+    document.getElementById('btnCalc').textContent=t.btn;
+    document.getElementById('t-copyBtn').innerHTML=t.copyBtn;
+    document.getElementById('t-retry').textContent=t.retry;
+    document.getElementById('lblPersonality').textContent=t.lblPersonality;
+    document.getElementById('lblRelationship').textContent=t.lblRelationship;
+    document.getElementById('lblCareer').textContent=t.lblCareer;
+    document.getElementById('lblAdvice').textContent=t.lblAdvice;
+    document.getElementById('nav-home').textContent=t.navHome;
+    document.getElementById('nav-about').textContent=t.navAbout;
+    document.getElementById('nav-contact').textContent=t.navContact;
+    document.getElementById('nav-privacy').textContent=t.navPrivacy;
+    document.getElementById('nav-terms').textContent=t.navTerms;
+    document.getElementById('f-about').textContent=t.navAbout;
+    document.getElementById('f-contact').textContent=t.navContact;
+    document.getElementById('f-privacy').textContent=t.navPrivacy;
+    document.getElementById('f-terms').textContent=t.navTerms;
+    document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===lang)});
+    document.querySelectorAll('.tab-text').forEach(function(el){var k=el.dataset.key;if(t[k])el.textContent=t[k]});
+    var cn=t.colors;
+    document.getElementById('cn-red').textContent=cn.red;
+    document.getElementById('cn-blue').textContent=cn.blue;
+    document.getElementById('cn-green').textContent=cn.green;
+    document.getElementById('cn-yellow').textContent=cn.yellow;
+    document.getElementById('cn-purple').textContent=cn.purple;
+    document.getElementById('cn-orange').textContent=cn.orange;
+    document.getElementById('cn-black').textContent=cn.black;
+    document.getElementById('cn-white').textContent=cn.white;
+    if(t.articlePsych){
+        document.getElementById('articlePsych').innerHTML='<h2>'+t.articlePsych.title+'</h2>'+t.articlePsych.body;
+        document.getElementById('articleMeaning').innerHTML='<h2>'+t.articleMeaning.title+'</h2>'+t.articleMeaning.body;
+        document.getElementById('articleTherapy').innerHTML='<h2>'+t.articleTherapy.title+'</h2>'+t.articleTherapy.body;
+    }
+}
+
+document.getElementById('langBar').addEventListener('click',function(e){if(e.target.classList.contains('lang-btn'))setLang(e.target.dataset.lang)});
+
+(function detectLang(){
+    var bl=(navigator.language||'ko').substring(0,2).toLowerCase();
+    if(bl==='ko')setLang('ko');else setLang('en');
+})();
+
+function analyze(){
+    var t=i18n[currentLang];
+    if(!selectedColor){alert(t.alertSelect);return}
+    var d=colorData[selectedColor];
+    var r=d[currentLang];
+    document.getElementById('resBadge').style.background=d.gradient;
+    document.getElementById('resBadge').textContent=d.emoji;
+    document.getElementById('resTitle').textContent=r.title;
+    document.getElementById('resSubtitle').textContent=r.subtitle;
+    document.getElementById('resKeyword').textContent=r.keyword;
+    var tagsHtml='';r.traits.forEach(function(tr){tagsHtml+='<span class="trait-tag">'+tr+'</span>'});
+    document.getElementById('resTags').innerHTML=tagsHtml;
+    document.getElementById('resMsg').textContent=r.msg;
+    document.getElementById('resPersonality').textContent=r.personality;
+    document.getElementById('resRelationship').textContent=r.relationship;
+    document.getElementById('resCareer').textContent=r.career;
+    document.getElementById('resAdvice').textContent=r.advice;
+    var res=document.getElementById('result');res.style.display='none';res.offsetHeight;res.style.display='block';
+}
+
+function resetTest(){
+    selectedColor=null;
+    document.querySelectorAll('.color-btn').forEach(function(b){b.classList.remove('selected')});
+    document.getElementById('result').style.display='none';
+}
+
+function getShareText(){
+    var cn=i18n[currentLang].colors[selectedColor]||selectedColor;
+    if(currentLang==='ko')return'나의 색깔 심리: '+cn+' — '+colorData[selectedColor].ko.title+'! 색깔 심리 테스트 해보세요!';
+    return'My Color Psychology: '+cn+' — '+colorData[selectedColor].en.title+'! Try the Color Psychology Test!';
+}
+function getShareUrl(){return window.location.href}
+function shareTwitter(){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(getShareText())+'&url='+encodeURIComponent(getShareUrl()),'_blank','width=550,height=420')}
+function shareFacebook(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(getShareUrl())+'&quote='+encodeURIComponent(getShareText()),'_blank','width=550,height=420')}
+function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(getShareText()+' '+getShareUrl()),'_blank')}
+function shareLine(){window.open('https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(getShareUrl())+'&text='+encodeURIComponent(getShareText()),'_blank')}
+function shareKakao(){copyLink()}
+function copyLink(){
+    var url=getShareUrl();
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(function(){alert(i18n[currentLang].alertCopied)});
+    }else{
+        var ta=document.createElement('textarea');ta.value=url;ta.style.position='fixed';ta.style.left='-9999px';
+        document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+        alert(i18n[currentLang].alertCopied);
+    }
+}
+</script>
+</body>
+</html>

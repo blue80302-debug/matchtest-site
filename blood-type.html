@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>혈액형 궁합 테스트 — 무료 혈액형 궁합 계산기 | Blood Type Compatibility</title>
+<meta name="description" content="혈액형으로 보는 두 사람의 궁합! A, B, O, AB형 16가지 조합의 궁합 점수와 상세 분석을 확인하세요. 한국어·영어 지원 무료 테스트.">
+<meta property="og:title" content="혈액형 궁합 테스트 | Blood Type Compatibility Test">
+<meta property="og:description" content="혈액형으로 궁합을 확인하세요! 16가지 조합 상세 분석.">
+<meta property="og:url" content="https://matchtest.site/blood-type.html">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://matchtest.site/blood-type.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩸</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6668425393052932" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+    --pink-50:#fdf2f8;--pink-100:#fce7f3;--pink-200:#fbcfe8;
+    --pink-300:#f9a8d4;--pink-400:#f472b6;--pink-500:#ec4899;
+    --pink-600:#db2777;--purple-400:#c084fc;--purple-500:#a855f7;
+    --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
+    --gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;
+    --gray-700:#374151;--gray-800:#1f2937;
+    --radius:24px;
+}
+body{
+    font-family:'Noto Sans','Noto Sans KR',sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;
+    background:linear-gradient(160deg,#fdf2f8 0%,#fce7f3 40%,#fbcfe8 100%);
+    color:var(--gray-700);line-height:1.6;
+}
+a{color:var(--pink-500);text-decoration:none}a:hover{text-decoration:underline}
+.floating-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.floating-bg span{position:absolute;opacity:.08;animation:drift linear infinite}
+@keyframes drift{0%{transform:translateY(105vh) rotate(0deg) scale(.8);opacity:0}8%{opacity:.08}92%{opacity:.08}100%{transform:translateY(-8vh) rotate(360deg) scale(1.2);opacity:0}}
+.site-nav{position:relative;z-index:10;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--pink-100);padding:10px 20px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.site-nav a{font-size:13px;font-weight:600;color:var(--gray-500);padding:4px 10px;border-radius:8px;transition:all .2s}
+.site-nav a:hover,.site-nav a.active{background:var(--pink-500);color:white;text-decoration:none}
+.test-tabs{position:relative;z-index:10;display:flex;justify-content:center;gap:0;padding:16px 16px 0;flex-wrap:wrap}
+.test-tab{padding:8px 12px;font-size:12px;font-weight:700;border:2px solid var(--pink-200);background:white;color:var(--pink-400);cursor:pointer;transition:all .2s;text-decoration:none}
+.test-tab:first-child{border-radius:12px 0 0 12px}
+.test-tab:last-child{border-radius:0 12px 12px 0}
+.test-tab:hover{background:var(--pink-50);text-decoration:none}
+.test-tab.active{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));color:white;border-color:transparent}
+main{flex:1;display:flex;flex-direction:column;align-items:center;padding:20px 16px 10px}
+.card{position:relative;z-index:1;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);width:420px;max-width:100%;border-radius:var(--radius);box-shadow:0 24px 48px rgba(236,72,153,.12),0 0 0 1px rgba(236,72,153,.06),inset 0 1px 0 rgba(255,255,255,.8);overflow:hidden;margin-bottom:32px}
+.header{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));padding:28px 20px 24px;text-align:center;color:white;position:relative;overflow:hidden}
+.header::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:20px;background:rgba(255,255,255,.92);border-radius:50% 50% 0 0/100% 100% 0 0}
+.header h1{font-family:'Fredoka',sans-serif;font-size:24px;font-weight:700;margin-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,.12)}
+.header p{font-size:13px;opacity:.85}
+.lang-bar{display:flex;justify-content:center;gap:4px;padding:14px 16px 6px}
+.lang-btn{padding:5px 10px;border:1.5px solid var(--pink-200);border-radius:100px;background:white;font-size:12px;font-weight:600;color:var(--pink-400);cursor:pointer;transition:all .2s}
+.lang-btn:hover,.lang-btn.active{background:var(--pink-500);border-color:var(--pink-500);color:white}
+.body{padding:18px 22px 24px}
+.section-label{font-size:11px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.blood-selector{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.blood-btn{padding:12px 8px;border:2px solid var(--pink-200);border-radius:14px;background:white;font-size:18px;font-weight:700;color:var(--pink-400);cursor:pointer;transition:all .2s;text-align:center}
+.blood-btn:hover{background:var(--pink-50);border-color:var(--pink-300)}
+.blood-btn.selected{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));color:white;border-color:transparent;box-shadow:0 4px 12px rgba(168,85,247,.3)}
+.heart-divider{text-align:center;font-size:28px;padding:4px 0;animation:heartbeat 1.3s ease-in-out infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.2)}28%{transform:scale(1)}42%{transform:scale(1.15)}56%{transform:scale(1)}}
+.btn-primary{display:block;width:100%;padding:14px;border:none;border-radius:50px;font-size:16px;font-weight:700;color:white;background:linear-gradient(135deg,var(--pink-500),var(--purple-500));cursor:pointer;box-shadow:0 6px 20px rgba(168,85,247,.3);transition:transform .1s,box-shadow .2s;margin-top:8px}
+.btn-primary:hover{box-shadow:0 8px 28px rgba(168,85,247,.4)}
+.btn-primary:active{transform:scale(.97)}
+.result{display:none;margin-top:22px;text-align:center;animation:popIn .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes popIn{0%{opacity:0;transform:scale(.85) translateY(12px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+.result-names{font-family:'Fredoka',sans-serif;font-size:18px;color:var(--purple-500);margin-bottom:14px;letter-spacing:1px}
+.gauge-track{background:var(--pink-100);border-radius:100px;height:24px;overflow:hidden;margin-bottom:10px}
+.gauge-bar{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--pink-400),var(--pink-500),var(--purple-500));width:0%;transition:width 1s cubic-bezier(.34,1.15,.64,1);position:relative}
+.gauge-bar::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);animation:shimmer 2.5s infinite}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.score-big{font-size:50px;font-weight:900;background:linear-gradient(135deg,var(--pink-500),var(--purple-500));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1}
+.score-label{font-size:12px;color:var(--gray-400);margin-bottom:14px}
+.divider{width:36px;height:3px;background:linear-gradient(90deg,var(--pink-500),var(--purple-500));border-radius:2px;margin:0 auto 14px}
+.result-type{display:inline-block;padding:6px 16px;border-radius:100px;font-size:15px;font-weight:700;background:linear-gradient(135deg,var(--pink-100),#ede9fe);color:var(--purple-500);margin-bottom:12px;letter-spacing:.5px}
+.result-msg{font-size:14px;color:var(--gray-500);line-height:1.7;word-break:keep-all;padding:12px 14px;background:var(--pink-50);border-radius:14px;border-left:3px solid var(--purple-400);text-align:start;margin-bottom:16px}
+.detail-box{background:var(--gray-50);border-radius:12px;padding:12px 14px;margin-bottom:12px;text-align:left}
+.detail-box h4{font-size:13px;font-weight:700;color:var(--pink-600);margin-bottom:6px}
+.detail-box p{font-size:13px;color:var(--gray-600);line-height:1.6}
+.share-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.share-btn{padding:9px 4px;border:2px solid var(--pink-200);border-radius:12px;background:white;font-size:12px;font-weight:700;color:var(--pink-500);cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:4px}
+.share-btn:hover{background:var(--pink-500);border-color:var(--pink-500);color:white}
+.share-btn.kakao{border-color:#fee500;color:#3c1e1e;background:#fee500}
+.share-btn.kakao:hover{background:#fdd800;border-color:#fdd800}
+.share-btn.twitter{border-color:#1d9bf0;color:#1d9bf0}
+.share-btn.twitter:hover{background:#1d9bf0;border-color:#1d9bf0;color:white}
+.share-btn.facebook{border-color:#1877f2;color:#1877f2}
+.share-btn.facebook:hover{background:#1877f2;border-color:#1877f2;color:white}
+.share-btn.whatsapp{border-color:#25d366;color:#25d366}
+.share-btn.whatsapp:hover{background:#25d366;border-color:#25d366;color:white}
+.share-btn.line{border-color:#06c755;color:#06c755}
+.share-btn.line:hover{background:#06c755;border-color:#06c755;color:white}
+.retry-btn{display:inline-block;padding:7px 18px;border:2px solid var(--gray-200);border-radius:100px;background:none;font-size:12px;font-weight:700;color:var(--gray-400);cursor:pointer;transition:all .2s}
+.retry-btn:hover{border-color:var(--pink-400);color:var(--pink-400)}
+.content-section{position:relative;z-index:1;width:800px;max-width:100%;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border-radius:20px;padding:32px 28px;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+.content-section h2{font-family:'Fredoka',sans-serif;font-size:22px;color:var(--pink-600);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--pink-100)}
+.content-section h3{font-size:16px;color:var(--purple-500);margin:16px 0 8px}
+.content-section p{font-size:14px;color:var(--gray-600);margin-bottom:12px}
+.content-section ul{margin:8px 0 12px 20px;font-size:14px;color:var(--gray-600)}
+.content-section li{margin-bottom:6px}
+.site-footer{position:relative;z-index:1;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border-top:1px solid var(--pink-100);padding:20px;text-align:center;font-size:12px;color:var(--gray-400)}
+.site-footer a{color:var(--gray-500);margin:0 8px}
+.footer-links{margin-bottom:8px}
+@media(max-width:480px){.test-tab{padding:6px 7px;font-size:10px}.blood-btn{padding:10px 4px;font-size:16px}.share-grid{grid-template-columns:repeat(2,1fr)}.content-section{padding:24px 18px;border-radius:16px}}
+</style>
+</head>
+<body>
+<div class="floating-bg" id="floatingBg"></div>
+
+<nav class="site-nav">
+    <a href="index.html" id="nav-home">Home</a>
+    <a href="about.html" id="nav-about">About</a>
+    <a href="contact.html" id="nav-contact">Contact</a>
+    <a href="privacy.html" id="nav-privacy">Privacy</a>
+    <a href="terms.html" id="nav-terms">Terms</a>
+</nav>
+
+<div class="test-tabs">
+    <a href="index.html" class="test-tab"><span class="tab-text" data-key="tabName">💕 이름궁합</span></a>
+    <a href="mbti-test.html" class="test-tab"><span class="tab-text" data-key="tabMbtiTest">🧠 MBTI</span></a>
+    <a href="mbti.html" class="test-tab"><span class="tab-text" data-key="tabMbti">💜 MBTI궁합</span></a>
+    <a href="pet-name.html" class="test-tab"><span class="tab-text" data-key="tabPet">🐾 펫이름</span></a>
+    <a href="birthday.html" class="test-tab"><span class="tab-text" data-key="tabBday">🎂 생일궁합</span></a>
+    <a href="past-life.html" class="test-tab"><span class="tab-text" data-key="tabPast">🔮 전생</span></a>
+    <a href="fortune.html" class="test-tab"><span class="tab-text" data-key="tabFortune">⭐ 오늘운세</span></a>
+    <a href="job-test.html" class="test-tab"><span class="tab-text" data-key="tabJob">💼 직업적성</span></a>
+    <a href="blood-type.html" class="test-tab active"><span class="tab-text" data-key="tabBlood">🩸 혈액형궁합</span></a>
+    <a href="color-test.html" class="test-tab"><span class="tab-text" data-key="tabColor">🎨 색깔심리</span></a>
+</div>
+
+<main>
+<div class="card">
+    <div class="header">
+        <h1 id="t-title">🩸 혈액형 궁합 테스트</h1>
+        <p id="t-sub">혈액형으로 보는 두 사람의 궁합</p>
+    </div>
+    <div class="lang-bar" id="langBar">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn active" data-lang="ko">KO</button>
+    </div>
+    <div class="body">
+        <div class="section-label" id="lbl1">나의 혈액형</div>
+        <div class="blood-selector" id="sel1">
+            <button class="blood-btn" data-type="A">A</button>
+            <button class="blood-btn" data-type="B">B</button>
+            <button class="blood-btn" data-type="O">O</button>
+            <button class="blood-btn" data-type="AB">AB</button>
+        </div>
+        <div class="heart-divider">💕</div>
+        <div class="section-label" id="lbl2">상대방 혈액형</div>
+        <div class="blood-selector" id="sel2">
+            <button class="blood-btn" data-type="A">A</button>
+            <button class="blood-btn" data-type="B">B</button>
+            <button class="blood-btn" data-type="O">O</button>
+            <button class="blood-btn" data-type="AB">AB</button>
+        </div>
+        <button class="btn-primary" id="btnCalc" onclick="calculate()">궁합 확인하기 💕</button>
+
+        <div class="result" id="result">
+            <div class="result-names" id="resNames"></div>
+            <div class="gauge-track"><div class="gauge-bar" id="gaugeBar"></div></div>
+            <div class="score-big" id="scoreBig">0%</div>
+            <div class="score-label" id="t-scoreLabel">궁합 점수</div>
+            <div class="divider"></div>
+            <div class="result-type" id="resType"></div>
+            <div class="result-msg" id="resMsg"></div>
+            <div class="detail-box" id="boxStrength"><h4 id="lblStrength">💪 강점</h4><p id="resStrength"></p></div>
+            <div class="detail-box" id="boxCaution"><h4 id="lblCaution">⚠️ 주의점</h4><p id="resCaution"></p></div>
+            <div class="detail-box" id="boxTip"><h4 id="lblTip">💡 팁</h4><p id="resTip"></p></div>
+            <div class="share-grid">
+                <button class="share-btn twitter" onclick="shareTwitter()">𝕏 Twitter</button>
+                <button class="share-btn facebook" onclick="shareFacebook()">f Facebook</button>
+                <button class="share-btn whatsapp" onclick="shareWhatsApp()">💬 WhatsApp</button>
+                <button class="share-btn line" onclick="shareLine()">💚 LINE</button>
+                <button class="share-btn kakao" onclick="shareKakao()">💬 Kakao</button>
+                <button class="share-btn" id="t-copyBtn" onclick="copyLink()">🔗 복사</button>
+            </div>
+            <button class="retry-btn" id="t-retry" onclick="resetTest()">다시 해보기</button>
+        </div>
+    </div>
+</div>
+
+<article class="content-section" id="articleTheory"></article>
+<article class="content-section" id="articleCulture"></article>
+<article class="content-section" id="articleScience"></article>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-links">
+        <a href="about.html" id="f-about">소개</a>
+        <a href="contact.html" id="f-contact">문의</a>
+        <a href="privacy.html" id="f-privacy">개인정보</a>
+        <a href="terms.html" id="f-terms">이용약관</a>
+    </div>
+    <div>&copy; 2026 matchtest.site — Blood Type Compatibility Test</div>
+</footer>
+
+<script>
+var my1=null, my2=null, currentLang='ko', lastScore=0;
+
+var i18n={
+en:{
+    title:"🩸 Blood Type Compatibility",sub:"Discover your compatibility by blood type",
+    lbl1:"My Blood Type",lbl2:"Partner's Blood Type",btn:"Check Compatibility 💕",
+    scoreLabel:"compatibility score",copyBtn:"🔗 Copy",retry:"Try Again",
+    alertSelect:"Please select both blood types!",alertCopied:"Link copied!",
+    shareText:function(a,b,s){return"Type "+a+" ♥ Type "+b+" = "+s+"%! Blood Type Compatibility Test!";},
+    lblStrength:"💪 Strengths",lblCaution:"⚠️ Watch Out",lblTip:"💡 Tip",
+    navHome:"Home",navAbout:"About",navContact:"Contact",navPrivacy:"Privacy",navTerms:"Terms",
+    tabName:"💕 Name Match",tabMbtiTest:"🧠 MBTI",tabMbti:"💜 MBTI Match",tabPet:"🐾 Pet Names",
+    tabBday:"🎂 Birthday",tabPast:"🔮 Past Life",tabFortune:"⭐ Fortune",
+    tabJob:"💼 Career",tabBlood:"🩸 Blood Type",tabColor:"🎨 Color",
+    articleTheory:{
+        title:"What is Blood Type Personality Theory?",
+        body:"<p>Blood type personality theory (ketsueki-gata) is a popular belief that a person's ABO blood type influences their personality, temperament, and compatibility with others. While widely embraced in East Asian pop culture, particularly in Japan and South Korea, this theory has no scientific basis.</p><p>The idea originated in early 20th century Japan. Professor Takeji Furukawa published a paper in 1927 titled \"The Study of Temperament Through Blood Type,\" linking blood types to personality traits. Despite being discredited scientifically, the theory gained enormous cultural momentum.</p><h3>Personality by Blood Type</h3><ul><li><strong>Type A</strong> — Organized, meticulous, anxious, reserved. Often described as perfectionists who value harmony.</li><li><strong>Type B</strong> — Creative, passionate, unpredictable, selfish. Seen as free spirits who march to their own drum.</li><li><strong>Type O</strong> — Confident, ambitious, resilient, insensitive. Natural leaders with strong willpower.</li><li><strong>Type AB</strong> — Rational, indecisive, dual-natured, mysterious. A blend of A and B traits creating complex personalities.</li></ul>"
+    },
+    articleCulture:{
+        title:"Blood Type Culture Around the World",
+        body:"<p>Blood type culture varies dramatically across different societies, from everyday conversation topics to serious discrimination.</p><h3>Japan (Blood Type Obsession)</h3><p>In Japan, asking someone's blood type is as common as asking their zodiac sign in the West. Matchmaking services, job interviews, and even kindergarten classes have been organized by blood type. Many Japanese products — from beverages to condoms — are marketed by blood type. The term \"burahara\" (blood type harassment) describes discrimination based on blood type, which became enough of a social problem that it was publicly criticized.</p><h3>South Korea (Dating & Pop Culture)</h3><p>K-pop fan culture frequently discusses idols' blood types, and Korean dating apps sometimes include blood type as a profile field. The 2005 Korean film \"My Boyfriend is Type B\" (B형 남자친구) cemented blood type compatibility as a romantic consideration in Korean pop culture.</p><h3>Western Countries</h3><p>In most Western countries, blood type personality theory is virtually unknown. Blood types are discussed only in medical contexts. The concept of personality-based blood type compatibility would puzzle most Europeans or Americans.</p>"
+    },
+    articleScience:{
+        title:"What Does Science Say?",
+        body:"<p>Numerous large-scale studies have found <strong>no statistically significant correlation</strong> between ABO blood type and personality traits. A 2015 study analyzing over 10,000 participants in Japan and the US found no meaningful relationship.</p><p>Blood types are determined by antigens on red blood cell surfaces — proteins that evolved for immune function, not personality. The ABO gene on chromosome 9 has no known connection to neurological pathways that govern behavior.</p><p>So why does the belief persist? Psychologists point to the <strong>Barnum effect</strong> (also known as the Forer effect) — people tend to accept vague, general personality descriptions as uniquely applicable to themselves. Blood type descriptions are broad enough that most people can find aspects that match.</p><p>While this test is designed purely for entertainment, it's a fun way to explore how cultural beliefs about blood types have shaped social interactions in East Asia. Enjoy the results, but remember — your personality is far more complex than four blood types can capture!</p>"
+    }
+},
+ko:{
+    title:"🩸 혈액형 궁합 테스트",sub:"혈액형으로 보는 두 사람의 궁합",
+    lbl1:"나의 혈액형",lbl2:"상대방 혈액형",btn:"궁합 확인하기 💕",
+    scoreLabel:"궁합 점수",copyBtn:"🔗 복사",retry:"다시 해보기",
+    alertSelect:"두 사람의 혈액형을 모두 선택해주세요!",alertCopied:"링크가 복사되었습니다!",
+    shareText:function(a,b,s){return a+"형 ♥ "+b+"형 = "+s+"%! 혈액형 궁합 테스트 해보세요!";},
+    lblStrength:"💪 강점",lblCaution:"⚠️ 주의점",lblTip:"💡 팁",
+    navHome:"홈",navAbout:"소개",navContact:"문의",navPrivacy:"개인정보",navTerms:"이용약관",
+    tabName:"💕 이름궁합",tabMbtiTest:"🧠 MBTI",tabMbti:"💜 MBTI궁합",tabPet:"🐾 펫이름",
+    tabBday:"🎂 생일궁합",tabPast:"🔮 전생",tabFortune:"⭐ 오늘운세",
+    tabJob:"💼 직업적성",tabBlood:"🩸 혈액형궁합",tabColor:"🎨 색깔심리",
+    articleTheory:{
+        title:"혈액형 성격론이란?",
+        body:"<p>혈액형 성격론(血液型性格論)은 ABO 혈액형에 따라 사람의 성격, 기질, 대인관계 궁합이 달라진다는 대중적 믿음입니다. 과학적 근거는 없지만, 한국과 일본을 중심으로 동아시아 대중문화에서 큰 인기를 누리고 있습니다.</p><p>이 이론은 1927년 일본의 후루카와 다케지 교수가 발표한 「혈액형에 의한 기질 연구」 논문에서 시작되었습니다. 과학적으로는 부정되었지만, 문화적으로는 엄청난 영향력을 갖게 되었습니다.</p><h3>혈액형별 성격</h3><ul><li><strong>A형</strong> — 꼼꼼하고 신중하며 완벽주의적. 조화를 중시하고 규칙을 잘 따르는 편.</li><li><strong>B형</strong> — 창의적이고 자유분방하며 마이웨이. 자기만의 세계가 확고한 편.</li><li><strong>O형</strong> — 자신감 있고 리더십이 강하며 대범한 편. 목표 지향적이고 의지가 강함.</li><li><strong>AB형</strong> — 이성적이고 다면적이며 독특한 감성. A형과 B형의 특성이 공존하는 복합적 성격.</li></ul>"
+    },
+    articleCulture:{
+        title:"나라별 혈액형 문화",
+        body:"<p>혈액형에 대한 문화적 인식은 나라마다 크게 다릅니다.</p><h3>일본 (혈액형 강국)</h3><p>일본에서는 혈액형을 묻는 것이 서양에서 별자리를 묻는 것만큼 자연스럽습니다. 결혼 정보 회사, 취업 면접, 심지어 유치원에서도 혈액형별로 그룹을 나누는 경우가 있습니다. 음료, 초콜릿 등 혈액형별 마케팅 상품도 흔합니다. '블러하라(ブラハラ, 혈액형 괴롭힘)'라는 신조어가 생길 정도로 사회적 문제가 된 적도 있습니다.</p><h3>한국 (연애 & 대중문화)</h3><p>K-pop 팬들은 아이돌의 혈액형을 자주 화제로 삼고, 한국 소개팅 앱에서 혈액형을 프로필에 넣는 경우도 있습니다. 2005년 영화 「B형 남자친구」는 혈액형 궁합을 로맨스의 핵심 소재로 다뤄 큰 인기를 끌었습니다.</p><h3>서양 (무관심)</h3><p>대부분의 서양 국가에서 혈액형 성격론은 거의 알려져 있지 않습니다. 혈액형은 의료 맥락에서만 논의되며, 혈액형으로 성격이나 궁합을 판단한다는 개념은 생소하게 여겨집니다.</p>"
+    },
+    articleScience:{
+        title:"과학은 뭐라고 할까?",
+        body:"<p>다수의 대규모 연구에서 ABO 혈액형과 성격 특성 사이에 <strong>통계적으로 유의미한 상관관계는 발견되지 않았습니다</strong>. 2015년 일본과 미국에서 10,000명 이상을 대상으로 한 연구에서도 의미 있는 관계는 나타나지 않았습니다.</p><p>혈액형은 적혈구 표면의 항원에 의해 결정되며, 이는 면역 기능을 위해 진화한 단백질로 성격과는 관련이 없습니다. 9번 염색체의 ABO 유전자는 행동을 관장하는 신경 경로와 알려진 연결이 없습니다.</p><p>그럼에도 이 믿음이 지속되는 이유는 무엇일까요? 심리학자들은 <strong>바넘 효과</strong>(포러 효과)를 지적합니다 — 사람들은 모호하고 일반적인 성격 묘사를 자신에게만 해당하는 것으로 받아들이는 경향이 있습니다.</p><p>이 테스트는 순수하게 오락 목적으로 만들어졌습니다. 혈액형에 대한 문화적 믿음이 동아시아의 사회적 상호작용을 어떻게 형성했는지 탐구하는 재미있는 방법이 될 수 있습니다. 결과를 즐기되, 기억하세요 — 당신의 성격은 네 가지 혈액형으로 담기엔 훨씬 복잡합니다!</p>"
+    }
+}
+};
+
+var compat={
+    "A-A":{score:78,en:{type:"Kindred Spirits 🌸",msg:"Two A-types create a deeply harmonious but sometimes overly cautious pair. You understand each other's need for order and perfection.",strength:"Exceptional mutual understanding. You anticipate each other's needs and share the same values about loyalty, punctuality, and responsibility.",caution:"Both tend to bottle up emotions. Without someone to break the ice, small frustrations can build into silent resentment.",tip:"Practice expressing feelings before they accumulate. Schedule regular 'honest talk' time where both can speak freely."},ko:{type:"같은 마음 🌸",msg:"A형끼리는 서로를 깊이 이해하는 안정적인 궁합입니다. 질서와 완벽함에 대한 가치관이 일치해요.",strength:"뛰어난 상호 이해력. 서로의 필요를 미리 알아채고, 충성심과 책임감에 대한 가치관을 공유합니다.",caution:"둘 다 감정을 숨기는 경향이 있어요. 먼저 마음을 열어주는 사람이 없으면 작은 불만이 쌓일 수 있습니다.",tip:"감정이 쌓이기 전에 표현하는 연습을 하세요. 정기적으로 솔직하게 대화하는 시간을 만들어보세요."}},
+    "A-B":{score:58,en:{type:"Opposites Attract ⚡",msg:"A's careful planning meets B's spontaneous energy. This pairing is challenging but electric when it works.",strength:"B brings excitement and new perspectives to A's structured world. A provides the stability that B secretly craves.",caution:"A may find B irresponsible; B may feel A is too controlling. These fundamental differences need conscious management.",tip:"Appreciate what the other brings to the table instead of trying to change them. A: loosen up sometimes. B: follow through on promises."},ko:{type:"반대의 매력 ⚡",msg:"A형의 신중한 계획과 B형의 자유로운 에너지가 만납니다. 도전적이지만 제대로 맞으면 폭발적인 궁합이에요.",strength:"B형이 A형의 체계적인 세계에 새로운 자극과 시각을 가져다주고, A형이 B형이 은근히 원하는 안정감을 줍니다.",caution:"A형은 B형이 무책임하다고 느낄 수 있고, B형은 A형이 너무 잔소리한다고 느낄 수 있어요.",tip:"상대를 바꾸려 하지 말고 다른 점을 인정하세요. A형: 가끔은 계획 없이 즐겨보세요. B형: 약속은 꼭 지켜주세요."}},
+    "A-O":{score:88,en:{type:"Golden Pair 👑",msg:"Often called the best match! A's attention to detail and O's big-picture leadership create a powerful partnership.",strength:"O protects and leads while A supports with precision. You make an incredibly effective team in both life and work.",caution:"O's bluntness can hurt sensitive A. A's overthinking can frustrate action-oriented O.",tip:"O: soften your delivery when giving feedback. A: trust O's instincts instead of over-analyzing every decision."},ko:{type:"황금 궁합 👑",msg:"최고의 궁합이라 불리는 조합! A형의 세밀함과 O형의 리더십이 강력한 파트너십을 만들어요.",strength:"O형이 보호하고 이끌며, A형이 디테일로 서포트합니다. 인생에서도 일에서도 매우 효과적인 팀이에요.",caution:"O형의 직설적 표현이 예민한 A형에게 상처가 될 수 있고, A형의 과도한 고민이 행동파 O형을 답답하게 할 수 있어요.",tip:"O형: 피드백할 때 표현을 부드럽게. A형: 모든 결정을 과하게 분석하지 말고 O형의 직감을 믿어보세요."}},
+    "A-AB":{score:72,en:{type:"Intellectual Bond 🧠",msg:"Both value logic and thoughtfulness. A appreciates AB's intelligence, and AB feels comfortable with A's reliability.",strength:"Deep intellectual connection. You can have conversations for hours and truly understand each other's thought processes.",caution:"Both can be emotionally reserved, making the relationship feel distant at times. AB's dual nature may confuse straightforward A.",tip:"Make conscious efforts to be emotionally present. Plan activities that create shared emotional experiences, not just intellectual ones."},ko:{type:"지적 유대감 🧠",msg:"둘 다 논리와 사려 깊음을 중시해요. A형은 AB형의 지적 매력에 끌리고, AB형은 A형의 신뢰감에 편안함을 느껴요.",strength:"깊은 지적 교감. 대화를 몇 시간이고 나눌 수 있고 서로의 사고 과정을 진정으로 이해해요.",caution:"둘 다 감정 표현이 서투를 수 있어서 관계가 때때로 차갑게 느껴질 수 있어요. AB형의 이중적 면이 직선적인 A형을 혼란스럽게 할 수도.",tip:"감정적으로 함께하는 노력을 의식적으로 하세요. 지적 교류뿐 아니라 감정을 공유하는 활동을 계획해보세요."}},
+    "B-A":{score:58,en:{type:"Wild Card Combo 🃏",msg:"B's free spirit challenges A's need for structure. Sparks fly — sometimes romantic, sometimes not.",strength:"B shows A how to live in the moment. A shows B the value of planning ahead. When balanced, you cover each other's blind spots perfectly.",caution:"B may feel suffocated by A's expectations. A may feel anxious about B's unpredictability.",tip:"Find middle ground: planned spontaneity. Set some non-negotiable expectations but leave room for B's creative energy."},ko:{type:"와일드카드 조합 🃏",msg:"B형의 자유로운 영혼이 A형의 체계적 성향에 도전합니다. 불꽃이 튀어요 — 때로는 로맨틱하게, 때로는 격렬하게.",strength:"B형이 A형에게 순간을 즐기는 법을 보여주고, A형이 B형에게 계획의 가치를 보여줘요. 균형을 찾으면 서로의 부족한 점을 완벽히 채워줘요.",caution:"B형은 A형의 기대에 숨 막힐 수 있고, A형은 B형의 예측 불가능함에 불안할 수 있어요.",tip:"계획된 즉흥성을 찾아보세요. 양보할 수 없는 기대치는 세우되, B형의 창의적 에너지를 위한 공간도 남겨두세요."}},
+    "B-B":{score:65,en:{type:"Double Trouble 🔥",msg:"Two free spirits together! Life is never boring, but organization goes out the window.",strength:"Incredible creative energy. You inspire each other, try new things fearlessly, and your adventures together are legendary.",caution:"Neither wants to handle responsibilities. Bills might go unpaid, plans fall through, and arguments can be explosive since neither backs down.",tip:"Designate responsibility areas so things don't fall through the cracks. Take turns being the 'adult' in practical matters."},ko:{type:"폭풍 같은 만남 🔥",msg:"두 자유영혼이 만났어요! 지루할 틈이 없지만, 체계는 창밖으로 날아가요.",strength:"놀라운 창의적 에너지. 서로에게 영감을 주고, 새로운 것을 두려움 없이 시도하며, 함께하는 모험은 전설이에요.",caution:"둘 다 책임감 있는 역할을 싫어해요. 계획이 흐지부지되거나, 둘 다 양보 안 해서 싸움이 폭발적일 수 있어요.",tip:"책임 영역을 나눠서 빠지는 게 없게 하세요. 실용적인 문제에서는 번갈아가며 '어른 역할'을 해보세요."}},
+    "B-O":{score:82,en:{type:"Dynamic Duo 💥",msg:"B's creativity plus O's leadership creates an unstoppable team. O gives direction while B brings innovation.",strength:"O's confidence gives B the security to be even more creative. B's unique ideas keep O's life exciting and fresh.",caution:"Power struggles can emerge. O wants to lead everything, but B refuses to follow anyone blindly.",tip:"Respect each other's domains. Let O lead in planning and B lead in creative decisions. Collaboration, not competition."},ko:{type:"다이나믹 듀오 💥",msg:"B형의 창의성과 O형의 리더십이 만나면 무적의 팀이 됩니다. O형이 방향을 잡고 B형이 혁신을 가져와요.",strength:"O형의 자신감이 B형에게 더 창의적일 수 있는 안정감을 주고, B형의 독특한 아이디어가 O형의 삶을 흥미롭게 만들어요.",caution:"주도권 싸움이 일어날 수 있어요. O형은 모든 걸 이끌고 싶지만, B형은 누구의 말도 맹목적으로 따르지 않아요.",tip:"서로의 영역을 존중하세요. 계획은 O형이, 창의적 결정은 B형이 이끌게 하세요. 경쟁이 아닌 협력으로."}},
+    "B-AB":{score:70,en:{type:"Creative Fusion 🎨",msg:"Both are unconventional thinkers. AB gets B's quirkiness, and B appreciates AB's complexity.",strength:"Neither judges the other for being different. You share a mutual respect for individuality and creative thinking.",caution:"Both can be emotionally unpredictable. When both are in a bad mood, there's nobody to stabilize the situation.",tip:"Establish emotional check-ins. When things feel unstable, take a step back together rather than escalating."},ko:{type:"창의적 퓨전 🎨",msg:"둘 다 틀에 박히지 않은 사고의 소유자. AB형이 B형의 독특함을 이해하고, B형은 AB형의 복잡함을 존중해요.",strength:"서로 다른 점에 대해 판단하지 않아요. 개성과 창의적 사고에 대한 상호 존중이 있어요.",caution:"둘 다 감정적으로 예측 불가능할 수 있어요. 둘 다 기분이 안 좋을 때 상황을 안정시킬 사람이 없어요.",tip:"정기적으로 감정을 체크하는 시간을 가지세요. 불안정하다고 느껴지면 에스컬레이션하지 말고 함께 한 발짝 물러서세요."}},
+    "O-A":{score:88,en:{type:"Classic Match 💎",msg:"The legendary O-A pairing! O leads with confidence while A supports with meticulous care.",strength:"Complementary strengths create a nearly unbeatable team. O's decisiveness paired with A's thoroughness means nothing is overlooked.",caution:"O might steamroll A's opinions. A might silently resent not being heard.",tip:"O: actively ask for A's input before making decisions. A: speak up early rather than stewing silently."},ko:{type:"클래식 궁합 💎",msg:"전설의 O-A 조합! O형이 자신감 있게 이끌고 A형이 꼼꼼하게 서포트해요.",strength:"상호 보완적 강점이 거의 무적의 팀을 만들어요. O형의 결단력과 A형의 꼼꼼함이 합쳐지면 빠뜨리는 게 없어요.",caution:"O형이 A형의 의견을 무시하고 밀어붙일 수 있어요. A형은 자신의 말이 안 들린다고 속으로 원망할 수 있어요.",tip:"O형: 결정하기 전에 A형의 의견을 적극적으로 물어보세요. A형: 속으로 삭이지 말고 일찍 말해주세요."}},
+    "O-B":{score:82,en:{type:"Power Couple 🚀",msg:"O's ambition and B's creativity make fireworks. You push each other to greater heights.",strength:"O admires B's ability to think outside the box. B respects O's drive and determination. Together, you accomplish things others can't.",caution:"Both are strong-willed. Clashes can be intense when neither wants to compromise.",tip:"Pick your battles wisely. Not everything needs to be a contest. Sometimes letting go is the strongest move."},ko:{type:"파워 커플 🚀",msg:"O형의 야망과 B형의 창의성이 폭죽을 터뜨려요. 서로를 더 높은 곳으로 밀어올려요.",strength:"O형은 B형의 틀을 깨는 사고를 존경하고, B형은 O형의 추진력과 결단력을 존중해요. 함께라면 다른 이들이 못 하는 것도 해내요.",caution:"둘 다 의지가 강해요. 어느 쪽도 양보하지 않으면 충돌이 격렬할 수 있어요.",tip:"싸울 만한 가치가 있는 것만 싸우세요. 모든 것이 경쟁일 필요는 없어요. 때로는 양보하는 게 가장 강한 선택입니다."}},
+    "O-O":{score:75,en:{type:"Alpha Meets Alpha 🦁",msg:"Two natural leaders! Incredible energy and ambition, but who takes the wheel?",strength:"Unstoppable when you're on the same page. Your combined confidence and drive can move mountains. Others look up to you as a power couple.",caution:"Ego clashes are the biggest risk. Both want to be in charge, and neither backs down easily.",tip:"Define clear roles and territories. Compete with the world together, not with each other."},ko:{type:"알파 x 알파 🦁",msg:"두 명의 타고난 리더! 놀라운 에너지와 야망이 넘치지만, 누가 핸들을 잡을까요?",strength:"같은 방향을 바라보면 막을 수 없어요. 합쳐진 자신감과 추진력으로 산도 옮길 수 있어요. 주변에서 파워 커플로 부러워해요.",caution:"자존심 충돌이 가장 큰 리스크. 둘 다 주도권을 원하고, 쉽게 물러나지 않아요.",tip:"역할과 영역을 명확히 정하세요. 서로 경쟁하지 말고 세상을 상대로 함께 경쟁하세요."}},
+    "O-AB":{score:60,en:{type:"Curious Chemistry 🔬",msg:"An unusual pairing that intrigues. O's straightforwardness meets AB's complexity.",strength:"O is drawn to AB's mysterious depth. AB feels energized by O's directness and vitality.",caution:"O may find AB's indecisiveness frustrating. AB may feel overwhelmed by O's intensity and demands.",tip:"O: be patient with AB's need to process things from multiple angles. AB: give O clear answers when possible."},ko:{type:"묘한 케미 🔬",msg:"O형의 직선적 성격과 AB형의 복잡함이 만나는 독특한 조합이에요.",strength:"O형은 AB형의 신비로운 깊이에 끌리고, AB형은 O형의 직설적 에너지에 활력을 느껴요.",caution:"O형은 AB형의 우유부단함이 답답할 수 있고, AB형은 O형의 강렬함과 요구에 부담을 느낄 수 있어요.",tip:"O형: AB형이 여러 각도에서 생각하는 시간을 참아주세요. AB형: 가능하면 O형에게 명확한 답을 주세요."}},
+    "AB-A":{score:72,en:{type:"Thoughtful Pair 📚",msg:"Two thinkers who value precision and logic. A comfortable, intellectually stimulating match.",strength:"Mutual respect for each other's intelligence. Conversations are rich and meaningful. Both value quality over quantity.",caution:"Can become too comfortable in routine. The relationship might lack spontaneity and passion.",tip:"Deliberately inject fun and surprise into your routine. Try something new together at least once a month."},ko:{type:"사려 깊은 한 쌍 📚",msg:"정밀함과 논리를 중시하는 두 사색가. 편안하면서도 지적 자극이 있는 궁합이에요.",strength:"서로의 지성에 대한 상호 존중. 대화가 풍부하고 의미 있어요. 둘 다 양보다 질을 중시해요.",caution:"일상에 너무 안주할 수 있어요. 관계에 자발성과 열정이 부족해질 수 있어요.",tip:"의식적으로 일상에 재미와 깜짝 요소를 넣으세요. 한 달에 한 번은 함께 새로운 것을 시도해보세요."}},
+    "AB-B":{score:70,en:{type:"Free Spirits United 🦅",msg:"Both march to their own beat. AB gets B, and B doesn't judge AB's contradictions.",strength:"Rare mutual acceptance. Neither tries to change the other. You give each other the freedom most couples can't.",caution:"Lack of structure can lead to drift. Without intentional effort, you might slowly become roommates rather than partners.",tip:"Create shared rituals — weekly date night, morning coffee together, annual trips. These anchors keep you connected."},ko:{type:"자유로운 영혼들 🦅",msg:"둘 다 자기만의 박자로 걷는 사이. AB형이 B형을 이해하고, B형은 AB형의 모순을 판단하지 않아요.",strength:"드문 상호 수용. 서로를 바꾸려 하지 않아요. 대부분의 커플이 못 주는 자유를 서로에게 줘요.",caution:"체계의 부재가 관계의 소원함으로 이어질 수 있어요. 의식적 노력 없이는 파트너가 아닌 룸메이트가 될 수 있어요.",tip:"공유하는 의식을 만드세요 — 주간 데이트, 아침 커피 함께 마시기, 연례 여행. 이런 닻들이 연결을 유지시켜요."}},
+    "AB-O":{score:60,en:{type:"Puzzle Pieces 🧩",msg:"Very different shapes, but they might just fit. AB's nuance meets O's boldness.",strength:"O pushes AB out of their comfort zone. AB teaches O to consider multiple perspectives before acting.",caution:"Communication styles clash. O speaks bluntly; AB communicates in layers and nuance that O might miss.",tip:"AB: be more direct with O — they appreciate clarity. O: look beyond AB's surface words for deeper meaning."},ko:{type:"퍼즐 조각 🧩",msg:"아주 다른 모양이지만, 딱 맞을 수도 있어요. AB형의 섬세함과 O형의 대담함이 만나요.",strength:"O형이 AB형을 편안한 영역 밖으로 밀어주고, AB형은 O형에게 행동 전에 여러 관점을 고려하는 법을 알려줘요.",caution:"소통 스타일이 충돌해요. O형은 직설적으로 말하는데, AB형은 뉘앙스와 층위로 소통해서 O형이 놓칠 수 있어요.",tip:"AB형: O형에게는 좀 더 직접적으로 말해주세요. O형: AB형의 표면적 말 너머에 있는 깊은 의미를 찾아보세요."}},
+    "AB-AB":{score:68,en:{type:"Mirror Mirror 🪞",msg:"Two enigmas together! You understand each other's complexity like no one else can.",strength:"No need to explain your contradictions — the other person lives them too. Deeply accepting and non-judgmental.",caution:"Double indecisiveness. Simple decisions like where to eat can take forever. Both may withdraw emotionally at the same time.",tip:"Practice making quick, low-stakes decisions together to build the 'decision muscle.' Flip a coin if you must!"},ko:{type:"거울 속의 우리 🪞",msg:"두 수수께끼가 만났어요! 아무도 이해하지 못하는 서로의 복잡함을 이해해요.",strength:"자신의 모순을 설명할 필요가 없어요 — 상대방도 같은 걸 겪고 있으니까요. 깊은 수용과 무판단의 관계.",caution:"이중 우유부단함. 어디서 밥 먹을지 같은 간단한 결정도 한참 걸려요. 둘 다 동시에 감정적으로 움츠러들 수 있어요.",tip:"가벼운 결정을 빠르게 함께 내리는 연습을 해서 '결정 근육'을 키우세요. 필요하면 동전을 던지세요!"}}
+};
+
+(function(){var c=document.getElementById('floatingBg'),items=['🩸','❤','💜','✨','💗','🩷','💫','🤍'];for(var i=0;i<18;i++){var s=document.createElement('span');s.textContent=items[i%items.length];s.style.left=(Math.random()*100)+'%';s.style.fontSize=(14+Math.random()*18)+'px';s.style.animationDuration=(10+Math.random()*15)+'s';s.style.animationDelay=(Math.random()*12)+'s';c.appendChild(s)}})();
+
+document.querySelectorAll('#sel1 .blood-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+        document.querySelectorAll('#sel1 .blood-btn').forEach(function(x){x.classList.remove('selected')});
+        b.classList.add('selected');my1=b.dataset.type;
+    });
+});
+document.querySelectorAll('#sel2 .blood-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+        document.querySelectorAll('#sel2 .blood-btn').forEach(function(x){x.classList.remove('selected')});
+        b.classList.add('selected');my2=b.dataset.type;
+    });
+});
+
+function setLang(lang){
+    currentLang=lang;var t=i18n[lang];
+    document.getElementById('t-title').textContent=t.title;
+    document.getElementById('t-sub').textContent=t.sub;
+    document.getElementById('lbl1').textContent=t.lbl1;
+    document.getElementById('lbl2').textContent=t.lbl2;
+    document.getElementById('btnCalc').textContent=t.btn;
+    document.getElementById('t-scoreLabel').textContent=t.scoreLabel;
+    document.getElementById('t-copyBtn').innerHTML=t.copyBtn;
+    document.getElementById('t-retry').textContent=t.retry;
+    document.getElementById('lblStrength').textContent=t.lblStrength;
+    document.getElementById('lblCaution').textContent=t.lblCaution;
+    document.getElementById('lblTip').textContent=t.lblTip;
+    document.getElementById('nav-home').textContent=t.navHome;
+    document.getElementById('nav-about').textContent=t.navAbout;
+    document.getElementById('nav-contact').textContent=t.navContact;
+    document.getElementById('nav-privacy').textContent=t.navPrivacy;
+    document.getElementById('nav-terms').textContent=t.navTerms;
+    document.getElementById('f-about').textContent=t.navAbout;
+    document.getElementById('f-contact').textContent=t.navContact;
+    document.getElementById('f-privacy').textContent=t.navPrivacy;
+    document.getElementById('f-terms').textContent=t.navTerms;
+    document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===lang)});
+    document.querySelectorAll('.tab-text').forEach(function(el){var k=el.dataset.key;if(t[k])el.textContent=t[k]});
+    if(t.articleTheory){
+        document.getElementById('articleTheory').innerHTML='<h2>'+t.articleTheory.title+'</h2>'+t.articleTheory.body;
+        document.getElementById('articleCulture').innerHTML='<h2>'+t.articleCulture.title+'</h2>'+t.articleCulture.body;
+        document.getElementById('articleScience').innerHTML='<h2>'+t.articleScience.title+'</h2>'+t.articleScience.body;
+    }
+}
+
+document.getElementById('langBar').addEventListener('click',function(e){if(e.target.classList.contains('lang-btn'))setLang(e.target.dataset.lang)});
+
+(function detectLang(){
+    var bl=(navigator.language||'ko').substring(0,2).toLowerCase();
+    if(bl==='ko')setLang('ko');else setLang('en');
+})();
+
+function calculate(){
+    var t=i18n[currentLang];
+    if(!my1||!my2){alert(t.alertSelect);return}
+    var key=my1+'-'+my2;
+    var data=compat[key];
+    if(!data)return;
+    lastScore=data.score;
+    var r=data[currentLang];
+    document.getElementById('resNames').textContent=my1+' ♥ '+my2;
+    document.getElementById('scoreBig').textContent=lastScore+'%';
+    document.getElementById('resType').textContent=r.type;
+    document.getElementById('resMsg').textContent=r.msg;
+    document.getElementById('resStrength').textContent=r.strength;
+    document.getElementById('resCaution').textContent=r.caution;
+    document.getElementById('resTip').textContent=r.tip;
+    var res=document.getElementById('result');res.style.display='none';res.offsetHeight;res.style.display='block';
+    var g=document.getElementById('gaugeBar');g.style.width='0%';
+    requestAnimationFrame(function(){requestAnimationFrame(function(){g.style.width=Math.max(lastScore,3)+'%'})});
+}
+
+function resetTest(){
+    my1=null;my2=null;
+    document.querySelectorAll('.blood-btn').forEach(function(b){b.classList.remove('selected')});
+    document.getElementById('result').style.display='none';
+    document.getElementById('gaugeBar').style.width='0%';
+}
+
+function getShareText(){return i18n[currentLang].shareText(my1,my2,lastScore)}
+function getShareUrl(){return window.location.href}
+function shareTwitter(){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(getShareText())+'&url='+encodeURIComponent(getShareUrl()),'_blank','width=550,height=420')}
+function shareFacebook(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(getShareUrl())+'&quote='+encodeURIComponent(getShareText()),'_blank','width=550,height=420')}
+function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(getShareText()+' '+getShareUrl()),'_blank')}
+function shareLine(){window.open('https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(getShareUrl())+'&text='+encodeURIComponent(getShareText()),'_blank')}
+function shareKakao(){copyLink()}
+function copyLink(){
+    var url=getShareUrl();
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(function(){alert(i18n[currentLang].alertCopied)});
+    }else{
+        var ta=document.createElement('textarea');ta.value=url;ta.style.position='fixed';ta.style.left='-9999px';
+        document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+        alert(i18n[currentLang].alertCopied);
+    }
+}
+</script>
+</body>
+</html>

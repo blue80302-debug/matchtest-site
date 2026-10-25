@@ -99,6 +99,9 @@ footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
     <a href="birthday.html" class="test-tab">🎂 <span class="tab-text" data-key="tabBday">생일궁합</span></a>
     <a href="past-life.html" class="test-tab">🔮 <span class="tab-text" data-key="tabPast">전생</span></a>
     <a href="fortune.html" class="test-tab active">⭐ <span class="tab-text" data-key="tabFortune">오늘운세</span></a>
+    <a href="job-test.html" class="test-tab">💼 <span class="tab-text" data-key="tabJob">직업적성</span></a>
+    <a href="blood-type.html" class="test-tab">🩸 <span class="tab-text" data-key="tabBlood">혈액형궁합</span></a>
+    <a href="color-test.html" class="test-tab">🎨 <span class="tab-text" data-key="tabColor">색깔심리</span></a>
 </div>
 
 <main>
@@ -134,8 +137,12 @@ footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
             </div>
             <div class="cached-note" id="cachedNote"></div>
             <div class="share-row">
-                <button class="share-btn" onclick="shareTwitter()">𝕏 Twitter</button>
-                <button class="share-btn" onclick="copyResult()">📋 Copy</button>
+                <button class="share-btn" onclick="shareTwitter()" style="border-color:#1d9bf0;color:#1d9bf0">𝕏 Twitter</button>
+                <button class="share-btn" onclick="shareFacebook()" style="border-color:#1877f2;color:#1877f2">f Facebook</button>
+                <button class="share-btn" onclick="shareWhatsApp()" style="border-color:#25d366;color:#25d366">💬 WhatsApp</button>
+                <button class="share-btn" onclick="shareLine()" style="border-color:#06c755;color:#06c755">💚 LINE</button>
+                <button class="share-btn" onclick="shareKakao()" style="border-color:#fee500;color:#3c1e1e;background:#fee500">💬 Kakao</button>
+                <button class="share-btn" onclick="copyResult()">🔗 Copy</button>
             </div>
         </div>
     </div>
@@ -151,7 +158,7 @@ var L={
     catKeys:["love","wealth","health","career","luck"],
     luckyTitle:"Today's Lucky Items",luckyColor:"Lucky Color",luckyNum:"Lucky Number",luckyDir:"Lucky Direction",
     cachedNote:"Fortune updates daily. Come back tomorrow!",
-    tabName:"Name Match",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Pet Names",tabBday:"Birthday",tabPast:"Past Life",tabFortune:"Fortune",
+    tabName:"Name Match",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Pet Names",tabBday:"Birthday",tabPast:"Past Life",tabFortune:"Fortune",tabJob:"Career",tabBlood:"Blood Type",tabColor:"Color",
     nav:{home:"Home",about:"About",contact:"Contact",privacy:"Privacy",terms:"Terms"},
     msgs:{
       love:[
@@ -181,7 +188,7 @@ var L={
     catKeys:["love","wealth","health","career","luck"],
     luckyTitle:"오늘의 행운 아이템",luckyColor:"행운의 색",luckyNum:"행운의 숫자",luckyDir:"행운의 방향",
     cachedNote:"운세는 매일 업데이트됩니다. 내일 다시 확인하세요!",
-    tabName:"이름궁합",tabMbtiTest:"MBTI",tabMbti:"MBTI궁합",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세",
+    tabName:"이름궁합",tabMbtiTest:"MBTI",tabMbti:"MBTI궁합",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세",tabJob:"직업적성",tabBlood:"혈액형궁합",tabColor:"색깔심리",
     nav:{home:"홈",about:"소개",contact:"문의",privacy:"개인정보",terms:"이용약관"},
     msgs:{
       love:[
@@ -211,7 +218,7 @@ var L={
     catKeys:["love","wealth","health","career","luck"],
     luckyTitle:"今日幸运物",luckyColor:"幸运色",luckyNum:"幸运数字",luckyDir:"幸运方位",
     cachedNote:"运势每日更新，明天再来看看吧！",
-    tabName:"姓名缘分",tabMbtiTest:"MBTI",tabMbti:"MBTI配对",tabPet:"宠物名",tabBday:"生日配对",tabPast:"前世",tabFortune:"今日运势",
+    tabName:"姓名缘分",tabMbtiTest:"MBTI",tabMbti:"MBTI配对",tabPet:"宠物名",tabBday:"生日配对",tabPast:"前世",tabFortune:"今日运势",tabJob:"职业",tabBlood:"血型",tabColor:"色彩",
     nav:{home:"首页",about:"关于",contact:"联系",privacy:"隐私",terms:"条款"},
     msgs:{
       love:[["浪漫气息扑面而来！今天可能遇到特别的人。","一条意外的消息可能让你心动。","今天专注于自我关爱吧。","今天沟通是关系的关键。","温暖的对话会加深重要的缘分。"],["爱情信号有些混乱，别想太多。","给对方一些空间吧。","旧回忆可能浮现——让它过去。","感情需要耐心的一天。","爱情需要多一点努力。"]],
@@ -226,7 +233,7 @@ var L={
     catKeys:["love","wealth","health","career","luck"],
     luckyTitle:"今日のラッキーアイテム",luckyColor:"ラッキーカラー",luckyNum:"ラッキーナンバー",luckyDir:"ラッキー方角",
     cachedNote:"運勢は毎日更新されます。明日もチェックしてね！",
-    tabName:"名前相性",tabMbtiTest:"MBTI",tabMbti:"MBTI相性",tabPet:"ペット名",tabBday:"誕生日相性",tabPast:"前世",tabFortune:"今日の運勢",
+    tabName:"名前相性",tabMbtiTest:"MBTI",tabMbti:"MBTI相性",tabPet:"ペット名",tabBday:"誕生日相性",tabPast:"前世",tabFortune:"今日の運勢",tabJob:"適職",tabBlood:"血液型",tabColor:"色彩",
     nav:{home:"ホーム",about:"紹介",contact:"お問い合わせ",privacy:"プライバシー",terms:"利用規約"},
     msgs:{
       love:[["ロマンスの予感！特別な人に出会えるかも。","予想外のメッセージがときめきを。","今日はセルフラブに集中。","コミュニケーションが関係のカギ。","温かい会話が大切な絆を深めます。"],["恋愛で混乱のサイン。考えすぎないで。","相手に少し空間を。","古い思い出が浮かぶかも。","恋には忍耐が必要な日。","ロマンスに少し努力が必要。"]],
@@ -241,7 +248,7 @@ var L={
     catKeys:["love","wealth","health","career","luck"],
     luckyTitle:"Objetos de Suerte",luckyColor:"Color de Suerte",luckyNum:"Número de Suerte",luckyDir:"Dirección de Suerte",
     cachedNote:"La fortuna se actualiza diariamente. ¡Vuelve mañana!",
-    tabName:"Nombres",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Mascotas",tabBday:"Cumpleaños",tabPast:"Vida Pasada",tabFortune:"Fortuna",
+    tabName:"Nombres",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Mascotas",tabBday:"Cumpleaños",tabPast:"Vida Pasada",tabFortune:"Fortuna",tabJob:"Carrera",tabBlood:"Sangre",tabColor:"Color",
     nav:{home:"Inicio",about:"Acerca",contact:"Contacto",privacy:"Privacidad",terms:"Términos"},
     msgs:{
       love:[["¡El romance está en el aire! Alguien especial puede aparecer.","Un mensaje inesperado podría generar mariposas.","Enfócate en el amor propio hoy.","La comunicación es clave en las relaciones hoy.","Una conversación cálida profundizará un vínculo."],["Señales mixtas en el amor. No pienses demasiado.","Dale espacio a tu pareja hoy.","Viejos recuerdos pueden surgir — déjalos ir.","Paciencia en asuntos del corazón.","El romance necesita un poco más de esfuerzo."]],
@@ -256,7 +263,7 @@ var L={
     catKeys:["love","wealth","health","career","luck"],
     luckyTitle:"أغراض الحظ اليوم",luckyColor:"لون الحظ",luckyNum:"رقم الحظ",luckyDir:"اتجاه الحظ",
     cachedNote:"يتم تحديث الحظ يومياً. عد غداً!",
-    tabName:"الأسماء",tabMbtiTest:"MBTI",tabMbti:"توافق MBTI",tabPet:"حيوانات",tabBday:"عيد الميلاد",tabPast:"حياة سابقة",tabFortune:"حظ اليوم",
+    tabName:"الأسماء",tabMbtiTest:"MBTI",tabMbti:"توافق MBTI",tabPet:"حيوانات",tabBday:"عيد الميلاد",tabPast:"حياة سابقة",tabFortune:"حظ اليوم",tabJob:"مهنة",tabBlood:"فصيلة الدم",tabColor:"لون",
     nav:{home:"الرئيسية",about:"عنا",contact:"اتصل",privacy:"الخصوصية",terms:"الشروط"},
     msgs:{
       love:[["الرومانسية في الهواء! قد يظهر شخص مميز.","رسالة غير متوقعة قد تثير فراشات في معدتك.","ركز على حب الذات اليوم.","التواصل هو المفتاح اليوم.","محادثة دافئة ستعمق رابطة مهمة."],["إشارات مختلطة في الحب. لا تفكر كثيراً.","امنح شريكك بعض المساحة.","قد تطفو ذكريات قديمة.","الصبر مطلوب في أمور القلب.","الرومانسية تحتاج جهداً إضافياً."]],
@@ -384,8 +391,13 @@ function shareTwitter(){
 }
 function copyResult(){
   var s=document.getElementById('resScore').textContent;
-  navigator.clipboard.writeText('Daily Fortune: '+s+' ⭐ https://matchtest.site/fortune.html');
+  navigator.clipboard.writeText('Daily Fortune: '+s+' ⭐ https://matchtest.site/fortune.html').then(function(){alert('Link copied!')});
 }
+function getFMsg(){return'My daily fortune score is '+document.getElementById('resScore').textContent+'! ⭐'}
+function shareFacebook(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('https://matchtest.site/fortune.html')+'&quote='+encodeURIComponent(getFMsg()),'_blank','width=550,height=420')}
+function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(getFMsg()+' https://matchtest.site/fortune.html'),'_blank')}
+function shareLine(){window.open('https://social-plugins.line.me/lineit/share?url='+encodeURIComponent('https://matchtest.site/fortune.html')+'&text='+encodeURIComponent(getFMsg()),'_blank')}
+function shareKakao(){copyResult()}
 
 (function(){var c=document.getElementById('floatingBg');var e=['⭐','🌟','✨','💫','🌙','☀️'];for(var i=0;i<15;i++){var s=document.createElement('span');s.textContent=e[i%e.length];s.style.left=Math.random()*100+'%';s.style.fontSize=(20+Math.random()*30)+'px';s.style.animationDuration=(12+Math.random()*18)+'s';s.style.animationDelay=(-Math.random()*20)+'s';c.appendChild(s)}})();
 

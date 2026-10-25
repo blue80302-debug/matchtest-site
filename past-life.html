@@ -98,6 +98,9 @@ footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
     <a href="birthday.html" class="test-tab">🎂 <span class="tab-text" data-key="tabBday">생일궁합</span></a>
     <a href="past-life.html" class="test-tab active">🔮 <span class="tab-text" data-key="tabPast">전생</span></a>
     <a href="fortune.html" class="test-tab">⭐ <span class="tab-text" data-key="tabFortune">오늘운세</span></a>
+    <a href="job-test.html" class="test-tab">💼 <span class="tab-text" data-key="tabJob">직업적성</span></a>
+    <a href="blood-type.html" class="test-tab">🩸 <span class="tab-text" data-key="tabBlood">혈액형궁합</span></a>
+    <a href="color-test.html" class="test-tab">🎨 <span class="tab-text" data-key="tabColor">색깔심리</span></a>
 </div>
 
 <main>
@@ -141,8 +144,12 @@ footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
                 <div class="trait-item"><span id="trKindness">Kindness</span><div class="trait-bar"><div class="trait-fill" id="barKindness" style="width:0%"></div></div></div>
             </div>
             <div class="share-row">
-                <button class="share-btn" onclick="shareTwitter()">𝕏 Twitter</button>
-                <button class="share-btn" onclick="copyResult()">📋 Copy</button>
+                <button class="share-btn" onclick="shareTwitter()" style="border-color:#1d9bf0;color:#1d9bf0">𝕏 Twitter</button>
+                <button class="share-btn" onclick="shareFacebook()" style="border-color:#1877f2;color:#1877f2">f Facebook</button>
+                <button class="share-btn" onclick="shareWhatsApp()" style="border-color:#25d366;color:#25d366">💬 WhatsApp</button>
+                <button class="share-btn" onclick="shareLine()" style="border-color:#06c755;color:#06c755">💚 LINE</button>
+                <button class="share-btn" onclick="shareKakao()" style="border-color:#fee500;color:#3c1e1e;background:#fee500">💬 Kakao</button>
+                <button class="share-btn" onclick="copyResult()">🔗 Copy</button>
             </div>
         </div>
     </div>
@@ -154,22 +161,22 @@ footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
 <script>
 var L={
   en:{title:"🔮 Past Life Test",sub:"Discover who you were in a past life",lblName:"YOUR NAME",lblBday:"YOUR BIRTHDAY",btn:"Discover Your Past Life",ph:"Enter your name",traitTitle:"Past Life Traits",trCourage:"Courage",trWisdom:"Wisdom",trCharisma:"Charisma",trCreativity:"Creativity",trKindness:"Kindness",inLabel:"in",eraLabel:"Era",
-    tabName:"Name Match",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Pet Names",tabBday:"Birthday",tabPast:"Past Life",tabFortune:"Fortune",
+    tabName:"Name Match",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Pet Names",tabBday:"Birthday",tabPast:"Past Life",tabFortune:"Fortune",tabJob:"Career",tabBlood:"Blood Type",tabColor:"Color",
     nav:{home:"Home",about:"About",contact:"Contact",privacy:"Privacy",terms:"Terms"}},
   ko:{title:"🔮 전생 테스트",sub:"이름과 생년월일로 전생의 삶을 알아보세요",lblName:"이름",lblBday:"생년월일",btn:"전생 알아보기",ph:"이름을 입력하세요",traitTitle:"전생 특성",trCourage:"용기",trWisdom:"지혜",trCharisma:"카리스마",trCreativity:"창의력",trKindness:"친절함",inLabel:"",eraLabel:"시대",
-    tabName:"이름궁합",tabMbtiTest:"MBTI",tabMbti:"MBTI궁합",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세",
+    tabName:"이름궁합",tabMbtiTest:"MBTI",tabMbti:"MBTI궁합",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세",tabJob:"직업적성",tabBlood:"혈액형궁합",tabColor:"색깔심리",
     nav:{home:"홈",about:"소개",contact:"문의",privacy:"개인정보",terms:"이용약관"}},
   zh:{title:"🔮 前世测试",sub:"用姓名和生日揭开你的前世之谜",lblName:"姓名",lblBday:"出生日期",btn:"探索前世",ph:"请输入姓名",traitTitle:"前世特质",trCourage:"勇气",trWisdom:"智慧",trCharisma:"魅力",trCreativity:"创造力",trKindness:"善良",inLabel:"",eraLabel:"时代",
-    tabName:"姓名缘分",tabMbtiTest:"MBTI",tabMbti:"MBTI配对",tabPet:"宠物名",tabBday:"生日配对",tabPast:"前世",tabFortune:"今日运势",
+    tabName:"姓名缘分",tabMbtiTest:"MBTI",tabMbti:"MBTI配对",tabPet:"宠物名",tabBday:"生日配对",tabPast:"前世",tabFortune:"今日运势",tabJob:"职业",tabBlood:"血型",tabColor:"色彩",
     nav:{home:"首页",about:"关于",contact:"联系",privacy:"隐私",terms:"条款"}},
   ja:{title:"🔮 前世診断",sub:"名前と誕生日で前世の人生を探る",lblName:"名前",lblBday:"生年月日",btn:"前世を診断する",ph:"名前を入力",traitTitle:"前世の特性",trCourage:"勇気",trWisdom:"知恵",trCharisma:"カリスマ",trCreativity:"創造力",trKindness:"優しさ",inLabel:"",eraLabel:"時代",
-    tabName:"名前相性",tabMbtiTest:"MBTI",tabMbti:"MBTI相性",tabPet:"ペット名",tabBday:"誕生日相性",tabPast:"前世",tabFortune:"今日の運勢",
+    tabName:"名前相性",tabMbtiTest:"MBTI",tabMbti:"MBTI相性",tabPet:"ペット名",tabBday:"誕生日相性",tabPast:"前世",tabFortune:"今日の運勢",tabJob:"適職",tabBlood:"血液型",tabColor:"色彩",
     nav:{home:"ホーム",about:"紹介",contact:"お問い合わせ",privacy:"プライバシー",terms:"利用規約"}},
   es:{title:"🔮 Test de Vida Pasada",sub:"Descubre quién fuiste en una vida pasada",lblName:"TU NOMBRE",lblBday:"TU CUMPLEAÑOS",btn:"Descubre Tu Vida Pasada",ph:"Ingresa tu nombre",traitTitle:"Rasgos de Vida Pasada",trCourage:"Coraje",trWisdom:"Sabiduría",trCharisma:"Carisma",trCreativity:"Creatividad",trKindness:"Bondad",inLabel:"en",eraLabel:"Era",
-    tabName:"Nombres",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Mascotas",tabBday:"Cumpleaños",tabPast:"Vida Pasada",tabFortune:"Fortuna",
+    tabName:"Nombres",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Mascotas",tabBday:"Cumpleaños",tabPast:"Vida Pasada",tabFortune:"Fortuna",tabJob:"Carrera",tabBlood:"Sangre",tabColor:"Color",
     nav:{home:"Inicio",about:"Acerca",contact:"Contacto",privacy:"Privacidad",terms:"Términos"}},
   ar:{title:"🔮 اختبار الحياة السابقة",sub:"اكتشف من كنت في حياتك السابقة",lblName:"اسمك",lblBday:"تاريخ ميلادك",btn:"اكتشف حياتك السابقة",ph:"أدخل اسمك",traitTitle:"سمات الحياة السابقة",trCourage:"الشجاعة",trWisdom:"الحكمة",trCharisma:"الكاريزما",trCreativity:"الإبداع",trKindness:"اللطف",inLabel:"في",eraLabel:"العصر",
-    tabName:"الأسماء",tabMbtiTest:"MBTI",tabMbti:"توافق MBTI",tabPet:"حيوانات",tabBday:"عيد الميلاد",tabPast:"حياة سابقة",tabFortune:"حظ اليوم",
+    tabName:"الأسماء",tabMbtiTest:"MBTI",tabMbti:"توافق MBTI",tabPet:"حيوانات",tabBday:"عيد الميلاد",tabPast:"حياة سابقة",tabFortune:"حظ اليوم",tabJob:"مهنة",tabBlood:"فصيلة الدم",tabColor:"لون",
     nav:{home:"الرئيسية",about:"عنا",contact:"اتصل",privacy:"الخصوصية",terms:"الشروط"}}
 };
 
@@ -347,8 +354,13 @@ function shareTwitter(){
 function copyResult(){
   var j=document.getElementById('resJob').textContent;
   var c=document.getElementById('resCountry').textContent;
-  navigator.clipboard.writeText('Past Life: '+j+' '+c+' 🔮 https://matchtest.site/past-life.html');
+  navigator.clipboard.writeText('Past Life: '+j+' '+c+' 🔮 https://matchtest.site/past-life.html').then(function(){alert('Link copied!')});
 }
+function getPLMsg(){return'In my past life, I was a '+document.getElementById('resJob').textContent+' '+document.getElementById('resCountry').textContent+'! 🔮'}
+function shareFacebook(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('https://matchtest.site/past-life.html')+'&quote='+encodeURIComponent(getPLMsg()),'_blank','width=550,height=420')}
+function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(getPLMsg()+' https://matchtest.site/past-life.html'),'_blank')}
+function shareLine(){window.open('https://social-plugins.line.me/lineit/share?url='+encodeURIComponent('https://matchtest.site/past-life.html')+'&text='+encodeURIComponent(getPLMsg()),'_blank')}
+function shareKakao(){copyResult()}
 
 (function(){var c=document.getElementById('floatingBg');var e=['🔮','⭐','🌙','✨','💫','🪄'];for(var i=0;i<15;i++){var s=document.createElement('span');s.textContent=e[i%e.length];s.style.left=Math.random()*100+'%';s.style.fontSize=(20+Math.random()*30)+'px';s.style.animationDuration=(12+Math.random()*18)+'s';s.style.animationDelay=(-Math.random()*20)+'s';c.appendChild(s)}})();
 

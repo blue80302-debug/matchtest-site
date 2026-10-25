@@ -101,6 +101,9 @@ footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
     <a href="birthday.html" class="test-tab active">🎂 <span class="tab-text" data-key="tabBday">생일궁합</span></a>
     <a href="past-life.html" class="test-tab">🔮 <span class="tab-text" data-key="tabPast">전생</span></a>
     <a href="fortune.html" class="test-tab">⭐ <span class="tab-text" data-key="tabFortune">오늘운세</span></a>
+    <a href="job-test.html" class="test-tab">💼 <span class="tab-text" data-key="tabJob">직업적성</span></a>
+    <a href="blood-type.html" class="test-tab">🩸 <span class="tab-text" data-key="tabBlood">혈액형궁합</span></a>
+    <a href="color-test.html" class="test-tab">🎨 <span class="tab-text" data-key="tabColor">색깔심리</span></a>
 </div>
 
 <main>
@@ -140,9 +143,13 @@ footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
                 <p id="zNumero"></p>
             </div>
             <p id="resTip" style="font-size:13px;color:var(--gray-500);margin-top:8px"></p>
-            <div class="share-row">
-                <button class="share-btn" onclick="shareTwitter()">𝕏 Twitter</button>
-                <button class="share-btn" onclick="copyResult()">📋 Copy</button>
+            <div class="share-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0">
+                <button class="share-btn" onclick="shareTwitter()" style="border-color:#1d9bf0;color:#1d9bf0">𝕏 Twitter</button>
+                <button class="share-btn" onclick="shareFacebook()" style="border-color:#1877f2;color:#1877f2">f Facebook</button>
+                <button class="share-btn" onclick="shareWhatsApp()" style="border-color:#25d366;color:#25d366">💬 WhatsApp</button>
+                <button class="share-btn" onclick="shareLine()" style="border-color:#06c755;color:#06c755">💚 LINE</button>
+                <button class="share-btn" onclick="shareKakao()" style="border-color:#fee500;color:#3c1e1e;background:#fee500">💬 Kakao</button>
+                <button class="share-btn" onclick="copyResult()">🔗 Copy</button>
             </div>
         </div>
     </div>
@@ -153,7 +160,7 @@ footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
 
 <script>
 var L = {
-  en:{title:"🎂 Birthday Compatibility",sub:"Zodiac · Chinese Zodiac · Numerology match",lbl1:"Person 1 Birthday",lbl2:"Person 2 Birthday",btn:"Check Compatibility",tabName:"Name Match",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Pet Names",tabBday:"Birthday",tabPast:"Past Life",tabFortune:"Fortune",
+  en:{title:"🎂 Birthday Compatibility",sub:"Zodiac · Chinese Zodiac · Numerology match",lbl1:"Person 1 Birthday",lbl2:"Person 2 Birthday",btn:"Check Compatibility",tabName:"Name Match",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Pet Names",tabBday:"Birthday",tabPast:"Past Life",tabFortune:"Fortune",tabJob:"Career",tabBlood:"Blood Type",tabColor:"Color",
     zodiacTitle:"Compatibility Breakdown",starLabel:"Zodiac:",animalLabel:"Chinese Zodiac:",numeroLabel:"Numerology:",tipLabel:"Tip:",
     nav:{home:"Home",about:"About",contact:"Contact",privacy:"Privacy",terms:"Terms"},
     tiers:{
@@ -169,7 +176,7 @@ var L = {
       t5:{type:"Cosmic Puzzle",msg:"A rare and complex combination. The universe is testing your patience and creativity.",strength:"This unconventional pairing defies easy categorization.",tip:"Write your own rules — conventional advice may not apply."}
     }
   },
-  ko:{title:"🎂 생년월일 궁합",sub:"별자리 · 띠 · 수비학으로 보는 두 사람의 궁합",lbl1:"첫 번째 사람 생일",lbl2:"두 번째 사람 생일",btn:"궁합 확인하기",tabName:"이름궁합",tabMbtiTest:"MBTI",tabMbti:"MBTI궁합",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세",
+  ko:{title:"🎂 생년월일 궁합",sub:"별자리 · 띠 · 수비학으로 보는 두 사람의 궁합",lbl1:"첫 번째 사람 생일",lbl2:"두 번째 사람 생일",btn:"궁합 확인하기",tabName:"이름궁합",tabMbtiTest:"MBTI",tabMbti:"MBTI궁합",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세",tabJob:"직업적성",tabBlood:"혈액형궁합",tabColor:"색깔심리",
     zodiacTitle:"궁합 상세",starLabel:"별자리:",animalLabel:"띠:",numeroLabel:"수비학:",tipLabel:"조언:",
     nav:{home:"홈",about:"소개",contact:"문의",privacy:"개인정보",terms:"이용약관"},
     tiers:{
@@ -400,8 +407,14 @@ function shareTwitter(){
 function copyResult(){
   var s=document.getElementById('resScore').textContent;
   var t=document.getElementById('resType').textContent;
-  navigator.clipboard.writeText('Birthday Compatibility: '+s+' ('+t+') 🎂 https://matchtest.site/birthday.html');
+  var url='https://matchtest.site/birthday.html';
+  navigator.clipboard.writeText('Birthday Compatibility: '+s+' ('+t+') 🎂 '+url).then(function(){alert(curLang==='ko'?'링크가 복사되었습니다!':'Link copied!')});
 }
+function getShareMsg(){var s=document.getElementById('resScore').textContent;return'Our birthday compatibility is '+s+'! 🎂💕'}
+function shareFacebook(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('https://matchtest.site/birthday.html')+'&quote='+encodeURIComponent(getShareMsg()),'_blank','width=550,height=420')}
+function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(getShareMsg()+' https://matchtest.site/birthday.html'),'_blank')}
+function shareLine(){window.open('https://social-plugins.line.me/lineit/share?url='+encodeURIComponent('https://matchtest.site/birthday.html')+'&text='+encodeURIComponent(getShareMsg()),'_blank')}
+function shareKakao(){copyResult()}
 
 // floating bg
 (function(){var c=document.getElementById('floatingBg');var e=['🎂','⭐','💕','✨','🌙','🎀'];for(var i=0;i<15;i++){var s=document.createElement('span');s.textContent=e[i%e.length];s.style.left=Math.random()*100+'%';s.style.fontSize=(20+Math.random()*30)+'px';s.style.animationDuration=(12+Math.random()*18)+'s';s.style.animationDelay=(-Math.random()*20)+'s';c.appendChild(s)}})();

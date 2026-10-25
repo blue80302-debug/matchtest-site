@@ -121,28 +121,37 @@
         .site-footer{position:relative;z-index:1;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border-top:1px solid var(--pink-100);padding:20px;text-align:center;font-size:12px;color:var(--gray-400)}
         .site-footer a{color:var(--gray-500);margin:0 8px}
 
-        @media(max-width:420px){.card{border-radius:20px}.result-type{font-size:40px}.result-traits{grid-template-columns:1fr}}
+        .content-section{position:relative;z-index:1;width:800px;max-width:100%;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border-radius:20px;padding:32px 28px;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+        .content-section h2{font-family:'Fredoka',sans-serif;font-size:22px;color:var(--pink-600);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--pink-100)}
+        .content-section h3{font-size:16px;color:var(--purple-500);margin:16px 0 8px}
+        .content-section p{font-size:14px;color:var(--gray-600);margin-bottom:12px}
+        .content-section ul{margin:8px 0 12px 20px;font-size:14px;color:var(--gray-600)}
+        .content-section li{margin-bottom:6px}
+        @media(max-width:420px){.card{border-radius:20px}.result-type{font-size:40px}.result-traits{grid-template-columns:1fr}.content-section{padding:24px 18px;border-radius:16px}}
     </style>
 </head>
 <body>
 <div class="floating-bg" id="floatingBg"></div>
 
 <nav class="site-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
+    <a href="index.html" id="nav-home">Home</a>
+    <a href="about.html" id="nav-about">About</a>
+    <a href="contact.html" id="nav-contact">Contact</a>
+    <a href="privacy.html" id="nav-privacy">Privacy</a>
+    <a href="terms.html" id="nav-terms">Terms</a>
 </nav>
 
 <div class="test-tabs">
-    <a href="index.html" class="test-tab">💕 이름궁합</a>
-    <a href="mbti-test.html" class="test-tab active">🧠 MBTI 검사</a>
-    <a href="mbti.html" class="test-tab">💜 MBTI 궁합</a>
-    <a href="pet-name.html" class="test-tab">🐾 펫 작명소</a>
-    <a href="birthday.html" class="test-tab">🎂 생일궁합</a>
-    <a href="past-life.html" class="test-tab">🔮 전생</a>
-    <a href="fortune.html" class="test-tab">⭐ 오늘운세</a>
+    <a href="index.html" class="test-tab">💕 <span class="tab-text" data-key="tabName">이름궁합</span></a>
+    <a href="mbti-test.html" class="test-tab active">🧠 <span class="tab-text" data-key="tabMbtiTest">MBTI 검사</span></a>
+    <a href="mbti.html" class="test-tab">💜 <span class="tab-text" data-key="tabMbti">MBTI 궁합</span></a>
+    <a href="pet-name.html" class="test-tab">🐾 <span class="tab-text" data-key="tabPet">펫이름</span></a>
+    <a href="birthday.html" class="test-tab">🎂 <span class="tab-text" data-key="tabBday">생일궁합</span></a>
+    <a href="past-life.html" class="test-tab">🔮 <span class="tab-text" data-key="tabPast">전생</span></a>
+    <a href="fortune.html" class="test-tab">⭐ <span class="tab-text" data-key="tabFortune">오늘운세</span></a>
+    <a href="job-test.html" class="test-tab">💼 <span class="tab-text" data-key="tabJob">직업적성</span></a>
+    <a href="blood-type.html" class="test-tab">🩸 <span class="tab-text" data-key="tabBlood">혈액형궁합</span></a>
+    <a href="color-test.html" class="test-tab">🎨 <span class="tab-text" data-key="tabColor">색깔심리</span></a>
 </div>
 
 <main>
@@ -173,12 +182,51 @@
             </div>
             <div class="share-row">
                 <button class="share-btn twitter" onclick="shareTwitter()">𝕏 Twitter</button>
+                <button class="share-btn" onclick="shareFacebook()" style="border-color:#1877f2;color:#1877f2">f Facebook</button>
+                <button class="share-btn" onclick="shareWhatsApp()" style="border-color:#25d366;color:#25d366">💬 WhatsApp</button>
+                <button class="share-btn" onclick="shareLine()" style="border-color:#06c755;color:#06c755">💚 LINE</button>
+                <button class="share-btn" onclick="shareKakao()" style="border-color:#fee500;color:#3c1e1e;background:#fee500">💬 Kakao</button>
                 <button class="share-btn" id="t-copyBtn" onclick="copyResult()">🔗 복사</button>
             </div>
             <button class="retry-btn" onclick="startTest()">다시 하기</button>
         </div>
     </div>
 </div>
+<article class="content-section">
+<h2>Understanding MBTI: The 16 Personality Types</h2>
+<p>The Myers-Briggs Type Indicator (MBTI) is a personality assessment based on Carl Jung's theory of psychological types. Developed by Katharine Cook Briggs and her daughter Isabel Briggs Myers during World War II, it categorizes personalities along four dimensions.</p>
+<h3>The Four Dimensions</h3>
+<ul>
+<li><strong>Extraversion (E) vs. Introversion (I)</strong> — Where you direct your energy: outward toward people and activity, or inward toward ideas and reflection.</li>
+<li><strong>Sensing (S) vs. Intuition (N)</strong> — How you take in information: through concrete facts and details, or through patterns and possibilities.</li>
+<li><strong>Thinking (T) vs. Feeling (F)</strong> — How you make decisions: through logical analysis, or through personal values and impact on people.</li>
+<li><strong>Judging (J) vs. Perceiving (P)</strong> — How you approach the outer world: with structure and planning, or with flexibility and spontaneity.</li>
+</ul>
+<p>These four dimensions combine to create 16 distinct personality types, from ISTJ (The Inspector) to ENFP (The Champion). Each type has unique strengths, potential blind spots, and preferred ways of interacting with the world.</p>
+</article>
+
+<article class="content-section">
+<h2>How MBTI Affects Career & Relationships</h2>
+<h3>Career Alignment</h3>
+<p>While no personality type is limited to certain careers, understanding your MBTI can highlight environments where you'll thrive. Extraverts often excel in collaborative, fast-paced roles, while Introverts may prefer independent, focused work. Sensing types tend toward practical, detail-oriented careers, while Intuitive types gravitate toward innovation and strategy.</p>
+<h3>Communication Styles</h3>
+<p>MBTI can illuminate why miscommunication happens. Thinking types value directness and logical arguments, which Feeling types may perceive as cold. Judging types want clear plans and deadlines, while Perceiving types prefer to keep options open — a common source of friction in teams and relationships.</p>
+<h3>Relationship Dynamics</h3>
+<p>In romantic relationships, complementary types can balance each other out — an INTJ's strategic thinking paired with an ENFP's enthusiasm can be powerful. However, too much difference without understanding can lead to conflict. The key is awareness: knowing your type helps you understand your needs and communicate them clearly.</p>
+</article>
+
+<article class="content-section">
+<h2>MBTI: Criticism & Modern Perspective</h2>
+<p>Despite its enormous popularity — used by 88% of Fortune 500 companies — MBTI faces significant scientific criticism.</p>
+<h3>Scientific Concerns</h3>
+<ul>
+<li><strong>Reliability:</strong> Studies show up to 50% of people get a different type when retaking the test after just five weeks.</li>
+<li><strong>Binary categories:</strong> MBTI forces people into either/or categories (E or I), when personality traits actually exist on a spectrum. Most people fall near the middle.</li>
+<li><strong>The Big Five:</strong> Academic psychology generally favors the Big Five (OCEAN) model — Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism — which has stronger empirical support and measures traits on a continuous scale.</li>
+</ul>
+<h3>Using MBTI Wisely</h3>
+<p>MBTI is best used as a starting point for self-reflection, not a definitive label. It can spark useful conversations about preferences and working styles. Just remember: you are far more complex than four letters can capture, and your type should never limit your aspirations or define your identity.</p>
+</article>
 </main>
 
 <footer class="site-footer">
@@ -384,7 +432,7 @@ P:{ko:"인식형 · 유연한 적응",en:"Perceiving · Flexible Adapter",ja:"�
 
 var lang='ko',qi=0,scores={E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0};
 
-document.getElementById('langBar').addEventListener('click',function(e){if(e.target.classList.contains('lang-btn')){lang=e.target.dataset.lang;document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===lang)});var u=UI[lang];document.getElementById('t-title').textContent=u.title;document.getElementById('t-subtitle').textContent=u.subtitle;startTest()}});
+document.getElementById('langBar').addEventListener('click',function(e){if(e.target.classList.contains('lang-btn')){lang=e.target.dataset.lang;document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===lang)});var u=UI[lang];document.getElementById('t-title').textContent=u.title;document.getElementById('t-subtitle').textContent=u.subtitle;updateNavTabs();startTest()}});
 
 function startTest(){
     qi=0;scores={E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0};
@@ -463,6 +511,14 @@ function copyResult(){
     else{var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);alert(UI[lang].copied)}
 }
 
+var NAV_I18N={ko:{home:"홈",about:"소개",contact:"문의",privacy:"개인정보",terms:"이용약관",tabName:"이름궁합",tabMbtiTest:"MBTI 검사",tabMbti:"MBTI 궁합",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세",tabJob:"직업적성",tabBlood:"혈액형궁합",tabColor:"색깔심리"},en:{home:"Home",about:"About",contact:"Contact",privacy:"Privacy",terms:"Terms",tabName:"Name Match",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Pet Names",tabBday:"Birthday",tabPast:"Past Life",tabFortune:"Fortune",tabJob:"Career",tabBlood:"Blood Type",tabColor:"Color"},ja:{home:"ホーム",about:"紹介",contact:"お問い合わせ",privacy:"プライバシー",terms:"利用規約",tabName:"名前相性",tabMbtiTest:"MBTI",tabMbti:"MBTI相性",tabPet:"ペット名",tabBday:"誕生日相性",tabPast:"前世",tabFortune:"今日の運勢",tabJob:"適職",tabBlood:"血液型",tabColor:"色彩"},zh:{home:"首页",about:"关于",contact:"联系",privacy:"隐私",terms:"条款",tabName:"姓名缘分",tabMbtiTest:"MBTI",tabMbti:"MBTI配对",tabPet:"宠物名",tabBday:"生日配对",tabPast:"前世",tabFortune:"今日运势",tabJob:"职业",tabBlood:"血型",tabColor:"色彩"}};
+function updateNavTabs(){var n=NAV_I18N[lang]||NAV_I18N.en;document.getElementById('nav-home').textContent=n.home;document.getElementById('nav-about').textContent=n.about;document.getElementById('nav-contact').textContent=n.contact;document.getElementById('nav-privacy').textContent=n.privacy;document.getElementById('nav-terms').textContent=n.terms;document.querySelectorAll('.tab-text').forEach(function(el){var k=el.dataset.key;if(n[k])el.textContent=n[k]})}
+function getMbtiMsg(){var type=window._resultType;var names=NAMES[lang]||NAMES.en;return EMOJIS[type]+' '+type+' ('+names[type]+')'}
+function shareFacebook(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('https://matchtest.site/mbti-test.html')+'&quote='+encodeURIComponent(getMbtiMsg()),'_blank','width=550,height=420')}
+function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(getMbtiMsg()+' https://matchtest.site/mbti-test.html'),'_blank')}
+function shareLine(){window.open('https://social-plugins.line.me/lineit/share?url='+encodeURIComponent('https://matchtest.site/mbti-test.html')+'&text='+encodeURIComponent(getMbtiMsg()),'_blank')}
+function shareKakao(){copyResult()}
+updateNavTabs();
 startTest();
 </script>
 </body>

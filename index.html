@@ -120,15 +120,14 @@
 
         .test-tabs{
             position:relative;z-index:10;
-            display:flex;justify-content:center;gap:0;padding:16px 16px 0;
+            display:flex;justify-content:center;gap:0;padding:16px 16px 0;flex-wrap:wrap;
         }
         .test-tab{
-            padding:10px 24px;font-size:14px;font-weight:700;
+            padding:8px 12px;font-size:12px;font-weight:700;
             border:2px solid var(--pink-200);background:white;color:var(--pink-400);
             cursor:pointer;transition:all .2s;text-decoration:none;
         }
         .test-tab:first-child{border-radius:12px 0 0 12px}
-        .test-tab:nth-child(2),.test-tab:nth-child(3){border-left:none}
         .test-tab:last-child{border-radius:0 12px 12px 0}
         .test-tab:hover{background:var(--pink-50);text-decoration:none}
         .test-tab.active{background:linear-gradient(135deg,var(--pink-500),var(--purple-500));color:white;border-color:transparent}
@@ -293,13 +292,16 @@
 </nav>
 
 <div class="test-tabs">
-    <a href="index.html" class="test-tab active" id="tab-name">💕 <span id="tab-name-text">이름궁합</span></a>
-    <a href="mbti-test.html" class="test-tab" id="tab-test">🧠 <span id="tab-test-text">MBTI 검사</span></a>
-    <a href="mbti.html" class="test-tab" id="tab-mbti">💜 <span id="tab-mbti-text">MBTI 궁합</span></a>
-    <a href="pet-name.html" class="test-tab" id="tab-pet">🐾 <span id="tab-pet-text">펫 작명소</span></a>
-    <a href="birthday.html" class="test-tab" id="tab-bday">🎂 <span id="tab-bday-text">생일궁합</span></a>
-    <a href="past-life.html" class="test-tab" id="tab-past">🔮 <span id="tab-past-text">전생</span></a>
-    <a href="fortune.html" class="test-tab" id="tab-fortune">⭐ <span id="tab-fortune-text">오늘운세</span></a>
+    <a href="index.html" class="test-tab active"><span class="tab-text" data-key="tabName">💕 이름궁합</span></a>
+    <a href="mbti-test.html" class="test-tab"><span class="tab-text" data-key="tabTest">🧠 MBTI</span></a>
+    <a href="mbti.html" class="test-tab"><span class="tab-text" data-key="tabMbti">💜 MBTI궁합</span></a>
+    <a href="pet-name.html" class="test-tab"><span class="tab-text" data-key="tabPet">🐾 펫이름</span></a>
+    <a href="birthday.html" class="test-tab"><span class="tab-text" data-key="tabBday">🎂 생일궁합</span></a>
+    <a href="past-life.html" class="test-tab"><span class="tab-text" data-key="tabPast">🔮 전생</span></a>
+    <a href="fortune.html" class="test-tab"><span class="tab-text" data-key="tabFortune">⭐ 오늘운세</span></a>
+    <a href="job-test.html" class="test-tab"><span class="tab-text" data-key="tabJob">💼 직업적성</span></a>
+    <a href="blood-type.html" class="test-tab"><span class="tab-text" data-key="tabBlood">🩸 혈액형궁합</span></a>
+    <a href="color-test.html" class="test-tab"><span class="tab-text" data-key="tabColor">🎨 색깔심리</span></a>
 </div>
 
 <main>
@@ -403,7 +405,7 @@ en:{
     m20:{type:"Unexpected Adventure 🗺️",msg:"Sometimes the most unexpected pairings create the most unforgettable stories! Your names chart a path less traveled — and that's not a bad thing at all. The greatest adventures begin when you step outside your comfort zone. Who knows what amazing memories are waiting to be created?",strength:"When two very different energies come together with open hearts, the result can be truly transformative. You have the opportunity to see the world through entirely new eyes and discover parts of yourself you never knew existed.",tip:"Focus on finding your common ground — it's there, even if it's not obvious at first. Shared values matter more than shared interests. And remember: the question isn't whether you're 'compatible on paper' — it's whether you're willing to write a new story together."},
     m0:{type:"Write Your Own Story 📝",msg:"Name scores are just one tiny piece of the puzzle — and honestly, the least important one! The greatest love stories in history would have scored all over the map. What matters isn't what an algorithm says about your names, but what your hearts say about each other. Real love is built brick by brick, day by day.",strength:"You have complete freedom to define this relationship on your own terms. No expectations, no preset patterns — just two people deciding what they want to build together. That blank canvas is actually the most exciting starting point of all.",tip:"If there's genuine care and mutual respect between you, that's worth more than any percentage. Focus on being truly present with each other, communicating honestly, and building trust one small moment at a time. The score is just a number — your story is yours to write."},
     navHome:"Home",navAbout:"About",navContact:"Contact",navPrivacy:"Privacy",navTerms:"Terms",
-    tabName:"Name Match",tabMbti:"MBTI Match",tabTest:"MBTI",tabPet:"Pet Names",tabBday:"Birthday",tabPast:"Past Life",tabFortune:"Fortune"
+    tabName:"💕 Name Match",tabMbti:"💜 MBTI Match",tabTest:"🧠 MBTI",tabPet:"🐾 Pet Names",tabBday:"🎂 Birthday",tabPast:"🔮 Past Life",tabFortune:"⭐ Fortune",tabJob:"💼 Career",tabBlood:"🩸 Blood Type",tabColor:"🎨 Color"
 },
 ko:{
     title:"이름궁합 테스트",subtitle:"이름 속에 숨겨진 두 사람의 궁합 점수를 확인하세요",
@@ -425,7 +427,7 @@ ko:{
     m20:{type:"예상 밖의 모험 🗺️",msg:"때로는 가장 예상 밖의 조합이 가장 잊지 못할 이야기를 만들어요! 두 사람의 이름은 덜 다닌 길을 가리키고 있는데, 그게 전혀 나쁜 건 아니에요. 가장 위대한 모험은 편안한 영역 밖으로 나설 때 시작돼요. 어떤 놀라운 추억이 기다리고 있을지 누가 알겠어요?",strength:"아주 다른 두 에너지가 열린 마음으로 만나면, 결과는 정말 변화무쌍할 수 있어요. 완전히 새로운 눈으로 세상을 보고, 몰랐던 자기 자신의 면을 발견할 기회가 있어요.",tip:"공통점을 찾는 데 집중하세요 — 처음에는 안 보여도 분명 있어요. 공유하는 취미보다 공유하는 가치관이 더 중요해요. 그리고 기억하세요: 중요한 건 '서류상 궁합'이 아니라, 함께 새로운 이야기를 써나갈 의지가 있느냐예요."},
     m0:{type:"우리만의 이야기 📝",msg:"이름 궁합은 퍼즐의 아주 작은 조각일 뿐이에요 — 솔직히 가장 덜 중요한 조각이죠! 역사상 가장 위대한 사랑 이야기들도 점수는 천차만별이었을 거예요. 중요한 건 알고리즘이 이름에 대해 뭐라고 하느냐가 아니라, 두 사람의 마음이 서로에 대해 뭐라고 하느냐예요.",strength:"이 관계를 두 사람만의 방식으로 정의할 완전한 자유가 있어요. 기대도, 정해진 패턴도 없이 — 그저 두 사람이 함께 뭘 만들어갈지 정하면 돼요. 그 빈 캔버스야말로 가장 신나는 출발점이에요.",tip:"서로를 향한 진심과 상호 존중이 있다면, 그건 어떤 퍼센트보다 값져요. 서로에게 진정으로 집중하고, 솔직하게 소통하고, 작은 순간들로 신뢰를 쌓아가세요. 점수는 그냥 숫자일 뿐 — 두 사람의 이야기는 두 사람이 써나가는 거예요."},
     navHome:"홈",navAbout:"소개",navContact:"문의",navPrivacy:"개인정보",navTerms:"이용약관",
-    tabName:"이름궁합",tabMbti:"MBTI 궁합",tabTest:"MBTI 검사",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세"
+    tabName:"💕 이름궁합",tabMbti:"💜 MBTI궁합",tabTest:"🧠 MBTI",tabPet:"🐾 펫이름",tabBday:"🎂 생일궁합",tabPast:"🔮 전생",tabFortune:"⭐ 오늘운세",tabJob:"💼 직업적성",tabBlood:"🩸 혈액형궁합",tabColor:"🎨 색깔심리"
 },
 zh:{
     title:"姓名缘分测试",subtitle:"测测你们名字里隐藏的缘分指数",
@@ -447,7 +449,7 @@ zh:{
     m20:{type:"意外冒险 🗺️",msg:"有时最意想不到的组合会创造最难忘的故事！你们的名字指向一条少有人走的路——这一点也不是坏事。最伟大的冒险始于走出舒适区。",strength:"当两种截然不同的能量以开放的心态相遇，结果可以是真正变革性的。你们有机会用全新的眼睛看世界，发现自己从未知道的一面。",tip:"专注于寻找共同点——即使一开始不明显，它一定存在。共同的价值观比共同的爱好更重要。记住：重要的不是'纸面上合不合'，而是你们是否愿意一起写新故事。"},
     m0:{type:"书写你们的故事 📝",msg:"名字分数只是拼图中最微小的一块——说实话，也是最不重要的一块！历史上最伟大的爱情故事分数可能高低不等。重要的不是算法怎么说，而是你们的心怎么说。",strength:"你们有完全的自由按自己的方式定义这段关系。没有期待、没有预设模式——只有两个人决定一起建造什么。那张空白画布其实是最令人兴奋的起点。",tip:"如果你们之间有真诚的关心和相互尊重，那比任何百分比都有价值。专注于真正陪伴彼此，诚实沟通，用一个个小瞬间建立信任。分数只是数字——故事由你们来写。"},
     navHome:"首页",navAbout:"关于",navContact:"联系",navPrivacy:"隐私",navTerms:"条款",
-    tabName:"姓名缘分",tabMbti:"MBTI缘分",tabTest:"MBTI",tabPet:"宠物名",tabBday:"生日配对",tabPast:"前世",tabFortune:"今日运势"
+    tabName:"💕 姓名缘分",tabMbti:"💜 MBTI缘分",tabTest:"🧠 MBTI",tabPet:"🐾 宠物名",tabBday:"🎂 生日配对",tabPast:"🔮 前世",tabFortune:"⭐ 今日运势",tabJob:"💼 职业",tabBlood:"🩸 血型",tabColor:"🎨 色彩"
 },
 ja:{
     title:"名前相性テスト",subtitle:"ふたりの名前に隠された相性スコアは？",
@@ -469,7 +471,7 @@ ja:{
     m20:{type:"予想外の冒険 🗺️",msg:"時に最も予想外の組み合わせが最も忘れられない物語を作ります！ふたりの名前はあまり人が通らない道を指していますが、それは全く悪いことではありません。最大の冒険はコンフォートゾーンの外で始まります。",strength:"全く異なるエネルギーがオープンな心で出会うと、本当に変革的な結果が生まれます。全く新しい目で世界を見て、知らなかった自分を発見するチャンスがあります。",tip:"共通点を見つけることに集中しましょう——最初は見えなくても必ずあります。共通の趣味より共通の価値観が大切です。「紙の上での相性」ではなく、一緒に新しい物語を書く意志があるかどうかが重要です。"},
     m0:{type:"ふたりだけの物語 📝",msg:"名前占いはパズルのとても小さな一片——正直に言えば、最も重要でない一片です！歴史上最も偉大な恋愛物語のスコアもバラバラだったでしょう。大切なのはアルゴリズムが何を言うかではなく、ふたりの心が何を言うかです。",strength:"この関係をふたりだけの方法で定義する完全な自由があります。期待も、決まったパターンもなく——ただふたりが何を一緒に作りたいか決めるだけ。その白いキャンバスこそが最もワクワクする出発点です。",tip:"お互いへの真心と相互の敬意があれば、それはどんなパーセンテージより価値があります。本当にお互いに集中し、正直にコミュニケーションし、小さな瞬間で信頼を築いていきましょう。スコアはただの数字——物語はふたりが書くものです。"},
     navHome:"ホーム",navAbout:"概要",navContact:"お問い合わせ",navPrivacy:"プライバシー",navTerms:"利用規約",
-    tabName:"名前相性",tabMbti:"MBTI相性",tabTest:"MBTI",tabPet:"ペット名",tabBday:"誕生日相性",tabPast:"前世",tabFortune:"今日の運勢"
+    tabName:"💕 名前相性",tabMbti:"💜 MBTI相性",tabTest:"🧠 MBTI",tabPet:"🐾 ペット名",tabBday:"🎂 誕生日相性",tabPast:"🔮 前世",tabFortune:"⭐ 今日の運勢",tabJob:"💼 適職",tabBlood:"🩸 血液型",tabColor:"🎨 色彩"
 },
 es:{
     title:"Test de Compatibilidad",subtitle:"Descubre la puntuación oculta entre sus nombres",
@@ -491,7 +493,7 @@ es:{
     m20:{type:"Aventura Inesperada 🗺️",msg:"A veces las combinaciones más inesperadas crean las historias más inolvidables. Sus nombres trazan un camino menos recorrido — y eso no es malo en absoluto. Las mayores aventuras comienzan fuera de la zona de confort.",strength:"Cuando dos energías muy diferentes se encuentran con corazones abiertos, el resultado puede ser verdaderamente transformador. Tienen la oportunidad de ver el mundo con ojos completamente nuevos.",tip:"Concéntrense en encontrar terreno común — está ahí, aunque no sea obvio al principio. Los valores compartidos importan más que los intereses compartidos. Lo importante es si están dispuestos a escribir una nueva historia juntos."},
     m0:{type:"Escriban Su Historia 📝",msg:"¡Las puntuaciones son solo una pieza diminuta del rompecabezas — y honestamente, la menos importante! Las más grandes historias de amor habrían obtenido todo tipo de puntuaciones. Lo que importa no es lo que dice un algoritmo, sino lo que dicen sus corazones.",strength:"Tienen total libertad para definir esta relación en sus propios términos. Sin expectativas ni patrones preestablecidos — solo dos personas decidiendo qué quieren construir juntos. Ese lienzo en blanco es el punto de partida más emocionante.",tip:"Si hay cariño genuino y respeto mutuo entre ustedes, eso vale más que cualquier porcentaje. Concéntrense en estar presentes, comunicarse honestamente y construir confianza un pequeño momento a la vez."},
     navHome:"Inicio",navAbout:"Acerca de",navContact:"Contacto",navPrivacy:"Privacidad",navTerms:"Términos",
-    tabName:"Nombre",tabMbti:"MBTI",tabTest:"MBTI",tabPet:"Mascotas",tabBday:"Cumpleaños",tabPast:"Vida Pasada",tabFortune:"Fortuna"
+    tabName:"💕 Nombre",tabMbti:"💜 MBTI",tabTest:"🧠 MBTI",tabPet:"🐾 Mascotas",tabBday:"🎂 Cumpleaños",tabPast:"🔮 Vida Pasada",tabFortune:"⭐ Fortuna",tabJob:"💼 Carrera",tabBlood:"🩸 Sangre",tabColor:"🎨 Color"
 },
 ar:{
     title:"اختبار توافق الأسماء",subtitle:"اكتشف درجة التوافق المخفية بين أسمائكما",
@@ -513,7 +515,7 @@ ar:{
     m20:{type:"مغامرة غير متوقعة 🗺️",msg:"أحياناً أكثر الثنائيات غير المتوقعة تصنع أكثر القصص التي لا تُنسى! اسماكما ترسمان طريقاً أقل سلوكاً — وهذا ليس سيئاً على الإطلاق. أعظم المغامرات تبدأ خارج منطقة الراحة.",strength:"عندما تلتقي طاقتان مختلفتان تماماً بقلبين منفتحين، يمكن أن تكون النتيجة تحويلية حقاً. لديكما فرصة لرؤية العالم بعيون جديدة تماماً واكتشاف جوانب لم تعرفاها عن أنفسكما.",tip:"ركزا على إيجاد الأرضية المشتركة — إنها موجودة حتى لو لم تكن واضحة في البداية. القيم المشتركة أهم من الاهتمامات المشتركة. المهم هو ما إذا كنتما مستعدين لكتابة قصة جديدة معاً."},
     m0:{type:"اكتبا قصتكما 📝",msg:"درجات الأسماء مجرد قطعة صغيرة من اللغز — وبصراحة، الأقل أهمية! أعظم قصص الحب في التاريخ كانت ستحصل على درجات متفاوتة. المهم ليس ما يقوله الخوارزم عن أسمائكما، بل ما تقوله قلوبكما عن بعضكما.",strength:"لديكما حرية كاملة لتعريف هذه العلاقة بشروطكما الخاصة. لا توقعات، لا أنماط مسبقة — فقط شخصان يقرران ماذا يريدان أن يبنيا معاً. تلك اللوحة البيضاء هي في الواقع أكثر نقطة انطلاق إثارة.",tip:"إذا كان هناك اهتمام حقيقي واحترام متبادل بينكما، فهذا أثمن من أي نسبة مئوية. ركزا على التواجد الحقيقي مع بعضكما والتواصل بصدق وبناء الثقة لحظة صغيرة تلو الأخرى."},
     navHome:"الرئيسية",navAbout:"حول",navContact:"اتصل",navPrivacy:"الخصوصية",navTerms:"الشروط",
-    tabName:"الأسماء",tabMbti:"MBTI",tabTest:"MBTI",tabPet:"حيوانات",tabBday:"عيد الميلاد",tabPast:"حياة سابقة",tabFortune:"حظ اليوم"
+    tabName:"💕 الأسماء",tabMbti:"💜 MBTI",tabTest:"🧠 MBTI",tabPet:"🐾 حيوانات",tabBday:"🎂 عيد الميلاد",tabPast:"🔮 حياة سابقة",tabFortune:"⭐ حظ اليوم",tabJob:"💼 مهنة",tabBlood:"🩸 فصيلة الدم",tabColor:"🎨 لون"
 }
 };
 
@@ -547,7 +549,7 @@ function setLang(lang){
     document.getElementById('f-privacy').textContent=t.navPrivacy;
     document.getElementById('f-terms').textContent=t.navTerms;
     document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===lang)});
-    if(t.tabName){document.getElementById('tab-name-text').textContent=t.tabName;document.getElementById('tab-mbti-text').textContent=t.tabMbti;document.getElementById('tab-test-text').textContent=t.tabTest;document.getElementById('tab-pet-text').textContent=t.tabPet;document.getElementById('tab-bday-text').textContent=t.tabBday;document.getElementById('tab-past-text').textContent=t.tabPast;document.getElementById('tab-fortune-text').textContent=t.tabFortune}
+    document.querySelectorAll('.tab-text').forEach(function(el){var k=el.dataset.key;if(t[k])el.textContent=t[k]})
 }
 
 document.getElementById('langBar').addEventListener('click',function(e){if(e.target.classList.contains('lang-btn'))setLang(e.target.dataset.lang)});

@@ -131,28 +131,37 @@
         .site-footer{position:relative;z-index:1;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border-top:1px solid var(--pink-100);padding:20px;text-align:center;font-size:12px;color:var(--gray-400)}
         .site-footer a{color:var(--gray-500);margin:0 8px}
 
-        @media(max-width:420px){.card{border-radius:20px}.pet-types{grid-template-columns:repeat(3,1fr)}}
+        .content-section{position:relative;z-index:1;width:800px;max-width:100%;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border-radius:20px;padding:32px 28px;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+        .content-section h2{font-family:'Fredoka',sans-serif;font-size:22px;color:var(--pink-600);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--pink-100)}
+        .content-section h3{font-size:16px;color:var(--purple-500);margin:16px 0 8px}
+        .content-section p{font-size:14px;color:var(--gray-600);margin-bottom:12px}
+        .content-section ul{margin:8px 0 12px 20px;font-size:14px;color:var(--gray-600)}
+        .content-section li{margin-bottom:6px}
+        @media(max-width:420px){.card{border-radius:20px}.pet-types{grid-template-columns:repeat(3,1fr)}.content-section{padding:24px 18px;border-radius:16px}}
     </style>
 </head>
 <body>
 <div class="floating-bg" id="floatingBg"></div>
 
 <nav class="site-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
+    <a href="index.html" id="nav-home">Home</a>
+    <a href="about.html" id="nav-about">About</a>
+    <a href="contact.html" id="nav-contact">Contact</a>
+    <a href="privacy.html" id="nav-privacy">Privacy</a>
+    <a href="terms.html" id="nav-terms">Terms</a>
 </nav>
 
 <div class="test-tabs">
-    <a href="index.html" class="test-tab">💕 이름궁합</a>
-    <a href="mbti-test.html" class="test-tab">🧠 MBTI 검사</a>
-    <a href="mbti.html" class="test-tab">💜 MBTI 궁합</a>
-    <a href="pet-name.html" class="test-tab active">🐾 펫 작명소</a>
-    <a href="birthday.html" class="test-tab">🎂 생일궁합</a>
-    <a href="past-life.html" class="test-tab">🔮 전생</a>
-    <a href="fortune.html" class="test-tab">⭐ 오늘운세</a>
+    <a href="index.html" class="test-tab">💕 <span class="tab-text" data-key="tabName">이름궁합</span></a>
+    <a href="mbti-test.html" class="test-tab">🧠 <span class="tab-text" data-key="tabMbtiTest">MBTI 검사</span></a>
+    <a href="mbti.html" class="test-tab">💜 <span class="tab-text" data-key="tabMbti">MBTI 궁합</span></a>
+    <a href="pet-name.html" class="test-tab active">🐾 <span class="tab-text" data-key="tabPet">펫이름</span></a>
+    <a href="birthday.html" class="test-tab">🎂 <span class="tab-text" data-key="tabBday">생일궁합</span></a>
+    <a href="past-life.html" class="test-tab">🔮 <span class="tab-text" data-key="tabPast">전생</span></a>
+    <a href="fortune.html" class="test-tab">⭐ <span class="tab-text" data-key="tabFortune">오늘운세</span></a>
+    <a href="job-test.html" class="test-tab">💼 <span class="tab-text" data-key="tabJob">직업적성</span></a>
+    <a href="blood-type.html" class="test-tab">🩸 <span class="tab-text" data-key="tabBlood">혈액형궁합</span></a>
+    <a href="color-test.html" class="test-tab">🎨 <span class="tab-text" data-key="tabColor">색깔심리</span></a>
 </div>
 
 <main>
@@ -190,7 +199,12 @@
             <div class="name-cards" id="nameCards"></div>
             <button class="more-btn" id="moreBtn" onclick="generate()">🔄 다른 이름 보기</button>
             <div class="share-row">
-                <button class="share-btn" onclick="copyNames()">🔗 결과 복사</button>
+                <button class="share-btn" onclick="shareTwitter()" style="border-color:#1d9bf0;color:#1d9bf0">𝕏 Twitter</button>
+                <button class="share-btn" onclick="shareFacebook()" style="border-color:#1877f2;color:#1877f2">f Facebook</button>
+                <button class="share-btn" onclick="shareWhatsApp()" style="border-color:#25d366;color:#25d366">💬 WhatsApp</button>
+                <button class="share-btn" onclick="shareLine()" style="border-color:#06c755;color:#06c755">💚 LINE</button>
+                <button class="share-btn" onclick="shareKakao()" style="border-color:#fee500;color:#3c1e1e;background:#fee500">💬 Kakao</button>
+                <button class="share-btn" onclick="copyNames()">🔗 Copy</button>
             </div>
             <div class="cta-row">
                 <a href="index.html" class="cta-link">💕 이름궁합 테스트도 해보기</a>
@@ -199,6 +213,40 @@
         </div>
     </div>
 </div>
+<article class="content-section">
+<h2>The Art of Naming Your Pet</h2>
+<p>Choosing a name for your pet is one of the first and most meaningful decisions you'll make as a pet owner. A great pet name reflects your bond and becomes part of your daily life for years to come.</p>
+<h3>Tips for the Perfect Pet Name</h3>
+<ul>
+<li><strong>Keep it short:</strong> One or two syllables work best. Pets respond more quickly to shorter names — "Max" registers faster than "Maximilian."</li>
+<li><strong>Avoid command confusion:</strong> Don't pick names that sound like common commands. "Kit" sounds like "sit," and "Bo" can be confused with "no."</li>
+<li><strong>Test the shout factor:</strong> Say the name loudly several times. If you'd be embarrassed calling it in a park, consider alternatives.</li>
+<li><strong>Match personality:</strong> Wait a day or two after bringing your pet home. Their personality might inspire the perfect name naturally.</li>
+<li><strong>Consider longevity:</strong> "Puppy" is cute now, but your dog will be 12 years old one day. Choose a name that ages well.</li>
+</ul>
+</article>
+
+<article class="content-section">
+<h2>Popular Pet Names Around the World</h2>
+<h3>South Korea 🇰🇷</h3>
+<p>Korean pet names often reflect food or cute expressions: 콩이 (Kongi, "little bean"), 초코 (Choco), 보리 (Bori, "barley"), 두부 (Dubu, "tofu"), and 모찌 (Mochi) top the charts. Flower-inspired names like 나비 (Nabi, "butterfly") and 하늘 (Haneul, "sky") are also popular.</p>
+<h3>United States 🇺🇸</h3>
+<p>Classic names remain strong: Bella, Max, Luna, Charlie, and Buddy dominate. Pop culture influences are huge — after Disney's "Encanto," Luisa spiked. Human names for pets continue to trend upward, with Cooper, Sadie, and Oliver increasingly common.</p>
+<h3>Japan 🇯🇵</h3>
+<p>Japanese pet names emphasize cuteness (kawaii): ムギ (Mugi, "wheat"), ソラ (Sora, "sky"), モモ (Momo, "peach"), レオ (Leo), and マル (Maru, "round"). Cats named after food — きなこ (Kinako, "soybean flour") — are especially trendy.</p>
+</article>
+
+<article class="content-section">
+<h2>How Names Affect Pet Training</h2>
+<p>Your pet's name is their most important cue — it's the word that means "pay attention to me." Research in animal cognition shows that the sounds in a name directly affect how quickly a pet learns to respond.</p>
+<h3>What Science Says</h3>
+<ul>
+<li><strong>Hard consonants grab attention:</strong> Names starting with K, D, T, or hard G sounds (like "Duke" or "Koda") create a sharp auditory signal that dogs and cats notice more readily.</li>
+<li><strong>Ending vowels help:</strong> Names ending in a vowel sound ("Luna," "Koda," "Toby") are easier for pets to distinguish from background noise.</li>
+<li><strong>Consistency matters most:</strong> Whatever name you choose, everyone in the household must use it the same way. Nicknames are fine once training is established, but stick to one name during the learning phase.</li>
+</ul>
+<p>Remember: your pet doesn't understand the meaning of their name — they learn to associate the sound with positive attention. Say their name, then reward. Within days, they'll be responding reliably to whatever name you've chosen.</p>
+</article>
 </main>
 
 <footer class="site-footer">
@@ -546,6 +594,7 @@ function renderStyles(){
     document.getElementById('styleChips').innerHTML=html;
 }
 
+var NAV_I18N={ko:{home:"홈",about:"소개",contact:"문의",privacy:"개인정보",terms:"이용약관",tabName:"이름궁합",tabMbtiTest:"MBTI 검사",tabMbti:"MBTI 궁합",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세",tabJob:"직업적성",tabBlood:"혈액형궁합",tabColor:"색깔심리"},en:{home:"Home",about:"About",contact:"Contact",privacy:"Privacy",terms:"Terms",tabName:"Name Match",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Pet Names",tabBday:"Birthday",tabPast:"Past Life",tabFortune:"Fortune",tabJob:"Career",tabBlood:"Blood Type",tabColor:"Color"},ja:{home:"ホーム",about:"紹介",contact:"お問い合わせ",privacy:"プライバシー",terms:"利用規約",tabName:"名前相性",tabMbtiTest:"MBTI",tabMbti:"MBTI相性",tabPet:"ペット名",tabBday:"誕生日相性",tabPast:"前世",tabFortune:"今日の運勢",tabJob:"適職",tabBlood:"血液型",tabColor:"色彩"},zh:{home:"首页",about:"关于",contact:"联系",privacy:"隐私",terms:"条款",tabName:"姓名缘分",tabMbtiTest:"MBTI",tabMbti:"MBTI配对",tabPet:"宠物名",tabBday:"生日配对",tabPast:"前世",tabFortune:"今日运势",tabJob:"职业",tabBlood:"血型",tabColor:"色彩"}};
 function renderUI(){
     var u=UI[lang]||UI.ko;
     document.getElementById('t-title').textContent=u.title;
@@ -556,6 +605,13 @@ function renderUI(){
     document.getElementById('lbl-style').textContent=u.lblStyle;
     document.getElementById('generateBtn').textContent=u.btn;
     document.getElementById('moreBtn').textContent=u.more;
+    var n=NAV_I18N[lang]||NAV_I18N.en;
+    document.getElementById('nav-home').textContent=n.home;
+    document.getElementById('nav-about').textContent=n.about;
+    document.getElementById('nav-contact').textContent=n.contact;
+    document.getElementById('nav-privacy').textContent=n.privacy;
+    document.getElementById('nav-terms').textContent=n.terms;
+    document.querySelectorAll('.tab-text').forEach(function(el){var k=el.dataset.key;if(n[k])el.textContent=n[k]});
     renderPets();renderBreeds();renderGender();renderStyles();
 }
 
@@ -592,6 +648,12 @@ function copyNames(){
     if(navigator.clipboard){navigator.clipboard.writeText(text).then(function(){alert(u.copied)})}
     else{var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);alert(u.copied)}
 }
+function getPetMsg(){var u=UI[lang]||UI.ko;return u.title+' 🐾 matchtest.site/pet-name.html'}
+function shareTwitter(){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(getPetMsg()),'_blank','width=550,height=420')}
+function shareFacebook(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('https://matchtest.site/pet-name.html')+'&quote='+encodeURIComponent(getPetMsg()),'_blank','width=550,height=420')}
+function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(getPetMsg()),'_blank')}
+function shareLine(){window.open('https://social-plugins.line.me/lineit/share?url='+encodeURIComponent('https://matchtest.site/pet-name.html')+'&text='+encodeURIComponent(getPetMsg()),'_blank')}
+function shareKakao(){copyNames()}
 
 document.getElementById('langBar').addEventListener('click',function(e){
     if(e.target.classList.contains('lang-btn')){
