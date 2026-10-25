@@ -192,7 +192,7 @@
         </div>
     </div>
 </div>
-<article class="content-section">
+<article class="content-section" id="articleWhat">
 <h2>Understanding MBTI: The 16 Personality Types</h2>
 <p>The Myers-Briggs Type Indicator (MBTI) is a personality assessment based on Carl Jung's theory of psychological types. Developed by Katharine Cook Briggs and her daughter Isabel Briggs Myers during World War II, it categorizes personalities along four dimensions.</p>
 <h3>The Four Dimensions</h3>
@@ -205,7 +205,7 @@
 <p>These four dimensions combine to create 16 distinct personality types, from ISTJ (The Inspector) to ENFP (The Champion). Each type has unique strengths, potential blind spots, and preferred ways of interacting with the world.</p>
 </article>
 
-<article class="content-section">
+<article class="content-section" id="articleHow">
 <h2>How MBTI Affects Career & Relationships</h2>
 <h3>Career Alignment</h3>
 <p>While no personality type is limited to certain careers, understanding your MBTI can highlight environments where you'll thrive. Extraverts often excel in collaborative, fast-paced roles, while Introverts may prefer independent, focused work. Sensing types tend toward practical, detail-oriented careers, while Intuitive types gravitate toward innovation and strategy.</p>
@@ -215,7 +215,7 @@
 <p>In romantic relationships, complementary types can balance each other out — an INTJ's strategic thinking paired with an ENFP's enthusiasm can be powerful. However, too much difference without understanding can lead to conflict. The key is awareness: knowing your type helps you understand your needs and communicate them clearly.</p>
 </article>
 
-<article class="content-section">
+<article class="content-section" id="articleFaq">
 <h2>MBTI: Criticism & Modern Perspective</h2>
 <p>Despite its enormous popularity — used by 88% of Fortune 500 companies — MBTI faces significant scientific criticism.</p>
 <h3>Scientific Concerns</h3>
@@ -413,10 +413,22 @@ ESFP:"你一出场，派对就开始了！天生的表演者，有让人开心�
 };
 
 var UI={
-ko:{title:"MBTI 성격유형 테스트",subtitle:"20개 질문으로 나의 MBTI를 알아보세요",cta:"이 유형으로 궁합 테스트 하기",ctaName:"이름궁합도 해보기",copy:"복사",retry:"다시 하기",copied:"복사되었습니다!",strengths:"강점",weaknesses:"성장 포인트"},
-en:{title:"MBTI Personality Test",subtitle:"Discover your MBTI type in 20 questions",cta:"Test compatibility with this type",ctaName:"Try Name Match too",copy:"Copy",retry:"Try Again",copied:"Copied!",strengths:"Strengths",weaknesses:"Growth Areas"},
-ja:{title:"MBTI性格タイプ診断",subtitle:"20の質問であなたのMBTIを発見",cta:"このタイプで相性テスト",ctaName:"名前相性も試す",copy:"コピー",retry:"もう一度",copied:"コピーしました！",strengths:"強み",weaknesses:"成長ポイント"},
-zh:{title:"MBTI性格类型测试",subtitle:"20个问题发现你的MBTI",cta:"用这个类型测缘分",ctaName:"也试试姓名缘分",copy:"复制",retry:"再来一次",copied:"已复制！",strengths:"优势",weaknesses:"成长方向"}
+ko:{title:"MBTI 성격유형 테스트",subtitle:"20개 질문으로 나의 MBTI를 알아보세요",cta:"이 유형으로 궁합 테스트 하기",ctaName:"이름궁합도 해보기",copy:"복사",retry:"다시 하기",copied:"복사되었습니다!",strengths:"강점",weaknesses:"성장 포인트",
+articleWhat:'<h2>MBTI 이해하기: 16가지 성격 유형</h2><p>MBTI(Myers-Briggs Type Indicator)는 칼 융의 심리 유형론에 기반한 성격 평가 도구입니다. 캐서린 쿡 브릭스와 그녀의 딸 이사벨 브릭스 마이어스가 제2차 세계대전 중에 개발했으며, 성격을 4가지 차원으로 분류합니다.</p><h3>4가지 차원</h3><ul><li><strong>외향(E) vs. 내향(I)</strong> — 에너지의 방향: 사람과 활동을 향하는지, 아이디어와 성찰을 향하는지.</li><li><strong>감각(S) vs. 직관(N)</strong> — 정보 수집 방식: 구체적인 사실과 세부사항을 통해, 혹은 패턴과 가능성을 통해.</li><li><strong>사고(T) vs. 감정(F)</strong> — 의사결정 방식: 논리적 분석을 통해, 혹은 개인적 가치와 사람에 대한 영향을 고려해.</li><li><strong>판단(J) vs. 인식(P)</strong> — 외부 세계에 대한 접근: 구조와 계획으로, 혹은 유연성과 즉흥성으로.</li></ul><p>이 4가지 차원이 결합하여 ISTJ(검사관)부터 ENFP(옹호자)까지 16가지 고유한 성격 유형을 만듭니다. 각 유형은 고유한 강점, 잠재적 약점, 세상과 상호작용하는 선호 방식을 가지고 있습니다.</p>',
+articleHow:'<h2>MBTI가 직업과 관계에 미치는 영향</h2><h3>직업 적합성</h3><p>어떤 성격 유형도 특정 직업에 한정되지 않지만, MBTI를 이해하면 자신이 잘 맞는 환경을 파악하는 데 도움이 됩니다. 외향형은 협업이 많고 빠른 환경에서 뛰어난 경우가 많고, 내향형은 독립적이고 집중할 수 있는 업무를 선호할 수 있습니다. 감각형은 실용적이고 세부적인 직업을 선호하고, 직관형은 혁신과 전략 쪽으로 끌립니다.</p><h3>소통 스타일</h3><p>MBTI는 의사소통에서 왜 오해가 발생하는지 보여줍니다. 사고형은 직접적이고 논리적인 주장을 중시하는데, 감정형은 이를 차갑게 느낄 수 있습니다. 판단형은 명확한 계획과 마감을 원하고, 인식형은 선택지를 열어두려 합니다 — 이것이 팀과 관계에서 마찰의 흔한 원인입니다.</p><h3>관계 역학</h3><p>연애에서 상보적인 유형은 서로 균형을 맞출 수 있습니다 — INTJ의 전략적 사고와 ENFP의 열정이 만나면 강력한 시너지가 됩니다. 하지만 이해 없이 차이만 크면 갈등으로 이어질 수 있습니다. 핵심은 인식입니다: 자신의 유형을 알면 자신의 필요를 이해하고 명확하게 전달할 수 있습니다.</p>',
+articleFaq:'<h2>MBTI: 비판과 현대적 관점</h2><p>포춘 500대 기업의 88%가 사용할 만큼 엄청난 인기에도 불구하고, MBTI는 상당한 과학적 비판에 직면해 있습니다.</p><h3>과학적 우려</h3><ul><li><strong>신뢰성:</strong> 연구에 따르면 5주 후 재검사 시 최대 50%의 사람들이 다른 유형을 받습니다.</li><li><strong>이분법적 분류:</strong> MBTI는 사람들을 양자택일 범주(E 또는 I)로 강제하지만, 성격 특성은 실제로 스펙트럼 위에 존재합니다. 대부분의 사람은 중간에 위치합니다.</li><li><strong>Big Five:</strong> 학계 심리학은 일반적으로 Big Five(OCEAN) 모델 — 개방성, 성실성, 외향성, 친화성, 신경증 — 을 선호하며, 이 모델은 더 강한 실증적 근거를 가지고 연속적 척도로 특성을 측정합니다.</li></ul><h3>MBTI 현명하게 활용하기</h3><p>MBTI는 자기 성찰의 출발점으로 활용하는 것이 가장 좋으며, 확정적인 꼬리표가 아닙니다. 선호도와 업무 스타일에 대한 유용한 대화를 촉발할 수 있습니다. 기억하세요: 당신은 네 글자로 담을 수 있는 것보다 훨씬 복잡한 존재이며, 유형이 당신의 포부를 제한하거나 정체성을 규정해서는 안 됩니다.</p>'},
+en:{title:"MBTI Personality Test",subtitle:"Discover your MBTI type in 20 questions",cta:"Test compatibility with this type",ctaName:"Try Name Match too",copy:"Copy",retry:"Try Again",copied:"Copied!",strengths:"Strengths",weaknesses:"Growth Areas",
+articleWhat:'<h2>Understanding MBTI: The 16 Personality Types</h2><p>The Myers-Briggs Type Indicator (MBTI) is a personality assessment based on Carl Jung\'s theory of psychological types. Developed by Katharine Cook Briggs and her daughter Isabel Briggs Myers during World War II, it categorizes personalities along four dimensions.</p><h3>The Four Dimensions</h3><ul><li><strong>Extraversion (E) vs. Introversion (I)</strong> — Where you direct your energy: outward toward people and activity, or inward toward ideas and reflection.</li><li><strong>Sensing (S) vs. Intuition (N)</strong> — How you take in information: through concrete facts and details, or through patterns and possibilities.</li><li><strong>Thinking (T) vs. Feeling (F)</strong> — How you make decisions: through logical analysis, or through personal values and impact on people.</li><li><strong>Judging (J) vs. Perceiving (P)</strong> — How you approach the outer world: with structure and planning, or with flexibility and spontaneity.</li></ul><p>These four dimensions combine to create 16 distinct personality types, from ISTJ (The Inspector) to ENFP (The Champion). Each type has unique strengths, potential blind spots, and preferred ways of interacting with the world.</p>',
+articleHow:'<h2>How MBTI Affects Career & Relationships</h2><h3>Career Alignment</h3><p>While no personality type is limited to certain careers, understanding your MBTI can highlight environments where you\'ll thrive. Extraverts often excel in collaborative, fast-paced roles, while Introverts may prefer independent, focused work. Sensing types tend toward practical, detail-oriented careers, while Intuitive types gravitate toward innovation and strategy.</p><h3>Communication Styles</h3><p>MBTI can illuminate why miscommunication happens. Thinking types value directness and logical arguments, which Feeling types may perceive as cold. Judging types want clear plans and deadlines, while Perceiving types prefer to keep options open — a common source of friction in teams and relationships.</p><h3>Relationship Dynamics</h3><p>In romantic relationships, complementary types can balance each other out — an INTJ\'s strategic thinking paired with an ENFP\'s enthusiasm can be powerful. However, too much difference without understanding can lead to conflict. The key is awareness: knowing your type helps you understand your needs and communicate them clearly.</p>',
+articleFaq:'<h2>MBTI: Criticism & Modern Perspective</h2><p>Despite its enormous popularity — used by 88% of Fortune 500 companies — MBTI faces significant scientific criticism.</p><h3>Scientific Concerns</h3><ul><li><strong>Reliability:</strong> Studies show up to 50% of people get a different type when retaking the test after just five weeks.</li><li><strong>Binary categories:</strong> MBTI forces people into either/or categories (E or I), when personality traits actually exist on a spectrum. Most people fall near the middle.</li><li><strong>The Big Five:</strong> Academic psychology generally favors the Big Five (OCEAN) model — Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism — which has stronger empirical support and measures traits on a continuous scale.</li></ul><h3>Using MBTI Wisely</h3><p>MBTI is best used as a starting point for self-reflection, not a definitive label. It can spark useful conversations about preferences and working styles. Just remember: you are far more complex than four letters can capture, and your type should never limit your aspirations or define your identity.</p>'},
+ja:{title:"MBTI性格タイプ診断",subtitle:"20の質問であなたのMBTIを発見",cta:"このタイプで相性テスト",ctaName:"名前相性も試す",copy:"コピー",retry:"もう一度",copied:"コピーしました！",strengths:"強み",weaknesses:"成長ポイント",
+articleWhat:'<h2>MBTIを理解する：16の性格タイプ</h2><p>MBTI（Myers-Briggs Type Indicator）は、カール・ユングの心理類型論に基づく性格評価ツールです。キャサリン・クック・ブリッグスと娘のイザベル・ブリッグス・マイヤーズが第二次世界大戦中に開発し、性格を4つの次元で分類します。</p><h3>4つの次元</h3><ul><li><strong>外向（E）vs. 内向（I）</strong> — エネルギーの方向：人や活動に向かうか、アイデアや内省に向かうか。</li><li><strong>感覚（S）vs. 直観（N）</strong> — 情報の取り入れ方：具体的な事実や詳細を通じて、またはパターンや可能性を通じて。</li><li><strong>思考（T）vs. 感情（F）</strong> — 意思決定の方法：論理的分析を通じて、または個人的な価値観や人への影響を考慮して。</li><li><strong>判断（J）vs. 知覚（P）</strong> — 外の世界へのアプローチ：構造と計画で、または柔軟性と即興性で。</li></ul><p>これら4つの次元が組み合わさり、ISTJ（検査官）からENFP（チャンピオン）まで16の異なる性格タイプが生まれます。各タイプには固有の強み、潜在的な弱点、世界と関わる好みの方法があります。</p>',
+articleHow:'<h2>MBTIがキャリアと人間関係に与える影響</h2><h3>キャリアの適性</h3><p>どの性格タイプも特定のキャリアに限定されませんが、MBTIを理解することで自分が活躍できる環境を把握できます。外向型は協力的でペースの速い役割で優れることが多く、内向型は独立した集中できる仕事を好むかもしれません。感覚型は実践的で細部志向のキャリアに向かい、直観型は革新と戦略に引かれます。</p><h3>コミュニケーションスタイル</h3><p>MBTIはなぜ誤解が生じるかを明らかにします。思考型は率直さと論理的な議論を重視しますが、感情型はそれを冷たく感じるかもしれません。判断型は明確な計画と期限を求め、知覚型は選択肢を開いておくことを好みます — チームや人間関係でよくある摩擦の原因です。</p><h3>関係のダイナミクス</h3><p>恋愛関係では、補完的なタイプが互いにバランスを取ることができます — INTJの戦略的思考とENFPの熱意が組み合わさると強力です。しかし、理解なしに違いが大きすぎると対立につながることがあります。鍵は意識です：自分のタイプを知ることで、自分のニーズを理解し、明確に伝えることができます。</p>',
+articleFaq:'<h2>MBTI：批判と現代的視点</h2><p>フォーチュン500企業の88%が使用するほどの圧倒的な人気にもかかわらず、MBTIは重大な科学的批判に直面しています。</p><h3>科学的懸念</h3><ul><li><strong>信頼性：</strong>研究によると、わずか5週間後に再テストすると最大50%の人が異なるタイプを得ます。</li><li><strong>二項分類：</strong>MBTIは人を二者択一のカテゴリー（EかI）に強制しますが、性格特性は実際にはスペクトラム上に存在します。ほとんどの人は中間に位置します。</li><li><strong>ビッグファイブ：</strong>学術心理学は一般的にビッグファイブ（OCEAN）モデル — 開放性、誠実性、外向性、協調性、神経症傾向 — を支持しており、より強い実証的根拠を持ち、連続的な尺度で特性を測定します。</li></ul><h3>MBTIを賢く活用する</h3><p>MBTIは自己省察の出発点として活用するのが最善であり、決定的なラベルではありません。好みや仕事のスタイルについて有益な会話を促すことができます。覚えておいてください：あなたは4文字で捉えられるよりもはるかに複雑な存在であり、タイプがあなたの志を制限したり、アイデンティティを定義したりすべきではありません。</p>'},
+zh:{title:"MBTI性格类型测试",subtitle:"20个问题发现你的MBTI",cta:"用这个类型测缘分",ctaName:"也试试姓名缘分",copy:"复制",retry:"再来一次",copied:"已复制！",strengths:"优势",weaknesses:"成长方向",
+articleWhat:'<h2>了解MBTI：16种性格类型</h2><p>MBTI（迈尔斯-布里格斯类型指标）是一种基于卡尔·荣格心理类型理论的性格评估工具。由凯瑟琳·库克·布里格斯和她的女儿伊莎贝尔·布里格斯·迈尔斯在第二次世界大战期间开发，它将性格沿四个维度进行分类。</p><h3>四个维度</h3><ul><li><strong>外向（E）vs. 内向（I）</strong> — 能量的方向：朝向人和活动，还是朝向思想和反思。</li><li><strong>感觉（S）vs. 直觉（N）</strong> — 获取信息的方式：通过具体事实和细节，还是通过模式和可能性。</li><li><strong>思维（T）vs. 情感（F）</strong> — 做决定的方式：通过逻辑分析，还是通过个人价值观和对他人的影响。</li><li><strong>判断（J）vs. 感知（P）</strong> — 对待外部世界的方式：有结构和计划，还是灵活和即兴。</li></ul><p>这四个维度组合产生16种不同的性格类型，从ISTJ（检查员）到ENFP（冠军）。每种类型都有独特的优势、潜在的盲点和与世界互动的偏好方式。</p>',
+articleHow:'<h2>MBTI如何影响职业与人际关系</h2><h3>职业匹配</h3><p>虽然没有哪种性格类型只适合某些职业，但了解你的MBTI可以帮助你找到最适合的环境。外向型通常在协作、快节奏的岗位上表现出色，而内向型可能更喜欢独立、专注的工作。感觉型倾向于实用、注重细节的职业，而直觉型则被创新和战略所吸引。</p><h3>沟通风格</h3><p>MBTI可以揭示为什么会产生沟通误解。思维型重视直接和逻辑论证，而情感型可能觉得这很冷漠。判断型想要明确的计划和截止日期，而感知型更喜欢保持开放选项——这是团队和关系中常见的摩擦来源。</p><h3>关系动态</h3><p>在恋爱关系中，互补的类型可以相互平衡——INTJ的战略思维与ENFP的热情配对可以非常强大。然而，没有理解的过大差异会导致冲突。关键是意识：了解你的类型有助于你理解自己的需求并清楚地传达。</p>',
+articleFaq:'<h2>MBTI：批评与现代观点</h2><p>尽管MBTI极受欢迎——88%的财富500强企业都在使用——但它面临着重大的科学批评。</p><h3>科学方面的担忧</h3><ul><li><strong>可靠性：</strong>研究表明，仅仅五周后重新测试，多达50%的人会得到不同的类型。</li><li><strong>二元分类：</strong>MBTI将人强制归入非此即彼的类别（E或I），而性格特质实际上是存在于光谱上的。大多数人处于中间位置。</li><li><strong>大五模型：</strong>学术心理学通常更青睐大五（OCEAN）模型——开放性、尽责性、外向性、宜人性、神经质——该模型具有更强的实证支持，并在连续量表上测量特质。</li></ul><h3>明智地使用MBTI</h3><p>MBTI最好作为自我反思的起点，而非一个确定的标签。它可以引发关于偏好和工作风格的有益对话。请记住：你远比四个字母所能概括的复杂得多，你的类型不应该限制你的抱负或定义你的身份。</p>'}
 };
 
 var TRAITS={
@@ -432,7 +444,7 @@ P:{ko:"인식형 · 유연한 적응",en:"Perceiving · Flexible Adapter",ja:"�
 
 var lang='ko',qi=0,scores={E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0};
 
-document.getElementById('langBar').addEventListener('click',function(e){if(e.target.classList.contains('lang-btn')){lang=e.target.dataset.lang;document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===lang)});var u=UI[lang];document.getElementById('t-title').textContent=u.title;document.getElementById('t-subtitle').textContent=u.subtitle;updateNavTabs();startTest()}});
+document.getElementById('langBar').addEventListener('click',function(e){if(e.target.classList.contains('lang-btn')){lang=e.target.dataset.lang;document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===lang)});var u=UI[lang];document.getElementById('t-title').textContent=u.title;document.getElementById('t-subtitle').textContent=u.subtitle;document.getElementById('articleWhat').innerHTML=u.articleWhat;document.getElementById('articleHow').innerHTML=u.articleHow;document.getElementById('articleFaq').innerHTML=u.articleFaq;updateNavTabs();startTest()}});
 
 function startTest(){
     qi=0;scores={E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0};
@@ -519,6 +531,7 @@ function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(g
 function shareLine(){window.open('https://social-plugins.line.me/lineit/share?url='+encodeURIComponent('https://matchtest.site/mbti-test.html')+'&text='+encodeURIComponent(getMbtiMsg()),'_blank')}
 function shareKakao(){copyResult()}
 updateNavTabs();
+(function(){var u=UI[lang];document.getElementById('articleWhat').innerHTML=u.articleWhat;document.getElementById('articleHow').innerHTML=u.articleHow;document.getElementById('articleFaq').innerHTML=u.articleFaq;})();
 startTest();
 </script>
 </body>

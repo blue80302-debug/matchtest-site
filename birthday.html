@@ -76,10 +76,17 @@ main{flex:1;display:flex;flex-direction:column;align-items:center;padding:20px 1
 .zodiac-box p{font-size:13px;color:var(--gray-600);margin-bottom:4px}
 .result-type{display:inline-block;background:var(--pink-100);color:var(--pink-600);padding:4px 14px;border-radius:100px;font-size:13px;font-weight:700;margin-bottom:8px}
 .share-row{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.share-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0 12px}
 .share-btn{padding:8px 16px;border:2px solid var(--pink-200);border-radius:100px;background:white;font-size:12px;font-weight:600;color:var(--pink-500);cursor:pointer;transition:all .2s}
 .share-btn:hover{background:var(--pink-500);color:white;border-color:var(--pink-500)}
 footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
-@media(max-width:480px){.test-tab{padding:6px 8px;font-size:11px}}
+@media(max-width:480px){.test-tab{padding:6px 8px;font-size:11px}.content-section{padding:24px 18px;border-radius:16px}.share-grid{grid-template-columns:repeat(2,1fr)}}
+.content-section{position:relative;z-index:1;width:800px;max-width:100%;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border-radius:20px;padding:32px 28px;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+.content-section h2{font-family:'Fredoka',sans-serif;font-size:22px;color:var(--pink-600);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--pink-100)}
+.content-section h3{font-size:16px;color:var(--purple-500);margin:16px 0 8px}
+.content-section p{font-size:14px;color:var(--gray-600);margin-bottom:12px}
+.content-section ul{margin:8px 0 12px 20px;font-size:14px;color:var(--gray-600)}
+.content-section li{margin-bottom:6px}
 </style>
 </head>
 <body>
@@ -143,7 +150,7 @@ footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
                 <p id="zNumero"></p>
             </div>
             <p id="resTip" style="font-size:13px;color:var(--gray-500);margin-top:8px"></p>
-            <div class="share-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0">
+            <div class="share-grid">
                 <button class="share-btn" onclick="shareTwitter()" style="border-color:#1d9bf0;color:#1d9bf0">𝕏 Twitter</button>
                 <button class="share-btn" onclick="shareFacebook()" style="border-color:#1877f2;color:#1877f2">f Facebook</button>
                 <button class="share-btn" onclick="shareWhatsApp()" style="border-color:#25d366;color:#25d366">💬 WhatsApp</button>
@@ -155,6 +162,27 @@ footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
     </div>
 </div>
 </main>
+
+<article class="content-section" id="articleWhat">
+    <h2 id="sec1Title">생일 궁합 테스트란?</h2>
+    <p id="sec1P1"></p>
+    <p id="sec1P2"></p>
+</article>
+<article class="content-section" id="articleHow">
+    <h2 id="sec2Title">어떻게 작동하나요?</h2>
+    <p id="sec2P1"></p>
+    <h3 id="sec2Sub">분석 요소</h3>
+    <ul id="sec2List"></ul>
+</article>
+<article class="content-section" id="articleFaq">
+    <h2 id="sec3Title">FAQ</h2>
+    <h3 id="faq1Q"></h3>
+    <p id="faq1A"></p>
+    <h3 id="faq2Q"></h3>
+    <p id="faq2A"></p>
+    <h3 id="faq3Q"></h3>
+    <p id="faq3A"></p>
+</article>
 
 <footer>© 2026 matchtest.site — Birthday Compatibility Test</footer>
 
@@ -174,7 +202,18 @@ var L = {
       t25:{type:"Challenging Match",msg:"Significant differences in your cosmic blueprints. Success requires dedicated effort.",strength:"The contrast between you builds resilience.",tip:"Set clear expectations and celebrate small victories."},
       t15:{type:"Opposite Forces",msg:"Like magnets with opposing poles — intense attraction but frequent friction.",strength:"The intensity between you is undeniable.",tip:"Find common ground in shared goals, not similar traits."},
       t5:{type:"Cosmic Puzzle",msg:"A rare and complex combination. The universe is testing your patience and creativity.",strength:"This unconventional pairing defies easy categorization.",tip:"Write your own rules — conventional advice may not apply."}
-    }
+    },
+    sec1Title:"What Is the Birthday Compatibility Test?",
+    sec1P1:"The Birthday Compatibility Test analyzes the relationship between two people by combining three time-tested systems: Western zodiac signs, the Chinese zodiac (Shengxiao), and numerology. Each person's date of birth reveals their sun sign, their Chinese zodiac animal based on birth year, and a life path number derived from the full date. By cross-referencing all three dimensions, this test produces a compatibility score that reflects both personality alignment and energetic harmony.",
+    sec1P2:"Unlike simple sun-sign matching, this multidimensional approach captures nuances that single-system tests miss. The Western zodiac reflects emotional and behavioral tendencies, the Chinese zodiac highlights deeper life themes tied to year cycles, and numerology uncovers the vibrational essence of your birth date. Together they paint a richer, more accurate picture of how two people connect.",
+    sec2Title:"How Does It Work?",
+    sec2P1:"The algorithm assigns a weighted score across three compatibility dimensions, then blends them into a single percentage. Zodiac compatibility accounts for 40% of the total, Chinese zodiac compatibility for 30%, and numerological compatibility for 30%. The result is mapped to one of ten tiers ranging from 'Cosmic Soulmates' to 'Cosmic Puzzle.'",
+    sec2Sub:"Three Analysis Factors",
+    sec2List:["Zodiac Sign Compatibility — Compares the two Western sun signs using a 12×12 element-based affinity matrix. Signs sharing the same element (fire, earth, air, water) or complementary elements score higher.","Chinese Zodiac Compatibility — Calculates the cyclic distance between two birth-year animals within the 12-year cycle. Closer animals on the cycle wheel tend to share more harmonious energy.","Numerology (Life Path Number) — Reduces each full birth date to a single digit (or master number 11/22) and measures how closely the two life path numbers resonate with each other."],
+    sec3Title:"FAQ",
+    faq1Q:"Is the birthday compatibility score scientifically proven?",faq1A:"No. This test is based on traditional astrological and numerological frameworks, not peer-reviewed science. It is designed for entertainment and self-reflection. Many people find the archetypes helpful for understanding relationship dynamics, but results should not be treated as definitive predictions.",
+    faq2Q:"Why do you use three systems instead of just zodiac signs?",faq2A:"Single-system tests only capture one layer of compatibility. By combining Western astrology (personality traits), the Chinese zodiac (life-cycle energy), and numerology (vibrational resonance), the test provides a more rounded assessment. Each system compensates for blind spots in the others.",
+    faq3Q:"Can a low score mean the relationship is doomed?",faq3A:"Absolutely not. A lower score simply indicates areas where extra understanding and effort may be needed. Many strong, lasting relationships thrive on contrasting energies. The score highlights where your natural rhythms differ — awareness of those differences is itself a tool for growth."
   },
   ko:{title:"🎂 생년월일 궁합",sub:"별자리 · 띠 · 수비학으로 보는 두 사람의 궁합",lbl1:"첫 번째 사람 생일",lbl2:"두 번째 사람 생일",btn:"궁합 확인하기",tabName:"이름궁합",tabMbtiTest:"MBTI",tabMbti:"MBTI궁합",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세",tabJob:"직업적성",tabBlood:"혈액형궁합",tabColor:"색깔심리",
     zodiacTitle:"궁합 상세",starLabel:"별자리:",animalLabel:"띠:",numeroLabel:"수비학:",tipLabel:"조언:",
@@ -190,7 +229,18 @@ var L = {
       t25:{type:"도전적 궁합",msg:"우주적 청사진에 상당한 차이가 있어요. 헌신적 노력이 필요합니다.",strength:"대비되는 점이 회복탄력성을 길러줍니다.",tip:"명확한 기대치를 세우고 작은 승리를 축하하세요."},
       t15:{type:"상반된 기운",msg:"반대 극의 자석처럼 — 강한 끌림이지만 잦은 마찰이 있어요.",strength:"두 분 사이의 강렬함은 부정할 수 없습니다.",tip:"비슷한 성격이 아닌 공통 목표에서 접점을 찾으세요."},
       t5:{type:"우주적 퍼즐",msg:"희귀하고 복잡한 조합. 우주가 두 분의 인내심과 창의력을 시험하고 있어요.",strength:"기존 틀로 쉽게 분류할 수 없는 파격적 궁합입니다.",tip:"자신만의 규칙을 만드세요 — 일반적 조언이 통하지 않을 수 있어요."}
-    }
+    },
+    sec1Title:"생일 궁합 테스트란?",
+    sec1P1:"생일 궁합 테스트는 두 사람의 생년월일을 바탕으로 서양 별자리, 동양 띠(십이지), 수비학 세 가지 체계를 결합하여 궁합을 분석합니다. 각 사람의 생년월일에서 태양 별자리, 출생 연도 기반 띠 동물, 그리고 전체 날짜에서 도출한 생명수(Life Path Number)를 추출합니다. 이 세 가지 차원을 교차 비교하여 성격 조화와 에너지 균형을 모두 반영하는 궁합 점수를 산출합니다.",
+    sec1P2:"단순히 별자리 하나만 비교하는 것과 달리, 이 다차원적 접근은 단일 체계 테스트가 놓치는 미묘한 차이를 포착합니다. 서양 별자리는 감정과 행동 성향을, 동양 띠는 연도 주기에 따른 깊은 삶의 주제를, 수비학은 생년월일의 진동적 본질을 드러냅니다. 세 가지가 합쳐져 두 사람이 어떻게 연결되는지 더 풍부하고 정확한 그림을 그려줍니다.",
+    sec2Title:"어떻게 작동하나요?",
+    sec2P1:"알고리즘은 세 가지 궁합 차원에 가중치를 부여하여 점수를 산출하고, 이를 하나의 백분율로 통합합니다. 별자리 궁합이 전체의 40%, 띠 궁합이 30%, 수비학 궁합이 30%를 차지합니다. 결과는 '운명적 소울메이트'부터 '우주적 퍼즐'까지 10단계 등급으로 매핑됩니다.",
+    sec2Sub:"세 가지 분석 요소",
+    sec2List:["별자리 궁합 — 12×12 원소 기반 친화도 행렬을 사용하여 두 사람의 서양 태양 별자리를 비교합니다. 같은 원소(불, 흙, 바람, 물)이거나 보완적 원소를 공유하면 점수가 높아집니다.","띠 궁합 — 12년 주기 내에서 두 출생 연도 동물 사이의 순환적 거리를 계산합니다. 주기 바퀴에서 가까운 동물일수록 더 조화로운 에너지를 공유하는 경향이 있습니다.","수비학(생명수) — 각 전체 생년월일을 한 자릿수(또는 마스터 넘버 11/22)로 축약하고, 두 생명수가 얼마나 가깝게 공명하는지 측정합니다."],
+    sec3Title:"자주 묻는 질문",
+    faq1Q:"생일 궁합 점수는 과학적으로 입증된 건가요?",faq1A:"아닙니다. 이 테스트는 전통적인 점성술 및 수비학 체계를 기반으로 하며, 과학적으로 검증된 것은 아닙니다. 오락과 자기 성찰을 위해 설계되었습니다. 많은 사람들이 관계 역학을 이해하는 데 이 원형(archetype)이 도움이 된다고 느끼지만, 결과를 확정적 예측으로 받아들여서는 안 됩니다.",
+    faq2Q:"왜 별자리만이 아니라 세 가지 체계를 사용하나요?",faq2A:"단일 체계 테스트는 궁합의 한 층만 포착합니다. 서양 점성술(성격 특성), 동양 띠(삶의 주기 에너지), 수비학(진동적 공명)을 결합함으로써 더 균형 잡힌 평가를 제공합니다. 각 체계가 다른 체계의 사각지대를 보완합니다.",
+    faq3Q:"낮은 점수는 관계가 안 된다는 뜻인가요?",faq3A:"절대 아닙니다. 낮은 점수는 단지 추가적인 이해와 노력이 필요한 영역을 나타낼 뿐입니다. 대조적인 에너지로 번성하는 강하고 오래 지속되는 관계가 많습니다. 점수는 자연스러운 리듬이 다른 부분을 보여주며, 그 차이를 인식하는 것 자체가 성장을 위한 도구입니다."
   },
   zh:{title:"🎂 生日配对测试",sub:"星座 · 生肖 · 数字命理学配对分析",lbl1:"第一个人的生日",lbl2:"第二个人的生日",btn:"查看配对结果",tabName:"姓名缘分",tabMbtiTest:"MBTI",tabMbti:"MBTI配对",tabPet:"宠物名",tabBday:"生日配对",tabPast:"前世",tabFortune:"今日运势",
     zodiacTitle:"配对详情",starLabel:"星座:",animalLabel:"生肖:",numeroLabel:"数字命理:",tipLabel:"建议:",
@@ -206,7 +256,18 @@ var L = {
       t25:{type:"挑战型配对",msg:"宇宙蓝图存在显著差异。需要付出努力。",strength:"你们之间的对比培养韧性。",tip:"设定明确的期望，庆祝每一个小胜利。"},
       t15:{type:"对立之力",msg:"像极性相反的磁铁——强烈吸引但频繁摩擦。",strength:"你们之间的强烈感是不可否认的。",tip:"在共同目标而非相似特质中寻找共识。"},
       t5:{type:"宇宙谜题",msg:"罕见而复杂的组合。宇宙在考验你们的耐心和创造力。",strength:"这种非常规的配对不易归类。",tip:"创造你们自己的规则——传统建议可能不适用。"}
-    }
+    },
+    sec1Title:"什么是生日配对测试？",
+    sec1P1:"生日配对测试通过结合三大经典体系来分析两人之间的关系：西方星座、中国生肖和数字命理学。每个人的出生日期揭示了他们的太阳星座、基于出生年份的生肖动物，以及由完整日期推导出的生命数字。通过交叉比对这三个维度，测试得出一个同时反映性格契合度和能量和谐度的配对分数。",
+    sec1P2:"与简单的太阳星座匹配不同，这种多维方法能捕捉到单一体系测试遗漏的细微差别。西方星座反映情感和行为倾向，中国生肖揭示与年份周期相关的深层人生主题，而数字命理学则发掘出生日期的振动本质。三者结合，描绘出两人关系更丰富、更准确的全貌。",
+    sec2Title:"它是如何运作的？",
+    sec2P1:"算法为三个配对维度分配加权分数，然后将它们融合为一个百分比。星座配对占总分的40%，生肖配对占30%，数字命理配对占30%。结果被映射到从"宇宙级灵魂伴侣"到"宇宙谜题"的十个等级之一。",
+    sec2Sub:"三大分析要素",
+    sec2List:["星座配对 — 使用12×12元素亲和力矩阵比较两人的西方太阳星座。共享相同元素（火、土、风、水）或互补元素的星座得分更高。","生肖配对 — 计算12年周期内两个出生年份动物之间的循环距离。周期轮上距离更近的动物往往共享更和谐的能量。","数字命理（生命数字）— 将每个完整的出生日期简化为个位数（或大师数字11/22），并衡量两个生命数字的共振程度。"],
+    sec3Title:"常见问题",
+    faq1Q:"生日配对分数有科学依据吗？",faq1A:"没有。此测试基于传统的占星术和数字命理学框架，而非同行评审的科学研究。它旨在提供娱乐和自我反思。许多人发现这些原型有助于理解关系动态，但结果不应被视为确定性预测。",
+    faq2Q:"为什么使用三个体系而不仅仅是星座？",faq2A:"单一体系测试只能捕捉配对的一个层面。通过结合西方占星术（性格特征）、中国生肖（生命周期能量）和数字命理学（振动共鸣），测试提供了更全面的评估。每个体系都弥补了其他体系的盲点。",
+    faq3Q:"低分是否意味着这段关系注定失败？",faq3A:"绝对不是。较低的分数只是表明可能需要额外理解和努力的领域。许多牢固而持久的关系恰恰依靠对比的能量而蓬勃发展。分数揭示了你们自然节奏不同的地方——意识到这些差异本身就是成长的工具。"
   },
   ja:{title:"🎂 誕生日相性診断",sub:"星座・干支・数秘術で二人の相性を診断",lbl1:"1人目の誕生日",lbl2:"2人目の誕生日",btn:"相性を診断する",tabName:"名前相性",tabMbtiTest:"MBTI",tabMbti:"MBTI相性",tabPet:"ペット名",tabBday:"誕生日相性",tabPast:"前世",tabFortune:"今日の運勢",
     zodiacTitle:"相性の内訳",starLabel:"星座:",animalLabel:"干支:",numeroLabel:"数秘術:",tipLabel:"アドバイス:",
@@ -222,7 +283,18 @@ var L = {
       t25:{type:"チャレンジングな相性",msg:"宇宙的設計図にかなりの違いがあります。献身的な努力が必要。",strength:"コントラストがレジリエンスを育みます。",tip:"明確な期待を設定し、小さな勝利を祝いましょう。"},
       t15:{type:"正反対の力",msg:"反対の磁極のように——強烈な引力と頻繁な摩擦。",strength:"お二人の間の強烈さは否定できません。",tip:"似た性格ではなく共通の目標で接点を見つけて。"},
       t5:{type:"宇宙のパズル",msg:"稀で複雑な組み合わせ。宇宙がお二人の忍耐と創造力を試しています。",strength:"従来の枠に収まらない型破りな相性。",tip:"自分たちのルールを作って——一般的なアドバイスは当てはまらないかも。"}
-    }
+    },
+    sec1Title:"誕生日相性テストとは？",
+    sec1P1:"誕生日相性テストは、西洋占星術の星座、中国の干支（十二支）、数秘術の3つの伝統的な体系を組み合わせて、二人の関係を分析します。それぞれの生年月日から太陽星座、出生年に基づく干支の動物、そして完全な日付から導き出されるライフパスナンバーを抽出します。この3つの次元を交差照合することで、性格の調和とエネルギーの均衡の両方を反映した相性スコアを算出します。",
+    sec1P2:"単純な太陽星座の一致とは異なり、この多次元的アプローチは単一体系のテストが見落とすニュアンスを捉えます。西洋占星術は感情や行動の傾向を、干支は年のサイクルに結びついた深い人生のテーマを、数秘術は生年月日の振動的な本質を明らかにします。3つが組み合わさることで、二人がどのように繋がるかについてより豊かで正確な全体像を描き出します。",
+    sec2Title:"どのように機能するのか？",
+    sec2P1:"アルゴリズムは3つの相性次元にそれぞれ加重スコアを割り当て、それらを1つのパーセンテージに統合します。星座相性が全体の40%、干支相性が30%、数秘術相性が30%を占めます。結果は「宇宙的ソウルメイト」から「宇宙のパズル」まで10段階の等級にマッピングされます。",
+    sec2Sub:"3つの分析要素",
+    sec2List:["星座相性 — 12×12の元素ベースの親和性マトリックスを使用して二人の西洋太陽星座を比較します。同じ元素（火・地・風・水）や補完的な元素を共有する星座はスコアが高くなります。","干支相性 — 12年周期内の二つの出生年動物間の循環的距離を計算します。周期の輪で近い動物ほど、より調和的なエネルギーを共有する傾向があります。","数秘術（ライフパスナンバー）— 完全な生年月日を一桁（またはマスターナンバー11/22）に縮約し、二つのライフパスナンバーがどれだけ近く共鳴するかを測定します。"],
+    sec3Title:"よくある質問",
+    faq1Q:"誕生日相性スコアは科学的に証明されていますか？",faq1A:"いいえ。このテストは伝統的な占星術と数秘術の枠組みに基づいており、査読付きの科学ではありません。娯楽と自己省察を目的として設計されています。多くの人がこれらの原型を関係性の理解に役立てていますが、結果を確定的な予測として受け止めるべきではありません。",
+    faq2Q:"なぜ星座だけでなく3つの体系を使うのですか？",faq2A:"単一体系のテストは相性の一面しか捉えられません。西洋占星術（性格特性）、干支（ライフサイクルのエネルギー）、数秘術（振動的共鳴）を組み合わせることで、より総合的な評価を提供します。各体系が他の体系の盲点を補います。",
+    faq3Q:"低いスコアは関係がうまくいかないということですか？",faq3A:"決してそうではありません。低いスコアは、追加の理解と努力が必要な領域を示しているだけです。対照的なエネルギーで繁栄する強く長続きする関係は数多くあります。スコアは自然なリズムが異なる部分を示すものであり、その違いを認識すること自体が成長のためのツールです。"
   },
   es:{title:"🎂 Compatibilidad por Fecha",sub:"Zodiaco · Horóscopo chino · Numerología",lbl1:"Fecha de nacimiento 1",lbl2:"Fecha de nacimiento 2",btn:"Ver Compatibilidad",tabName:"Nombres",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Mascotas",tabBday:"Cumpleaños",tabPast:"Vida Pasada",tabFortune:"Fortuna",
     zodiacTitle:"Detalles",starLabel:"Zodiaco:",animalLabel:"Horóscopo chino:",numeroLabel:"Numerología:",tipLabel:"Consejo:",
@@ -238,7 +310,18 @@ var L = {
       t25:{type:"Match Desafiante",msg:"Diferencias significativas. El éxito requiere esfuerzo dedicado.",strength:"El contraste construye resiliencia.",tip:"Celebren las pequeñas victorias."},
       t15:{type:"Fuerzas Opuestas",msg:"Como imanes con polos opuestos — atracción intensa pero fricción frecuente.",strength:"La intensidad entre ustedes es innegable.",tip:"Busquen puntos en común en metas compartidas."},
       t5:{type:"Rompecabezas Cósmico",msg:"Una combinación rara y compleja.",strength:"Esta pareja desafía la categorización fácil.",tip:"Escriban sus propias reglas."}
-    }
+    },
+    sec1Title:"¿Qué es el Test de Compatibilidad por Fecha de Nacimiento?",
+    sec1P1:"El Test de Compatibilidad por Fecha de Nacimiento analiza la relación entre dos personas combinando tres sistemas probados por el tiempo: los signos zodiacales occidentales, el zodiaco chino (Shengxiao) y la numerología. La fecha de nacimiento de cada persona revela su signo solar, su animal del zodiaco chino basado en el año de nacimiento y un número de camino de vida derivado de la fecha completa. Al cruzar las tres dimensiones, el test produce una puntuación de compatibilidad que refleja tanto la alineación de personalidad como la armonía energética.",
+    sec1P2:"A diferencia de la simple comparación de signos solares, este enfoque multidimensional captura matices que los tests de un solo sistema pasan por alto. El zodiaco occidental refleja tendencias emocionales y de comportamiento, el zodiaco chino destaca temas vitales más profundos vinculados a los ciclos anuales, y la numerología descubre la esencia vibratoria de tu fecha de nacimiento. Juntos pintan un retrato más rico y preciso de cómo se conectan dos personas.",
+    sec2Title:"¿Cómo Funciona?",
+    sec2P1:"El algoritmo asigna una puntuación ponderada a tres dimensiones de compatibilidad y luego las combina en un solo porcentaje. La compatibilidad zodiacal representa el 40% del total, la compatibilidad del zodiaco chino el 30% y la compatibilidad numerológica el 30%. El resultado se mapea a uno de diez niveles que van desde 'Almas Gemelas Cósmicas' hasta 'Rompecabezas Cósmico'.",
+    sec2Sub:"Tres Factores de Análisis",
+    sec2List:["Compatibilidad Zodiacal — Compara los signos solares occidentales usando una matriz de afinidad elemental 12×12. Los signos que comparten el mismo elemento (fuego, tierra, aire, agua) o elementos complementarios obtienen puntuaciones más altas.","Compatibilidad del Zodiaco Chino — Calcula la distancia cíclica entre los dos animales del año de nacimiento dentro del ciclo de 12 años. Los animales más cercanos en la rueda del ciclo tienden a compartir una energía más armoniosa.","Numerología (Número de Camino de Vida) — Reduce cada fecha de nacimiento completa a un solo dígito (o número maestro 11/22) y mide cuán estrechamente resuenan los dos números de camino de vida."],
+    sec3Title:"Preguntas Frecuentes",
+    faq1Q:"¿La puntuación de compatibilidad tiene base científica?",faq1A:"No. Este test se basa en marcos astrológicos y numerológicos tradicionales, no en ciencia revisada por pares. Está diseñado para entretenimiento y autorreflexión. Muchas personas encuentran útiles los arquetipos para comprender las dinámicas de relación, pero los resultados no deben tomarse como predicciones definitivas.",
+    faq2Q:"¿Por qué usan tres sistemas en lugar de solo signos zodiacales?",faq2A:"Los tests de un solo sistema solo capturan una capa de compatibilidad. Al combinar la astrología occidental (rasgos de personalidad), el zodiaco chino (energía del ciclo vital) y la numerología (resonancia vibratoria), el test proporciona una evaluación más completa. Cada sistema compensa los puntos ciegos de los demás.",
+    faq3Q:"¿Una puntuación baja significa que la relación está condenada?",faq3A:"En absoluto. Una puntuación más baja simplemente indica áreas donde puede ser necesario un mayor entendimiento y esfuerzo. Muchas relaciones fuertes y duraderas prosperan con energías contrastantes. La puntuación destaca dónde difieren sus ritmos naturales — la conciencia de esas diferencias es en sí misma una herramienta de crecimiento."
   },
   ar:{title:"🎂 توافق تاريخ الميلاد",sub:"الأبراج · البروج الصينية · علم الأعداد",lbl1:"تاريخ ميلاد الشخص الأول",lbl2:"تاريخ ميلاد الشخص الثاني",btn:"تحقق من التوافق",tabName:"الأسماء",tabMbtiTest:"MBTI",tabMbti:"توافق MBTI",tabPet:"حيوانات",tabBday:"عيد الميلاد",tabPast:"حياة سابقة",tabFortune:"حظ اليوم",
     zodiacTitle:"تفاصيل التوافق",starLabel:"الأبراج:",animalLabel:"البروج الصينية:",numeroLabel:"علم الأعداد:",tipLabel:"نصيحة:",
@@ -254,7 +337,18 @@ var L = {
       t25:{type:"توافق تحدٍّ",msg:"اختلافات كبيرة. النجاح يتطلب جهداً مخلصاً.",strength:"التباين يبني المرونة.",tip:"احتفلا بالانتصارات الصغيرة."},
       t15:{type:"قوى متعاكسة",msg:"مثل مغناطيس بأقطاب متعاكسة.",strength:"الشدة بينكما لا يمكن إنكارها.",tip:"ابحثا عن أرضية مشتركة في الأهداف."},
       t5:{type:"لغز كوني",msg:"مزيج نادر ومعقد.",strength:"هذا الزوج يتحدى التصنيف.",tip:"اكتبا قواعدكما الخاصة."}
-    }
+    },
+    sec1Title:"ما هو اختبار توافق تاريخ الميلاد؟",
+    sec1P1:"يحلل اختبار توافق تاريخ الميلاد العلاقة بين شخصين من خلال الجمع بين ثلاثة أنظمة عريقة: الأبراج الغربية، والأبراج الصينية (شنغشياو)، وعلم الأعداد. يكشف تاريخ ميلاد كل شخص عن برجه الشمسي، وحيوان البرج الصيني بناءً على سنة الميلاد، ورقم مسار الحياة المستمد من التاريخ الكامل. من خلال مقارنة الأبعاد الثلاثة، ينتج الاختبار درجة توافق تعكس كلاً من توافق الشخصية والانسجام الطاقي.",
+    sec1P2:"على عكس مطابقة البرج الشمسي البسيطة، يلتقط هذا النهج متعدد الأبعاد الفروق الدقيقة التي تفوتها اختبارات النظام الواحد. تعكس الأبراج الغربية الميول العاطفية والسلوكية، بينما تسلط الأبراج الصينية الضوء على موضوعات الحياة الأعمق المرتبطة بدورات السنوات، ويكشف علم الأعداد عن الجوهر الاهتزازي لتاريخ ميلادك. معاً يرسمون صورة أكثر ثراءً ودقة لكيفية تواصل شخصين.",
+    sec2Title:"كيف يعمل؟",
+    sec2P1:"تُعيّن الخوارزمية درجة موزونة عبر ثلاثة أبعاد للتوافق، ثم تدمجها في نسبة مئوية واحدة. يمثل توافق الأبراج 40% من الإجمالي، وتوافق الأبراج الصينية 30%، وتوافق علم الأعداد 30%. يتم تعيين النتيجة إلى واحد من عشرة مستويات تتراوح من 'توأم الروح الكوني' إلى 'لغز كوني'.",
+    sec2Sub:"ثلاثة عوامل تحليلية",
+    sec2List:["توافق الأبراج — يقارن بين البرجين الشمسيين الغربيين باستخدام مصفوفة تقارب عناصر 12×12. الأبراج التي تشترك في نفس العنصر (النار، الأرض، الهواء، الماء) أو عناصر تكميلية تحصل على درجات أعلى.","توافق الأبراج الصينية — يحسب المسافة الدورية بين حيواني سنة الميلاد ضمن الدورة المكونة من 12 عاماً. الحيوانات الأقرب على عجلة الدورة تميل إلى مشاركة طاقة أكثر انسجاماً.","علم الأعداد (رقم مسار الحياة) — يختزل كل تاريخ ميلاد كامل إلى رقم واحد (أو رقم رئيسي 11/22) ويقيس مدى تناغم رقمي مسار الحياة."],
+    sec3Title:"الأسئلة الشائعة",
+    faq1Q:"هل درجة توافق تاريخ الميلاد مثبتة علمياً؟",faq1A:"لا. يستند هذا الاختبار إلى أطر فلكية وعددية تقليدية، وليس إلى علم خاضع لمراجعة الأقران. وهو مصمم للترفيه والتأمل الذاتي. يجد كثير من الناس أن هذه الأنماط مفيدة لفهم ديناميكيات العلاقات، لكن لا ينبغي التعامل مع النتائج كتنبؤات حاسمة.",
+    faq2Q:"لماذا تستخدمون ثلاثة أنظمة بدلاً من الأبراج فقط؟",faq2A:"تلتقط اختبارات النظام الواحد طبقة واحدة فقط من التوافق. من خلال الجمع بين التنجيم الغربي (سمات الشخصية) والأبراج الصينية (طاقة دورة الحياة) وعلم الأعداد (الرنين الاهتزازي)، يوفر الاختبار تقييماً أكثر شمولاً. كل نظام يعوض النقاط العمياء في الأنظمة الأخرى.",
+    faq3Q:"هل تعني الدرجة المنخفضة أن العلاقة محكوم عليها بالفشل؟",faq3A:"بالتأكيد لا. تشير الدرجة المنخفضة ببساطة إلى المجالات التي قد تحتاج فيها إلى مزيد من التفاهم والجهد. العديد من العلاقات القوية والدائمة تزدهر بفضل الطاقات المتباينة. تسلط الدرجة الضوء على الأماكن التي تختلف فيها إيقاعاتكما الطبيعية — والوعي بهذه الاختلافات هو في حد ذاته أداة للنمو."
   }
 };
 
@@ -393,6 +487,21 @@ function setLang(lang){
     b.classList.toggle('active',b.getAttribute('data-lang')===lang);
   });
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  document.getElementById('sec1Title').textContent=t.sec1Title;
+  document.getElementById('sec1P1').textContent=t.sec1P1;
+  document.getElementById('sec1P2').textContent=t.sec1P2;
+  document.getElementById('sec2Title').textContent=t.sec2Title;
+  document.getElementById('sec2P1').textContent=t.sec2P1;
+  document.getElementById('sec2Sub').textContent=t.sec2Sub;
+  var ul=document.getElementById('sec2List');ul.innerHTML='';
+  t.sec2List.forEach(function(item){var li=document.createElement('li');li.textContent=item;ul.appendChild(li)});
+  document.getElementById('sec3Title').textContent=t.sec3Title;
+  document.getElementById('faq1Q').textContent=t.faq1Q;
+  document.getElementById('faq1A').textContent=t.faq1A;
+  document.getElementById('faq2Q').textContent=t.faq2Q;
+  document.getElementById('faq2A').textContent=t.faq2A;
+  document.getElementById('faq3Q').textContent=t.faq3Q;
+  document.getElementById('faq3A').textContent=t.faq3A;
 }
 
 document.getElementById('langBar').addEventListener('click',function(e){

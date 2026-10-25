@@ -73,11 +73,17 @@ main{flex:1;display:flex;flex-direction:column;align-items:center;padding:20px 1
 .lucky-items{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
 .lucky-tag{background:white;border:1px solid var(--pink-200);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--gray-600)}
 .cached-note{text-align:center;font-size:11px;color:var(--gray-400);margin-top:10px}
-.share-row{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.share-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0 12px}
 .share-btn{padding:8px 16px;border:2px solid var(--pink-200);border-radius:100px;background:white;font-size:12px;font-weight:600;color:var(--pink-500);cursor:pointer;transition:all .2s}
 .share-btn:hover{background:var(--pink-500);color:white;border-color:var(--pink-500)}
 footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
-@media(max-width:480px){.test-tab{padding:6px 8px;font-size:11px}}
+.content-section{position:relative;z-index:1;width:800px;max-width:100%;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border-radius:20px;padding:32px 28px;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+.content-section h2{font-family:'Fredoka',sans-serif;font-size:22px;color:var(--pink-600);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--pink-100)}
+.content-section h3{font-size:16px;color:var(--purple-500);margin:16px 0 8px}
+.content-section p{font-size:14px;color:var(--gray-600);margin-bottom:12px}
+.content-section ul{margin:8px 0 12px 20px;font-size:14px;color:var(--gray-600)}
+.content-section li{margin-bottom:6px}
+@media(max-width:480px){.test-tab{padding:6px 8px;font-size:11px}.content-section{padding:24px 18px;border-radius:16px}.share-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -136,7 +142,7 @@ footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
                 <div class="lucky-items" id="luckyItems"></div>
             </div>
             <div class="cached-note" id="cachedNote"></div>
-            <div class="share-row">
+            <div class="share-grid">
                 <button class="share-btn" onclick="shareTwitter()" style="border-color:#1d9bf0;color:#1d9bf0">𝕏 Twitter</button>
                 <button class="share-btn" onclick="shareFacebook()" style="border-color:#1877f2;color:#1877f2">f Facebook</button>
                 <button class="share-btn" onclick="shareWhatsApp()" style="border-color:#25d366;color:#25d366">💬 WhatsApp</button>
@@ -148,6 +154,27 @@ footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
     </div>
 </div>
 </main>
+
+<article class="content-section" id="articleWhat">
+    <h2 id="sec1Title">오늘의 운세란?</h2>
+    <p id="sec1P1"></p>
+    <p id="sec1P2"></p>
+</article>
+<article class="content-section" id="articleHow">
+    <h2 id="sec2Title">어떻게 작동하나요?</h2>
+    <p id="sec2P1"></p>
+    <h3 id="sec2Sub">핵심 요소</h3>
+    <ul id="sec2List"></ul>
+</article>
+<article class="content-section" id="articleFaq">
+    <h2 id="sec3Title">FAQ</h2>
+    <h3 id="faq1Q"></h3>
+    <p id="faq1A"></p>
+    <h3 id="faq2Q"></h3>
+    <p id="faq2A"></p>
+    <h3 id="faq3Q"></h3>
+    <p id="faq3A"></p>
+</article>
 
 <footer>&copy; 2026 matchtest.site — Daily Fortune</footer>
 
@@ -181,7 +208,20 @@ var L={
         ["The universe is on your side today! Trust your intuition.","A lucky encounter could change your day completely.","Serendipity is your friend today — say yes to opportunities.","Your positive energy attracts good fortune.","Something you lost may find its way back to you."],
         ["Play it safe today — luck favors the cautious.","Not the day for risky bets.","Keep expectations moderate and you won't be disappointed.","Small wins add up — appreciate the little things.","Tomorrow brings better fortune — hang in there."]
       ]
-    }
+    },
+    sec1Title:"What Is a Daily Horoscope?",
+    sec1P1:"A daily horoscope is a personalized fortune reading based on your date of birth and the position of celestial bodies. Rooted in ancient astrological traditions spanning thousands of years, it offers guidance on love, wealth, health, career, and luck for each day.",
+    sec1P2:"From Babylonian star charts to modern numerology, cultures worldwide have sought meaning in birth dates and cosmic cycles. Our daily fortune combines these time-honored traditions with contemporary interpretation to give you a fun, insightful snapshot of your day ahead.",
+    sec2Title:"How Does It Work?",
+    sec2P1:"Our fortune algorithm blends three distinct systems — astrology, numerology, and biorhythm theory — to generate a unique daily reading tied to your birthday. Each day produces different cosmic alignments, so your fortune changes every 24 hours.",
+    sec2Sub:"Three Key Elements",
+    sec2List:["Astrology — Your zodiac sign and its ruling planet influence your emotional and social energy for the day.","Numerology — The digits of your birth date are combined with today's date to produce a personal luck index.","Biorhythm — Physical, emotional, and intellectual cycles calculated from your birthday predict your peak and rest periods."],
+    faq1Q:"Does my fortune change every day?",
+    faq1A:"Yes! Because the algorithm factors in today's date alongside your birthday, you get a fresh reading every 24 hours. Check back each morning for your updated forecast.",
+    faq2Q:"Is there scientific evidence behind horoscopes?",
+    faq2A:"Horoscopes are rooted in cultural tradition rather than empirical science. While there is no peer-reviewed proof that celestial positions determine personal outcomes, millions of people find value in the self-reflection and positive mindset that daily readings encourage.",
+    faq3Q:"Can I just enjoy it for fun?",
+    faq3A:"Absolutely! Most users treat their daily fortune as a lighthearted way to start the morning. Think of it as a moment of reflection — take what resonates and leave the rest."
   },
   ko:{title:"⭐ 오늘의 운세",sub:"생년월일로 오늘의 운세를 확인하세요",lblBday:"생년월일",btn:"오늘의 운세 확인",overall:"종합 운세",
     cats:["💕 연애운","💰 재물운","💪 건강운","💼 직장운","🍀 행운"],
@@ -211,7 +251,20 @@ var L={
         ["우주가 당신 편이에요! 직감을 믿으세요.","행운의 만남이 하루를 완전히 바꿀 수 있어요.","우연의 일치가 친구인 날 — 기회에 예스라고 하세요.","긍정적 에너지가 행운을 끌어당깁니다.","잃어버린 것이 다시 찾아올 수 있어요."],
         ["오늘은 안전하게 행동하세요.","위험한 도박은 피하세요.","기대치를 적당히 유지하면 실망하지 않을 거예요.","작은 성공들을 소중히 여기세요.","내일은 더 좋은 운이 찾아올 거예요 — 힘내세요."]
       ]
-    }
+    },
+    sec1Title:"오늘의 운세란?",
+    sec1P1:"오늘의 운세는 생년월일과 천체의 위치를 기반으로 한 맞춤형 운세입니다. 수천 년에 걸친 고대 점성술 전통에 뿌리를 두고 있으며, 매일의 연애, 재물, 건강, 직장, 행운에 대한 지침을 제공합니다.",
+    sec1P2:"바빌로니아의 별자리 도표부터 현대 수비학까지, 전 세계 문화권에서 생년월일과 우주 주기에서 의미를 찾아왔습니다. 우리의 일일 운세는 이러한 오랜 전통과 현대적 해석을 결합하여 하루를 재미있고 통찰력 있게 미리 엿볼 수 있게 해줍니다.",
+    sec2Title:"어떻게 작동하나요?",
+    sec2P1:"운세 알고리즘은 점성술, 수비학, 바이오리듬 이론 세 가지 시스템을 결합하여 생년월일에 연결된 고유한 일일 운세를 생성합니다. 매일 다른 우주적 정렬이 이루어지므로 운세는 24시간마다 바뀝니다.",
+    sec2Sub:"세 가지 핵심 요소",
+    sec2List:["점성술 — 당신의 별자리와 지배 행성이 하루의 감정적, 사회적 에너지에 영향을 줍니다.","수비학 — 생년월일의 숫자와 오늘 날짜를 조합하여 개인 행운 지수를 산출합니다.","바이오리듬 — 생년월일로부터 계산된 신체적, 감정적, 지적 주기가 최고조와 휴식 시기를 예측합니다."],
+    faq1Q:"운세가 매일 바뀌나요?",
+    faq1A:"네! 알고리즘이 생년월일과 함께 오늘 날짜를 반영하기 때문에 24시간마다 새로운 운세를 받을 수 있습니다. 매일 아침 업데이트된 운세를 확인하세요.",
+    faq2Q:"과학적 근거가 있나요?",
+    faq2A:"운세는 경험 과학보다는 문화적 전통에 기반합니다. 천체의 위치가 개인의 결과를 결정한다는 학술적 증거는 없지만, 수백만 명의 사람들이 일일 운세가 주는 자기 성찰과 긍정적 마인드셋에서 가치를 발견합니다.",
+    faq3Q:"재미로 봐도 되나요?",
+    faq3A:"물론이죠! 대부분의 사용자는 일일 운세를 아침을 시작하는 가벼운 즐거움으로 여깁니다. 잠시 자신을 돌아보는 시간으로 생각하세요 — 공감되는 것은 받아들이고 나머지는 흘려보내면 됩니다."
   },
   zh:{title:"⭐ 今日运势",sub:"用生日查看今日运势",lblBday:"出生日期",btn:"查看今日运势",overall:"综合运势",
     cats:["💕 爱情","💰 财运","💪 健康","💼 事业","🍀 幸运"],
@@ -226,7 +279,20 @@ var L={
       health:[["能量满满！适合运动。","思维清晰度达到顶峰。","开始新健康习惯的完美一天。","身体状态很好——享受这份活力。","今晚好好休息明天精神焕发。"],["别太勉强自己。","注意补水和姿势。","压力可能积累——试试呼吸练习。","身体需要休息就听从它。","散个步对心情很有帮助。"]],
       career:[["工作突破即将到来！","你的想法会打动重要的人。","合作带来令人兴奋的结果。","新机会可能出现——做好准备。","领导力闪闪发光。"],["避免工作冲突——选择外交。","提交前仔细检查细节。","对同事要有耐心。","不是做大演讲的好日子。","专注完成任务而非开始新的。"]],
       luck:[["宇宙站在你这边！相信直觉。","幸运的邂逅可能改变你的一天。","巧合是你的朋友——对机会说是。","正能量吸引好运。","失去的东西可能会回来。"],["今天谨慎行事。","不适合冒险赌博。","保持适度期望就不会失望。","珍惜小小的成功。","明天运势更好——加油。"]]
-    }
+    },
+    sec1Title:"什么是每日运势？",
+    sec1P1:"每日运势是基于您的出生日期和天体位置的个性化运势解读。它植根于数千年的古老占星传统，为您提供每天在爱情、财运、健康、事业和幸运方面的指引。",
+    sec1P2:"从巴比伦的星图到现代数字命理学，世界各地的文化都在出生日期和宇宙周期中寻找意义。我们的每日运势将这些悠久的传统与现代诠释相结合，为您提供有趣且有洞察力的每日预览。",
+    sec2Title:"它是如何运作的？",
+    sec2P1:"我们的运势算法融合了占星术、数字命理学和生物节律理论三个不同的系统，根据您的生日生成独特的每日解读。每天都会产生不同的宇宙排列，因此您的运势每24小时都会变化。",
+    sec2Sub:"三大核心要素",
+    sec2List:["占星术——您的星座及其守护星影响着您当天的情感和社交能量。","数字命理学——将您出生日期的数字与今天的日期组合，生成个人幸运指数。","生物节律——根据您的生日计算的身体、情感和智力周期，预测您的高峰期和休息期。"],
+    faq1Q:"运势每天都会变吗？",
+    faq1A:"是的！因为算法会将今天的日期与您的生日一起纳入计算，所以您每24小时都能获得全新的解读。每天早上回来查看最新的运势预测吧。",
+    faq2Q:"星座运势有科学依据吗？",
+    faq2A:"运势植根于文化传统而非实证科学。虽然没有经过同行评审的证据表明天体位置决定个人结果，但数百万人在每日运势带来的自我反思和积极心态中发现了价值。",
+    faq3Q:"可以纯粹当娱乐看吗？",
+    faq3A:"当然可以！大多数用户将每日运势视为轻松开启早晨的方式。把它当作反思的时刻——接受引起共鸣的部分，其余的就随它去吧。"
   },
   ja:{title:"⭐ 今日の運勢",sub:"誕生日で今日の運勢をチェック",lblBday:"生年月日",btn:"今日の運勢を見る",overall:"総合運",
     cats:["💕 恋愛運","💰 金運","💪 健康運","💼 仕事運","🍀 ラッキー運"],
@@ -241,7 +307,20 @@ var L={
       health:[["エネルギー全開！運動日和。","頭脳明晰 — 難しい課題に挑戦を。","新しい健康習慣を始める絶好の日。","体の調子が良い — この活力を楽しんで。","今夜しっかり寝ればすっきり目覚めます。"],["無理しないで。","水分補給と姿勢に注意。","ストレスが溜まりそう — 呼吸法を試して。","体が休みたがっているなら従って。","短い散歩が気分転換になります。"]],
       career:[["仕事でブレイクスルーが来そう！","あなたのアイデアが重要な人を感動させます。","コラボが素晴らしい結果に。","新しい機会が現れるかも。","リーダーシップが輝く日。"],["職場の衝突を避けて。","提出前に細部を確認。","同僚への忍耐が必要。","大きなプレゼンは別の日に。","新しいことより既存のタスク完了に集中。"]],
       luck:[["宇宙があなたの味方！直感を信じて。","ラッキーな出会いが一日を変えるかも。","偶然が味方する日 — チャンスにイエスを。","ポジティブなエネルギーが幸運を引き寄せます。","失くしたものが戻ってくるかも。"],["今日は安全に。","リスクのある賭けは避けて。","期待を適度に保てば失望しません。","小さな勝利を大切に。","明日はもっといい運勢 — 頑張って。"]]
-    }
+    },
+    sec1Title:"今日の運勢とは？",
+    sec1P1:"今日の運勢は、生年月日と天体の位置に基づいたパーソナライズされた占いです。数千年にわたる古代占星術の伝統に根ざし、毎日の恋愛、金運、健康、仕事、ラッキー運についてのガイダンスを提供します。",
+    sec1P2:"バビロニアの星図から現代の数秘術まで、世界中の文化が生年月日と宇宙のサイクルに意味を見出してきました。私たちの毎日の運勢は、これらの長い伝統と現代的な解釈を組み合わせて、楽しく洞察に満ちた一日のプレビューをお届けします。",
+    sec2Title:"どのように機能するの？",
+    sec2P1:"運勢アルゴリズムは、占星術、数秘術、バイオリズム理論の3つの異なるシステムを融合し、あなたの誕生日に紐づいたユニークな毎日の占いを生成します。毎日異なる宇宙的配列が生まれるため、運勢は24時間ごとに変わります。",
+    sec2Sub:"3つのキーエレメント",
+    sec2List:["占星術 — あなたの星座とその支配惑星が、その日の感情的・社会的エネルギーに影響を与えます。","数秘術 — 生年月日の数字と今日の日付を組み合わせて、個人のラッキー指数を算出します。","バイオリズム — 誕生日から計算された身体的、感情的、知的サイクルが、ピーク期と休息期を予測します。"],
+    faq1Q:"運勢は毎日変わりますか？",
+    faq1A:"はい！アルゴリズムは誕生日と一緒に今日の日付を考慮するため、24時間ごとに新しい占いが届きます。毎朝、更新された運勢をチェックしてください。",
+    faq2Q:"科学的な根拠はありますか？",
+    faq2A:"運勢は実証科学というよりも文化的伝統に根ざしています。天体の位置が個人の結果を決定するという査読済みの証拠はありませんが、何百万もの人々が毎日の占いがもたらす自己省察とポジティブなマインドセットに価値を見出しています。",
+    faq3Q:"楽しみとして見てもいいですか？",
+    faq3A:"もちろんです！ほとんどのユーザーは毎日の運勢を朝を楽しく始める方法として楽しんでいます。振り返りの時間として捉えてください — 響くものは受け入れ、残りは流しましょう。"
   },
   es:{title:"⭐ Fortuna del Día",sub:"Consulta tu fortuna diaria con tu fecha de nacimiento",lblBday:"TU CUMPLEAÑOS",btn:"Ver Fortuna de Hoy",overall:"Fortuna General",
     cats:["💕 Amor","💰 Dinero","💪 Salud","💼 Carrera","🍀 Suerte"],
@@ -256,7 +335,20 @@ var L={
       health:[["¡Energía por las nubes! Gran día para ejercicio.","Claridad mental al máximo.","Día perfecto para un nuevo hábito saludable.","Tu cuerpo está en armonía.","Descansa bien esta noche."],["Tómalo con calma hoy.","Hidrátate y cuida tu postura.","El estrés puede acumularse — prueba respiración.","Escucha a tu cuerpo.","Una caminata corta hará maravillas."]],
       career:[["¡Se acerca un avance en el trabajo!","Tus ideas impresionarán a alguien importante.","La colaboración trae resultados emocionantes.","Una nueva oportunidad puede presentarse.","Tu liderazgo brilla hoy."],["Evita conflictos laborales — elige la diplomacia.","Verifica los detalles antes de enviar.","Paciencia con los colegas.","No es el mejor día para presentaciones.","Enfócate en terminar tareas."]],
       luck:[["¡El universo está de tu lado! Confía en tu intuición.","Un encuentro afortunado podría cambiar tu día.","La serendipia es tu amiga — di sí a las oportunidades.","Tu energía positiva atrae buena fortuna.","Algo perdido puede regresar a ti."],["Juega seguro hoy.","No es día para apuestas arriesgadas.","Mantén expectativas moderadas.","Aprecia las pequeñas victorias.","Mañana trae mejor fortuna."]]
-    }
+    },
+    sec1Title:"¿Qué es el horóscopo diario?",
+    sec1P1:"El horóscopo diario es una lectura de fortuna personalizada basada en tu fecha de nacimiento y la posición de los cuerpos celestes. Con raíces en tradiciones astrológicas milenarias, ofrece orientación sobre amor, dinero, salud, carrera y suerte para cada día.",
+    sec1P2:"Desde las cartas estelares de Babilonia hasta la numerología moderna, culturas de todo el mundo han buscado significado en las fechas de nacimiento y los ciclos cósmicos. Nuestra fortuna diaria combina estas tradiciones ancestrales con la interpretación contemporánea para ofrecerte una vista previa divertida y perspicaz de tu día.",
+    sec2Title:"¿Cómo funciona?",
+    sec2P1:"Nuestro algoritmo de fortuna fusiona tres sistemas distintos — astrología, numerología y teoría del biorritmo — para generar una lectura diaria única vinculada a tu cumpleaños. Cada día produce alineaciones cósmicas diferentes, por lo que tu fortuna cambia cada 24 horas.",
+    sec2Sub:"Tres elementos clave",
+    sec2List:["Astrología — Tu signo zodiacal y su planeta regente influyen en tu energía emocional y social del día.","Numerología — Los dígitos de tu fecha de nacimiento se combinan con la fecha de hoy para producir un índice de suerte personal.","Biorritmo — Los ciclos físicos, emocionales e intelectuales calculados desde tu cumpleaños predicen tus períodos de mayor actividad y descanso."],
+    faq1Q:"¿Mi fortuna cambia todos los días?",
+    faq1A:"¡Sí! Como el algoritmo tiene en cuenta la fecha de hoy junto con tu cumpleaños, obtienes una lectura nueva cada 24 horas. Vuelve cada mañana para ver tu pronóstico actualizado.",
+    faq2Q:"¿Hay evidencia científica detrás de los horóscopos?",
+    faq2A:"Los horóscopos se basan en la tradición cultural más que en la ciencia empírica. Aunque no existe evidencia revisada por pares de que las posiciones celestes determinen los resultados personales, millones de personas encuentran valor en la autorreflexión y la mentalidad positiva que fomentan las lecturas diarias.",
+    faq3Q:"¿Puedo disfrutarlo solo por diversión?",
+    faq3A:"¡Por supuesto! La mayoría de los usuarios tratan su fortuna diaria como una forma ligera de comenzar la mañana. Piensa en ello como un momento de reflexión: toma lo que te resuene y deja el resto."
   },
   ar:{title:"⭐ حظ اليوم",sub:"تحقق من حظك اليوم بتاريخ ميلادك",lblBday:"تاريخ ميلادك",btn:"اكشف حظ اليوم",overall:"الحظ العام",
     cats:["💕 الحب","💰 المال","💪 الصحة","💼 العمل","🍀 الحظ"],
@@ -271,7 +363,20 @@ var L={
       health:[["طاقتك عالية! يوم رائع للتمارين.","الوضوح الذهني في أعلى مستوياته.","يوم مثالي لعادة صحية جديدة.","جسمك في انسجام.","نم جيداً الليلة."],["خذها ببساطة اليوم.","حافظ على الترطيب والوضعية.","قد يتراكم التوتر — جرب تمارين التنفس.","استمع لجسمك.","مشي قصير سيفعل المعجزات."]],
       career:[["اختراق في العمل قادم!","أفكارك ستبهر شخصاً مهماً.","التعاون يؤدي لنتائج مثيرة.","فرصة جديدة قد تظهر.","قيادتك تتألق اليوم."],["تجنب الصراعات — اختر الدبلوماسية.","تحقق من التفاصيل قبل التقديم.","الصبر مع الزملاء مطلوب.","ليس أفضل يوم للعروض الكبيرة.","ركز على إنهاء المهام."]],
       luck:[["الكون في صفك! ثق بحدسك.","لقاء محظوظ قد يغير يومك.","الصدفة صديقتك — قل نعم للفرص.","طاقتك الإيجابية تجذب الحظ.","شيء فقدته قد يعود."],["العب بأمان اليوم.","ليس يوماً للمخاطر.","حافظ على توقعات معتدلة.","قدّر الانتصارات الصغيرة.","غداً يحمل حظاً أفضل."]]
-    }
+    },
+    sec1Title:"ما هو حظ اليوم؟",
+    sec1P1:"حظ اليوم هو قراءة شخصية للطالع بناءً على تاريخ ميلادك وموقع الأجرام السماوية. متجذر في تقاليد التنجيم القديمة التي تمتد لآلاف السنين، يقدم إرشادات حول الحب والمال والصحة والعمل والحظ لكل يوم.",
+    sec1P2:"من خرائط النجوم البابلية إلى علم الأعداد الحديث، سعت الثقافات حول العالم للعثور على معنى في تواريخ الميلاد والدورات الكونية. يجمع حظنا اليومي بين هذه التقاليد العريقة والتفسير المعاصر لتقديم لمحة ممتعة وثاقبة عن يومك القادم.",
+    sec2Title:"كيف يعمل؟",
+    sec2P1:"تمزج خوارزمية الحظ بين ثلاثة أنظمة مختلفة — التنجيم وعلم الأعداد ونظرية الإيقاع الحيوي — لتوليد قراءة يومية فريدة مرتبطة بتاريخ ميلادك. ينتج كل يوم محاذاة كونية مختلفة، لذلك يتغير حظك كل 24 ساعة.",
+    sec2Sub:"ثلاثة عناصر أساسية",
+    sec2List:["التنجيم — يؤثر برجك وكوكبه الحاكم على طاقتك العاطفية والاجتماعية لهذا اليوم.","علم الأعداد — يتم دمج أرقام تاريخ ميلادك مع تاريخ اليوم لإنتاج مؤشر حظ شخصي.","الإيقاع الحيوي — تتنبأ الدورات الجسدية والعاطفية والفكرية المحسوبة من تاريخ ميلادك بفترات الذروة والراحة."],
+    faq1Q:"هل يتغير حظي كل يوم؟",
+    faq1A:"نعم! لأن الخوارزمية تأخذ في الاعتبار تاريخ اليوم إلى جانب تاريخ ميلادك، تحصل على قراءة جديدة كل 24 ساعة. عد كل صباح للاطلاع على توقعاتك المحدثة.",
+    faq2Q:"هل هناك دليل علمي وراء الأبراج؟",
+    faq2A:"تستند الأبراج إلى التقاليد الثقافية أكثر من العلم التجريبي. على الرغم من عدم وجود دليل محكّم يثبت أن المواقع السماوية تحدد النتائج الشخصية، يجد ملايين الأشخاص قيمة في التأمل الذاتي والعقلية الإيجابية التي تشجعها القراءات اليومية.",
+    faq3Q:"هل يمكنني الاستمتاع به للتسلية فقط؟",
+    faq3A:"بالتأكيد! يتعامل معظم المستخدمين مع حظهم اليومي كطريقة خفيفة لبدء الصباح. فكر فيه كلحظة تأمل — خذ ما يتردد صداه معك واترك الباقي."
   }
 };
 
@@ -378,6 +483,20 @@ function setLang(lang){
     b.classList.toggle('active',b.getAttribute('data-lang')===lang);
   });
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  document.getElementById('sec1Title').textContent=t.sec1Title;
+  document.getElementById('sec1P1').textContent=t.sec1P1;
+  document.getElementById('sec1P2').textContent=t.sec1P2;
+  document.getElementById('sec2Title').textContent=t.sec2Title;
+  document.getElementById('sec2P1').textContent=t.sec2P1;
+  document.getElementById('sec2Sub').textContent=t.sec2Sub;
+  var ul=document.getElementById('sec2List');ul.innerHTML='';
+  t.sec2List.forEach(function(item){var li=document.createElement('li');li.textContent=item;ul.appendChild(li)});
+  document.getElementById('faq1Q').textContent=t.faq1Q;
+  document.getElementById('faq1A').textContent=t.faq1A;
+  document.getElementById('faq2Q').textContent=t.faq2Q;
+  document.getElementById('faq2A').textContent=t.faq2A;
+  document.getElementById('faq3Q').textContent=t.faq3Q;
+  document.getElementById('faq3A').textContent=t.faq3A;
 }
 
 document.getElementById('langBar').addEventListener('click',function(e){

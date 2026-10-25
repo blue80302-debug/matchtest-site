@@ -72,11 +72,17 @@ main{flex:1;display:flex;flex-direction:column;align-items:center;padding:20px 1
 .trait-item{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:13px;color:var(--gray-600)}
 .trait-bar{width:100px;height:8px;background:var(--pink-100);border-radius:100px;overflow:hidden}
 .trait-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--pink-400),var(--purple-500));transition:width 1s ease}
-.share-row{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.share-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0 12px}
 .share-btn{padding:8px 16px;border:2px solid var(--pink-200);border-radius:100px;background:white;font-size:12px;font-weight:600;color:var(--pink-500);cursor:pointer;transition:all .2s}
 .share-btn:hover{background:var(--pink-500);color:white;border-color:var(--pink-500)}
 footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
-@media(max-width:480px){.test-tab{padding:6px 8px;font-size:11px}}
+@media(max-width:480px){.test-tab{padding:6px 8px;font-size:11px}.content-section{padding:24px 18px;border-radius:16px}.share-grid{grid-template-columns:repeat(2,1fr)}}
+.content-section{position:relative;z-index:1;width:800px;max-width:100%;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border-radius:20px;padding:32px 28px;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+.content-section h2{font-family:'Fredoka',sans-serif;font-size:22px;color:var(--pink-600);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--pink-100)}
+.content-section h3{font-size:16px;color:var(--purple-500);margin:16px 0 8px}
+.content-section p{font-size:14px;color:var(--gray-600);margin-bottom:12px}
+.content-section ul{margin:8px 0 12px 20px;font-size:14px;color:var(--gray-600)}
+.content-section li{margin-bottom:6px}
 </style>
 </head>
 <body>
@@ -143,7 +149,7 @@ footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
                 <div class="trait-item"><span id="trCreativity">Creativity</span><div class="trait-bar"><div class="trait-fill" id="barCreativity" style="width:0%"></div></div></div>
                 <div class="trait-item"><span id="trKindness">Kindness</span><div class="trait-bar"><div class="trait-fill" id="barKindness" style="width:0%"></div></div></div>
             </div>
-            <div class="share-row">
+            <div class="share-grid">
                 <button class="share-btn" onclick="shareTwitter()" style="border-color:#1d9bf0;color:#1d9bf0">𝕏 Twitter</button>
                 <button class="share-btn" onclick="shareFacebook()" style="border-color:#1877f2;color:#1877f2">f Facebook</button>
                 <button class="share-btn" onclick="shareWhatsApp()" style="border-color:#25d366;color:#25d366">💬 WhatsApp</button>
@@ -156,28 +162,71 @@ footer{text-align:center;padding:16px;font-size:12px;color:var(--gray-400)}
 </div>
 </main>
 
+<article class="content-section" id="articleWhat">
+    <h2 id="sec1Title">전생 테스트란?</h2>
+    <p id="sec1P1">전생 테스트는 생년월일과 이름을 기반으로 당신이 과거 생에서 어떤 사람이었는지 분석하는 엔터테인먼트 테스트입니다. 수천 년간 다양한 문화권에서 전생과 윤회에 대한 믿음이 이어져 왔으며, 이 테스트는 그 전통에서 영감을 받았습니다.</p>
+    <p id="sec1P2">수비학(numerology)에서는 생년월일의 각 숫자가 고유한 에너지를 지닌다고 봅니다. 이 테스트는 해당 원리를 응용하여 전생의 직업, 살았던 나라, 시대, 그리고 성격 특성을 재미있게 도출합니다.</p>
+</article>
+<article class="content-section" id="articleHow">
+    <h2 id="sec2Title">어떻게 작동하나요?</h2>
+    <p id="sec2P1">이 테스트는 수비학과 점성술의 원리를 조합한 알고리즘을 사용합니다. 입력된 이름과 생년월일로부터 고유한 시드 값을 생성하고, 이를 바탕으로 전생 프로필을 결정합니다.</p>
+    <h3 id="sec2Sub">분석에 사용되는 3가지 핵심 요소</h3>
+    <ul id="sec2List">
+        <li>생년월일 숫자 에너지 — 태어난 날의 숫자 조합이 전생의 시대와 장소를 결정합니다</li>
+        <li>이름 진동 주파수 — 이름의 각 글자가 고유한 진동값을 가지며 전생 직업에 영향을 줍니다</li>
+        <li>종합 시드 알고리즘 — 위 두 요소를 결합하여 성격 특성과 능력치를 산출합니다</li>
+    </ul>
+</article>
+<article class="content-section" id="articleFaq">
+    <h2 id="sec3Title">FAQ</h2>
+    <h3 id="faq1Q">전생을 정말 믿어야 하나요?</h3>
+    <p id="faq1A">이 테스트는 과학적 근거가 아닌 엔터테인먼트 목적으로 제작되었습니다. 전생과 윤회는 다양한 종교와 철학에서 다루는 개념이지만, 이 테스트 결과를 실제 전생의 증거로 받아들일 필요는 없습니다. 재미로 즐겨주세요!</p>
+    <h3 id="faq2Q">결과는 얼마나 정확한가요?</h3>
+    <p id="faq2A">같은 이름과 생년월일을 입력하면 항상 동일한 결과가 나옵니다. 이는 수비학의 일관성 원리를 반영한 것입니다. 다만 이 테스트는 오락용이므로 실제 정확도를 논하기보다 결과가 주는 영감을 즐기시길 권합니다.</p>
+    <h3 id="faq3Q">다시 테스트하면 결과가 바뀌나요?</h3>
+    <p id="faq3A">같은 이름과 생년월일로 테스트하면 결과는 항상 동일합니다. 다른 결과를 보고 싶다면 닉네임이나 다른 이름으로 시도해 보세요. 각 이름 조합마다 고유한 전생 이야기가 펼쳐집니다.</p>
+</article>
+
 <footer>&copy; 2026 matchtest.site — Past Life Test</footer>
 
 <script>
 var L={
   en:{title:"🔮 Past Life Test",sub:"Discover who you were in a past life",lblName:"YOUR NAME",lblBday:"YOUR BIRTHDAY",btn:"Discover Your Past Life",ph:"Enter your name",traitTitle:"Past Life Traits",trCourage:"Courage",trWisdom:"Wisdom",trCharisma:"Charisma",trCreativity:"Creativity",trKindness:"Kindness",inLabel:"in",eraLabel:"Era",
     tabName:"Name Match",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Pet Names",tabBday:"Birthday",tabPast:"Past Life",tabFortune:"Fortune",tabJob:"Career",tabBlood:"Blood Type",tabColor:"Color",
-    nav:{home:"Home",about:"About",contact:"Contact",privacy:"Privacy",terms:"Terms"}},
+    nav:{home:"Home",about:"About",contact:"Contact",privacy:"Privacy",terms:"Terms"},
+    sec1Title:"What Is a Past Life Test?",sec1P1:"A past life test analyzes who you were in a previous life based on your name and date of birth. Belief in past lives and reincarnation has existed across many cultures for thousands of years, and this test draws inspiration from those traditions.",sec1P2:"In numerology, each digit of your birth date carries unique energy. This test applies that principle to generate your past life's occupation, country, era, and personality traits in a fun and entertaining way.",
+    sec2Title:"How Does It Work?",sec2P1:"This test uses an algorithm that combines principles of numerology and astrology. It generates a unique seed value from your name and date of birth, then determines your past life profile based on that seed.",sec2Sub:"3 Key Elements Used in the Analysis",sec2List:["Birth Date Number Energy — The combination of digits in your birthday determines the era and location of your past life","Name Vibration Frequency — Each letter of your name carries a unique vibration value that influences your past life occupation","Combined Seed Algorithm — These two factors are merged to calculate personality traits and ability scores"],
+    faq1Q:"Should I really believe in past lives?",faq1A:"This test is designed for entertainment, not scientific evidence. While reincarnation is a concept explored in many religions and philosophies, you don't need to take the results as proof of an actual past life. Just enjoy it for fun!",faq2Q:"How accurate are the results?",faq2A:"Entering the same name and date of birth will always produce the same result. This reflects the consistency principle of numerology. However, since this is an entertainment test, we recommend enjoying the inspiration the results provide rather than debating actual accuracy.",faq3Q:"Will the result change if I test again?",faq3A:"Testing with the same name and date of birth will always yield the same result. If you want to see a different result, try using a nickname or a different name. Each name combination unfolds a unique past life story."},
   ko:{title:"🔮 전생 테스트",sub:"이름과 생년월일로 전생의 삶을 알아보세요",lblName:"이름",lblBday:"생년월일",btn:"전생 알아보기",ph:"이름을 입력하세요",traitTitle:"전생 특성",trCourage:"용기",trWisdom:"지혜",trCharisma:"카리스마",trCreativity:"창의력",trKindness:"친절함",inLabel:"",eraLabel:"시대",
     tabName:"이름궁합",tabMbtiTest:"MBTI",tabMbti:"MBTI궁합",tabPet:"펫이름",tabBday:"생일궁합",tabPast:"전생",tabFortune:"오늘운세",tabJob:"직업적성",tabBlood:"혈액형궁합",tabColor:"색깔심리",
-    nav:{home:"홈",about:"소개",contact:"문의",privacy:"개인정보",terms:"이용약관"}},
+    nav:{home:"홈",about:"소개",contact:"문의",privacy:"개인정보",terms:"이용약관"},
+    sec1Title:"전생 테스트란?",sec1P1:"전생 테스트는 생년월일과 이름을 기반으로 당신이 과거 생에서 어떤 사람이었는지 분석하는 엔터테인먼트 테스트입니다. 수천 년간 다양한 문화권에서 전생과 윤회에 대한 믿음이 이어져 왔으며, 이 테스트는 그 전통에서 영감을 받았습니다.",sec1P2:"수비학(numerology)에서는 생년월일의 각 숫자가 고유한 에너지를 지닌다고 봅니다. 이 테스트는 해당 원리를 응용하여 전생의 직업, 살았던 나라, 시대, 그리고 성격 특성을 재미있게 도출합니다.",
+    sec2Title:"어떻게 작동하나요?",sec2P1:"이 테스트는 수비학과 점성술의 원리를 조합한 알고리즘을 사용합니다. 입력된 이름과 생년월일로부터 고유한 시드 값을 생성하고, 이를 바탕으로 전생 프로필을 결정합니다.",sec2Sub:"분석에 사용되는 3가지 핵심 요소",sec2List:["생년월일 숫자 에너지 — 태어난 날의 숫자 조합이 전생의 시대와 장소를 결정합니다","이름 진동 주파수 — 이름의 각 글자가 고유한 진동값을 가지며 전생 직업에 영향을 줍니다","종합 시드 알고리즘 — 위 두 요소를 결합하여 성격 특성과 능력치를 산출합니다"],
+    faq1Q:"전생을 정말 믿어야 하나요?",faq1A:"이 테스트는 과학적 근거가 아닌 엔터테인먼트 목적으로 제작되었습니다. 전생과 윤회는 다양한 종교와 철학에서 다루는 개념이지만, 이 테스트 결과를 실제 전생의 증거로 받아들일 필요는 없습니다. 재미로 즐겨주세요!",faq2Q:"결과는 얼마나 정확한가요?",faq2A:"같은 이름과 생년월일을 입력하면 항상 동일한 결과가 나옵니다. 이는 수비학의 일관성 원리를 반영한 것입니다. 다만 이 테스트는 오락용이므로 실제 정확도를 논하기보다 결과가 주는 영감을 즐기시길 권합니다.",faq3Q:"다시 테스트하면 결과가 바뀌나요?",faq3A:"같은 이름과 생년월일로 테스트하면 결과는 항상 동일합니다. 다른 결과를 보고 싶다면 닉네임이나 다른 이름으로 시도해 보세요. 각 이름 조합마다 고유한 전생 이야기가 펼쳐집니다."},
   zh:{title:"🔮 前世测试",sub:"用姓名和生日揭开你的前世之谜",lblName:"姓名",lblBday:"出生日期",btn:"探索前世",ph:"请输入姓名",traitTitle:"前世特质",trCourage:"勇气",trWisdom:"智慧",trCharisma:"魅力",trCreativity:"创造力",trKindness:"善良",inLabel:"",eraLabel:"时代",
     tabName:"姓名缘分",tabMbtiTest:"MBTI",tabMbti:"MBTI配对",tabPet:"宠物名",tabBday:"生日配对",tabPast:"前世",tabFortune:"今日运势",tabJob:"职业",tabBlood:"血型",tabColor:"色彩",
-    nav:{home:"首页",about:"关于",contact:"联系",privacy:"隐私",terms:"条款"}},
+    nav:{home:"首页",about:"关于",contact:"联系",privacy:"隐私",terms:"条款"},
+    sec1Title:"什么是前世测试？",sec1P1:"前世测试是一种基于姓名和出生日期分析你前世身份的娱乐性测试。数千年来，许多文化中都存在关于前世和轮回的信仰，这个测试正是从这些传统中汲取灵感。",sec1P2:"在数字命理学中，出生日期的每个数字都承载着独特的能量。本测试运用这一原理，以趣味的方式推算出你前世的职业、居住国家、时代和性格特征。",
+    sec2Title:"它是如何运作的？",sec2P1:"本测试使用结合数字命理学和占星术原理的算法。从你输入的姓名和出生日期生成唯一的种子值，然后根据该值确定你的前世档案。",sec2Sub:"分析中使用的3个关键要素",sec2List:["出生日期数字能量 — 生日的数字组合决定了你前世的时代和地点","姓名振动频率 — 姓名中的每个字都具有独特的振动值，影响着你前世的职业","综合种子算法 — 将以上两个因素结合，计算出性格特征和能力值"],
+    faq1Q:"我真的应该相信前世吗？",faq1A:"此测试是为娱乐而非科学依据而设计的。虽然轮回转世是许多宗教和哲学中探讨的概念，但你不需要将测试结果视为前世的真实证据。请当作乐趣来享受！",faq2Q:"结果有多准确？",faq2A:"输入相同的姓名和出生日期将始终产生相同的结果。这反映了数字命理学的一致性原则。不过，由于这是娱乐性测试，我们建议你享受结果带来的启发，而非讨论实际准确性。",faq3Q:"再次测试结果会改变吗？",faq3A:"使用相同的姓名和出生日期测试，结果将始终相同。如果想看到不同的结果，请尝试使用昵称或其他名字。每种姓名组合都会展开一个独特的前世故事。"},
   ja:{title:"🔮 前世診断",sub:"名前と誕生日で前世の人生を探る",lblName:"名前",lblBday:"生年月日",btn:"前世を診断する",ph:"名前を入力",traitTitle:"前世の特性",trCourage:"勇気",trWisdom:"知恵",trCharisma:"カリスマ",trCreativity:"創造力",trKindness:"優しさ",inLabel:"",eraLabel:"時代",
     tabName:"名前相性",tabMbtiTest:"MBTI",tabMbti:"MBTI相性",tabPet:"ペット名",tabBday:"誕生日相性",tabPast:"前世",tabFortune:"今日の運勢",tabJob:"適職",tabBlood:"血液型",tabColor:"色彩",
-    nav:{home:"ホーム",about:"紹介",contact:"お問い合わせ",privacy:"プライバシー",terms:"利用規約"}},
+    nav:{home:"ホーム",about:"紹介",contact:"お問い合わせ",privacy:"プライバシー",terms:"利用規約"},
+    sec1Title:"前世診断とは？",sec1P1:"前世診断は、名前と生年月日をもとに、あなたが前世でどんな人物だったかを分析するエンターテインメントテストです。何千年もの間、さまざまな文化で前世と輪廻転生への信仰が受け継がれてきました。このテストはその伝統からインスピレーションを得ています。",sec1P2:"数秘術では、生年月日の各数字が固有のエネルギーを持つとされています。このテストはその原理を応用し、前世の職業、住んでいた国、時代、そして性格特性を楽しく導き出します。",
+    sec2Title:"どのように動作しますか？",sec2P1:"このテストは数秘術と占星術の原理を組み合わせたアルゴリズムを使用しています。入力された名前と生年月日から固有のシード値を生成し、それに基づいて前世のプロフィールを決定します。",sec2Sub:"分析に使用される3つの重要な要素",sec2List:["生年月日の数字エネルギー — 誕生日の数字の組み合わせが前世の時代と場所を決定します","名前の振動周波数 — 名前の各文字が固有の振動値を持ち、前世の職業に影響を与えます","総合シードアルゴリズム — 上記2つの要素を組み合わせて性格特性と能力値を算出します"],
+    faq1Q:"前世を本当に信じるべきですか？",faq1A:"このテストは科学的根拠ではなくエンターテインメント目的で作られています。輪廻転生は多くの宗教や哲学で扱われる概念ですが、テスト結果を実際の前世の証拠として受け取る必要はありません。楽しんでください！",faq2Q:"結果はどのくらい正確ですか？",faq2A:"同じ名前と生年月日を入力すると、常に同じ結果が出ます。これは数秘術の一貫性の原理を反映しています。ただし、これはエンターテインメントテストですので、実際の正確性を議論するよりも、結果がもたらすインスピレーションを楽しむことをお勧めします。",faq3Q:"もう一度テストすると結果は変わりますか？",faq3A:"同じ名前と生年月日でテストすると、結果は常に同じです。異なる結果を見たい場合は、ニックネームや別の名前で試してみてください。各名前の組み合わせごとに、ユニークな前世の物語が展開されます。"},
   es:{title:"🔮 Test de Vida Pasada",sub:"Descubre quién fuiste en una vida pasada",lblName:"TU NOMBRE",lblBday:"TU CUMPLEAÑOS",btn:"Descubre Tu Vida Pasada",ph:"Ingresa tu nombre",traitTitle:"Rasgos de Vida Pasada",trCourage:"Coraje",trWisdom:"Sabiduría",trCharisma:"Carisma",trCreativity:"Creatividad",trKindness:"Bondad",inLabel:"en",eraLabel:"Era",
     tabName:"Nombres",tabMbtiTest:"MBTI",tabMbti:"MBTI Match",tabPet:"Mascotas",tabBday:"Cumpleaños",tabPast:"Vida Pasada",tabFortune:"Fortuna",tabJob:"Carrera",tabBlood:"Sangre",tabColor:"Color",
-    nav:{home:"Inicio",about:"Acerca",contact:"Contacto",privacy:"Privacidad",terms:"Términos"}},
+    nav:{home:"Inicio",about:"Acerca",contact:"Contacto",privacy:"Privacidad",terms:"Términos"},
+    sec1Title:"¿Qué es un test de vida pasada?",sec1P1:"Un test de vida pasada analiza quién fuiste en una vida anterior basándose en tu nombre y fecha de nacimiento. La creencia en vidas pasadas y la reencarnación ha existido en muchas culturas durante miles de años, y este test se inspira en esas tradiciones.",sec1P2:"En la numerología, cada dígito de tu fecha de nacimiento lleva una energía única. Este test aplica ese principio para generar la ocupación, el país, la era y los rasgos de personalidad de tu vida pasada de una manera divertida.",
+    sec2Title:"¿Cómo funciona?",sec2P1:"Este test utiliza un algoritmo que combina principios de numerología y astrología. Genera un valor semilla único a partir de tu nombre y fecha de nacimiento, y luego determina tu perfil de vida pasada basándose en esa semilla.",sec2Sub:"3 elementos clave utilizados en el análisis",sec2List:["Energía numérica de la fecha de nacimiento — La combinación de dígitos de tu cumpleaños determina la era y ubicación de tu vida pasada","Frecuencia vibratoria del nombre — Cada letra de tu nombre tiene un valor vibratorio único que influye en tu ocupación de vida pasada","Algoritmo de semilla combinada — Estos dos factores se fusionan para calcular rasgos de personalidad y puntuaciones de habilidad"],
+    faq1Q:"¿Debería realmente creer en vidas pasadas?",faq1A:"Este test está diseñado para entretenimiento, no como evidencia científica. Aunque la reencarnación es un concepto explorado en muchas religiones y filosofías, no necesitas tomar los resultados como prueba de una vida pasada real. ¡Simplemente disfrútalo!",faq2Q:"¿Qué tan precisos son los resultados?",faq2A:"Ingresar el mismo nombre y fecha de nacimiento siempre producirá el mismo resultado. Esto refleja el principio de consistencia de la numerología. Sin embargo, como este es un test de entretenimiento, recomendamos disfrutar la inspiración que brindan los resultados en lugar de debatir la precisión real.",faq3Q:"¿Cambiará el resultado si hago el test de nuevo?",faq3A:"Hacer el test con el mismo nombre y fecha de nacimiento siempre dará el mismo resultado. Si quieres ver un resultado diferente, prueba con un apodo u otro nombre. Cada combinación de nombres despliega una historia de vida pasada única."},
   ar:{title:"🔮 اختبار الحياة السابقة",sub:"اكتشف من كنت في حياتك السابقة",lblName:"اسمك",lblBday:"تاريخ ميلادك",btn:"اكتشف حياتك السابقة",ph:"أدخل اسمك",traitTitle:"سمات الحياة السابقة",trCourage:"الشجاعة",trWisdom:"الحكمة",trCharisma:"الكاريزما",trCreativity:"الإبداع",trKindness:"اللطف",inLabel:"في",eraLabel:"العصر",
     tabName:"الأسماء",tabMbtiTest:"MBTI",tabMbti:"توافق MBTI",tabPet:"حيوانات",tabBday:"عيد الميلاد",tabPast:"حياة سابقة",tabFortune:"حظ اليوم",tabJob:"مهنة",tabBlood:"فصيلة الدم",tabColor:"لون",
-    nav:{home:"الرئيسية",about:"عنا",contact:"اتصل",privacy:"الخصوصية",terms:"الشروط"}}
+    nav:{home:"الرئيسية",about:"عنا",contact:"اتصل",privacy:"الخصوصية",terms:"الشروط"},
+    sec1Title:"ما هو اختبار الحياة السابقة؟",sec1P1:"اختبار الحياة السابقة يحلل من كنت في حياة سابقة بناءً على اسمك وتاريخ ميلادك. لقد وُجد الإيمان بالحيوات السابقة والتناسخ في العديد من الثقافات منذ آلاف السنين، وهذا الاختبار مستوحى من تلك التقاليد.",sec1P2:"في علم الأعداد، يحمل كل رقم من تاريخ ميلادك طاقة فريدة. يطبق هذا الاختبار ذلك المبدأ لاستنتاج مهنة حياتك السابقة والبلد والعصر وسمات الشخصية بطريقة ممتعة.",
+    sec2Title:"كيف يعمل؟",sec2P1:"يستخدم هذا الاختبار خوارزمية تجمع بين مبادئ علم الأعداد والتنجيم. ينشئ قيمة بذرة فريدة من اسمك وتاريخ ميلادك، ثم يحدد ملف حياتك السابقة بناءً على تلك البذرة.",sec2Sub:"3 عناصر رئيسية مستخدمة في التحليل",sec2List:["طاقة أرقام تاريخ الميلاد — تحدد تركيبة أرقام عيد ميلادك عصر ومكان حياتك السابقة","تردد اهتزاز الاسم — يحمل كل حرف من اسمك قيمة اهتزاز فريدة تؤثر على مهنة حياتك السابقة","خوارزمية البذرة المدمجة — يتم دمج هذين العاملين لحساب سمات الشخصية ودرجات القدرات"],
+    faq1Q:"هل يجب أن أؤمن حقاً بالحيوات السابقة؟",faq1A:"صُمم هذا الاختبار للترفيه وليس كدليل علمي. على الرغم من أن التناسخ مفهوم تستكشفه العديد من الأديان والفلسفات، لا تحتاج إلى اعتبار النتائج دليلاً على حياة سابقة فعلية. استمتع به فحسب!",faq2Q:"ما مدى دقة النتائج؟",faq2A:"إدخال نفس الاسم وتاريخ الميلاد سينتج دائماً نفس النتيجة. هذا يعكس مبدأ الاتساق في علم الأعداد. ومع ذلك، بما أن هذا اختبار ترفيهي، نوصي بالاستمتاع بالإلهام الذي تقدمه النتائج بدلاً من مناقشة الدقة الفعلية.",faq3Q:"هل ستتغير النتيجة إذا أعدت الاختبار؟",faq3A:"الاختبار بنفس الاسم وتاريخ الميلاد سيعطي دائماً نفس النتيجة. إذا أردت رؤية نتيجة مختلفة، جرب استخدام لقب أو اسم آخر. كل تركيبة اسم تكشف عن قصة حياة سابقة فريدة."}
 };
 
 var JOBS=[
@@ -338,6 +387,21 @@ function setLang(lang){
   document.querySelectorAll('.lang-btn').forEach(function(b){
     b.classList.toggle('active',b.getAttribute('data-lang')===lang);
   });
+  document.getElementById('sec1Title').textContent=t.sec1Title;
+  document.getElementById('sec1P1').textContent=t.sec1P1;
+  document.getElementById('sec1P2').textContent=t.sec1P2;
+  document.getElementById('sec2Title').textContent=t.sec2Title;
+  document.getElementById('sec2P1').textContent=t.sec2P1;
+  document.getElementById('sec2Sub').textContent=t.sec2Sub;
+  var ul=document.getElementById('sec2List');ul.innerHTML='';
+  t.sec2List.forEach(function(item){var li=document.createElement('li');li.textContent=item;ul.appendChild(li)});
+  document.getElementById('sec3Title').textContent='FAQ';
+  document.getElementById('faq1Q').textContent=t.faq1Q;
+  document.getElementById('faq1A').textContent=t.faq1A;
+  document.getElementById('faq2Q').textContent=t.faq2Q;
+  document.getElementById('faq2A').textContent=t.faq2A;
+  document.getElementById('faq3Q').textContent=t.faq3Q;
+  document.getElementById('faq3A').textContent=t.faq3A;
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
 }
 
