@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VE4TW465YN"></script>
@@ -12,16 +12,16 @@
 <link rel="alternate" hrefLang="x-default" href="https://matchtest.site/about.html">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About — Love Match Test</title>
-    <meta name="description" content="Learn about the Love Match Test — a free, multilingual name compatibility calculator supporting 6 languages.">
+    <title>소개 — 이름궁합 테스트 | About Love Match Test</title>
+    <meta name="description" content="이름궁합 테스트(Love Match Test) 소개. 6개 언어를 지원하는 무료 다국어 이름 궁합 계산기의 미션, 작동 원리, 기술 스택을 알아보세요.">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6668425393052932" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         :root{--pink-50:#fdf2f8;--pink-100:#fce7f3;--pink-200:#fbcfe8;--pink-500:#ec4899;--pink-600:#db2777;--purple-500:#a855f7;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151}
-        body{font-family:'Noto Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(160deg,#fdf2f8,#fce7f3,#fbcfe8);color:var(--gray-700);line-height:1.7}
+        body{font-family:'Noto Sans KR','Noto Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(160deg,#fdf2f8,#fce7f3,#fbcfe8);color:var(--gray-700);line-height:1.7}
         a{color:var(--pink-500);text-decoration:none}a:hover{text-decoration:underline}
         .nav{background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--pink-100);padding:10px 20px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
         .nav a{font-size:13px;font-weight:600;color:var(--gray-500);padding:4px 10px;border-radius:8px;transition:all .2s}
@@ -38,15 +38,50 @@
 </head>
 <body>
 <nav class="nav">
-    <a href="index.html">Home</a>
-    <a href="about.html" class="active">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
+    <a href="index.html">홈</a>
+    <a href="about.html" class="active">소개</a>
+    <a href="contact.html">문의</a>
+    <a href="privacy.html">개인정보</a>
+    <a href="terms.html">이용약관</a>
 </nav>
 <main>
 <div class="page">
-    <h1>About Love Match Test</h1>
+    <h1>이름궁합 테스트 소개</h1>
+    <p>이름궁합 테스트(Love Match Test)는 전 세계 모든 사람을 위해 만들어진 무료 다국어 이름 궁합 계산기입니다. 짝사랑, 친구, 심지어 가상의 캐릭터와도 이름만 입력하면 즉시 궁합 점수를 확인할 수 있습니다.</p>
+
+    <h2>우리의 미션</h2>
+    <p>작은 즐거움이 큰 차이를 만든다고 믿습니다. 단순하고 재미있는 이름 궁합 경험을 통해 전 세계 사람들에게 미소를 전하는 것이 우리의 미션입니다. 이름궁합 테스트는 라틴 문자, 한글, 아랍 문자, 한자까지 세계 모든 문자 체계를 지원하는 포용적인 도구로 만들어졌습니다.</p>
+
+    <h2>작동 원리</h2>
+    <p>알고리즘은 두 이름의 글자를 교차 배열한 뒤, 각 글자의 유니코드 코드 포인트를 수치로 변환합니다. 이 값들을 쌍으로 반복 합산하고 10으로 나눈 나머지를 취하여 두 자리 숫자만 남을 때까지 축소합니다. 최종 두 자리 숫자가 0%~99% 사이의 궁합 점수가 됩니다. 같은 이름 쌍은 항상 같은 결과를 내므로 일관성 있게 공유할 수 있습니다.</p>
+
+    <h2>지원 언어</h2>
+    <ul>
+        <li><strong>한국어 (Korean)</strong> — 한글 완벽 지원, 문화적으로 적절한 결과 메시지 제공</li>
+        <li><strong>English</strong> — 모든 영어권 지역의 라틴 문자 지원</li>
+        <li><strong>中文 (Chinese)</strong> — 간체자 및 번체자 지원</li>
+        <li><strong>日本語 (Japanese)</strong> — 히라가나, 가타카나, 한자 호환</li>
+        <li><strong>Español (Spanish)</strong> — 모든 스페인어권 국가의 이름 지원</li>
+        <li><strong>العربية (Arabic)</strong> — 우에서 좌(RTL) 레이아웃 완벽 지원</li>
+    </ul>
+
+    <h2>제공 서비스</h2>
+    <ul>
+        <li><strong>이름궁합 테스트</strong> — 두 사람의 이름으로 궁합 점수를 계산합니다</li>
+        <li><strong>MBTI 성격 유형 검사</strong> — 나의 MBTI 유형을 알아볼 수 있습니다</li>
+        <li><strong>MBTI 궁합 테스트</strong> — 두 MBTI 유형 간의 궁합을 분석합니다</li>
+        <li><strong>펫 작명소</strong> — 반려동물에게 어울리는 이름을 추천받을 수 있습니다</li>
+    </ul>
+
+    <h2>기술</h2>
+    <p>이름궁합 테스트는 순수 HTML, CSS, JavaScript로 제작된 경량 정적 웹사이트입니다. 서버 측 처리가 필요 없으며, IP 기반 위치 감지로 언어를 자동 선택하고 브라우저 설정에 따른 수동 전환도 가능합니다. 빠르게 로드되며 첫 방문 후 오프라인에서도 작동합니다.</p>
+
+    <h2>면책 조항</h2>
+    <p>이름궁합 테스트는 오로지 오락 목적으로 제공됩니다. 이 도구가 생성한 궁합 점수는 과학적 근거가 없으며, 실제 연애 결정에 사용해서는 안 됩니다. 진짜 사랑은 신뢰, 소통, 상호 존중 위에 세워지는 것이지, 이름의 획수에 달린 것이 아닙니다. 재미있게 즐기되, 기억하세요 — 당신의 사랑 이야기는 당신이 쓰는 것입니다!</p>
+
+    <hr style="margin:32px 0;border:none;border-top:1px solid var(--pink-100)">
+
+    <h1 style="font-size:22px">About Love Match Test</h1>
     <p>Love Match Test is a free, fun, and multilingual name compatibility calculator designed for people all around the world. Whether you're testing with a crush, a friend, or even a fictional character, our tool instantly generates a compatibility score based on the unique combination of your names.</p>
 
     <h2>Our Mission</h2>
@@ -55,25 +90,12 @@
     <h2>How It Works</h2>
     <p>Our algorithm interleaves the characters of two names and converts each character to a numerical value using its Unicode code point. These values are then progressively summed in pairs and reduced (modulo 10) until only two digits remain. Those final two digits form your compatibility percentage — a number between 0% and 99%. The same pair of names will always produce the same score, making results consistent and shareable.</p>
 
-    <h2>Languages Supported</h2>
-    <ul>
-        <li><strong>English</strong> — Standard Latin characters from any English-speaking region.</li>
-        <li><strong>Korean (한국어)</strong> — Full Hangul support with culturally appropriate messages.</li>
-        <li><strong>Chinese (中文)</strong> — Simplified and Traditional Chinese characters.</li>
-        <li><strong>Japanese (日本語)</strong> — Hiragana, Katakana, and Kanji compatible.</li>
-        <li><strong>Spanish (Español)</strong> — Covers names from all Spanish-speaking countries.</li>
-        <li><strong>Arabic (العربية)</strong> — Full Right-to-Left (RTL) layout support.</li>
-    </ul>
-
-    <h2>Technology</h2>
-    <p>Love Match Test is built as a lightweight, static website using pure HTML, CSS, and JavaScript — no server-side processing required. It uses IP-based geolocation to automatically detect your language, with a graceful fallback to your browser settings. The application loads quickly and works offline after the first visit.</p>
-
     <h2>Disclaimer</h2>
     <p>Love Match Test is intended purely for entertainment purposes. The compatibility scores generated by this tool have no scientific basis and should not be used to make real-life relationship decisions. Real love is built on trust, communication, and mutual respect — not on the number of strokes in a name. Have fun, but remember: you write your own love story!</p>
 </div>
 </main>
 <footer>
-    <div><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+    <div><a href="about.html">소개</a><a href="contact.html">문의</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a></div>
     <div style="margin-top:8px">&copy; 2026 Love Match Test. All rights reserved.</div>
 </footer>
 </body>
