@@ -24,36 +24,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{--pink-50:#fdf2f8;--pink-100:#fce7f3;--pink-200:#fbcfe8;--pink-500:#ec4899;--pink-600:#db2777;--purple-500:#a855f7;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151}
-        body{font-family:'Noto Sans KR','Noto Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(160deg,#fdf2f8,#fce7f3,#fbcfe8);color:var(--gray-700);line-height:1.7}
-        a{color:var(--pink-500);text-decoration:none}a:hover{text-decoration:underline}
-        .nav{background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--pink-100);padding:10px 20px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
-        .nav a{font-size:13px;font-weight:600;color:var(--gray-500);padding:4px 10px;border-radius:8px;transition:all .2s}
-        .nav a:hover,.nav a.active{background:var(--pink-500);color:white;text-decoration:none}
-        main{flex:1;display:flex;justify-content:center;padding:32px 16px}
-        .page{background:rgba(255,255,255,.9);backdrop-filter:blur(8px);width:760px;max-width:100%;border-radius:20px;padding:36px 32px;box-shadow:0 4px 20px rgba(0,0,0,.04)}
-        h1{font-family:'Fredoka',sans-serif;font-size:28px;color:var(--pink-600);margin-bottom:8px}
-        h2{font-size:18px;color:var(--purple-500);margin:24px 0 8px}
-        p{font-size:14px;color:var(--gray-600);margin-bottom:14px}
-        .breadcrumb{font-size:12px;color:var(--gray-400);margin-bottom:16px}
-        .breadcrumb a{color:var(--gray-500)}
-        .cta{display:inline-block;margin-top:20px;padding:10px 24px;background:linear-gradient(135deg,var(--pink-500),var(--purple-500));color:white;border-radius:50px;font-weight:700;font-size:14px;text-decoration:none}
-        .cta:hover{text-decoration:none;opacity:.9}
-        footer{background:rgba(255,255,255,.7);border-top:1px solid var(--pink-100);padding:16px;text-align:center;font-size:12px;color:var(--gray-400)}
-        footer a{color:var(--gray-500);margin:0 8px}
-    </style>
+    <link rel="stylesheet" href="common.css">
 </head>
 <body>
-<nav class="nav">
-    <a href="index.html">홈</a>
-    <a href="about.html">소개</a>
-    <a href="contact.html">문의</a>
-    <a href="privacy.html">개인정보</a>
-    <a href="terms.html">이용약관</a>
-</nav>
-<main>
+<div id="nav-placeholder"></div>
+<main class="page-main">
 <article class="page">
     <div class="breadcrumb"><a href="index.html">홈</a> &rsaquo; 이름궁합 테스트의 역사</div>
     <h1>이름궁합 테스트의 역사는 어디서 시작되었을까?</h1>
@@ -75,9 +50,10 @@
     <a href="index.html" class="cta">이름궁합 테스트 해보기</a>
 </article>
 </main>
-<footer>
+<footer class="site-footer">
     <div><a href="about.html">소개</a><a href="contact.html">문의</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a></div>
     <div style="margin-top:8px">&copy; 2026 Love Match Test. All rights reserved.</div>
 </footer>
+<script src="nav.js"></script>
 </body>
 </html>
