@@ -9,7 +9,6 @@
   gtag('js', new Date());
   gtag('config', 'G-VE4TW465YN');
 </script>
-<link rel="alternate" hrefLang="x-default" href="https://matchtest.site/pet-name.html">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>애완동물 작명소 — 반려동물 이름 짓기 | Pet Name Generator</title>
@@ -519,11 +518,6 @@ function renderUI(){
     document.getElementById('generateBtn').textContent=u.btn;
     document.getElementById('moreBtn').textContent=u.more;
     var n=NAV_I18N[lang]||NAV_I18N.en;
-    document.getElementById('nav-home').textContent=n.home;
-    document.getElementById('nav-about').textContent=n.about;
-    document.getElementById('nav-contact').textContent=n.contact;
-    document.getElementById('nav-privacy').textContent=n.privacy;
-    document.getElementById('nav-terms').textContent=n.terms;
     document.querySelectorAll('.tab-text').forEach(function(el){var k=el.dataset.key;if(n[k])el.textContent=n[k]});
     var a=ARTICLES[lang]||ARTICLES.ko;
     document.getElementById('articleWhat').innerHTML=a.articleWhat;

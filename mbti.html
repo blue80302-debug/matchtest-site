@@ -9,7 +9,6 @@
   gtag('js', new Date());
   gtag('config', 'G-VE4TW465YN');
 </script>
-<link rel="alternate" hrefLang="x-default" href="https://matchtest.site/mbti.html">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MBTI 궁합 테스트 — 무료 MBTI 궁합 계산기 | MBTI Compatibility Test</title>
@@ -298,11 +297,6 @@ function setLang(lang){
     document.getElementById('t-copyBtn').textContent=t.copyBtn;
     document.getElementById('t-retry').textContent=t.retry;
     document.querySelectorAll('.tab-text').forEach(function(el){var k=el.dataset.key;if(t[k])el.textContent=t[k]});
-    document.getElementById('nav-home').textContent=t.navHome;
-    document.getElementById('nav-about').textContent=t.navAbout;
-    document.getElementById('nav-contact').textContent=t.navContact;
-    document.getElementById('nav-privacy').textContent=t.navPrivacy;
-    document.getElementById('nav-terms').textContent=t.navTerms;
     document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===lang)});
     if(t.articleWhat)document.getElementById('articleWhat').innerHTML=t.articleWhat;
     if(t.articleHow)document.getElementById('articleHow').innerHTML=t.articleHow;
